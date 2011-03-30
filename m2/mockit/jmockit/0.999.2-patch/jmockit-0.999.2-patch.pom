@@ -1,0 +1,74 @@
+<project
+   xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+
+   <parent>
+      <groupId>mockit</groupId>
+      <artifactId>mockit</artifactId>
+      <version>0.999.2</version>
+   </parent>
+   <groupId>mockit</groupId>
+   <artifactId>jmockit</artifactId>
+   <version>0.999.2-patch</version>
+   <name>Main</name>
+
+   <build>
+      <resources>
+         <resource>
+            <directory>src</directory>
+            <includes><include>jmockit.properties</include></includes>
+         </resource>
+      </resources>
+      <plugins>
+         <plugin>
+            <artifactId>maven-jar-plugin</artifactId>
+            <configuration>
+               <archive>
+                  <addMavenDescriptor>false</addMavenDescriptor>
+                  <forced/><manifestFile>META-INF/MANIFEST.MF</manifestFile>
+               </archive>
+               <excludes><exclude>Temp.class</exclude></excludes>
+            </configuration>
+         </plugin>
+         <plugin>
+            <artifactId>maven-source-plugin</artifactId>
+            <executions>
+               <execution>
+                  <id>attach-sources</id>
+                  <goals><goal>jar</goal></goals>
+               </execution>
+            </executions>
+         </plugin>
+      </plugins>
+   </build>
+
+   <dependencies>
+      <dependency>
+         <groupId>junit</groupId><artifactId>junit</artifactId>
+         <version>4.8.1</version><optional>true</optional>
+      </dependency>
+      <dependency>
+         <groupId>org.testng</groupId><artifactId>testng</artifactId>
+         <version>5.11</version><classifier>jdk15</classifier><optional>true</optional>
+      </dependency>
+      <dependency>
+         <groupId>commons-logging</groupId><artifactId>commons-logging</artifactId>
+         <version>1.1.1</version><optional>true</optional>
+      </dependency>
+      <dependency>
+         <groupId>org.slf4j</groupId><artifactId>slf4j-api</artifactId>
+         <version>1.5.8</version><optional>true</optional>
+      </dependency>
+      <dependency>
+         <groupId>log4j</groupId><artifactId>log4j</artifactId>
+         <version>1.2.15</version><optional>true</optional>
+         <exclusions>
+            <exclusion><groupId>javax.jms</groupId><artifactId>jms</artifactId></exclusion>
+            <exclusion><groupId>javax.mail</groupId><artifactId>mail</artifactId></exclusion>
+            <exclusion><groupId>com.sun.jmx</groupId><artifactId>jmxri</artifactId></exclusion>
+            <exclusion><groupId>com.sun.jdmk</groupId><artifactId>jmxtools</artifactId></exclusion>
+         </exclusions>
+      </dependency>
+   </dependencies>
+</project>
