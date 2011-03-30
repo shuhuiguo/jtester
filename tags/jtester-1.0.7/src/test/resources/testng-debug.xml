@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="JTester">
+	<test name="JTester" time-out="10000">
+		<classes>
+			<class name="org.jtester.core.testng.JTesterTest_TimeOut"></class>
+		</classes>
+	</test>
+	<listeners>
+		<listener class-name="org.jtester.core.testng.UserTestReporter" />
+	</listeners>
+</suite>
+
+
+
