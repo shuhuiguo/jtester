@@ -1,0 +1,12 @@
+<instrument>
+	<includes>
+		<include>org/jtester/**/*.class</include>
+	</includes>
+	<excludes>
+		<exclude>**/*Test.class</exclude>
+		<exclude>org/jtester/dbfit/environment/**/*.class</exclude>
+		<exclude>org/jtester/dbfit/fixture/**/*.class</exclude>
+		<exclude>org/jtester/dbfit/util/**/*.class</exclude>
+		<exclude>org/jtester/unitils/session/**/*.class</exclude>
+	</excludes>
+</instrument>

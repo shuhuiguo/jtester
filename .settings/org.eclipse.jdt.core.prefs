@@ -1,0 +1,7 @@
+#Fri Nov 12 10:41:29 CST 2010
+org.eclipse.jdt.core.compiler.problem.forbiddenReference=warning
+org.eclipse.jdt.core.compiler.codegen.targetPlatform=1.5
+eclipse.preferences.version=1
+org.eclipse.jdt.core.builder.resourceCopyExclusionFilter=*.launch,*.groovy
+org.eclipse.jdt.core.compiler.source=1.5
+org.eclipse.jdt.core.compiler.compliance=1.5
