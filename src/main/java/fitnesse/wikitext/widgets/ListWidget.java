@@ -66,7 +66,7 @@ public class ListWidget extends ParentWidget {
 				ListItemWidget item = new ListItemWidget(this, listItemContent, this.level + 1);
 
 				// Add the child items as a new list to the list item.
-				if (childItems != null && "".equals(childItems.trim())) {
+				if (childItems != null && "".equals(childItems) == false) {
 					new ListWidget(item, childItems);
 				}
 
