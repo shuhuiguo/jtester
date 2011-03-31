@@ -26,25 +26,21 @@
 
 package util;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-
 public class EnvironmentVariableToolTest {
 
-  @Test
-  public void testReplace() {
-    String path = System.getenv("PATH");
-    String stringWithEnvVarInIt = "Test-${PATH}-Test";
-    String expectedResult = "Test-" + path + "-Test";
-    
-    assertTrue("Environment Variable is Replaced.", 
-        expectedResult.equals(EnvironmentVariableTool.replace(stringWithEnvVarInIt)));
-  
-  }
-  
-  
+	@Test
+	public void testReplace() {
+		String path = System.getenv("PATH");
+		String stringWithEnvVarInIt = "Test-${PATH}-Test";
+		String expectedResult = "Test-" + path + "-Test";
+
+		assertTrue("Environment Variable is Replaced.",
+				expectedResult.equals(EnvironmentVariableTool.replace(stringWithEnvVarInIt)));
+
+	}
 
 }
