@@ -13,10 +13,10 @@ import fitlibrary.table.Table;
 import fitlibrary.table.Tables;
 
 /**
- * Like SpecifyFixture, except that: o It handles multiple rows, where each row
- * corresponds to a storytest o The first row will usually hold the SuiteSetUp
- * tables, which will register a new FixtureSupplier o It uses BatchFitLibrary
- * to doTables()
+ * Like SpecifyFixture, except that: <br>
+ * o It handles multiple rows, where each row corresponds to a storytest <br>
+ * o The first row will usually hold the SuiteSetUp tables, which will register
+ * a new FixtureSupplier o It uses BatchFitLibrary to doTables()
  */
 public class SpecifySuiteFixture extends SpecifyFixture {
 	@Override
