@@ -7,18 +7,19 @@ import java.io.File;
 import java.util.List;
 
 public class TestsInProgress {
-  private String[] lines;
+	@SuppressWarnings("unused")
+	private String[] lines;
 
-  public List<Object> query() {
-    List<Object> table = list();
-	File folder = new File("FitNesseRoot/files/testProgress/");
-    File[] listOfFiles = folder.listFiles();
+	public List<Object> query() {
+		List<Object> table = list();
+		File folder = new File("FitNesseRoot/files/testProgress/");
+		File[] listOfFiles = folder.listFiles();
 
-    for (int i = 1; i < listOfFiles.length; i++) {
-		List<String> test = list("Test", listOfFiles[i].getName());
-		List<Object> row = list(test);
-        table.add(row);
-    }
-	return table;
-  }
+		for (int i = 1; i < listOfFiles.length; i++) {
+			List<String> test = list("Test", listOfFiles[i].getName());
+			List<Object> row = list(test);
+			table.add(row);
+		}
+		return table;
+	}
 }

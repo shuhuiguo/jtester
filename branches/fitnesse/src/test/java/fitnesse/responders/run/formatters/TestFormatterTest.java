@@ -1,5 +1,20 @@
 package fitnesse.responders.run.formatters;
 
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Date;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+
+import util.TimeMeasurement;
 import fitnesse.FitNesseContext;
 import fitnesse.html.HtmlPageFactory;
 import fitnesse.http.ChunkedResponse;
@@ -9,23 +24,6 @@ import fitnesse.wiki.InMemoryPage;
 import fitnesse.wiki.WikiPage;
 import fitnesse.wiki.WikiPageDummy;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-
-import util.DateAlteringClock;
-import util.TimeMeasurement;
-
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Date;
-
-import static org.junit.Assert.*;
-import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.*;
-
 @RunWith(Parameterized.class)
 public class TestFormatterTest {
 	private BaseFormatter formatter;
@@ -34,6 +32,7 @@ public class TestFormatterTest {
 		this.formatter = formatter;
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Parameterized.Parameters
 	public static Collection formatters() throws Exception {
 		WikiPage root = InMemoryPage.makeRoot("RooT");

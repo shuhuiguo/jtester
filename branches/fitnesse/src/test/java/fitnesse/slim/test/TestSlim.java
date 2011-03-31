@@ -7,270 +7,273 @@ import java.util.List;
 import java.util.Map;
 
 public class TestSlim implements TestSlimInterface {
-  private boolean niladWasCalled = false;
-  private String stringArg;
-  private int intArg;
-  private double doubleArg;
-  private Date dateArg;
-  private Integer integerObjectArg;
-  private Double doubleObjectArg;
-  private char charArg;
-  private List<Object> listArg;
-  private int constructorArg;
-  private String[] stringArray;
-  private Integer[] integerArray;
-  private Boolean[] booleanArray;
-  private Double[] doubleArray;
-  private Zork zork;
-  private Map<String, String> map;
+	private boolean niladWasCalled = false;
+	private String stringArg;
+	private int intArg;
+	private double doubleArg;
+	private Date dateArg;
+	private Integer integerObjectArg;
+	private Double doubleObjectArg;
+	private char charArg;
+	private List<Object> listArg;
+	private int constructorArg;
+	private String[] stringArray;
+	private Integer[] integerArray;
+	private Boolean[] booleanArray;
+	private Double[] doubleArray;
+	private Zork zork;
+	private Map<String, String> map;
 
-  public TestSlim() {
+	public TestSlim() {
 
-  }
+	}
 
-  public void runForever() {
-    while (true) {}
-  }
+	public void runForever() {
+		while (true) {
+		}
+	}
 
-  public TestSlim(int constructorArg) {
-    this.constructorArg = constructorArg;
-  }
+	public TestSlim(int constructorArg) {
+		this.constructorArg = constructorArg;
+	}
 
-  public TestSlim(int constructorArg, TestSlim other) {
-    this.constructorArg = constructorArg;
-    stringArg = other.getStringArg();
-  }
-  
-  public TestSlim createTestSlimWithString(String string) {
-    TestSlim testSlim = new TestSlim();
-    testSlim.setString(string);
-    return testSlim;
-  }
-  
-  public String toString() {
-    return "TestSlim: " + constructorArg + ", " + stringArg;
-  }
-  
-  public void nilad() {
-    niladWasCalled = true;
-  }
+	public TestSlim(int constructorArg, TestSlim other) {
+		this.constructorArg = constructorArg;
+		stringArg = other.getStringArg();
+	}
 
-  public int returnConstructorArg() {
-    return constructorArg;
-  }
+	public TestSlim createTestSlimWithString(String string) {
+		TestSlim testSlim = new TestSlim();
+		testSlim.setString(string);
+		return testSlim;
+	}
 
-  public void voidFunction() {
+	public String toString() {
+		return "TestSlim: " + constructorArg + ", " + stringArg;
+	}
 
-  }
+	public void nilad() {
+		niladWasCalled = true;
+	}
 
-  public boolean niladWasCalled() {
-    return niladWasCalled;
-  }
+	public int returnConstructorArg() {
+		return constructorArg;
+	}
 
-  public String returnString() {
-    return "string";
-  }
+	public void voidFunction() {
 
-  public int returnInt() {
-    return 7;
-  }
+	}
 
-  public void setString(String arg) {
-    stringArg = arg;
-  }
+	public boolean niladWasCalled() {
+		return niladWasCalled;
+	}
 
-  public void oneString(String arg) {
-    stringArg = arg;
-  }
+	public String returnString() {
+		return "string";
+	}
 
-  public void oneDate(Date arg) {
-    dateArg = arg;
-  }
+	public int returnInt() {
+		return 7;
+	}
 
-  public void oneList(List<Object> l) {
-    listArg = l;
-  }
+	public void setString(String arg) {
+		stringArg = arg;
+	}
 
-  public List<Object> getListArg() {
-    return listArg;
-  }
+	public void oneString(String arg) {
+		stringArg = arg;
+	}
 
-  public String getStringArg() {
-    return stringArg;
-  }
+	public void oneDate(Date arg) {
+		dateArg = arg;
+	}
 
-  public Date getDateArg() {
-    return dateArg;
-  }
-  
-  public void oneInt(int arg) {
-    intArg = arg;
-  }
+	public void oneList(List<Object> l) {
+		listArg = l;
+	}
 
-  public int getIntArg() {
-    return intArg;
-  }
+	public List<Object> getListArg() {
+		return listArg;
+	}
 
-  public void oneDouble(double arg) {
-    doubleArg = arg;
-  }
+	public String getStringArg() {
+		return stringArg;
+	}
 
-  public double getDoubleArg() {
-    return doubleArg;
-  }
+	public Date getDateArg() {
+		return dateArg;
+	}
 
-  public void manyArgs(Integer i, Double d, char c) {
-    integerObjectArg = i;
-    doubleObjectArg = d;
-    charArg = c;
-  }
+	public void oneInt(int arg) {
+		intArg = arg;
+	}
 
-  public Integer getIntegerObjectArg() {
-    return integerObjectArg;
-  }
+	public int getIntArg() {
+		return intArg;
+	}
 
-  public double getDoubleObjectArg() {
-    return doubleObjectArg;
-  }
+	public void oneDouble(double arg) {
+		doubleArg = arg;
+	}
 
-  public char getCharArg() {
-    return charArg;
-  }
+	public double getDoubleArg() {
+		return doubleArg;
+	}
 
-  public int addTo(int a, int b) {
-    return a + b;
-  }
+	public void manyArgs(Integer i, Double d, char c) {
+		integerObjectArg = i;
+		doubleObjectArg = d;
+		charArg = c;
+	}
 
-  public int echoInt(int i) {
-    return i;
-  }
+	public Integer getIntegerObjectArg() {
+		return integerObjectArg;
+	}
 
-  public String echoString(String s) {
-    return s;
-  }
+	public double getDoubleObjectArg() {
+		return doubleObjectArg;
+	}
 
-  public void printString(String s) {
-    System.out.println(s);
-  }
+	public char getCharArg() {
+		return charArg;
+	}
 
-  public List<Object> echoList(List<Object> l) {
-    return l;
-  }
+	public int addTo(int a, int b) {
+		return a + b;
+	}
 
-  public boolean echoBoolean(boolean b) {
-    return b;
-  }
+	public int echoInt(int i) {
+		return i;
+	}
 
-  public double echoDouble(double d) {
-    return d;
-  }
+	public String echoString(String s) {
+		return s;
+	}
 
-  public void execute() {
+	public void printString(String s) {
+		System.out.println(s);
+	}
 
-  }
+	public List<Object> echoList(List<Object> l) {
+		return l;
+	}
 
-  public void die() {
-    throw new Error("blah");
-  }
+	public boolean echoBoolean(boolean b) {
+		return b;
+	}
 
-  public void setNoSuchConverter(NoSuchConverter x) {
+	public double echoDouble(double d) {
+		return d;
+	}
 
-  }
+	public void execute() {
 
-  public NoSuchConverter noSuchConverter() {
-    return new NoSuchConverter();
-  }
+	}
 
-  public void setStringArray(String array[]) {
-    stringArray = array;
-  }
+	public void die() {
+		throw new Error("blah");
+	}
 
-  public String[] getStringArray() {
-    return stringArray;
-  }
+	public void setNoSuchConverter(NoSuchConverter x) {
 
-  public void setIntegerArray(Integer array[]) {
-    integerArray = array;
-  }
+	}
 
-  public Integer[] getIntegerArray() {
-    return integerArray;
-  }
+	public NoSuchConverter noSuchConverter() {
+		return new NoSuchConverter();
+	}
 
-  public Boolean[] getBooleanArray() {
-    return booleanArray;
-  }
+	public void setStringArray(String array[]) {
+		stringArray = array;
+	}
 
-  public void setBooleanArray(Boolean[] booleanArray) {
-    this.booleanArray = booleanArray;
-  }
+	public String[] getStringArray() {
+		return stringArray;
+	}
 
-  public Double[] getDoubleArray() {
-    return doubleArray;
-  }
+	public void setIntegerArray(Integer array[]) {
+		integerArray = array;
+	}
 
-  public void setDoubleArray(Double[] doubleArray) {
-    this.doubleArray = doubleArray;
-  }
+	public Integer[] getIntegerArray() {
+		return integerArray;
+	}
 
-  public String nullString() {
-    return null;
-  }
+	public Boolean[] getBooleanArray() {
+		return booleanArray;
+	}
 
-  public boolean isSame(Object other) {
-    return this == other;
-  }
-  
-  public String getStringFromOther(TestSlim other) {
-    return other.getStringArg();
-  }
-  
-  public Zork oneZork(Zork zork) {
-    this.zork = zork;
-    return zork;
-  }
+	public void setBooleanArray(Boolean[] booleanArray) {
+		this.booleanArray = booleanArray;
+	}
 
-  public Zork getZork() {
-    return zork;
-  }
+	public Double[] getDoubleArray() {
+		return doubleArray;
+	}
 
-  class NoSuchConverter {
-  }
-  
-  public boolean throwNormal() throws Exception {
-    throw  new Exception("This is my exception");
-  }
-  
-  public boolean throwStopping() throws Exception {
-    throw new StopTestException("This is a stop test exception");
-  }
-  
-  public boolean throwExceptionWithMessage() throws Exception {
-    throw new Exception("message:<<Test message>>");
-  }
-  
-  public boolean throwStopTestExceptionWithMessage() throws Exception {
-    throw new StopTestException("message:<<Stop Test>>");
-  }  
+	public void setDoubleArray(Double[] doubleArray) {
+		this.doubleArray = doubleArray;
+	}
 
-  public String concatenateThreeArgs(String first, String second, String third) {
-    return first + " " + second + " " + third;
-  }
+	public String nullString() {
+		return null;
+	}
 
-  public void setMap(Map map) {
-    System.out.println("set map = " + map);
-    this.map = map;
-  }
+	public boolean isSame(Object other) {
+		return this == other;
+	}
 
-  public Map getMap() {
-    System.out.println("got map = " + map);
-    return  map;
-  }
-  
-  @SuppressWarnings("serial")
-  class StopTestException extends Exception {
-    public StopTestException(String description) {
-      super(description);
-    }
-  }
+	public String getStringFromOther(TestSlim other) {
+		return other.getStringArg();
+	}
+
+	public Zork oneZork(Zork zork) {
+		this.zork = zork;
+		return zork;
+	}
+
+	public Zork getZork() {
+		return zork;
+	}
+
+	class NoSuchConverter {
+	}
+
+	public boolean throwNormal() throws Exception {
+		throw new Exception("This is my exception");
+	}
+
+	public boolean throwStopping() throws Exception {
+		throw new StopTestException("This is a stop test exception");
+	}
+
+	public boolean throwExceptionWithMessage() throws Exception {
+		throw new Exception("message:<<Test message>>");
+	}
+
+	public boolean throwStopTestExceptionWithMessage() throws Exception {
+		throw new StopTestException("message:<<Stop Test>>");
+	}
+
+	public String concatenateThreeArgs(String first, String second, String third) {
+		return first + " " + second + " " + third;
+	}
+
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public void setMap(Map map) {
+		System.out.println("set map = " + map);
+		this.map = map;
+	}
+
+	@SuppressWarnings("rawtypes")
+	public Map getMap() {
+		System.out.println("got map = " + map);
+		return map;
+	}
+
+	@SuppressWarnings("serial")
+	class StopTestException extends Exception {
+		public StopTestException(String description) {
+			super(description);
+		}
+	}
 }
