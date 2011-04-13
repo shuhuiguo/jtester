@@ -1,0 +1,17 @@
+|connect|
+
+|clean table|phone_item,phone_group,phone_item_group|
+
+|insert|phone_item|
+|id|username|mobile|
+|1|darui.wu|15900001111|
+|2|jobs.he|13900001111|
+
+|insert|phone_group|
+|id|group_name|
+|1|classmate|
+
+|insert|phone_item_group|
+|item_id|group_id|
+|1|1|
+|2|1|

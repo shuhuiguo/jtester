@@ -1,0 +1,15 @@
+|org.jtester.fit.dbfit.DatabaseFixture|
+|connect|
+
+|clean table|phone_item,phone_group,phone_item_group|
+
+|org.jtester.tutorial.integrated.SpringUsageFixture|
+|insertUser|
+|username|mobile|
+|darui.wu	|15900001111|
+|jobs.wang	|15900001112|
+
+|query|select * from phone_item|
+|username|
+|darui.wu	|
+|jobs.wang	|

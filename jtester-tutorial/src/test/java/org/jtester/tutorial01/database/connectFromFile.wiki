@@ -1,0 +1,48 @@
+GRANT ALL PRIVILEGES ON *.* TO daruiwu@10.16.47.1;
+
+使用jtester.properties中前缀为presentationtdd的数据库属性连接
+|connect from file|presentationtdd|
+
+|clean table|tdd_user|
+
+|insert|tdd_user|
+|id|sarary|
+|2|234|
+
+|commit|
+
+|query|select * from tdd_user|
+|id|sarary|
+|2|234|
+
+
+使用指定文件中的无前缀数据库属性连接
+|connect from file||org/jtester/tutorial/database/db.properties|
+
+|clean table|tdd_user|
+
+|insert|tdd_user|
+|id|sarary|
+|1|2345|
+
+|query|select * from tdd_user|
+|id|
+|1|
+
+|commit|
+
+使用指定文件中的前缀为another的数据库属性连接
+|connect from file|presentationtdd|org/jtester/tutorial/database/db.properties|
+
+|insert|tdd_user|
+|id|sarary|
+|2|2345|
+
+|commit|
+
+|query|select * from tdd_user|
+|id|
+|1|
+|2|
+
+

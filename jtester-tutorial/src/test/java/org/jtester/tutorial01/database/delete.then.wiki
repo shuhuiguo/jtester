@@ -1,0 +1,10 @@
+|connect|
+
+|delete|phone_item|
+|username|
+|martin.bob|
+
+|query|select * from phone_item|
+|username|
+|darui.wu|
+|jobs.wang|

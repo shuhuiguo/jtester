@@ -1,0 +1,5 @@
+|connect|
+
+|clean table|phone_item,phone_group,phone_item_group|
+
+|commit|

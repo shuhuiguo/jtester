@@ -1,0 +1,12 @@
+|connect|
+
+根据条件查询记录，验证相应的字段
+|query|select * from phone_item|
+|username	|
+|@{martin}|
+|@{jobs}|
+|darui.wu|
+
+|query|select * from phone_group|
+|group_name|
+|@{gname}|

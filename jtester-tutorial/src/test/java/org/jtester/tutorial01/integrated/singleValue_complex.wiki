@@ -1,0 +1,8 @@
+|org.jtester.tutorial.integrated.CustomizeTypeFixture|
+|testMethod_SingleValue|
+|>>my map|
+|key1:value;key2:value|
+|key1:aaaa;key2:dddd|
+
+
+

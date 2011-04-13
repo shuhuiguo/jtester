@@ -1,0 +1,8 @@
+|connect|
+
+|clean table|phone_item|
+
+|insert|phone_item|
+|id|username|mobile|
+|1|darui.wu	|159900001111|
+|2|job.he	|159900001122|

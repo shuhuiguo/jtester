@@ -1,0 +1,29 @@
+多数据源支持，直接在connect命令后面跟url，用户，密码，driver class
+|connect|jdbc:mysql://localhost/presentationtdd?characterEncoding=UTF8|root|password|com.mysql.jdbc.Driver|
+
+|clean table|tdd_user|
+
+|insert|tdd_user|
+|id|sarary|
+|1|2345|
+
+|query|select * from tdd_user|
+|id|
+|1|
+
+|commit|
+
+连接默认数据库
+|connect|
+
+|clean table|phone_item|
+
+|insert|phone_item|
+|id|username|mobile|
+|1|darui.wu|15900001111|
+
+|query|select * from phone_item|
+|mobile|
+|15900001111|
+
+|commit|

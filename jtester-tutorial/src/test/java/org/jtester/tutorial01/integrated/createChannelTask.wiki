@@ -1,0 +1,11 @@
+
+
+|org.jtester.tutorial.integrated.EsbChannelTaskManagerFixture|
+|createChannelTask|
+|esbResult|source|password|channelTask|orgIdPath|taskName|sendUser|sendCount|sendType|customerFatigueRules|fatigueEnabled|blacklistNames|isRemoteSend|externalId|priority|channelSetting|isTest|
+|true|ICBU.POSTOFFICE|password4PostOffice||12/34|testtask1|tester1|100|e_mail|LastCount(Email,3)<=100|true||true|null|null|EMAIL:[HOST]:[PORT]:[USER]:[PASSWORD]|false|
+|true|ICBU.POSTOFFICE|password4PostOffice||12/34|testtask1|tester1|100|e_mail|LastCount(Email,3)<=100|true||true|null|2|EMAIL:[HOST]:[PORT]:[USER]:[PASSWORD]|true|
+|false|ICUB|password4PostOffice||12/34|testtask2||100|e_mail|LastCount(Email,3)<=100|true||true|null|2|EMAIL:[HOST]:[PORT]:[USER]:[PASSWORD]|true|
+|false|ICUB.OFFER.offer|password4PostOffice||12/34|testtask3|tester3|100|e_mail|LastCount(Email,3)<=100|true||true|null|2|EMAIL:[HOST]:[PORT]:[USER]:[PASSWORD]|true|
+|false|12345.789|password4PostOffice||12/34|testtask4|tester4|100|e_mail|LastCount(Email,3)<=100|true||true|null|2|EMAIL:[HOST]:[PORT]:[USER]:[PASSWORD]|true|
+
