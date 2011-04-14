@@ -7,7 +7,7 @@ import org.jtester.testng.JTester;
 import org.jtester.tutorial.biz.service.CustomerService;
 import org.testng.annotations.Test;
 
-@Test(description = "基本spring加载case")
+@Test(description = "基本spring加载演示")
 @SpringApplicationContext({ "spring/data-source.xml", "spring/biz-service.xml" })
 public class SpringUsageDemo extends JTester {
 	/**
