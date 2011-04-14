@@ -20,6 +20,6 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	public String doNothing() {
-		return "this is service:" + this.getClass().getName();
+		return "this is a service:" + this.getClass().getName();
 	}
 }
