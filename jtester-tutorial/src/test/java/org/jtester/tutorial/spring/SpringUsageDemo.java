@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 
 @Test(description = "基本spring加载case")
 @SpringApplicationContext({ "spring/data-source.xml", "spring/biz-service.xml" })
-public class SpringStartTest extends JTester {
+public class SpringUsageDemo extends JTester {
 	/**
 	 * 没有显式指定bean的名称，按照字段的名称寻找spring bean注入
 	 */
@@ -31,7 +31,7 @@ public class SpringStartTest extends JTester {
 	public void testSpringBeanByName() {
 		want.object(customerService).notNull();
 		String result = this.customerService.doNothing();
-		want.string(result).start("this is service");
+		want.string(result).start("this is a service");
 	}
 
 	@Test(description = "演示@SpringBeanByName @SpringBeanByType注入的功能")
