@@ -38,6 +38,8 @@ public class BeanDanymicRegisterDemo_ExplicitClass extends JTester {
 		want.object(orderDaoFromBean).notNull().same(orderDao);
 
 		CustomerDao customerDao = reflector.getField(customerService, "customerDao");
-		want.object(customerDao).notNull().clazIs(CustomerDaoImpl.class);
+		want.object(customerDao).notNull();
+		Object target = reflector.getSpringAdvisedTarget(customerDao);
+		want.object(target).clazAssignFrom(CustomerDaoImpl.class);
 	}
 }

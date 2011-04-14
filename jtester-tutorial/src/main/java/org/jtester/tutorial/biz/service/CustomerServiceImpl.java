@@ -5,10 +5,10 @@ import javax.annotation.Resource;
 import org.jtester.tutorial.biz.model.Customer;
 
 public class CustomerServiceImpl implements CustomerService {
-	private OrderDao orderDao;
+	protected OrderDao orderDao;
 
 	@Resource
-	private CustomerDao customerDao;
+	protected CustomerDao customerDao;
 
 	public void setOrderDao(OrderDao orderDao) {
 		this.orderDao = orderDao;
