@@ -32,7 +32,7 @@ public class BeanDanymicRegisterDemo_ExplicitClass extends JTester {
 		want.string(result).start("this is an irregular service");
 	}
 
-	@Test(description = "演示spring bean的依赖项显式指定实现的情况")
+	@Test(description = "演示显式指定spring bean依赖项实现的情况")
 	public void testBeanDependency() {
 		OrderDao orderDaoFromBean = reflector.getField(customerService, "orderDao");
 		want.object(orderDaoFromBean).notNull().same(orderDao);
