@@ -41,7 +41,7 @@
 		<aop:advisor pointcut-ref="ao_bo" advice-ref="defaultTxAdvice" />
 	</aop:config>
 
-	<bean id="sqlMapClient" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
+	<bean id="sqlMapClient" class="org.jtester.module.spring.ibatis.SqlMapClientFactoryBeanEx">
 		<property name="dataSource" ref="dataSource" />
 		<property name="configLocation" value="spring/sqlmap-config.xml" />
 	</bean>
