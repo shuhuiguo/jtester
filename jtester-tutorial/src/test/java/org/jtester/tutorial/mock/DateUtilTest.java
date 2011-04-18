@@ -4,10 +4,9 @@ import java.util.Calendar;
 import java.util.Date;
 
 import mockit.Mock;
-import mockit.Mocked;
 
 import org.jtester.testng.JTester;
-import org.jtester.tutorial01.utils.DateUtil;
+import org.jtester.tutorial.biz.util.DateUtil;
 import org.testng.annotations.Test;
 
 @SuppressWarnings("unused")
@@ -26,23 +25,17 @@ public class DateUtilTest extends JTester {
 		want.string(currDate).isEqualTo("2010-01-01");
 	}
 
+	@Test(description = "演示构造函数mock")
 	public void testExpectations() {
-		// new MockUp<Date>() {
-		// Date it;
-		//
-		// @Mock
-		// public void $init() {
-		// it = getMockDate(2010, 1, 1);
-		// }
-		// };
-		new Expectations() {
-			@Mocked
-			Date mock;
-			{
-				new Date();
-				result = getMockDate(2010, 1, 1);
+		new MockUp<Date>() {
+			Date it;
+
+			@Mock
+			public void $init() {
+				it.setTime(getMockDate(2010, 1, 1).getTime());
 			}
 		};
+
 		String currDate = DateUtil.currDateStr();
 		want.string(currDate).isEqualTo("2010-01-01");
 	}
