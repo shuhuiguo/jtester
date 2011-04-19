@@ -20,6 +20,7 @@ public class Product implements java.io.Serializable {
 	private int stocks;
 
 	public Product(String name, double unitPrice) {
+		this.name = name;
 		this.unitPrice = unitPrice;
 	}
 

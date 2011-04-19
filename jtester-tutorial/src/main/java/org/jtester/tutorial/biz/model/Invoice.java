@@ -12,6 +12,11 @@ import java.util.List;
 public class Invoice {
 	private Customer customer;
 
+	/**
+	 * 发货地址
+	 */
+	private String address;
+
 	private List<LineItem> lineItems = null;
 
 	public Invoice(Customer customer) {
@@ -34,5 +39,13 @@ public class Invoice {
 
 	public Customer getCustomer() {
 		return customer;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
 	}
 }

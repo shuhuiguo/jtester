@@ -1,6 +1,9 @@
 package org.jtester.tutorial.biz.service;
 
+import java.util.List;
+
 import org.jtester.tutorial.biz.model.Customer;
+import org.jtester.tutorial.biz.model.Invoice;
 
 public interface CustomerService {
 	/**
@@ -10,5 +13,7 @@ public interface CustomerService {
 	 */
 	String doNothing();
 
-	Customer findCustomerByName(String name);
+	Customer findCustomerByName(String customerName);
+
+	List<Invoice> getInvoiceByCustomerName(String customerName);
 }

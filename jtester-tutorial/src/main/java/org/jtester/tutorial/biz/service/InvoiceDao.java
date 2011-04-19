@@ -1,5 +1,9 @@
 package org.jtester.tutorial.biz.service;
 
-public interface InvoiceDao {
+import java.util.List;
 
+import org.jtester.tutorial.biz.model.Invoice;
+
+public interface InvoiceDao {
+	List<Invoice> getInvoiceByCustomerName(String customerName);
 }
