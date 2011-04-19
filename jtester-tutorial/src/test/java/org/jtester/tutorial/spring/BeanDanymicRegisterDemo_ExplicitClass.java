@@ -8,7 +8,7 @@ import org.jtester.testng.JTester;
 import org.jtester.tutorial.biz.service.CustomerDao;
 import org.jtester.tutorial.biz.service.CustomerDaoImpl;
 import org.jtester.tutorial.biz.service.CustomerService;
-import org.jtester.tutorial.biz.service.OrderDao;
+import org.jtester.tutorial.biz.service.InvoiceDao;
 import org.jtester.tutorial.biz.service.irregular.CustomerServiceIrregularImpl;
 import org.jtester.tutorial.biz.service.irregular.OrderDaoIrregularImpl;
 import org.testng.annotations.Test;
@@ -23,7 +23,7 @@ public class BeanDanymicRegisterDemo_ExplicitClass extends JTester {
 	CustomerService customerService;
 
 	@SpringBeanByName(claz = OrderDaoIrregularImpl.class)
-	OrderDao orderDao;
+	InvoiceDao orderDao;
 
 	@Test(description = "演示动态注册spring bean功能")
 	public void testDanymicRegister() {
@@ -34,7 +34,7 @@ public class BeanDanymicRegisterDemo_ExplicitClass extends JTester {
 
 	@Test(description = "演示显式指定spring bean依赖项实现的情况")
 	public void testBeanDependency() {
-		OrderDao orderDaoFromBean = reflector.getField(customerService, "orderDao");
+		InvoiceDao orderDaoFromBean = reflector.getField(customerService, "invoiceDao");
 		want.object(orderDaoFromBean).notNull().same(orderDao);
 
 		CustomerDao customerDao = reflector.getField(customerService, "customerDao");

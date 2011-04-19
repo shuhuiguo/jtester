@@ -5,18 +5,18 @@ import javax.annotation.Resource;
 import org.jtester.tutorial.biz.model.Customer;
 
 public class CustomerServiceImpl implements CustomerService {
-	protected OrderDao orderDao;
+	protected InvoiceDao invoiceDao;
 
 	@Resource
 	protected CustomerDao customerDao;
 
-	public void setOrderDao(OrderDao orderDao) {
-		this.orderDao = orderDao;
+	public void setInvoiceDao(InvoiceDao orderDao) {
+		this.invoiceDao = orderDao;
 	}
 
 	public Customer findCustomerByName(String name) {
-		// TODO Auto-generated method stub
-		return null;
+		Customer cust = this.customerDao.findCustomerByName(name);
+		return cust;
 	}
 
 	public String doNothing() {
