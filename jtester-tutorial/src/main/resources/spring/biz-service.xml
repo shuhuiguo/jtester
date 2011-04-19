@@ -9,5 +9,5 @@
 	<bean id="customerService" class="org.jtester.tutorial.biz.service.CustomerServiceImpl" />
 
 	<bean id="customerDao" class="org.jtester.tutorial.biz.service.CustomerDaoImpl" />
-	<bean id="orderDao" class="org.jtester.tutorial.biz.service.OrderDaoImpl" />
+	<bean id="invoiceDao" class="org.jtester.tutorial.biz.service.InvoiceDaoImpl" />
 </beans>
