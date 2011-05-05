@@ -17,6 +17,7 @@ import org.testng.annotations.Test;
 @AutoBeanInject(maps = { @BeanMap(intf = "**.*", impl = "**.*Impl"),// <br>
 		@BeanMap(intf = "**.*", impl = "**.impl.*Impl") })
 public class SpringBeanFromDemo extends JTester {
+	
 	@SpringBeanByName(claz = CustomerServiceEx.class)
 	CustomerService customerService;
 

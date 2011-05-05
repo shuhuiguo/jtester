@@ -13,7 +13,9 @@ import org.testng.annotations.Test;
 @AutoBeanInject(maps = { @BeanMap(intf = "**.*", impl = "**.*Impl"),// <br>
 		@BeanMap(intf = "**.*", impl = "**.impl.*Impl") })
 public class BeanDanymicRegisterDemo extends JTester {
-
+	/**
+	 * 此时的@SpringBeanByName还扮演了另外一重功能，自动注册的bean入口
+	 */
 	@SpringBeanByName
 	CustomerService customerService;
 
