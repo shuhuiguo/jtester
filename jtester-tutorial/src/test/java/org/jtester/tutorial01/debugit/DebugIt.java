@@ -13,13 +13,13 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class DebugIt {
 	public static void main(String[] args) {
 		DbFitRunner.runDbFit(DebugIt.class, "clean table.wiki");
-		// ³õÊ¼»¯spring»·¾³
+		// åˆå§‹åŒ–springç¯å¢ƒ
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[] {
 				"spring/data-source.xml", "spring/beans.xml" });
 		PhoneGroupDao phoneGroupDao = (PhoneGroupDao) context.getBean("phoneGroupDao");
 		PhoneItemDao phoneItemDao = (PhoneItemDao) context.getBean("phoneItemDao");
 
-		// ×¼±¸Êı¾İ
+		// å‡†å¤‡æ•°æ®
 		long groupId = phoneGroupDao.insertPhoneGroup(new PhoneGroup("classmate"));
 		long phoneId1 = phoneItemDao.insertPhoneItem(new PhoneItem("darui.wu", "15900001111"));
 		phoneGroupDao.addPhoneItemToGroup(phoneId1, groupId);
@@ -27,11 +27,11 @@ public class DebugIt {
 		long phoneId2 = phoneItemDao.insertPhoneItem(new PhoneItem("jobs.he", "13900001111"));
 		phoneGroupDao.addPhoneItemToGroup(phoneId2, groupId);
 
-		// ¿ªÊ¼²âÊÔ
+		// å¼€å§‹æµ‹è¯•
 		PhoneBookService phoneBookService = (PhoneBookService) context.getBean("phoneBookService");
 		List<PhoneItem> items = phoneBookService.findPhoneItemsByGroupName("classmate");
 
-		// ½«ÏûÏ¢´òÓ¡³öÀ´ÈâÑÛÑéÖ¤
+		// å°†æ¶ˆæ¯æ‰“å°å‡ºæ¥è‚‰çœ¼éªŒè¯
 		System.out.println(items.size());
 		for (PhoneItem item : items) {
 			System.out.println("user name:" + item.getUsername() + ", mobile:" + item.getMobile());
