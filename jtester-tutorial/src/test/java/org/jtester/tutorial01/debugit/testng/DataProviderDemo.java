@@ -30,7 +30,7 @@ public class DataProviderDemo extends JTester {
 	}
 
 	/**
-	 * DataProvider还可以根据方法Method以及上下文ITestContext提供数据
+	 * DataProvider杩樺彲浠ユ牴鎹柟娉昅ethod浠ュ強涓婁笅鏂嘔TestContext鎻愪緵鏁版嵁
 	 * 
 	 * @param method
 	 * @return
