@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="jtester-tutorial">
+	<resultMap id="CUSTOMER" class="org.jtester.tutorial.biz.model.Customer">
+		<result property="id" column="id" />
+		<result property="name" column="name" />
+		<result property="level" column="level" />
+		<result property="address" column="address" />
+	</resultMap>
+
+	<update id="insert_customer" parameterClass="org.jtester.tutorial.biz.model.Customer">
+        <![CDATA[
+		insert customer(name,level,address) 
+		values(#name#,#level#,#address#)
+		]]>
+	</update>
+
+	<update id="update_customer_address" parameterClass="org.jtester.tutorial.biz.model.Customer">
+        <![CDATA[
+		update customer set address=#address where id=#id# 
+		]]>
+	</update>
+
+	<select id="find_customer_by_name" resultClass="org.jtester.tutorial.biz.model.Customer" parameterClass="string">
+        <![CDATA[
+		select * from customer where name=#name#
+		]]>
+	</select>
+</sqlMap>
