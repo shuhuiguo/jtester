@@ -1,4 +1,4 @@
-package org.jtester.tutorial02.coveragehallucination;
+package org.jtester.tutorial.testngdemo;
 
 import org.jtester.testng.JTester;
 

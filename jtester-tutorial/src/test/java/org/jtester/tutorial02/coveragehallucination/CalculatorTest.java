@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 @Test
 public class CalculatorTest extends JTester {
 	/**
-	 * ²âÊÔ¸²¸ÇÂÊ100%,µ«¸ß²âÊÔ¸²¸ÇÂÊºÍ¸ßÖÊÁ¿µÄÈí¼şÄÜ¹»±»µÈÍ¬ÆğÀ´Ã´£¿
+	 * æµ‹è¯•è¦†ç›–ç‡100%,ä½†é«˜æµ‹è¯•è¦†ç›–ç‡å’Œé«˜è´¨é‡çš„è½¯ä»¶èƒ½å¤Ÿè¢«ç­‰åŒèµ·æ¥ä¹ˆï¼Ÿ
 	 */
 	public void testDivide() {
 		double result = Calculator.divide(2, 1);
