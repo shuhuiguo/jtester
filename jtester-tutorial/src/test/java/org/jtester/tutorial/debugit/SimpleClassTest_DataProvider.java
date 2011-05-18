@@ -1,6 +1,6 @@
 package org.jtester.tutorial.debugit;
 
-import org.junit.Assert;
+import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
