@@ -1,9 +1,9 @@
-package org.jtester.tutorial01.asserter;
+package org.jtester.tutorial.asserter;
 
 import mockit.Mocked;
 
 import org.jtester.testng.JTester;
-import org.jtester.tutorial01.asserter.bean.SayHello;
+import org.jtester.tutorial.asserter.SayHello;
 import org.testng.annotations.Test;
 
 public class Expectations extends JTester {

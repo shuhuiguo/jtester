@@ -1,4 +1,4 @@
-package org.jtester.tutorial01.asserter;
+package org.jtester.tutorial.asserter;
 
 import java.util.Arrays;
 
@@ -10,9 +10,9 @@ import org.testng.annotations.Test;
 public class FluentAssertDemo extends JTester {
 
 	public void assertString() {
-		String alibabaAddress = "ÖÐ¹úÕã½­º¼ÖÝ±õ½­ÇøÍøÉÌÂ·699ºÅ";
+		String alibabaAddress = "ï¿½Ð¹ï¿½ï¿½ã½­ï¿½ï¿½ï¿½Ý±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·699ï¿½ï¿½";
 
-		want.string(alibabaAddress).start("ÖÐ¹ú").end("ºÅ").contains("º¼ÖÝ").regular(".*699.*");
+		want.string(alibabaAddress).start("ï¿½Ð¹ï¿½").end("ï¿½ï¿½").contains("ï¿½ï¿½ï¿½ï¿½").regular(".*699.*");
 	}
 
 	public void assertObject() {

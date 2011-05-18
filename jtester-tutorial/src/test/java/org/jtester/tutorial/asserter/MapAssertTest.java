@@ -1,4 +1,4 @@
-package org.jtester.tutorial01.asserter;
+package org.jtester.tutorial.asserter;
 
 import java.util.HashMap;
 import java.util.Map;

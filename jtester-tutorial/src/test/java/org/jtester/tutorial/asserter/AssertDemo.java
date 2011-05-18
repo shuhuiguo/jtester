@@ -1,4 +1,4 @@
-package org.jtester.tutorial01.asserter;
+package org.jtester.tutorial.asserter;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -12,21 +12,21 @@ public class AssertDemo extends JTester {
 	private String statement = "this is 'abc' text";
 
 	/**
-	 * ±È½Ï3ÖÖ²»Í¬·ç¸ñµÄ¶ÏÑÔÓï¾ä
+	 * ï¿½È½ï¿½3ï¿½Ö²ï¿½Í¬ï¿½ï¿½ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	public void compareAssertStyle() {
-		// junit\testng·½Ê½
+		// junit\testngï¿½ï¿½Ê½
 		Assert.assertTrue(statement.contains("abc"));
 
-		// hamcrest·½Ê½
+		// hamcrestï¿½ï¿½Ê½
 		assertThat(statement, StringContains.containsString("abc"));
 
-		// jtester·½Ê½
+		// jtesterï¿½ï¿½Ê½
 		want.string(statement).contains("abc");
 	}
 
 	/**
-	 * ¸´ÔÓµÄÑéÖ¤¹¦ÄÜ
+	 * ï¿½ï¿½ï¿½Óµï¿½ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½
 	 */
 	public void testComplexStyle() {
 
