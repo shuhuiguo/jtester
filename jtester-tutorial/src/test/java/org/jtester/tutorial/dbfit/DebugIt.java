@@ -1,4 +1,4 @@
-package org.jtester.tutorial01.debugit;
+package org.jtester.tutorial.dbfit;
 
 import java.util.List;
 
