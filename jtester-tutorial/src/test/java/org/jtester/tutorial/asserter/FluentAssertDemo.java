@@ -10,9 +10,9 @@ import org.testng.annotations.Test;
 public class FluentAssertDemo extends JTester {
 
 	public void assertString() {
-		String alibabaAddress = "�й��㽭���ݱ���������·699��";
+		String alibabaAddress = "杭州滨江网商路699号";
 
-		want.string(alibabaAddress).start("�й�").end("��").contains("����").regular(".*699.*");
+		want.string(alibabaAddress).start("杭州").end("699号").contains("网商路").regular(".*699.*");
 	}
 
 	public void assertObject() {

@@ -12,23 +12,16 @@ public class AssertDemo extends JTester {
 	private String statement = "this is 'abc' text";
 
 	/**
-	 * �Ƚ�3�ֲ�ͬ���Ķ������
+	 * 三种模式的断言比较
 	 */
 	public void compareAssertStyle() {
-		// junit\testng��ʽ
+		// junit\testng模式
 		Assert.assertTrue(statement.contains("abc"));
 
-		// hamcrest��ʽ
+		// hamcrest模式
 		assertThat(statement, StringContains.containsString("abc"));
 
-		// jtester��ʽ
+		// jtester模式
 		want.string(statement).contains("abc");
-	}
-
-	/**
-	 * ���ӵ���֤����
-	 */
-	public void testComplexStyle() {
-
 	}
 }
