@@ -3,7 +3,8 @@ package org.jtester.tutorial.asserter;
 import java.util.Arrays;
 
 import org.jtester.testng.JTester;
-import org.jtester.tutorial01.beans.PhoneItem;
+import org.jtester.tutorial.biz.model.Customer;
+
 import org.testng.annotations.Test;
 
 @Test
@@ -16,12 +17,12 @@ public class FluentAssertDemo extends JTester {
 	}
 
 	public void assertObject() {
-		PhoneItem expectedItem = new PhoneItem("darui.wu", "159xxxxxxxx");
+		Customer expectedItem = new Customer("darui.wu", "杭州滨江网商路699号");
 
-		PhoneItem actualItem = new PhoneItem("darui.wu", "159xxxxxxxx");
+		Customer actualItem = new Customer("darui.wu", "杭州滨江网商路699号");
 		// want.object(actualItem).isEqualTo(expectedItem);
 		want.object(actualItem).reflectionEq(expectedItem);
-		want.object(actualItem).propertyEq("username", "darui.wu").propertyEq("mobile", the.string().start("159"));
+		want.object(actualItem).propertyEq("name", "darui.wu").propertyEq("address", the.string().start("159"));
 	}
 
 	@Test
@@ -40,11 +41,11 @@ public class FluentAssertDemo extends JTester {
 
 	public void assertArray() {
 		want.array(new String[] { "aaaa", "bbbb" }).hasItems("aaaa", "bbbb");
-		want.array(new PhoneItem[] { newItem(), newItem() }).propertyEq("username", new String[] { "darui", "darui" });
+		want.array(new Customer[] { newItem(), newItem() }).propertyEq("username", new String[] { "darui", "darui" });
 	}
 
-	public static PhoneItem newItem() {
-		PhoneItem user = new PhoneItem("darui", "13900459999");
+	public static Customer newItem() {
+		Customer user = new Customer("darui", "13900459999");
 		return user;
 	}
 }
