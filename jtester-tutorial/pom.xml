@@ -23,12 +23,6 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.testng</groupId>
-			<artifactId>testng</artifactId>
-			<version>5.12</version>
-			<!-- <classifier>jdk15</classifier> -->
-		</dependency>
-		<dependency>
 			<groupId>org.apache.ibatis</groupId>
 			<artifactId>ibatis-sqlmap</artifactId>
 			<version>2.3.4.726</version>
@@ -104,6 +98,11 @@
 			<version>2.1_3</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>5.12.1</version>
+		</dependency>
 	</dependencies>
 
 	<repositories>
