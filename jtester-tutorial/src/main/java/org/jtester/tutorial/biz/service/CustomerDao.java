@@ -6,4 +6,6 @@ public interface CustomerDao {
 	String doNothing();
 
 	Customer findCustomerByName(String name);
+
+	void newCustomer(Customer customer);
 }
