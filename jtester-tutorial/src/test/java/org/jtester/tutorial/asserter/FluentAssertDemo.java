@@ -22,14 +22,14 @@ public class FluentAssertDemo extends JTester {
 		Customer actualItem = new Customer("darui.wu", "杭州滨江网商路699号");
 		// want.object(actualItem).isEqualTo(expectedItem);
 		want.object(actualItem).reflectionEq(expectedItem);
-		want.object(actualItem).propertyEq("name", "darui.wu").propertyEq("address", the.string().start("159"));
+		want.object(actualItem).propertyEq("name", "darui.wu").propertyEq("address", the.string().start("杭州"));
 	}
 
 	@Test
 	public void assertCollection() {
 		want.collection(Arrays.asList(1, 2, 4)).sizeEq(3).hasItems(new int[] { 1, 4 });
 
-		want.collection(Arrays.asList(newItem(), newItem())).propertyEq("username", new String[] { "darui", "darui" });
+		want.collection(Arrays.asList(newItem(), newItem())).propertyEq("name", new String[] { "darui", "darui" });
 
 		want.collection(Arrays.asList("aaa", "bbb", "ccc")).hasItems("aaa");
 		want.collection(Arrays.asList("aaa", "bbb", "ccc")).hasItems("aaa", "ccc");
@@ -41,7 +41,7 @@ public class FluentAssertDemo extends JTester {
 
 	public void assertArray() {
 		want.array(new String[] { "aaaa", "bbbb" }).hasItems("aaaa", "bbbb");
-		want.array(new Customer[] { newItem(), newItem() }).propertyEq("username", new String[] { "darui", "darui" });
+		want.array(new Customer[] { newItem(), newItem() }).propertyEq("name", new String[] { "darui", "darui" });
 	}
 
 	public static Customer newItem() {
