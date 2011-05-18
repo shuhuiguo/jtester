@@ -6,7 +6,7 @@ import org.jtester.testng.JTester;
 import org.jtester.tutorial.asserter.SayHello;
 import org.testng.annotations.Test;
 
-public class Expectations extends JTester {
+public class SayHelloTest_ExpectationsAssert extends JTester {
 
 	@Mocked
 	SayHello sayHello;
