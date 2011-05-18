@@ -12,7 +12,7 @@ public class SayHelloTest_ExpectationsAssert extends JTester {
 	SayHello sayHello;
 
 	@Test
-	public void testExpectationsDemo() {
+	public void testSayHello_ExpectationsDemo() {
 		new Expectations() {
 			{
 				when(sayHello.sayHello(the.string().contains(".").start("darui").end("wu").wanted())).thenReturn(
