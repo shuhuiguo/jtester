@@ -15,5 +15,7 @@ public interface CustomerService {
 
 	Customer findCustomerByName(String customerName);
 
+	void newCustomer(Customer customer);
+
 	List<Invoice> getInvoiceByCustomerName(String customerName);
 }

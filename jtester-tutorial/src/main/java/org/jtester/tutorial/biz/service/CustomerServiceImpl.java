@@ -30,4 +30,8 @@ public class CustomerServiceImpl implements CustomerService {
 		List<Invoice> invoices = this.invoiceDao.getInvoiceByCustomerName(customerName);
 		return invoices;
 	}
+
+	public void newCustomer(Customer customer) {
+		this.customerDao.newCustomer(customer);
+	}
 }
