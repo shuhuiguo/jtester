@@ -3,11 +3,12 @@ package org.jtester.tutorial.dbfit;
 import java.util.List;
 
 import org.jtester.module.dbfit.DbFitRunner;
+import org.jtester.tutorial.biz.model.Invoice;
+import org.jtester.tutorial.biz.service.CustomerService;
 import org.jtester.tutorial01.beans.PhoneGroup;
 import org.jtester.tutorial01.beans.PhoneItem;
 import org.jtester.tutorial01.daos.PhoneGroupDao;
 import org.jtester.tutorial01.daos.PhoneItemDao;
-import org.jtester.tutorial01.services.PhoneBookService;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class DebugIt {
@@ -28,13 +29,13 @@ public class DebugIt {
 		phoneGroupDao.addPhoneItemToGroup(phoneId2, groupId);
 
 		// 开始测试
-		PhoneBookService phoneBookService = (PhoneBookService) context.getBean("phoneBookService");
-		List<PhoneItem> items = phoneBookService.findPhoneItemsByGroupName("classmate");
+		CustomerService customerService = (CustomerService) context.getBean("phoneBookService");
+		List<Invoice> invoices = customerService.getInvoiceByCustomerName("darui.wu");
 
 		// 将消息打印出来肉眼验证
-		System.out.println(items.size());
-		for (PhoneItem item : items) {
-			System.out.println("user name:" + item.getUsername() + ", mobile:" + item.getMobile());
+		System.out.println(invoices.size());
+		for (Invoice invoice : invoices) {
+			System.out.println("customer id:" + invoice.getCustomer().getId() + ", address:" + invoice.getAddress());
 		}
 	}
 }
