@@ -8,16 +8,16 @@
 		<result property="address" column="address" />
 	</resultMap>
 
-	<update id="insert_customer" parameterClass="org.jtester.tutorial.biz.model.Customer">
+	<insert id="insert_customer" parameterClass="org.jtester.tutorial.biz.model.Customer">
         <![CDATA[
 		insert customer(name,level,address) 
 		values(#name#,#level#,#address#)
 		]]>
-	</update>
+	</insert>
 
 	<update id="update_customer_address" parameterClass="org.jtester.tutorial.biz.model.Customer">
         <![CDATA[
-		update customer set address=#address where id=#id# 
+		update customer set address=#address# where id=#id# 
 		]]>
 	</update>
 

@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<?xml version="1.0" encoding="GBK" ?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
 <sqlMap namespace="jtester-tutorial">
 	<resultMap id="PRODUCT" class="org.jtester.tutorial.biz.model.Product">
 		<result property="id" column="id" />
@@ -9,10 +10,10 @@
 		<result property="description" column="description" />
 	</resultMap>
 
-	<update id="insert_product" parameterClass="org.jtester.tutorial.biz.model.Product">
+	<insert id="insert_product" parameterClass="org.jtester.tutorial.biz.model.Product">
         <![CDATA[
 		insert customer(name,unit_price,stocks,description) 
 		values(#name#,#unitPrice#,#stocks#,#description#)
 		]]>
-	</update>
+	</insert>
 </sqlMap>
