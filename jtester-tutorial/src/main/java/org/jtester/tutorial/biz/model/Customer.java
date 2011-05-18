@@ -13,7 +13,7 @@ public class Customer implements java.io.Serializable {
 
 	private String name;
 
-	private Address address;
+	private String address;
 
 	private CustomerLevel level;
 
@@ -21,7 +21,7 @@ public class Customer implements java.io.Serializable {
 
 	}
 
-	public Customer(String name, Address address) {
+	public Customer(String name, String address) {
 		this.name = name;
 		this.address = address;
 	}
@@ -42,11 +42,11 @@ public class Customer implements java.io.Serializable {
 		this.name = name;
 	}
 
-	public Address getAddress() {
+	public String getAddress() {
 		return address;
 	}
 
-	public void setAddress(Address address) {
+	public void setAddress(String address) {
 		this.address = address;
 	}
 
