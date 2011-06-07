@@ -6,11 +6,11 @@ import javax.xml.parsers.ParserConfigurationException;
 
 import org.xml.sax.SAXException;
 
-public class ScanIbatisTest {
+public class ScanIbatis_V1Test {
 
 	public void testScan1() {
 		try {
-			ScanIbatis.main(new String[] { "d:/alibaba/martini/bundle/war" });
+			ScanIbatis_V1.main(new String[] { "d:/alibaba/martini/bundle/war" });
 		} catch (ParserConfigurationException e) {
 			e.printStackTrace();
 		} catch (SAXException e) {
@@ -23,6 +23,6 @@ public class ScanIbatisTest {
 	public void testScan2() throws ParserConfigurationException, SAXException, IOException {
 		String configFileName = System.getProperty("user.dir")
 				+ "/src/test/resources/org/jtester/tutorial/scanner/ibatis";
-		ScanIbatis.main(new String[] { configFileName });
+		ScanIbatis_V1.main(new String[] { configFileName });
 	}
 }
