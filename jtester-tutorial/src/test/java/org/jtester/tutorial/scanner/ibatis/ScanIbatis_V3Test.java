@@ -7,6 +7,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.UUID;
 
 import mockit.Mock;
 
@@ -93,6 +95,7 @@ public class ScanIbatis_V3Test extends JTester {
 	public void testMain() throws Exception {
 		final String baseUrl = System.getProperty("user.dir")
 				+ "/src/test/resources/org/jtester/tutorial/scanner/ibatis";
+		final NamespaceID duplicatedID = new NamespaceID("my-namespace", "sql", "my-id");
 		new MockUp<ScanIbatis_V3>() {
 			@Mock
 			public String[] getAllSqlmapFiles(String sqlmapconfig) throws DocumentException {
@@ -105,15 +108,20 @@ public class ScanIbatis_V3Test extends JTester {
 			@Mock
 			public NamespaceID[] getAllNamespaceID(String sqlmap) throws DocumentException {
 				want.string(sqlmap).start(baseUrl + "/sqlmap/").end(".xml");
-				return null;
+				return new NamespaceID[] { duplicatedID,
+						new NamespaceID("my-namespace", "sql", UUID.randomUUID().toString()) };
 			}
 
 			@Mock
-			public void checkExistedIDs(List<String> existedIDs, String[] ids) {
-				want.collection(existedIDs).notNull();
+			public void checkDuplicatedIDs(Map<NamespaceID, List<String>> existedIDs, Writer writer) throws IOException {
+				Set<NamespaceID> ids = existedIDs.keySet();
+				want.collection(ids).sizeEq(4).hasItems(duplicatedID);
+
+				List<String> urls = existedIDs.get(duplicatedID);
+				want.collection(urls).sizeEq(3);
 			}
 		};
-		ScanIbatis_V2Impl.main(new String[] { "", baseUrl, "" });
+		ScanIbatis_V3.main(new String[] { baseUrl + "/sqlmap-config.xml", baseUrl, "target/temp.txt" });
 	}
 
 }
