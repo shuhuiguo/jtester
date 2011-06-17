@@ -1,0 +1,35 @@
+package org.jtester.module.spring.strategy.register;
+
+import java.lang.reflect.Field;
+import java.util.Queue;
+import java.util.Set;
+
+import javax.annotation.Resource;
+
+import org.jtester.utility.AnnotationUtils;
+import org.jtester.utility.StringHelper;
+
+@SuppressWarnings({ "rawtypes", "unchecked" })
+public class ResourcePropertiesRegister extends PropertiesRegister {
+
+	protected ResourcePropertiesRegister(Class ownerClazz, BeanDefinitionRegister definitionRegister) {
+		super(ownerClazz, definitionRegister);
+	}
+
+	@Override
+	public void registerProperties(Queue<Class> registedBeanClazz) {
+		Set<Field> fields = AnnotationUtils.getFieldsAnnotatedWith(ownerClazz, Resource.class);
+		for (Field field : fields) {
+			Resource resource = field.getAnnotation(Resource.class);
+			String beanName = resource.name();
+			if (StringHelper.isBlankOrNull(beanName)) {
+				beanName = field.getName();
+			}
+			Class propClazz = field.getType();
+			boolean isExclude = this.definitionRegister.isExcludeProperty(beanName, propClazz);
+			if (isExclude == false) {
+				this.registerBean(beanName, propClazz, registedBeanClazz);
+			}
+		}
+	}
+}
