@@ -1,0 +1,54 @@
+package org.jtester.module.spring.strategy.register;
+
+import java.lang.reflect.Method;
+import java.util.Queue;
+
+import org.apache.log4j.Logger;
+import org.jtester.bytecode.reflector.helper.ClazzHelper;
+
+@SuppressWarnings("rawtypes")
+public class MethodPropertiesRegister extends PropertiesRegister {
+	final static Logger log4j = Logger.getLogger(MethodPropertiesRegister.class);
+
+	protected MethodPropertiesRegister(Class ownerClazz, BeanDefinitionRegister definitionRegister) {
+		super(ownerClazz, definitionRegister);
+	}
+
+	public void registerProperties(final Queue<Class> registedBeanClazz) {
+		Method[] allmethods = ownerClazz.getMethods();
+		for (Method method : allmethods) {
+			if (method.getParameterTypes().length != 1) {
+				continue;
+			}
+			Class propClazz = method.getParameterTypes()[0];
+			String beanName = ClazzHelper.exactBeanName(method);
+			boolean isExclude = this.definitionRegister.isExcludeProperty(beanName, propClazz);
+
+			if (isExclude == false) {
+				this.registerBean(beanName, propClazz, registedBeanClazz);
+			}
+		}
+	}
+
+	// private void registerBean(final String beanName, final Class propClazz,
+	// final Queue<Class> registedBeanClazz) {
+	// try {
+	// boolean doesRegisted = definitionRegister.doesHaveRegisted(beanName);
+	// if (doesRegisted) {
+	// return;
+	// }
+	// Class impl = definitionRegister.findImplementClass(ownerClazz, beanName,
+	// propClazz);
+	// if (impl == null) {
+	// return;
+	// }
+	// RootBeanDefinition beanDefinition =
+	// SpringBeanRegister.getRootBeanDefinition(beanName, impl, true);
+	// definitionRegister.register(beanName, beanDefinition);
+	//
+	// registedBeanClazz.offer(impl);
+	// } catch (FindBeanImplClassException e) {
+	// definitionRegister.ignoreNotFoundException(e);
+	// }
+	// }
+}

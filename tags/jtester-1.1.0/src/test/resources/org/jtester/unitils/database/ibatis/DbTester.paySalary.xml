@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<dataset>
+	<tdd_user id="1" post_code="310000" sarary="1000" />
+	<tdd_user id="2" post_code="310000" sarary="1200" />
+	<tdd_user id="3" post_code="352200" sarary="1500" />
+	<tdd_user id="4" post_code="310000" sarary="1800" />
+</dataset>
