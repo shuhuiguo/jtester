@@ -1,0 +1,7 @@
+|connect|
+
+|clean table|customer|
+
+|insert|customer|
+|id|name|address|
+|1|darui.wu|杭州|
