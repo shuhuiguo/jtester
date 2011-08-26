@@ -1,0 +1,6 @@
+#Tue Jul 12 09:57:49 CST 2011
+eclipse.preferences.version=1
+org.moreunit.prefixes=
+org.moreunit.test_type=testng
+org.moreunit.unitsourcefolder=jtester\:src/main/java\:jtester.test\:src/main/java
+org.moreunit.useprojectsettings=true
