@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="GBK" ?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="FAX_RECEIVE_LOG">
+
+	<resultMap id="FAX_RECEIVE_LOG_RM" class="FAX_RECEIVE_LOG">
+		<result property="filePath" column="FILE_PATH" jdbcType="VARCHAR2"
+			javaType="String" />
+	</resultMap>
+
+	<insert id="INSERT_FAXRECEIVELOG" parameterClass="FAX_RECEIVE_LOG">
+		INSERT INTO
+		MTN_FAX_RECEIVE_LOG ( ID )
+		VALUES ( #id# )
+    </insert>
+
+	<select id="SELECT_FAXRECEIVELOG" resultClass="FAX_RECEIVE_LOG"
+		parameterClass="int">
+		select * from
+		FAXRECEIVELOG where ID = #id#
+	</select>
+
+	<update id="UPDATE_FAXRECEIVELOG" parameterClass="FAX_RECEIVE_LOG">
+		update
+		MTN_FAX_RECEIVE_LOG set SOURCE = #source# where ID = #id#
+	</update>
+</sqlMap>

@@ -1,0 +1,8 @@
+|org.jtester.fit.fixture.TestedDtoPropFixture|
+|testMethod_String|java.lang.String|
+|>>value|
+|a|
+|ab|
+
+
+
