@@ -1,0 +1,98 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.jtester</groupId>
+	<artifactId>jtester.all</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>jtester parent pom</name>
+
+	<properties>
+		<jmockit.version>0.999.10</jmockit.version>
+		<jtester.version>1.1.4</jtester.version>
+
+		<cargo-itest.version>1.4.0</cargo-itest.version>
+		<hibernate.version>3.2.5.ga</hibernate.version>
+		<hibernate-annotations.version>3.2.1.ga</hibernate-annotations.version>
+		<spring.version>2.5.4</spring.version>
+		<hamcrest.version>1.2</hamcrest.version>
+		<h2db.version>1.1.107</h2db.version>
+		<mysql.connection.version>5.1.6</mysql.connection.version>
+		<xstream.version>1.3.1</xstream.version>
+	</properties>
+
+	<modules>
+		<module>../core</module>
+		<module>../test</module>
+		<module>../junit</module>
+		<module>../tutorial</module>
+	</modules>
+
+	<repositories>
+		<repository>
+			<id>jTester</id>
+			<name>jTester</name>
+			<url>http://jtester.googlecode.com/svn/m2</url>
+		</repository>
+		<repository>
+			<id>mvnsearch</id>
+			<name>mvnsearch</name>
+			<url>http://www.mvnsearch.org/maven2/</url>
+		</repository>
+		<repository>
+			<id>maven2-repository.dev.java.net</id>
+			<name>Java.net Repository for Maven</name>
+			<url>http://download.java.net/maven/2/</url>
+		</repository>
+		<repository>
+			<id>jmockit</id>
+			<name>jmockit</name>
+			<url>http://jmockit.googlecode.com/svn/maven-repo</url>
+		</repository>
+		<repository>
+			<id>cargo-itest</id>
+			<name>cargo-itest</name>
+			<url>http://cargo-itest.googlecode.com/svn/maven-repo/</url>
+		</repository>
+		<repository>
+			<id>repository.atlassian.com</id>
+			<name>repository.atlassian.com</name>
+			<url>https://repository.atlassian.com/maven2</url>
+		</repository>
+	</repositories>
+
+	<build>
+		<sourceDirectory>src/main/java</sourceDirectory>
+		<outputDirectory>target/classes</outputDirectory>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<excludes>
+					<exclude>**/*.svn</exclude>
+				</excludes>
+			</resource>
+		</resources>
+		<testSourceDirectory>src/test/java</testSourceDirectory>
+		<testOutputDirectory>target/test-classes</testOutputDirectory>
+		<testResources>
+			<testResource>
+				<directory>src/test/resources</directory>
+				<excludes>
+					<exclude>**/*.svn</exclude>
+				</excludes>
+			</testResource>
+		</testResources>
+
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.0.2</version>
+				<configuration>
+					<source>1.5</source>
+					<target>1.5</target>
+					<encoding>utf-8</encoding>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
