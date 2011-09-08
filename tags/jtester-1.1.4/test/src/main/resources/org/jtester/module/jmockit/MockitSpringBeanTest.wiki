@@ -1,0 +1,8 @@
+|connect|
+
+|clean table|tdd_user|
+
+|insert|tdd_user|
+|id|sarary|
+|1|0|
+|2|0|
