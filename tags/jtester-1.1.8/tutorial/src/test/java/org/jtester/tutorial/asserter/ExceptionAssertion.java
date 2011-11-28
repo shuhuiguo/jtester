@@ -30,7 +30,7 @@ public class ExceptionAssertion extends JTester {
 		try {
 			bean.sayHello();
 		} catch (Exception e) {
-			want.object(e).matchToString(the.string().contains("excepton demo."));
+			want.object(e).eqToString(the.string().contains("excepton demo."));
 		}
 	}
 }

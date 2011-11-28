@@ -80,7 +80,7 @@ public class ScanIbatis_V2Test extends JTester {
 
 			String newId = "FAX_RECEIVE_LOG|update|UPDATE_FAXRECEIVELOG";
 			ScanIbatis_V2.checkExistedIDs(existedIDs, new String[] { duplicatedID, newId });
-			want.collection(existedIDs).sizeEq(4).hasItems(duplicatedID, newId);
+			want.collection(existedIDs).sizeEq(4).hasAllItems(duplicatedID, newId);
 			String message = myStdout.getLog();
 			want.string(message).contains(duplicatedID);
 		} finally {
