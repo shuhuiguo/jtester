@@ -39,15 +39,15 @@ public class FluentAssertDemo extends JTester {
 		want.collection(Arrays.asList(newItem(), newItem())).propertyEq("name", new String[] { "darui", "darui" });
 
 		want.collection(Arrays.asList("aaa", "bbb", "ccc")).hasItems("aaa");
-		want.collection(Arrays.asList("aaa", "bbb", "ccc")).hasItems("aaa", "ccc");
+		want.collection(Arrays.asList("aaa", "bbb", "ccc")).hasAllItems("aaa", "ccc");
 		want.collection(Arrays.asList("aaa", "bbb", "ccc")).hasItems(Arrays.asList("aaa", "ccc"));
 		want.collection(Arrays.asList("aaa", "bbb", "ccc")).hasItems(new String[] { "aaa", "ccc" });
 
-		want.collection(Arrays.asList(1, 2, 4)).hasItems(1, 4).sizeLt(4);
+		want.collection(Arrays.asList(1, 2, 4)).hasAllItems(1, 4).sizeLt(4);
 	}
 
 	public void assertArray() {
-		want.array(new String[] { "aaaa", "bbbb" }).hasItems("aaaa", "bbbb");
+		want.array(new String[] { "aaaa", "bbbb" }).hasAllItems("aaaa", "bbbb");
 		want.array(new Customer[] { newItem(), newItem() }).propertyEq("name", new String[] { "darui", "darui" });
 	}
 
