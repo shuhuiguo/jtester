@@ -1,4 +1,4 @@
-package org.jtester.utility;
+package org.jtester.helper;
 
 import static java.lang.reflect.Modifier.isStatic;
 

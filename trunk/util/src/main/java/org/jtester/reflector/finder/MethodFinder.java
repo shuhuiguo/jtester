@@ -1,4 +1,4 @@
-package org.jtester.reflector.utility;
+package org.jtester.reflector.finder;
 
 import java.lang.reflect.Method;
 import java.util.LinkedList;

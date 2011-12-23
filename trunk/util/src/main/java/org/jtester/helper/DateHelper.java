@@ -1,4 +1,4 @@
-package org.jtester.utility;
+package org.jtester.helper;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

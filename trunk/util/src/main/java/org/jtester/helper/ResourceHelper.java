@@ -1,4 +1,4 @@
-package org.jtester.utility;
+package org.jtester.helper;
 
 import static ext.jtester.commons.IOUtils.closeQuietly;
 
@@ -19,10 +19,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-import org.jtester.utility.ClazzHelper;
 import org.jtester.cpdetector.CodepageDetectorProxy;
 import org.jtester.cpdetector.JChardetFacade;
 import org.jtester.exception.JTesterException;
+import org.jtester.helper.ClazzHelper;
 
 import ext.jtester.commons.IOUtils;
 

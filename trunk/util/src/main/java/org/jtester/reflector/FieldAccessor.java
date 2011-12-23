@@ -3,7 +3,7 @@ package org.jtester.reflector;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
-import org.jtester.utility.FieldHelper;
+import org.jtester.helper.FieldHelper;
 
 @SuppressWarnings({ "rawtypes", "unchecked" })
 public class FieldAccessor<T> {

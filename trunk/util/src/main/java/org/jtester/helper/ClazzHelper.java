@@ -1,4 +1,4 @@
-package org.jtester.utility;
+package org.jtester.helper;
 
 import static ext.jtester.commons.IOUtils.closeQuietly;
 import static java.lang.reflect.Modifier.isStatic;
@@ -23,8 +23,8 @@ import java.util.Map;
 
 import mockit.Mockit;
 
-import org.jtester.utility.FieldHelper;
 import org.jtester.exception.JTesterException;
+import org.jtester.helper.FieldHelper;
 
 import ext.jtester.commons.IOUtils;
 import ext.jtester.objenesis.ObjenesisHelper;

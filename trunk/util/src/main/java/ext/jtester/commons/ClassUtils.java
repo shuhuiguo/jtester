@@ -24,8 +24,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import org.jtester.utility.ArrayHelper;
-import org.jtester.utility.StringHelper;
+import org.jtester.helper.ArrayHelper;
+import org.jtester.helper.StringHelper;
 
 /**
  * <p>

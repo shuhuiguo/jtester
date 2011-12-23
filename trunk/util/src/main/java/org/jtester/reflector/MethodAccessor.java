@@ -8,8 +8,8 @@ import java.util.Arrays;
 import org.jtester.exception.ExceptionWrapper;
 import org.jtester.exception.JTesterException;
 import org.jtester.exception.NoSuchMethodRuntimeException;
-import org.jtester.utility.ClazzHelper;
-import org.jtester.utility.MethodHelper;
+import org.jtester.helper.ClazzHelper;
+import org.jtester.helper.MethodHelper;
 
 @SuppressWarnings({ "rawtypes", "unchecked" })
 public class MethodAccessor<T> {
