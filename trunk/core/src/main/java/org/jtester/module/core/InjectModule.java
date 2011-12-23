@@ -7,9 +7,10 @@ import java.lang.reflect.Method;
 import java.util.Set;
 
 import org.jtester.annotations.Inject;
+import org.jtester.core.Module;
+import org.jtester.core.TestListener;
 import org.jtester.helper.ClazzHelper;
 import org.jtester.helper.StringHelper;
-import org.jtester.module.TestListener;
 import org.jtester.module.core.helper.InjectionModuleHelper;
 import org.jtester.reflector.PropertyAccessor;
 import org.jtester.utility.JTesterProxy;

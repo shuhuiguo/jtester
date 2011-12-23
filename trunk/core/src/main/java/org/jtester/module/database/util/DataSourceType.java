@@ -1,8 +1,8 @@
 package org.jtester.module.database.util;
 
+import org.jtester.core.helper.ConfigurationHelper;
 import org.jtester.exception.UnConfigDataBaseTypeException;
 import org.jtester.helper.StringHelper;
-import org.jtester.module.core.helper.ConfigurationHelper;
 import org.jtester.module.database.support.Db2DbSupport;
 import org.jtester.module.database.support.DbSupport;
 import org.jtester.module.database.support.DerbyDbSupport;

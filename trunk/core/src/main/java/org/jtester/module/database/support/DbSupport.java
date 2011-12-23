@@ -26,8 +26,8 @@ import java.sql.SQLException;
 import java.util.Properties;
 import java.util.Set;
 
+import org.jtester.core.helper.ConfigurationHelper;
 import org.jtester.exception.JTesterException;
-import org.jtester.module.core.helper.ConfigurationHelper;
 import org.jtester.module.utils.StoredIdentifierCase;
 
 /**

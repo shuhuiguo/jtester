@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 import org.jtester.core.IJTester;
-import org.jtester.module.core.helper.ConfigurationHelper;
+import org.jtester.core.helper.ConfigurationHelper;
 import org.jtester.module.database.JTesterDataSource;
 import org.jtester.module.database.util.DataSourceType;
 import org.testng.annotations.Test;

@@ -6,7 +6,8 @@ import mockit.internal.RedefinitionEngine;
 
 import org.jtester.annotations.SpringApplicationContext;
 import org.jtester.core.TestedContext;
-import org.jtester.exception.JTesterException;
+import org.jtester.core.TransactionHelper;
+import org.jtester.core.helper.ModulesManager;
 import org.jtester.helper.AnnotationHelper;
 import org.jtester.helper.ClazzHelper;
 import org.jtester.helper.LogHelper;
@@ -29,7 +30,7 @@ public class SpringModuleHelper {
 	 * @return
 	 */
 	public static Object getBeanByName(String beanname) {
-		BeanFactory factory = (BeanFactory) TestedContext.getSpringBeanFactory();
+		BeanFactory factory = (BeanFactory) TransactionHelper.getSpringBeanFactory();
 		if (factory == null) {
 			throw new RuntimeException("can't find SpringApplicationContext for tested class:"
 					+ TestedContext.currTestedClazzName());
@@ -66,7 +67,7 @@ public class SpringModuleHelper {
 	 */
 	@SuppressWarnings("rawtypes")
 	public static JTesterSpringContext initSpringContext(Class testClazz, ApplicationContextFactory contextFactory) {
-		JTesterSpringContext springContext = TestedContext.getSpringContext();
+		JTesterSpringContext springContext = TransactionHelper.getSpringContext();
 		if (springContext != null) {
 			return springContext;
 		}
@@ -87,7 +88,7 @@ public class SpringModuleHelper {
 		LogHelper.warn(String.format("take %d ms to init spring context for test obejct[%s]", duration,
 				testClazz.getName()));
 
-		TestedContext.setSpringContext(springContext);
+		TransactionHelper.setSpringContext(springContext);
 		return springContext;
 	}
 

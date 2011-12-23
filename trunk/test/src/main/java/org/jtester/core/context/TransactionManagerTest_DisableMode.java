@@ -4,11 +4,11 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
+import org.jtester.annotation.Transactional;
+import org.jtester.annotation.Transactional.TransactionMode;
 import org.jtester.annotations.DbFit;
 import org.jtester.annotations.SpringApplicationContext;
 import org.jtester.annotations.SpringBeanByName;
-import org.jtester.annotations.Transactional;
-import org.jtester.annotations.Transactional.TransactionMode;
 import org.jtester.fortest.beans.User;
 import org.jtester.fortest.service.UserService;
 import org.jtester.testng.JTester;

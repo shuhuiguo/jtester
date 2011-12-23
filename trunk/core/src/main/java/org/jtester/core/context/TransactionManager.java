@@ -7,7 +7,7 @@ import static org.jtester.annotations.Transactional.TransactionMode.DISABLED;
 import javax.sql.DataSource;
 
 import org.jtester.annotations.Transactional.TransactionMode;
-import org.jtester.core.TestedContext;
+import org.jtester.core.TransactionHelper;
 import org.jtester.exception.UnConfigDataBaseTypeException;
 import org.jtester.helper.LogHelper;
 import org.jtester.module.database.environment.DBEnvironment;
@@ -60,7 +60,7 @@ public class TransactionManager {
 	 * End an already existed transaction and remove it.
 	 */
 	public void endTransaction() {
-		TransactionMode mode = TestedContext.getTransactionMode();
+		TransactionMode mode = TransactionHelper.getTransactionMode();
 		if (mode == null || mode == DISABLED || mode == DEFAULT) {
 			return;
 		}
@@ -70,7 +70,7 @@ public class TransactionManager {
 			rollback();
 		}
 	}
-	
+
 	public void forceEnd() {
 		commit();
 	}

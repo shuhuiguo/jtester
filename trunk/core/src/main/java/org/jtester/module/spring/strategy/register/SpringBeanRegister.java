@@ -5,12 +5,12 @@ import java.util.Queue;
 import java.util.Set;
 
 import org.jtester.annotations.Property;
+import org.jtester.core.helper.ModulesManager;
 import org.jtester.exception.FindBeanImplClassException;
 import org.jtester.helper.ClazzHelper;
 import org.jtester.helper.StringHelper;
 import org.jtester.module.core.JMockitModule;
 import org.jtester.module.core.helper.JMockitModuleHelper;
-import org.jtester.module.core.helper.ModulesManager;
 import org.springframework.beans.PropertyValue;
 import org.springframework.beans.factory.config.RuntimeBeanReference;
 import org.springframework.beans.factory.support.RootBeanDefinition;

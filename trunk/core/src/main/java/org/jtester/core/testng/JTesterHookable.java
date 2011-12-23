@@ -4,12 +4,12 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import org.jtester.core.IJTester;
-import org.jtester.core.ListenerExecutor;
+import org.jtester.core.TestListener;
 import org.jtester.core.TestedContext;
+import org.jtester.core.helper.ListenerExecutor;
+import org.jtester.core.helper.ModulesManager;
 import org.jtester.exception.ExceptionWrapper;
-import org.jtester.module.TestListener;
 import org.jtester.module.core.JMockitModule;
-import org.jtester.module.core.helper.ModulesManager;
 import org.testng.IHookCallBack;
 import org.testng.IHookable;
 import org.testng.ITestContext;

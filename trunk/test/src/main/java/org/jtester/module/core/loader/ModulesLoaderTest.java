@@ -5,7 +5,7 @@ import java.util.List;
 
 import mockit.Mock;
 
-import org.jtester.module.core.helper.ConfigurationHelper;
+import org.jtester.core.helper.ConfigurationHelper;
 import org.jtester.testng.JTester;
 import org.testng.annotations.Test;
 

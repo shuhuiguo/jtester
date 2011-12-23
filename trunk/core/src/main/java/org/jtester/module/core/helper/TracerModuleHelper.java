@@ -7,6 +7,7 @@ import java.io.InputStream;
 import java.lang.reflect.Method;
 import java.net.URLEncoder;
 
+import org.jtester.core.helper.ConfigurationHelper;
 import org.jtester.helper.ResourceHelper;
 import org.jtester.helper.StringHelper;
 

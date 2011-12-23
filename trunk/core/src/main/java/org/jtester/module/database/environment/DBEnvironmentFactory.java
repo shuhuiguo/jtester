@@ -1,11 +1,11 @@
 package org.jtester.module.database.environment;
 
-import static org.jtester.module.core.helper.ConfigurationHelper.PROPKEY_DATABASE_TYPE;
-import static org.jtester.module.core.helper.ConfigurationHelper.PROPKEY_DATASOURCE_DRIVERCLASSNAME;
-import static org.jtester.module.core.helper.ConfigurationHelper.PROPKEY_DATASOURCE_PASSWORD;
-import static org.jtester.module.core.helper.ConfigurationHelper.PROPKEY_DATASOURCE_SCHEMAS;
-import static org.jtester.module.core.helper.ConfigurationHelper.PROPKEY_DATASOURCE_URL;
-import static org.jtester.module.core.helper.ConfigurationHelper.PROPKEY_DATASOURCE_USERNAME;
+import static org.jtester.core.helper.ConfigurationHelper.PROPKEY_DATABASE_TYPE;
+import static org.jtester.core.helper.ConfigurationHelper.PROPKEY_DATASOURCE_DRIVERCLASSNAME;
+import static org.jtester.core.helper.ConfigurationHelper.PROPKEY_DATASOURCE_PASSWORD;
+import static org.jtester.core.helper.ConfigurationHelper.PROPKEY_DATASOURCE_SCHEMAS;
+import static org.jtester.core.helper.ConfigurationHelper.PROPKEY_DATASOURCE_URL;
+import static org.jtester.core.helper.ConfigurationHelper.PROPKEY_DATASOURCE_USERNAME;
 
 import static org.jtester.module.database.environment.DBEnvironment.CUSTOMIZED_DATASOURCE_NAME;
 import static org.jtester.module.database.environment.DBEnvironment.DEFAULT_DATASOURCE_FROM;
@@ -18,9 +18,9 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.UUID;
 
+import org.jtester.core.helper.ConfigurationHelper;
 import org.jtester.helper.ResourceHelper;
 import org.jtester.helper.StringHelper;
-import org.jtester.module.core.helper.ConfigurationHelper;
 import org.jtester.module.database.environment.impl.DerbyEnvironment;
 import org.jtester.module.database.environment.impl.MySqlEnvironment;
 import org.jtester.module.database.environment.impl.OracleEnvironment;

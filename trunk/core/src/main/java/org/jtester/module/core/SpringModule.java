@@ -2,9 +2,11 @@ package org.jtester.module.core;
 
 import java.lang.reflect.Method;
 
+import org.jtester.core.Module;
+import org.jtester.core.TestListener;
 import org.jtester.core.TestedContext;
-import org.jtester.module.TestListener;
-import org.jtester.module.core.helper.ConfigurationHelper;
+import org.jtester.core.TransactionHelper;
+import org.jtester.core.helper.ConfigurationHelper;
 import org.jtester.module.core.helper.SpringModuleHelper;
 import org.jtester.module.spring.ApplicationContextFactory;
 import org.jtester.module.spring.JTesterBeanFactory;
@@ -17,7 +19,8 @@ public class SpringModule implements Module {
 
 	/**
 	 * 根据配置初始化ApplicationContextFactory <br>
-	 * <br> {@inheritDoc}
+	 * <br>
+	 * {@inheritDoc}
 	 */
 	public void init() {
 		contextFactory = ConfigurationHelper.getInstance(SPRING_APPLICATION_CONTEXT_FACTORY_CLASS_NAME);
@@ -34,9 +37,9 @@ public class SpringModule implements Module {
 	 */
 	public void invalidateApplicationContext() {
 		Class testClazz = TestedContext.currTestedClazz();
-		TestedContext.removeSpringContext();
+		TransactionHelper.removeSpringContext();
 		JTesterSpringContext springContext = SpringModuleHelper.initSpringContext(testClazz, this.contextFactory);
-		TestedContext.setSpringContext(springContext);
+		TransactionHelper.setSpringContext(springContext);
 	}
 
 	public TestListener getTestListener() {
@@ -50,18 +53,19 @@ public class SpringModule implements Module {
 		@Override
 		public void beforeClass(Class testClazz) {
 			SpringModuleHelper.resetDumpReference();
-			
+
 			JTesterSpringContext springContext = SpringModuleHelper.initSpringContext(testClazz, contextFactory);
-			TestedContext.setSpringContext(springContext);
+			TransactionHelper.setSpringContext(springContext);
 		}
 
 		/**
 		 * 重新注入spring bean,避免字段的值受上个测试的影响<br>
-		 * <br> {@inheritDoc}
+		 * <br>
+		 * {@inheritDoc}
 		 */
 		@Override
 		public void beforeMethod(Object testObject, Method testMethod) {
-			JTesterBeanFactory beanFactory = (JTesterBeanFactory) TestedContext.getSpringBeanFactory();
+			JTesterBeanFactory beanFactory = (JTesterBeanFactory) TransactionHelper.getSpringBeanFactory();
 			if (beanFactory != null) {
 				SpringBeanInjector.injectSpringBeans(beanFactory, testObject);
 			}
@@ -69,7 +73,7 @@ public class SpringModule implements Module {
 
 		@Override
 		public void afterClass(Object testedObject) {
-			TestedContext.removeSpringContext();
+			TransactionHelper.removeSpringContext();
 		}
 
 		@Override

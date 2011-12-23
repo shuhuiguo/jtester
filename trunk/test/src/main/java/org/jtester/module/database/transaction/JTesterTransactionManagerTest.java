@@ -1,16 +1,16 @@
 package org.jtester.module.database.transaction;
 
+import org.jtester.annotation.Transactional;
+import org.jtester.annotation.Transactional.TransactionMode;
 import org.jtester.annotations.AutoBeanInject;
 import org.jtester.annotations.DbFit;
 import org.jtester.annotations.SpringApplicationContext;
 import org.jtester.annotations.SpringBeanByName;
-import org.jtester.annotations.Transactional;
 import org.jtester.fortest.beans.User;
 import org.jtester.fortest.service.UserService;
 import org.jtester.testng.JTester;
 import org.testng.annotations.Test;
 import org.jtester.annotations.AutoBeanInject.BeanMap;
-import org.jtester.annotations.Transactional.TransactionMode;
 
 @SpringApplicationContext({ "org/jtester/module/spring/testedbeans/xml/data-source.xml" })
 @AutoBeanInject(maps = { @BeanMap(intf = "**.*Service", impl = "**.*ServiceImpl"),

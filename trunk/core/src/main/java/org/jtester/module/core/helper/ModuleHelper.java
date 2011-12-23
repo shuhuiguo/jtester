@@ -7,9 +7,10 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.jtester.core.Module;
+import org.jtester.core.helper.ConfigurationHelper;
 import org.jtester.exception.JTesterException;
 import org.jtester.helper.ClazzHelper;
-import org.jtester.module.core.Module;
 
 /**
  * Class containing utility methods for module specific configuration. Contains

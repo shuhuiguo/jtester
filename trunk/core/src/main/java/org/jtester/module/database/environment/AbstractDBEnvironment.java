@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
 
 import javax.sql.DataSource;
 
-import org.jtester.core.TestedContext;
+import org.jtester.core.TransactionHelper;
 import org.jtester.core.context.DbFitContext;
 import org.jtester.core.context.DbFitContext.RunIn;
 import org.jtester.exception.ExceptionWrapper;
@@ -99,7 +99,7 @@ public abstract class AbstractDBEnvironment implements DBEnvironment {
 		RunIn runIn = DbFitContext.getRunIn();
 		if (runIn == RunIn.TestCase) {
 			boolean springAvailable = ClazzHelper.isClassAvailable(ClazzConst.Spring_DataSourceUtils);
-			hasTransaction = springAvailable && TestedContext.isTransactionsEnabled();
+			hasTransaction = springAvailable && TransactionHelper.isTransactionsEnabled();
 		}
 		this.dataSourceProxy = getDataSource(hasTransaction);
 

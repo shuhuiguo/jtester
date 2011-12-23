@@ -5,16 +5,16 @@ import java.util.List;
 
 import mockit.internal.RedefinitionEngine;
 
+import org.jtester.core.CoreModule;
 import org.jtester.core.JTesterHelper;
-import org.jtester.core.ListenerExecutor;
 import org.jtester.core.TestedContext;
+import org.jtester.core.helper.ListenerExecutor;
 import org.jtester.core.testng.JTesterHookable;
 import org.jtester.core.testng.MockTestNGMethodFinder;
 import org.jtester.exception.ExceptionWrapper;
 import org.jtester.fit.ErrorRecorder;
 import org.jtester.helper.ArrayHelper;
 import org.jtester.helper.ListHelper;
-import org.jtester.module.core.CoreModule;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;

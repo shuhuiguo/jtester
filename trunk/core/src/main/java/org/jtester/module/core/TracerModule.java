@@ -3,8 +3,9 @@ package org.jtester.module.core;
 import java.lang.reflect.Method;
 
 import org.jtester.annotations.Tracer;
+import org.jtester.core.Module;
+import org.jtester.core.TestListener;
 import org.jtester.helper.AnnotationHelper;
-import org.jtester.module.TestListener;
 import org.jtester.module.tracer.TracerManager;
 
 public class TracerModule implements Module {

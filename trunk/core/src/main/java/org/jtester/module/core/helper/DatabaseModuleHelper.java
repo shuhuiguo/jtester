@@ -1,5 +1,6 @@
 package org.jtester.module.core.helper;
 
+import org.jtester.core.helper.ModulesManager;
 import org.jtester.module.core.DatabaseModule;
 
 /**

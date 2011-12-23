@@ -11,9 +11,9 @@ import java.util.Set;
 import javax.sql.DataSource;
 
 import org.apache.commons.dbcp.BasicDataSource;
+import org.jtester.core.ConfigurationConst;
+import org.jtester.core.helper.ConfigurationHelper;
 import org.jtester.helper.LogHelper;
-import org.jtester.module.core.ConfigurationConst;
-import org.jtester.module.core.helper.ConfigurationHelper;
 import org.jtester.module.database.util.DataSourceType;
 import org.jtester.module.tracer.jdbc.ConnectionProxy;
 

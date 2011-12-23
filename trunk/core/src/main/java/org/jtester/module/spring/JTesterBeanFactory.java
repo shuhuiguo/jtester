@@ -2,8 +2,8 @@ package org.jtester.module.spring;
 
 import javax.sql.DataSource;
 
+import org.jtester.core.helper.ConfigurationHelper;
 import org.jtester.helper.LogHelper;
-import org.jtester.module.core.helper.ConfigurationHelper;
 import org.jtester.module.database.environment.DBEnvironmentFactory;
 import org.jtester.module.tracer.TracerBeanManager;
 import org.springframework.beans.BeansException;

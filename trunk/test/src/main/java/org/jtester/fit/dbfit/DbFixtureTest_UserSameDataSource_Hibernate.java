@@ -1,14 +1,14 @@
 package org.jtester.fit.dbfit;
 
+import org.jtester.annotation.Transactional;
+import org.jtester.annotation.Transactional.TransactionMode;
 import org.jtester.annotations.DbFit;
 import org.jtester.annotations.SpringApplicationContext;
 import org.jtester.annotations.SpringBeanByType;
-import org.jtester.annotations.Transactional;
 import org.jtester.fortest.hibernate.User;
 import org.jtester.fortest.hibernate.UserService;
 import org.jtester.testng.JTester;
 import org.testng.annotations.Test;
-import org.jtester.annotations.Transactional.TransactionMode;
 
 
 @SpringApplicationContext({ "classpath:/org/jtester/fortest/hibernate/project.xml" })

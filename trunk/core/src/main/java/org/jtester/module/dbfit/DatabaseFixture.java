@@ -3,7 +3,7 @@ package org.jtester.module.dbfit;
 import java.io.FileNotFoundException;
 import java.sql.SQLException;
 
-import org.jtester.core.TestedContext;
+import org.jtester.core.TransactionHelper;
 import org.jtester.core.context.DbFitContext;
 import org.jtester.core.context.DbFitContext.RunIn;
 import org.jtester.core.dbfit.DbFitOp;
@@ -50,7 +50,7 @@ public class DatabaseFixture extends SequenceFixture implements DbFitOp {
 				return;
 			}
 			RunIn runIn = DbFitContext.getRunIn();
-			boolean isEnabledTransaction = TestedContext.isTransactionsEnabled();
+			boolean isEnabledTransaction = TransactionHelper.isTransactionsEnabled();
 			if (runIn == RunIn.TestCase) {
 				LogHelper.info("run in testcase, isEnabledTransaction:" + isEnabledTransaction);
 			}

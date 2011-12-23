@@ -6,11 +6,12 @@ import javax.sql.DataSource;
 
 import org.jtester.annotations.Transactional;
 import org.jtester.annotations.Transactional.TransactionMode;
-import org.jtester.core.TestedContext;
+import org.jtester.core.Module;
+import org.jtester.core.TestListener;
+import org.jtester.core.TransactionHelper;
 import org.jtester.core.context.TransactionManager;
+import org.jtester.core.helper.ConfigurationHelper;
 import org.jtester.helper.LogHelper;
-import org.jtester.module.TestListener;
-import org.jtester.module.core.helper.ConfigurationHelper;
 import org.jtester.module.database.environment.DBEnvironmentFactory;
 import org.jtester.module.database.support.DefaultSQLHandler;
 import org.jtester.module.database.support.SQLHandler;
@@ -110,14 +111,15 @@ public class DatabaseModule implements Module {
 
 		/**
 		 * 初始化测试方法的事务<br>
-		 * <br> {@inheritDoc}
+		 * <br>
+		 * {@inheritDoc}
 		 */
 		@Override
 		public void beforeMethod(Object testObject, Method testMethod) {
-			TestedContext.setLocalTransactionManager();
-		
-			boolean isEnabledTransaction = TestedContext.isTransactionsEnabled();
-			TransactionManager transaction = TestedContext.getLocalTransactionManager();
+			TransactionHelper.setLocalTransactionManager();
+
+			boolean isEnabledTransaction = TransactionHelper.isTransactionsEnabled();
+			TransactionManager transaction = TransactionHelper.getLocalTransactionManager();
 			if (isEnabledTransaction && transaction != null) {
 				transaction.startTransaction();
 			}
@@ -125,17 +127,18 @@ public class DatabaseModule implements Module {
 
 		/**
 		 * 移除测试方法的事务<br>
-		 * <br>{@inheritDoc}
+		 * <br>
+		 * {@inheritDoc}
 		 */
 		@Override
 		public void afterMethod(Object testObject, Method testMethod) {
-			boolean isEnabledTransaction = TestedContext.isTransactionsEnabled();
-			TransactionManager transaction = TestedContext.getLocalTransactionManager();
+			boolean isEnabledTransaction = TransactionHelper.isTransactionsEnabled();
+			TransactionManager transaction = TransactionHelper.getLocalTransactionManager();
 			if (isEnabledTransaction && transaction != null) {
 				transaction.endTransaction();
 			}
-			
-			TestedContext.removeLocalTransactionManager();
+
+			TransactionHelper.removeLocalTransactionManager();
 		}
 
 		@Override

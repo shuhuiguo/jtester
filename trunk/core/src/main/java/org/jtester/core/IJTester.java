@@ -90,7 +90,4 @@ public interface IJTester extends IAssertion {
 			}
 		}
 	}
-
-	public static class DataIterator extends DataProviderIterator {
-	}
 }

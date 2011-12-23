@@ -1,10 +1,10 @@
-package org.jtester.core;
+package org.jtester.core.helper;
 
 import java.lang.reflect.Method;
 
+import org.jtester.core.CoreModule;
+import org.jtester.core.TestListener;
 import org.jtester.helper.LogHelper;
-import org.jtester.module.TestListener;
-import org.jtester.module.core.CoreModule;
 
 /**
  * jTester Listener执行器

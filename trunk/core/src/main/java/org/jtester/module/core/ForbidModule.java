@@ -6,9 +6,10 @@ import java.util.List;
 
 import mockit.internal.startup.Startup;
 
+import org.jtester.core.Module;
+import org.jtester.core.TestListener;
+import org.jtester.core.helper.ConfigurationHelper;
 import org.jtester.helper.LogHelper;
-import org.jtester.module.TestListener;
-import org.jtester.module.core.helper.ConfigurationHelper;
 
 @SuppressWarnings("rawtypes")
 public class ForbidModule implements Module {

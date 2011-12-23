@@ -1,6 +1,6 @@
 package org.jtester.core.testng;
 
-import org.jtester.core.DataProviderIterator;
+import org.jtester.beans.DataProviderIterator;
 import org.jtester.testng.JTester;
 import org.testng.annotations.Test;
 
