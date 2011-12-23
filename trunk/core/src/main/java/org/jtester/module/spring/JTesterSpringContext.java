@@ -2,11 +2,11 @@ package org.jtester.module.spring;
 
 import org.jtester.annotations.Tracer;
 import org.jtester.core.TestedContext;
+import org.jtester.helper.AnnotationHelper;
+import org.jtester.helper.LogHelper;
 import org.jtester.module.core.helper.SpringModuleHelper;
 import org.jtester.module.core.helper.TracerModuleHelper;
 import org.jtester.module.spring.strategy.register.RegisterDynamicBean;
-import org.jtester.utility.AnnotationUtils;
-import org.jtester.utility.LogHelper;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
@@ -61,7 +61,7 @@ public class JTesterSpringContext extends ClassPathXmlApplicationContext {
 
 		// 是否定义bean输入输出跟踪日志
 		boolean traceSpringBean = TracerModuleHelper.traceSpringBean();
-		Tracer tracer = AnnotationUtils.getClassLevelAnnotation(Tracer.class, testedClazz);
+		Tracer tracer = AnnotationHelper.getClassLevelAnnotation(Tracer.class, testedClazz);
 		if ((tracer == null && traceSpringBean) || (tracer != null && tracer.spring())) {
 			SpringModuleHelper.addTracerBeanDefinition(beanFactory);
 		}

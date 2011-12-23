@@ -3,9 +3,9 @@ package org.jtester.module.core;
 import java.lang.reflect.Method;
 
 import org.jtester.annotations.Tracer;
+import org.jtester.helper.AnnotationHelper;
 import org.jtester.module.TestListener;
 import org.jtester.module.tracer.TracerManager;
-import org.jtester.utility.AnnotationUtils;
 
 public class TracerModule implements Module {
 	public void init() {
@@ -21,7 +21,7 @@ public class TracerModule implements Module {
 	protected class TracerTestListener extends TestListener {
 		@Override
 		public void beforeRunning(Object testObject, Method testMethod) {
-			Tracer tracer = AnnotationUtils.getMethodOrClassLevelAnnotation(Tracer.class, testMethod,
+			Tracer tracer = AnnotationHelper.getMethodOrClassLevelAnnotation(Tracer.class, testMethod,
 					testObject.getClass());
 			TracerManager.startTracer(tracer, testObject.getClass(), testMethod);
 		}

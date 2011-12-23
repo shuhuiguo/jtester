@@ -8,6 +8,8 @@ import org.jtester.core.context.DbFitContext;
 import org.jtester.core.context.DbFitContext.RunIn;
 import org.jtester.core.dbfit.DbFitOp;
 import org.jtester.fit.util.SymbolUtil;
+import org.jtester.helper.DateHelper;
+import org.jtester.helper.LogHelper;
 import org.jtester.module.database.environment.DBEnvironment;
 import org.jtester.module.database.environment.DBEnvironmentFactory;
 import org.jtester.module.database.util.SqlRunner;
@@ -22,8 +24,6 @@ import org.jtester.module.dbfit.db.fixture.QueryStatsFixture;
 import org.jtester.module.dbfit.db.fixture.StoreQueryFixture;
 import org.jtester.module.dbfit.db.fixture.StoreQueryTableFixture;
 import org.jtester.module.dbfit.db.fixture.UpdateFixture;
-import org.jtester.utility.DateUtil;
-import org.jtester.utility.LogHelper;
 
 import fit.Fixture;
 import fitlibrary.SequenceFixture;
@@ -119,7 +119,7 @@ public class DatabaseFixture extends SequenceFixture implements DbFitOp {
 	 * @return
 	 */
 	public boolean setDateTimeFormat(String format) {
-		String datetime = DateUtil.currDateTimeStr(format);
+		String datetime = DateHelper.currDateTimeStr(format);
 		DbFixtureUtil.setParameter("datetime", datetime);
 		return true;
 	}
@@ -131,7 +131,7 @@ public class DatabaseFixture extends SequenceFixture implements DbFitOp {
 	 * @return
 	 */
 	public boolean setDateFormat(String format) {
-		String date = DateUtil.currDateTimeStr(format);
+		String date = DateHelper.currDateTimeStr(format);
 		DbFixtureUtil.setParameter("date", date);
 		return true;
 	}

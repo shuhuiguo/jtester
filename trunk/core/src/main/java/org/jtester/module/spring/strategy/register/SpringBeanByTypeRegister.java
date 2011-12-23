@@ -4,14 +4,14 @@ import java.lang.reflect.Field;
 import java.util.Set;
 
 import org.jtester.annotations.SpringBeanByType;
-import org.jtester.utility.AnnotationUtils;
+import org.jtester.helper.AnnotationHelper;
 
 @SuppressWarnings({ "unchecked", "rawtypes" })
 class SpringBeanByTypeRegister extends SpringBeanRegister {
 
 	@Override
 	protected Set<Field> getRegisterField(Class testedClazz) {
-		Set<Field> fields = AnnotationUtils.getFieldsAnnotatedWith(testedClazz, SpringBeanByType.class);
+		Set<Field> fields = AnnotationHelper.getFieldsAnnotatedWith(testedClazz, SpringBeanByType.class);
 		return fields;
 	}
 

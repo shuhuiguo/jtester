@@ -11,6 +11,8 @@ import org.jtester.annotations.FitVar;
 import org.jtester.core.context.DbFitContext;
 import org.jtester.core.context.DbFitContext.RunIn;
 import org.jtester.fit.util.SymbolUtil;
+import org.jtester.helper.AnnotationHelper;
+import org.jtester.helper.LogHelper;
 import org.jtester.module.TestListener;
 import org.jtester.module.database.environment.DBEnvironment;
 import org.jtester.module.database.environment.DBEnvironmentFactory;
@@ -18,8 +20,6 @@ import org.jtester.module.database.util.SqlRunner;
 import org.jtester.module.dbfit.AutoFindDbFit;
 import org.jtester.module.dbfit.DbFitRunner;
 import org.jtester.module.tracer.jdbc.JdbcTracerManager;
-import org.jtester.utility.AnnotationUtils;
-import org.jtester.utility.LogHelper;
 
 @SuppressWarnings("rawtypes")
 public class DbFitModule implements Module {
@@ -100,7 +100,7 @@ public class DbFitModule implements Module {
 	protected class DbFitTestListener extends TestListener {
 		@Override
 		public void beforeClass(Class testClazz) {
-			DbFit dbFit = AnnotationUtils.getClassLevelAnnotation(DbFit.class, testClazz);
+			DbFit dbFit = AnnotationHelper.getClassLevelAnnotation(DbFit.class, testClazz);
 			if (dbFit == null) {
 				return;
 			}

@@ -2,10 +2,10 @@ package org.jtester.utility;
 
 import java.lang.reflect.Field;
 
+import org.jtester.helper.FieldHelper;
 import org.jtester.reflector.imposteriser.ClassImposteriser;
 import org.jtester.reflector.imposteriser.Imposteriser;
 import org.jtester.reflector.imposteriser.Invokable;
-import org.jtester.utility.FieldHelper;
 
 @SuppressWarnings({ "rawtypes", "unchecked" })
 public final class JTesterProxy {

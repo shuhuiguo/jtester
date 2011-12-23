@@ -8,13 +8,13 @@ import org.jtester.annotations.Transactional;
 import org.jtester.annotations.Transactional.TransactionMode;
 import org.jtester.core.TestedContext;
 import org.jtester.core.context.TransactionManager;
+import org.jtester.helper.LogHelper;
 import org.jtester.module.TestListener;
 import org.jtester.module.core.helper.ConfigurationHelper;
 import org.jtester.module.database.environment.DBEnvironmentFactory;
 import org.jtester.module.database.support.DefaultSQLHandler;
 import org.jtester.module.database.support.SQLHandler;
 import org.jtester.module.database.util.ConstraintsDisabler;
-import org.jtester.utility.LogHelper;
 import org.springframework.transaction.PlatformTransactionManager;
 
 import com.ibatis.sqlmap.engine.datasource.DataSourceFactory;

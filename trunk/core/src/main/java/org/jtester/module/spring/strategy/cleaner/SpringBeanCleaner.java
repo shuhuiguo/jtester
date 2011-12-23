@@ -1,6 +1,6 @@
 package org.jtester.module.spring.strategy.cleaner;
 
-import static org.jtester.utility.AnnotationUtils.getFieldsAnnotatedWith;
+import static org.jtester.helper.AnnotationHelper.getFieldsAnnotatedWith;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
@@ -9,7 +9,7 @@ import java.util.Set;
 import org.jtester.annotations.SpringBeanByName;
 import org.jtester.annotations.SpringBeanByType;
 import org.jtester.exception.JTesterException;
-import org.jtester.utility.FieldHelper;
+import org.jtester.helper.FieldHelper;
 
 @SuppressWarnings({ "unchecked", "rawtypes" })
 public class SpringBeanCleaner {

@@ -18,9 +18,9 @@ package org.jtester.module.core.loader;
 import java.util.Properties;
 
 import org.jtester.exception.JTesterException;
+import org.jtester.helper.LogHelper;
 import org.jtester.module.core.helper.ConfigurationHelper;
 import org.jtester.module.utils.PropertiesReader;
-import org.jtester.utility.LogHelper;
 
 import ext.jtester.commons.StrSubstitutor;
 

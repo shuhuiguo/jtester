@@ -24,7 +24,7 @@ import org.jtester.hamcrest.matcher.property.difference.Difference;
 import org.jtester.hamcrest.matcher.property.difference.UnorderedCollectionDifference;
 import org.jtester.hamcrest.matcher.property.reflection.MatchingScoreCalculator;
 import org.jtester.hamcrest.matcher.property.reflection.ReflectionComparator;
-import org.jtester.utility.ListHelper;
+import org.jtester.helper.ListHelper;
 
 /**
  * A comparator for collections and arrays that ignores the order of both

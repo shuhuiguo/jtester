@@ -6,13 +6,13 @@ import java.util.Map;
 
 import org.jtester.exception.NoMatchingRowFoundException;
 import org.jtester.fit.util.ParseArg;
+import org.jtester.helper.PrimitiveHelper;
 import org.jtester.module.database.environment.normalise.NameNormaliser;
 import org.jtester.module.dbfit.db.model.DataColumn;
 import org.jtester.module.dbfit.db.model.DataRow;
 import org.jtester.module.dbfit.db.model.DataTable;
 import org.jtester.module.dbfit.db.model.DbTypeAdapter;
 import org.jtester.module.dbfit.db.model.SymbolAccessQueryBinding;
-import org.jtester.utility.PrimitiveHelper;
 
 import fit.Binding;
 import fit.ColumnFixture;

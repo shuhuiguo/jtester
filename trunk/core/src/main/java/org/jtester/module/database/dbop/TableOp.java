@@ -11,11 +11,11 @@ import org.jtester.hamcrest.iassert.object.impl.ObjectAssert;
 import org.jtester.hamcrest.iassert.object.intf.ICollectionAssert;
 import org.jtester.hamcrest.iassert.object.intf.INumberAssert;
 import org.jtester.hamcrest.iassert.object.intf.IObjectAssert;
+import org.jtester.helper.StringHelper;
 import org.jtester.json.JSON;
 import org.jtester.module.database.dbop.AbstractDataSet.EmptyDataSet;
 import org.jtester.module.database.util.DBHelper;
 import org.jtester.module.database.util.SqlRunner;
-import org.jtester.utility.StringHelper;
 
 @SuppressWarnings({ "unchecked", "rawtypes" })
 public class TableOp implements ITableOp {

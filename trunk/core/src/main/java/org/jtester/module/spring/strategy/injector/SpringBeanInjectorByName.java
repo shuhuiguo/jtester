@@ -1,6 +1,6 @@
 package org.jtester.module.spring.strategy.injector;
 
-import static org.jtester.utility.AnnotationUtils.getFieldsAnnotatedWith;
+import static org.jtester.helper.AnnotationHelper.getFieldsAnnotatedWith;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
@@ -9,9 +9,9 @@ import java.util.Set;
 import org.jtester.annotations.SpringApplicationContext;
 import org.jtester.annotations.SpringBeanByName;
 import org.jtester.exception.JTesterException;
+import org.jtester.helper.FieldHelper;
+import org.jtester.helper.StringHelper;
 import org.jtester.module.spring.JTesterBeanFactory;
-import org.jtester.utility.FieldHelper;
-import org.jtester.utility.StringHelper;
 
 @SuppressWarnings({ "unchecked", "rawtypes" })
 class SpringBeanInjectorByName extends SpringBeanInjector {

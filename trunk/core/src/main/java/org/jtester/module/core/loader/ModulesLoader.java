@@ -1,18 +1,18 @@
 package org.jtester.module.core.loader;
 
+import static org.jtester.helper.ClazzHelper.createInstanceOfType;
 import static org.jtester.module.core.ConfigurationConst.PROPKEY_MODULES;
-import static org.jtester.utility.ClazzHelper.createInstanceOfType;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.jtester.exception.JTesterException;
+import org.jtester.helper.ClazzHelper;
+import org.jtester.helper.LogHelper;
+import org.jtester.helper.StringHelper;
 import org.jtester.module.core.Module;
 import org.jtester.module.core.helper.ConfigurationHelper;
 import org.jtester.module.core.helper.ModulesManager;
-import org.jtester.utility.ClazzHelper;
-import org.jtester.utility.LogHelper;
-import org.jtester.utility.StringHelper;
 
 /**
  * A class for loading jTester modules.

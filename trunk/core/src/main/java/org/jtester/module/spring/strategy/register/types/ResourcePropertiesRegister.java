@@ -6,9 +6,9 @@ import java.util.Set;
 
 import javax.annotation.Resource;
 
+import org.jtester.helper.AnnotationHelper;
+import org.jtester.helper.StringHelper;
 import org.jtester.module.spring.strategy.register.RegisterBeanDefinition;
-import org.jtester.utility.AnnotationUtils;
-import org.jtester.utility.StringHelper;
 
 @SuppressWarnings({ "rawtypes", "unchecked" })
 public class ResourcePropertiesRegister extends PropertiesRegister {
@@ -19,7 +19,7 @@ public class ResourcePropertiesRegister extends PropertiesRegister {
 
 	@Override
 	public void registerProperties(Queue<Class> registedBeanClazz) {
-		Set<Field> fields = AnnotationUtils.getFieldsAnnotatedWith(ownerClazz, Resource.class);
+		Set<Field> fields = AnnotationHelper.getFieldsAnnotatedWith(ownerClazz, Resource.class);
 		for (Field field : fields) {
 			Resource resource = field.getAnnotation(Resource.class);
 			String beanName = resource.name();

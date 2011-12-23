@@ -22,7 +22,7 @@ import java.util.List;
 import org.jtester.hamcrest.matcher.property.difference.CollectionDifference;
 import org.jtester.hamcrest.matcher.property.difference.Difference;
 import org.jtester.hamcrest.matcher.property.reflection.ReflectionComparator;
-import org.jtester.utility.ListHelper;
+import org.jtester.helper.ListHelper;
 
 /**
  * Comparator for collections and arrays. All elements are compared in the same

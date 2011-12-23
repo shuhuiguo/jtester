@@ -8,6 +8,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 import org.jtester.exception.JTesterException;
+import org.jtester.helper.ClazzHelper;
+import org.jtester.helper.ResourceHelper;
 import org.jtester.json.JSON;
 
 /**

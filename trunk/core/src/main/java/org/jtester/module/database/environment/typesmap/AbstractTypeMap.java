@@ -10,8 +10,8 @@ import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.jtester.utility.DateUtil;
-import org.jtester.utility.PrimitiveHelper;
+import org.jtester.helper.DateHelper;
+import org.jtester.helper.PrimitiveHelper;
 
 @SuppressWarnings({ "rawtypes", "serial" })
 public abstract class AbstractTypeMap {
@@ -80,15 +80,15 @@ public abstract class AbstractTypeMap {
 			return new BigDecimal(input);
 		}
 		if (javaType == Date.class) {
-			long time = DateUtil.parse(input).getTime();
+			long time = DateHelper.parse(input).getTime();
 			return new Date(time);
 		}
 		if (javaType == Time.class) {
-			long time = DateUtil.parse(input).getTime();
+			long time = DateHelper.parse(input).getTime();
 			return new Time(time);
 		}
 		if (javaType == Timestamp.class) {
-			long time = DateUtil.parse(input).getTime();
+			long time = DateHelper.parse(input).getTime();
 			return new Timestamp(time);
 		}
 

@@ -4,9 +4,9 @@ import java.lang.reflect.Field;
 import java.util.Queue;
 import java.util.Set;
 
+import org.jtester.helper.AnnotationHelper;
+import org.jtester.helper.StringHelper;
 import org.jtester.module.spring.strategy.register.RegisterBeanDefinition;
-import org.jtester.utility.AnnotationUtils;
-import org.jtester.utility.StringHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
@@ -19,7 +19,7 @@ public class AutowiredPropertiesRegister extends PropertiesRegister {
 
 	@Override
 	public void registerProperties(Queue<Class> registedBeanClazz) {
-		Set<Field> fields = AnnotationUtils.getFieldsAnnotatedWith(ownerClazz, Autowired.class);
+		Set<Field> fields = AnnotationHelper.getFieldsAnnotatedWith(ownerClazz, Autowired.class);
 		for (Field field : fields) {
 			// Autowired autowired = field.getAnnotation(Autowired.class);
 			Qualifier qualifier = field.getAnnotation(Qualifier.class);

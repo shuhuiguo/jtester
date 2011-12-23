@@ -1,18 +1,18 @@
 package org.jtester.module.core;
 
-import static org.jtester.utility.AnnotationUtils.getFieldsAnnotatedWith;
+import static org.jtester.helper.AnnotationHelper.getFieldsAnnotatedWith;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.Set;
 
 import org.jtester.annotations.Inject;
+import org.jtester.helper.ClazzHelper;
+import org.jtester.helper.StringHelper;
 import org.jtester.module.TestListener;
 import org.jtester.module.core.helper.InjectionModuleHelper;
 import org.jtester.reflector.PropertyAccessor;
-import org.jtester.utility.ClazzHelper;
 import org.jtester.utility.JTesterProxy;
-import org.jtester.utility.StringHelper;
 
 @SuppressWarnings("rawtypes")
 public class InjectModule implements Module {

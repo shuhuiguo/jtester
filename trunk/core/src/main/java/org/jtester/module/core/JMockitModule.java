@@ -3,8 +3,8 @@ package org.jtester.module.core;
 import java.lang.reflect.Method;
 
 import org.jtester.core.Startup;
+import org.jtester.helper.LogHelper;
 import org.jtester.module.TestListener;
-import org.jtester.utility.LogHelper;
 
 public class JMockitModule implements Module {
 

@@ -2,7 +2,7 @@ package org.jtester.module.jmockit;
 
 import java.io.File;
 
-import org.jtester.utility.ClazzHelper;
+import org.jtester.helper.ClazzHelper;
 import org.jtester.utility.JsonHelper;
 
 import mockit.internal.expectations.transformation.ActiveInvocations;

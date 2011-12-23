@@ -9,10 +9,10 @@ import java.util.Set;
 import org.jtester.annotations.SpringBeanRemote;
 import org.jtester.annotations.SpringBeanRemote.SpringBeanRemoteType;
 import org.jtester.exception.JTesterException;
-import org.jtester.utility.AnnotationUtils;
-import org.jtester.utility.FieldHelper;
-import org.jtester.utility.LogHelper;
-import org.jtester.utility.StringHelper;
+import org.jtester.helper.AnnotationHelper;
+import org.jtester.helper.FieldHelper;
+import org.jtester.helper.LogHelper;
+import org.jtester.helper.StringHelper;
 import org.springframework.beans.MutablePropertyValues;
 import org.springframework.beans.factory.config.RuntimeBeanReference;
 import org.springframework.beans.factory.support.AbstractBeanDefinition;
@@ -43,7 +43,7 @@ public class RemoteInvokerRegister {
 	 */
 	public static void registerSpringBeanRemoteOnClient(final DefaultListableBeanFactory beanFactory,
 			final Class testedClazz) {
-		Set<Field> fields_HttpInvoker = AnnotationUtils.getFieldsAnnotatedWith(testedClazz, SpringBeanRemote.class);
+		Set<Field> fields_HttpInvoker = AnnotationHelper.getFieldsAnnotatedWith(testedClazz, SpringBeanRemote.class);
 		for (Field field : fields_HttpInvoker) {
 			SpringBeanRemote springBeanRemote = field.getAnnotation(SpringBeanRemote.class);
 			String beanID = springBeanRemote.value();
@@ -83,7 +83,7 @@ public class RemoteInvokerRegister {
 	 * @param testedObject
 	 */
 	public static void injectSpringBeanRemote(final ApplicationContext ctx, Object testedObject) {
-		Set<Field> fields_HttpInvoker = AnnotationUtils.getFieldsAnnotatedWith(testedObject.getClass(),
+		Set<Field> fields_HttpInvoker = AnnotationHelper.getFieldsAnnotatedWith(testedObject.getClass(),
 				SpringBeanRemote.class);
 		for (Field field : fields_HttpInvoker) {
 			SpringBeanRemote springBeanRemote = field.getAnnotation(SpringBeanRemote.class);

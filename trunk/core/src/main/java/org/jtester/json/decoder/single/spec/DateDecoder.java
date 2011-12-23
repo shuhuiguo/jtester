@@ -5,10 +5,10 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.jtester.helper.ClazzHelper;
+import org.jtester.helper.DateHelper;
 import org.jtester.json.decoder.single.SpecTypeDecoder;
 import org.jtester.json.helper.JSONSingle;
-import org.jtester.utility.ClazzHelper;
-import org.jtester.utility.DateUtil;
 
 @SuppressWarnings({ "rawtypes", "unchecked" })
 public class DateDecoder<T extends Date> extends SpecTypeDecoder<Date, T> {
@@ -46,7 +46,7 @@ public class DateDecoder<T extends Date> extends SpecTypeDecoder<Date, T> {
 			return time;
 		}
 		if (dateFormat == null) {
-			Date date = DateUtil.parse(value);
+			Date date = DateHelper.parse(value);
 			return date.getTime();
 		}
 		DateFormat df = new SimpleDateFormat(dateFormat);

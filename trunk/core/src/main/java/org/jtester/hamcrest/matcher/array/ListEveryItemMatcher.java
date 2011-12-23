@@ -3,7 +3,7 @@ package org.jtester.hamcrest.matcher.array;
 import java.util.Collection;
 
 import org.jtester.hamcrest.matcher.modes.ItemsMode;
-import org.jtester.utility.ListHelper;
+import org.jtester.helper.ListHelper;
 
 import ext.jtester.hamcrest.BaseMatcher;
 import ext.jtester.hamcrest.Description;

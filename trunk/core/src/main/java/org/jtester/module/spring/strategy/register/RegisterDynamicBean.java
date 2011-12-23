@@ -5,10 +5,10 @@ import java.util.Queue;
 
 import org.jtester.annotations.AutoBeanInject;
 import org.jtester.exception.FindBeanImplClassException;
+import org.jtester.helper.AnnotationHelper;
+import org.jtester.helper.StringHelper;
 import org.jtester.module.spring.ImplementorFinder;
 import org.jtester.module.spring.strategy.register.types.PropertiesRegister;
-import org.jtester.utility.AnnotationUtils;
-import org.jtester.utility.StringHelper;
 import org.springframework.beans.factory.support.AbstractBeanDefinition;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.support.RootBeanDefinition;
@@ -50,7 +50,7 @@ public class RegisterDynamicBean {
 		}
 		this.beanFactory = beanFactory;
 		this.testedClazz = testedClazz;
-		AutoBeanInject autoBeanInject = AnnotationUtils.getClassLevelAnnotation(AutoBeanInject.class, testedClazz);
+		AutoBeanInject autoBeanInject = AnnotationHelper.getClassLevelAnnotation(AutoBeanInject.class, testedClazz);
 		this.definitionRegister = new RegisterBeanDefinition(this.beanFactory, autoBeanInject);
 	}
 

@@ -1,6 +1,6 @@
 package org.jtester.module.spring;
 
-import static org.jtester.utility.AnnotationUtils.getFieldsAnnotatedWith;
+import static org.jtester.helper.AnnotationHelper.getFieldsAnnotatedWith;
 
 import java.lang.reflect.Field;
 import java.util.HashMap;
@@ -9,10 +9,10 @@ import java.util.Set;
 import org.jtester.annotations.SpringBeanFrom;
 import org.jtester.core.TestedContext;
 import org.jtester.exception.FindBeanImplClassException;
-import org.jtester.utility.FieldHelper;
+import org.jtester.helper.FieldHelper;
+import org.jtester.helper.LogHelper;
+import org.jtester.helper.StringHelper;
 import org.jtester.utility.JTesterProxy;
-import org.jtester.utility.LogHelper;
-import org.jtester.utility.StringHelper;
 import org.springframework.beans.MutablePropertyValues;
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.beans.factory.support.AbstractBeanDefinition;

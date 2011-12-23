@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.jtester.exception.JSONException;
+import org.jtester.helper.ClazzHelper;
+import org.jtester.helper.FieldHelper;
 import org.jtester.json.JSON;
 import org.jtester.json.decoder.ObjectDecoder;
 import org.jtester.json.encoder.object.PoJoEncoder;
@@ -12,8 +14,6 @@ import org.jtester.json.helper.JSONFeature;
 import org.jtester.json.helper.JSONMap;
 import org.jtester.json.helper.JSONObject;
 import org.jtester.json.helper.JSONSingle;
-import org.jtester.utility.ClazzHelper;
-import org.jtester.utility.FieldHelper;
 
 /**
  * 反序列json为pojo对象

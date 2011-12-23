@@ -3,9 +3,9 @@ package org.jtester.json.decoder.single.spec;
 import java.io.IOException;
 import java.io.StringWriter;
 
+import org.jtester.helper.ClazzHelper;
 import org.jtester.json.decoder.single.SpecTypeDecoder;
 import org.jtester.json.helper.JSONSingle;
-import org.jtester.utility.ClazzHelper;
 
 @SuppressWarnings({ "rawtypes", "unchecked" })
 public class AppendableDecoder<T extends Appendable> extends SpecTypeDecoder<Appendable, T> {

@@ -9,8 +9,8 @@ import java.io.InputStream;
 import java.util.Properties;
 
 import org.jtester.exception.JTesterException;
-import org.jtester.utility.LogHelper;
-import org.jtester.utility.ResourceHelper;
+import org.jtester.helper.LogHelper;
+import org.jtester.helper.ResourceHelper;
 
 public class PropertiesReader {
 

@@ -8,10 +8,10 @@ import java.util.Set;
 import org.jtester.annotations.AutoBeanInject;
 import org.jtester.annotations.AutoBeanInject.BeanMap;
 import org.jtester.exception.FindBeanImplClassException;
+import org.jtester.helper.ClazzHelper;
+import org.jtester.helper.LogHelper;
+import org.jtester.helper.StringHelper;
 import org.jtester.module.spring.ImplementorFinder;
-import org.jtester.utility.ClazzHelper;
-import org.jtester.utility.LogHelper;
-import org.jtester.utility.StringHelper;
 import org.springframework.beans.factory.support.AbstractBeanDefinition;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 

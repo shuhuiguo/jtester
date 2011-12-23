@@ -1,7 +1,7 @@
 package org.jtester.core.testng.report;
 
 import org.jtester.core.testng.UserTestReporter.Status;
-import org.jtester.utility.StringHelper;
+import org.jtester.helper.StringHelper;
 
 public class MethodTestDto {
 	public final static String UN_GROUP_NAME = "ungroup";

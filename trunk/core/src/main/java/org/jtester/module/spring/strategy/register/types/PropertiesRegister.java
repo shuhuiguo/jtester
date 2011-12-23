@@ -3,10 +3,10 @@ package org.jtester.module.spring.strategy.register.types;
 import java.util.Queue;
 
 import org.jtester.exception.FindBeanImplClassException;
+import org.jtester.helper.ClazzConst;
+import org.jtester.helper.ClazzHelper;
 import org.jtester.module.spring.strategy.register.RegisterBeanDefinition;
 import org.jtester.module.spring.strategy.register.RegisterDynamicBean;
-import org.jtester.reflector.utility.ClazzConst;
-import org.jtester.utility.ClazzHelper;
 import org.springframework.beans.factory.support.AbstractBeanDefinition;
 
 /**

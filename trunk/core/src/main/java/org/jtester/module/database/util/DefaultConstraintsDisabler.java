@@ -15,8 +15,8 @@
  */
 package org.jtester.module.database.util;
 
+import org.jtester.helper.LogHelper;
 import org.jtester.module.database.support.DbSupport;
-import org.jtester.utility.LogHelper;
 
 /**
  * Default implementation of {@link ConstraintsDisabler}. This will disable all

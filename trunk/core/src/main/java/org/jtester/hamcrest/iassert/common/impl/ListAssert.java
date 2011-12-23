@@ -11,8 +11,8 @@ import org.jtester.hamcrest.matcher.property.PropertyAllItemsMatcher;
 import org.jtester.hamcrest.matcher.property.PropertyAnyItemMatcher;
 import org.jtester.hamcrest.matcher.property.ReflectionEqualMatcher;
 import org.jtester.hamcrest.matcher.property.reflection.EqMode;
+import org.jtester.helper.ListHelper;
 import org.jtester.module.database.dbop.AbstractDataSet;
-import org.jtester.utility.ListHelper;
 
 import ext.jtester.hamcrest.Matcher;
 

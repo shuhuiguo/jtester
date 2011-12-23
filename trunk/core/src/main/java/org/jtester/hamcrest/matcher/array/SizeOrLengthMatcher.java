@@ -4,7 +4,8 @@ import java.util.Collection;
 
 import ext.jtester.hamcrest.BaseMatcher;
 import ext.jtester.hamcrest.Description;
-import org.jtester.utility.ArrayHelper;
+
+import org.jtester.helper.ArrayHelper;
 
 public class SizeOrLengthMatcher extends BaseMatcher<Collection<?>> {
 	private int size;

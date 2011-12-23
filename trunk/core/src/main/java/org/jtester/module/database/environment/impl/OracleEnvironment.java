@@ -10,6 +10,7 @@ import java.util.regex.Pattern;
 
 import oracle.jdbc.rowset.OracleCachedRowSet;
 
+import org.jtester.helper.ResourceHelper;
 import org.jtester.module.database.environment.AbstractDBEnvironment;
 import org.jtester.module.database.environment.normalise.NameNormaliser;
 import org.jtester.module.database.environment.normalise.TypeNormaliser;
@@ -20,7 +21,6 @@ import org.jtester.module.database.util.DataSourceType;
 import org.jtester.module.dbfit.db.model.DbParameterAccessor;
 import org.jtester.module.dbfit.db.model.OracleBlobTypeAdapter;
 import org.jtester.module.dbfit.db.model.SqlTimestampParseDelegate;
-import org.jtester.utility.ResourceHelper;
 
 import ext.jtester.commons.IOUtils;
 import fit.TypeAdapter;

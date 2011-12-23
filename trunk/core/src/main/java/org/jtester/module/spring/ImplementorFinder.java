@@ -11,11 +11,11 @@ import java.util.regex.Pattern;
 import org.jtester.annotations.AutoBeanInject.BeanMap;
 import org.jtester.annotations.SpringInitMethod;
 import org.jtester.exception.FindBeanImplClassException;
-import org.jtester.utility.AnnotationUtils;
-import org.jtester.utility.ArrayHelper;
-import org.jtester.utility.ClazzHelper;
-import org.jtester.utility.LogHelper;
-import org.jtester.utility.StringHelper;
+import org.jtester.helper.AnnotationHelper;
+import org.jtester.helper.ArrayHelper;
+import org.jtester.helper.ClazzHelper;
+import org.jtester.helper.LogHelper;
+import org.jtester.helper.StringHelper;
 
 /**
  * 根据表达式查找接口实现的工具类
@@ -77,7 +77,7 @@ public class ImplementorFinder {
 	 * @return
 	 */
 	public static String findInitMethodName(final Class claz) {
-		Set<Method> methods = AnnotationUtils.getMethodsAnnotatedWith(claz, SpringInitMethod.class);
+		Set<Method> methods = AnnotationHelper.getMethodsAnnotatedWith(claz, SpringInitMethod.class);
 		if (methods == null || methods.size() == 0) {
 			return null;
 		}

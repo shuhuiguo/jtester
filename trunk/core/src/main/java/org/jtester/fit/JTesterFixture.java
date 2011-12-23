@@ -3,7 +3,7 @@ package org.jtester.fit;
 import java.util.Date;
 
 import org.jtester.exception.HasMarkedException;
-import org.jtester.utility.DateUtil;
+import org.jtester.helper.DateHelper;
 
 import fit.Fixture;
 import fit.Parse;
@@ -41,7 +41,7 @@ public class JTesterFixture extends Fixture {
 			else
 				return s;
 		} else if (type.equals(Date.class)) {
-			Date date = DateUtil.parse(s);
+			Date date = DateHelper.parse(s);
 			return date;
 		} else if (hasParseMethod(type)) {
 			return callParseMethod(type, s);

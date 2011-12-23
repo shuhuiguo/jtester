@@ -6,8 +6,8 @@ import java.util.List;
 
 import org.jtester.annotations.DbFit;
 import org.jtester.annotations.DbFit.AUTO;
-import org.jtester.utility.AnnotationUtils;
-import org.jtester.utility.ResourceHelper;
+import org.jtester.helper.AnnotationHelper;
+import org.jtester.helper.ResourceHelper;
 
 /**
  * 用于自动查找dbfit文件
@@ -64,7 +64,7 @@ public class AutoFindDbFit {
 	 * @return
 	 */
 	public static String[] autoFindClassWhen(Class testClazz) {
-		DbFit dbFit = AnnotationUtils.getClassLevelAnnotation(DbFit.class, testClazz);
+		DbFit dbFit = AnnotationHelper.getClassLevelAnnotation(DbFit.class, testClazz);
 		List<String> whens = getFiles(dbFit == null ? null : dbFit.when());
 		if (dbFit != null && dbFit.auto() == AUTO.UN_AUTO) {
 			return whens.toArray(new String[0]);
@@ -151,7 +151,7 @@ public class AutoFindDbFit {
 			return methodDbFit.auto() == AUTO.AUTO;
 		}
 
-		DbFit clazzDbFit = AnnotationUtils.getClassLevelAnnotation(DbFit.class, testClazz);
+		DbFit clazzDbFit = AnnotationHelper.getClassLevelAnnotation(DbFit.class, testClazz);
 		if (clazzDbFit == null) {
 			return true;
 		} else {

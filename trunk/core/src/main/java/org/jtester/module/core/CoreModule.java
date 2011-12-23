@@ -5,12 +5,12 @@ import java.util.List;
 import java.util.Properties;
 
 import org.jtester.core.TestedContext;
+import org.jtester.helper.LogHelper;
 import org.jtester.module.TestListener;
 import org.jtester.module.core.helper.ConfigurationHelper;
 import org.jtester.module.core.helper.ModulesManager;
 import org.jtester.module.core.loader.ConfigurationLoader;
 import org.jtester.module.core.loader.ModulesLoader;
-import org.jtester.utility.LogHelper;
 
 /**
  * jtester的核心类，所有事件监听器的总入口<br>

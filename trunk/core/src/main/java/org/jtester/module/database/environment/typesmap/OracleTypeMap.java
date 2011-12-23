@@ -12,8 +12,8 @@ import oracle.jdbc.driver.OracleTypes;
 import oracle.sql.BLOB;
 import oracle.sql.TIMESTAMP;
 
+import org.jtester.helper.DateHelper;
 import org.jtester.module.database.environment.typesmap.TypeMap.JavaSQLType;
-import org.jtester.utility.DateUtil;
 
 @SuppressWarnings({ "rawtypes", "serial" })
 public class OracleTypeMap extends AbstractTypeMap {
@@ -78,7 +78,7 @@ public class OracleTypeMap extends AbstractTypeMap {
 	public Object toObjectByType(String input, Class javaType) {
 
 		if (javaType == TIMESTAMP.class) {
-			long time = DateUtil.parse(input).getTime();
+			long time = DateHelper.parse(input).getTime();
 			Timestamp stamp = new Timestamp(time);
 			return new TIMESTAMP(stamp);
 		}

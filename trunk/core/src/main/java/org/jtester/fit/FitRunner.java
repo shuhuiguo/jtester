@@ -6,10 +6,10 @@ import java.util.Map;
 
 import org.jtester.exception.FitRunException;
 import org.jtester.fit.util.SymbolUtil;
+import org.jtester.helper.ResourceHelper;
+import org.jtester.helper.StringHelper;
 import org.jtester.module.core.helper.ConfigurationHelper;
 import org.jtester.module.dbfit.DbFitWikiPage;
-import org.jtester.utility.ResourceHelper;
-import org.jtester.utility.StringHelper;
 
 import fit.Counts;
 import fitlibrary.batch.trinidad.InMemoryTestImpl;

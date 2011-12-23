@@ -4,8 +4,8 @@ import ext.jtester.hamcrest.BaseMatcher;
 import ext.jtester.hamcrest.Description;
 
 import org.jtester.hamcrest.matcher.property.reflection.EqMode;
+import org.jtester.helper.StringHelper;
 import org.jtester.reflector.PropertyAccessor;
-import org.jtester.utility.StringHelper;
 
 /**
  * 集合（数组）中对象的多个属性值集合(二维数组)，反射值与期望值相等

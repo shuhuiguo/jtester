@@ -5,8 +5,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-import org.jtester.utility.ResourceHelper;
-import org.jtester.utility.StringHelper;
+import org.jtester.helper.ResourceHelper;
+import org.jtester.helper.StringHelper;
 import org.testng.ITestNGMethod;
 
 /**

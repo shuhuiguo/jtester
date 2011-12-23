@@ -20,7 +20,7 @@ import java.util.Date;
 
 import org.jtester.hamcrest.matcher.property.difference.Difference;
 import org.jtester.hamcrest.matcher.property.reflection.ReflectionComparator;
-import org.jtester.utility.DateUtil;
+import org.jtester.helper.DateHelper;
 
 /**
  * Comparator for simple cases. Following cases are handled: left and right are
@@ -102,7 +102,7 @@ public class SimpleCasesComparator implements Comparator {
 			return new Difference("Different primitive values", left, right);
 		}
 		if (left.getClass() == String.class && Date.class.isAssignableFrom(right.getClass())) {
-			SimpleDateFormat df = DateUtil.getDateFormat((String) left);
+			SimpleDateFormat df = DateHelper.getDateFormat((String) left);
 			right = df.format((Date) right);
 		}
 		// check if java objects are equal

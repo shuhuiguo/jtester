@@ -6,7 +6,8 @@ import java.util.List;
 import ext.jtester.hamcrest.BaseMatcher;
 import ext.jtester.hamcrest.Description;
 import ext.jtester.hamcrest.Matcher;
-import org.jtester.utility.StringHelper;
+
+import org.jtester.helper.StringHelper;
 
 @SuppressWarnings("rawtypes")
 public class LinkMatcher<T> extends BaseMatcher<T> {

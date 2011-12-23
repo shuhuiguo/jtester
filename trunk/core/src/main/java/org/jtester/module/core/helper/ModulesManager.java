@@ -7,9 +7,9 @@ import java.util.List;
 import java.util.Map;
 
 import org.jtester.exception.JTesterException;
+import org.jtester.helper.ClazzHelper;
 import org.jtester.module.TestListener;
 import org.jtester.module.core.Module;
-import org.jtester.utility.ClazzHelper;
 
 /**
  * jTester模块管理器<br>

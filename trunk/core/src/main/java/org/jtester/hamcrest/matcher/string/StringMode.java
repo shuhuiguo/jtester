@@ -1,6 +1,6 @@
 package org.jtester.hamcrest.matcher.string;
 
-import org.jtester.utility.StringHelper;
+import org.jtester.helper.StringHelper;
 
 /**
  * String Matcher配置模式

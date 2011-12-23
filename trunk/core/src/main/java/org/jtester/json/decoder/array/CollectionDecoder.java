@@ -5,10 +5,10 @@ import java.util.Collection;
 import java.util.Map;
 
 import org.jtester.exception.JSONException;
+import org.jtester.helper.ClazzHelper;
 import org.jtester.json.JSON;
 import org.jtester.json.decoder.ArrayDecoder;
 import org.jtester.json.helper.JSONObject;
-import org.jtester.utility.ClazzHelper;
 
 @SuppressWarnings({ "rawtypes", "unchecked" })
 public class CollectionDecoder extends ArrayDecoder<Collection> {

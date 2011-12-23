@@ -10,7 +10,7 @@ import org.jtester.hamcrest.matcher.LinkMatcher;
 import org.jtester.hamcrest.matcher.calendar.DateFormatMatcher;
 import org.jtester.hamcrest.matcher.calendar.DateParterMatcher;
 import org.jtester.hamcrest.matcher.calendar.DateParterMatcher.DateFieldType;
-import org.jtester.utility.DateUtil;
+import org.jtester.helper.DateHelper;
 
 public class DateAssert<T> extends ComparableAssert<T, IDateAssert<T>> implements IDateAssert<T> {
 
@@ -95,7 +95,7 @@ public class DateAssert<T> extends ComparableAssert<T, IDateAssert<T>> implement
 	}
 
 	public IDateAssert<T> eqByFormat(String expected) {
-		SimpleDateFormat df = DateUtil.getDateFormat(expected);
+		SimpleDateFormat df = DateHelper.getDateFormat(expected);
 		DateFormatMatcher matcher = new DateFormatMatcher(df, expected);
 		return this.assertThat(matcher);
 	}

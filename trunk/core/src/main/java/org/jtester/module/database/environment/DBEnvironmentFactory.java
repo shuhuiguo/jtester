@@ -18,14 +18,14 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.UUID;
 
+import org.jtester.helper.ResourceHelper;
+import org.jtester.helper.StringHelper;
 import org.jtester.module.core.helper.ConfigurationHelper;
 import org.jtester.module.database.environment.impl.DerbyEnvironment;
 import org.jtester.module.database.environment.impl.MySqlEnvironment;
 import org.jtester.module.database.environment.impl.OracleEnvironment;
 import org.jtester.module.database.environment.impl.SqlServerEnvironment;
 import org.jtester.module.database.util.DataSourceType;
-import org.jtester.utility.ResourceHelper;
-import org.jtester.utility.StringHelper;
 
 public final class DBEnvironmentFactory {
 	private static Map<String, DBEnvironment> environments = new HashMap<String, DBEnvironment>();

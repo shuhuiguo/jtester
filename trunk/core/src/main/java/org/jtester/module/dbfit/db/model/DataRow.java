@@ -3,8 +3,8 @@ package org.jtester.module.dbfit.db.model;
 import java.util.*;
 import java.sql.*;
 
+import org.jtester.helper.PrimitiveHelper;
 import org.jtester.module.database.environment.normalise.NameNormaliser;
-import org.jtester.utility.PrimitiveHelper;
 
 public class DataRow {
 	private Map<String, Object> values = new HashMap<String, Object>();

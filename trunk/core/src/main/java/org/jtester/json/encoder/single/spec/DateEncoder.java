@@ -3,9 +3,9 @@ package org.jtester.json.encoder.single.spec;
 import java.io.Writer;
 import java.util.Date;
 
+import org.jtester.helper.DateHelper;
 import org.jtester.json.encoder.single.SpecTypeEncoder;
 import org.jtester.json.encoder.single.fixed.StringEncoder;
-import org.jtester.utility.DateUtil;
 
 @SuppressWarnings("rawtypes")
 public class DateEncoder<T extends Date> extends SpecTypeEncoder<T> {
@@ -18,7 +18,7 @@ public class DateEncoder<T extends Date> extends SpecTypeEncoder<T> {
 	@Override
 	protected void encodeSingleValue(T target, Writer writer) throws Exception {
 		String df = dateFormat == null ? "yyyy-MM-dd HH:mm:ss" : dateFormat;
-		String date = DateUtil.toDateTimeStr(target, df);
+		String date = DateHelper.toDateTimeStr(target, df);
 
 		writer.append(quote_Char);
 		StringEncoder.writeEscapeString(date, writer);

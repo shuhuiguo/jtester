@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import org.jtester.utility.ArrayHelper;
+import org.jtester.helper.ArrayHelper;
 
 public class DataProviderIterator implements Iterator<Object[]> {
 	private List<Object[]> datas = new ArrayList<Object[]>();

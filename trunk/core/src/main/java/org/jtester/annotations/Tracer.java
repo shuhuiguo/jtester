@@ -8,8 +8,8 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
+import org.jtester.helper.StringHelper;
 import org.jtester.utility.JsonHelper;
-import org.jtester.utility.StringHelper;
 
 @Retention(RUNTIME)
 @Target( { METHOD, TYPE, CONSTRUCTOR })

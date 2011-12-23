@@ -32,7 +32,7 @@ import org.jtester.hamcrest.matcher.property.comparator.LenientOrderCollectionCo
 import org.jtester.hamcrest.matcher.property.comparator.MapComparator;
 import org.jtester.hamcrest.matcher.property.comparator.ObjectComparator;
 import org.jtester.hamcrest.matcher.property.comparator.SimpleCasesComparator;
-import org.jtester.utility.ListHelper;
+import org.jtester.helper.ListHelper;
 
 /**
  * A factory for creating a reflection comparator. This will assemble the

@@ -8,7 +8,7 @@ import org.jtester.fit.JTesterFixture;
 import org.jtester.fit.spring.FixtureBeanInjector;
 import org.jtester.fit.spring.RemoteInvokerRegister;
 import org.jtester.fit.spring.FixtureSpringApplicationContext;
-import org.jtester.utility.AnnotationUtils;
+import org.jtester.helper.AnnotationHelper;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class SpringFixture extends JTesterFixture implements IJTester {
@@ -20,7 +20,7 @@ public class SpringFixture extends JTesterFixture implements IJTester {
 	public SpringFixture() {
 		DbFitContext.setRunIn(RunIn.FitNesse);
 
-		SpringApplicationContext anotations = AnnotationUtils.getClassLevelAnnotation(SpringApplicationContext.class,
+		SpringApplicationContext anotations = AnnotationHelper.getClassLevelAnnotation(SpringApplicationContext.class,
 				this.getClass());
 		if (anotations == null) {
 			return;

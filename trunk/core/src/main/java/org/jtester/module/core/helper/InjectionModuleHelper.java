@@ -13,9 +13,9 @@ import ognl.OgnlContext;
 import ognl.OgnlException;
 
 import org.jtester.exception.JTesterException;
-import org.jtester.utility.AnnotationUtils;
-import org.jtester.utility.FieldHelper;
-import org.jtester.utility.LogHelper;
+import org.jtester.helper.AnnotationHelper;
+import org.jtester.helper.FieldHelper;
+import org.jtester.helper.LogHelper;
 
 /**
  * Class containing static methods that implement explicit injection using OGNL
@@ -93,7 +93,7 @@ public class InjectionModuleHelper {
 
 	public static void injectIntoAnnotatedMethods(Object objectToInject, Object target,
 			Class<? extends Annotation> annotation) {
-		Set<Method> annotatedMethods = AnnotationUtils.getMethodsAnnotatedWith(target.getClass(), annotation);
+		Set<Method> annotatedMethods = AnnotationHelper.getMethodsAnnotatedWith(target.getClass(), annotation);
 		for (Method annotatedMethod : annotatedMethods) {
 			try {
 				annotatedMethod.invoke(target, objectToInject);
@@ -117,7 +117,7 @@ public class InjectionModuleHelper {
 
 	public static void injectIntoAnnotatedFields(Object objectToInject, Object target,
 			Class<? extends Annotation> annotation) {
-		Set<Field> annotatedFields = AnnotationUtils.getFieldsAnnotatedWith(target.getClass(), annotation);
+		Set<Field> annotatedFields = AnnotationHelper.getFieldsAnnotatedWith(target.getClass(), annotation);
 		for (Field annotatedField : annotatedFields) {
 			FieldHelper.setFieldValue(target, annotatedField, objectToInject);
 		}

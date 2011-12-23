@@ -11,11 +11,11 @@ import java.util.Map;
 
 import org.jtester.core.IJTester.DataMap;
 import org.jtester.exception.NoSuchFieldRuntimeException;
+import org.jtester.helper.ClazzHelper;
+import org.jtester.helper.LogHelper;
+import org.jtester.helper.StringHelper;
 import org.jtester.module.dbfit.db.model.DbParameterAccessor;
 import org.jtester.reflector.FieldAccessor;
-import org.jtester.utility.ClazzHelper;
-import org.jtester.utility.LogHelper;
-import org.jtester.utility.StringHelper;
 
 @SuppressWarnings({ "rawtypes", "unchecked" })
 public final class DBHelper {

@@ -4,11 +4,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import org.jtester.fit.util.SymbolUtil;
+import org.jtester.helper.LogHelper;
 import org.jtester.module.database.environment.DBEnvironment;
 import org.jtester.module.database.util.DBHelper;
 import org.jtester.module.dbfit.db.model.DataColumn;
 import org.jtester.module.dbfit.db.model.DataTable;
-import org.jtester.utility.LogHelper;
 
 @SuppressWarnings({ "rawtypes" })
 public class QueryFixture extends RowSetFixture {

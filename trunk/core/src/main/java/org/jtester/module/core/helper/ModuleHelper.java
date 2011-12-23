@@ -8,8 +8,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.jtester.exception.JTesterException;
+import org.jtester.helper.ClazzHelper;
 import org.jtester.module.core.Module;
-import org.jtester.utility.ClazzHelper;
 
 /**
  * Class containing utility methods for module specific configuration. Contains

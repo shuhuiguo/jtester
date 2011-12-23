@@ -8,7 +8,7 @@ import java.util.Map;
 
 import org.jtester.fit.util.ParseArg;
 import org.jtester.fit.util.SymbolUtil;
-import org.jtester.utility.StringHelper;
+import org.jtester.helper.StringHelper;
 
 import fit.Binding;
 import fit.Fixture;

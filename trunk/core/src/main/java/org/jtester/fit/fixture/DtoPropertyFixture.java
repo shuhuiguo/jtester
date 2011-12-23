@@ -5,10 +5,10 @@ import java.util.Map;
 
 import org.jtester.exception.NoSuchMethodRuntimeException;
 import org.jtester.fit.util.ParseArg;
+import org.jtester.helper.MethodHelper;
+import org.jtester.helper.StringHelper;
 import org.jtester.reflector.FieldAccessor;
 import org.jtester.reflector.MethodAccessor;
-import org.jtester.reflector.utility.MethodHelper;
-import org.jtester.utility.StringHelper;
 
 import fit.Parse;
 import fit.TypeAdapter;

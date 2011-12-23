@@ -3,7 +3,7 @@ package org.jtester.module.tracer;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.jtester.utility.StringHelper;
+import org.jtester.helper.StringHelper;
 
 @SuppressWarnings({ "rawtypes" })
 public class TracerBeanManager {

@@ -7,9 +7,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.jtester.exception.NoSuchFieldRuntimeException;
-import org.jtester.utility.DateUtil;
-import org.jtester.utility.FieldHelper;
-import org.jtester.utility.StringHelper;
+import org.jtester.helper.DateHelper;
+import org.jtester.helper.FieldHelper;
+import org.jtester.helper.StringHelper;
 
 import fit.Fixture;
 
@@ -118,8 +118,8 @@ public class SymbolUtil {
 	private final static Map<String, Object> system_symbols = new HashMap<String, Object>() {
 		private static final long serialVersionUID = 2824018273733392296L;
 		{
-			put("date", DateUtil.currDateStr());
-			put("datetime", DateUtil.currDateTimeStr());
+			put("date", DateHelper.currDateStr());
+			put("datetime", DateHelper.currDateTimeStr());
 			put("space", " ");
 			put("at", "@");
 		}

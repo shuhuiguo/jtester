@@ -1,16 +1,16 @@
 package org.jtester.module.core.helper;
 
-import static org.jtester.utility.ClazzHelper.createInstanceOfType;
+import static org.jtester.helper.ClazzHelper.createInstanceOfType;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
 import org.jtester.exception.JTesterException;
+import org.jtester.helper.LogHelper;
+import org.jtester.helper.StringHelper;
 import org.jtester.module.core.ConfigurationConst;
 import org.jtester.module.core.loader.ConfigurationLoader;
-import org.jtester.utility.LogHelper;
-import org.jtester.utility.StringHelper;
 
 /**
  * jtester配置文件工具类

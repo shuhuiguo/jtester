@@ -26,7 +26,7 @@ import java.util.Set;
 import javax.sql.DataSource;
 
 import org.jtester.exception.JTesterException;
-import org.jtester.utility.LogHelper;
+import org.jtester.helper.LogHelper;
 
 /**
  * Class to which database updates and queries are passed. Is in fact a utility

@@ -1,6 +1,7 @@
 package org.jtester.module.database.util;
 
 import org.jtester.exception.UnConfigDataBaseTypeException;
+import org.jtester.helper.StringHelper;
 import org.jtester.module.core.helper.ConfigurationHelper;
 import org.jtester.module.database.support.Db2DbSupport;
 import org.jtester.module.database.support.DbSupport;
@@ -10,7 +11,6 @@ import org.jtester.module.database.support.HsqldbDbSupport;
 import org.jtester.module.database.support.MsSqlDbSupport;
 import org.jtester.module.database.support.MySqlDbSupport;
 import org.jtester.module.database.support.OracleDbSupport;
-import org.jtester.utility.StringHelper;
 
 public enum DataSourceType {
 	/**

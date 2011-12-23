@@ -7,8 +7,8 @@ import java.io.InputStream;
 import java.lang.reflect.Method;
 import java.net.URLEncoder;
 
-import org.jtester.utility.ResourceHelper;
-import org.jtester.utility.StringHelper;
+import org.jtester.helper.ResourceHelper;
+import org.jtester.helper.StringHelper;
 
 public class TracerModuleHelper {
 

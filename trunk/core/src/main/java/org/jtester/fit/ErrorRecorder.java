@@ -4,8 +4,8 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.Writer;
 
-import org.jtester.utility.ResourceHelper;
-import org.jtester.utility.StringHelper;
+import org.jtester.helper.ResourceHelper;
+import org.jtester.helper.StringHelper;
 
 /**
  * fit文件运行错误汇总

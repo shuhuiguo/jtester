@@ -8,7 +8,7 @@ import org.jtester.hamcrest.iassert.common.intf.IBaseAssert;
 import org.jtester.hamcrest.iassert.object.impl.StringAssert;
 import org.jtester.hamcrest.iassert.object.intf.IStringAssert;
 import org.jtester.hamcrest.matcher.clazz.ClassAssignFromMatcher;
-import org.jtester.utility.ListHelper;
+import org.jtester.helper.ListHelper;
 
 import ext.jtester.hamcrest.Matcher;
 import ext.jtester.hamcrest.collection.IsIn;
