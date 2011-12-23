@@ -23,7 +23,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.jester</groupId>
-			<artifactId>jtester.junit</artifactId>
+			<artifactId>jtester.core</artifactId>
 			<version>${project.version}</version>
 			<exclusions>
 				<exclusion>
