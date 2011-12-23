@@ -3,7 +3,7 @@ package org.jtester.module.jmockit;
 import java.io.File;
 
 import org.jtester.helper.ClazzHelper;
-import org.jtester.utility.JsonHelper;
+import org.jtester.json.JSONHelper;
 
 import mockit.internal.expectations.transformation.ActiveInvocations;
 
@@ -31,7 +31,7 @@ public class ExpectationsResult {
 	 * @param json
 	 */
 	public void thenReturnFrom(Class claz, String json) {
-		Object o = JsonHelper.fromJsonFile(claz, json);
+		Object o = JSONHelper.fromJsonFile(claz, json);
 		thenReturn(o);
 	}
 
@@ -47,7 +47,7 @@ public class ExpectationsResult {
 	 */
 	public void thenReturnFrom(Class claz, Class clazPath, String json) {
 		String path = ClazzHelper.getPathFromPath(clazPath);
-		Object o = JsonHelper.fromJsonFile(claz, path + File.separatorChar + json);
+		Object o = JSONHelper.fromJsonFile(claz, path + File.separatorChar + json);
 		thenReturn(o);
 	}
 

@@ -1,4 +1,4 @@
-package org.jtester.utility;
+package org.jtester.json;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -10,7 +10,6 @@ import java.io.ObjectOutputStream;
 import org.jtester.exception.JTesterException;
 import org.jtester.helper.ClazzHelper;
 import org.jtester.helper.ResourceHelper;
-import org.jtester.json.JSON;
 
 /**
  * POJO对象序列化和反序列化工具类
@@ -19,7 +18,7 @@ import org.jtester.json.JSON;
  * 
  */
 @SuppressWarnings({ "rawtypes", "unchecked" })
-public class JsonHelper {
+public class JSONHelper {
 	/**
 	 * 将pojo序列化后存储在dat类型的文件中
 	 * 

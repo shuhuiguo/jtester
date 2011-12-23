@@ -9,7 +9,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
 import org.jtester.helper.StringHelper;
-import org.jtester.utility.JsonHelper;
+import org.jtester.json.JSONHelper;
 
 @Retention(RUNTIME)
 @Target( { METHOD, TYPE, CONSTRUCTOR })
@@ -50,7 +50,7 @@ public @interface Tracer {
 					return "<null>";
 				}
 				try {
-					return JsonHelper.toJSON(o);
+					return JSONHelper.toJSON(o);
 				} catch (Throwable e) {
 					return "to json error:" + StringHelper.exceptionTrace(e);
 				}
