@@ -1,9 +1,7 @@
 package org.jtester.core;
 
-import org.jtester.assertion.TheStyleAssertion;
-import org.jtester.assertion.WantStyleAssertion;
+import org.jtester.IAssertion;
 import org.jtester.beans.AbstractDataSet;
-import org.jtester.beans.DataMap;
 import org.jtester.beans.dataset.AbastractDataGenerator;
 import org.jtester.core.context.JTesterFitnesse;
 import org.jtester.core.context.JTesterReflector;
@@ -13,11 +11,7 @@ import org.jtester.module.database.dbop.IDBOperator;
 import org.jtester.module.database.dbop.InsertOp;
 
 @SuppressWarnings("rawtypes")
-public interface IJTester {
-
-	final WantStyleAssertion want = new WantStyleAssertion();
-
-	final TheStyleAssertion the = new TheStyleAssertion();
+public interface IJTester extends IAssertion {
 
 	final JTesterFitnesse fit = new JTesterFitnesse();
 
