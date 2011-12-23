@@ -27,7 +27,7 @@ public interface IJTester {
 
 	final TestedSpringContext spring = new TestedSpringContext();
 
-	class Expectations extends org.jtester.assertion.jmockit.JMockitExpectations {
+	class Expectations extends org.jtester.jmockit.JMockitExpectations {
 
 		public Expectations() {
 			super();
@@ -43,7 +43,7 @@ public interface IJTester {
 
 	}
 
-	class NonStrictExpectations extends org.jtester.assertion.jmockit.JMockitNonStrictExpectations {
+	class NonStrictExpectations extends org.jtester.jmockit.JMockitNonStrictExpectations {
 
 		public NonStrictExpectations() {
 			super();

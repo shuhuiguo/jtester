@@ -3,7 +3,7 @@ package org.jtester.module.jmockit;
 import mockit.NonStrict;
 
 import org.apache.log4j.Logger;
-import org.jtester.assertion.jmockit.JMocketVerifications;
+import org.jtester.jmockit.JMocketVerifications;
 import org.jtester.testng.JTester;
 import org.testng.annotations.Test;
 
