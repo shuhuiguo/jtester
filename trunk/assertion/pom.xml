@@ -7,12 +7,16 @@
 		<version>1.2.0</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
-	<groupId>org.jtester</groupId>
 	<artifactId>jtester.assertion</artifactId>
 	<packaging>jar</packaging>
 	<name>jtester junit module</name>
 
 	<dependencies>
+		<dependency>
+			<groupId>org.jtester</groupId>
+			<artifactId>jtester.util</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
