@@ -139,6 +139,10 @@ public class TestedContext {
 		}
 	}
 
+	public static Method currTestedMethod() {
+		return context.testedMethod;
+	}
+
 	/**
 	 * 当前正在运行的测试类
 	 */
