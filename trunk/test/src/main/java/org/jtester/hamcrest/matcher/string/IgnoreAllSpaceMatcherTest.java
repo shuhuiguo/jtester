@@ -1,5 +1,8 @@
 package org.jtester.hamcrest.matcher.string;
 
+import org.jtester.matcher.string.StringEqualMatcher;
+import org.jtester.matcher.string.StringMatcher;
+import org.jtester.matcher.string.StringMode;
 import org.jtester.testng.JTester;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;

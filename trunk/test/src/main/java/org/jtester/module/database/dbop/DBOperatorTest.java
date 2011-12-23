@@ -3,7 +3,7 @@ package org.jtester.module.database.dbop;
 import java.io.File;
 
 import org.jtester.annotations.DbFit;
-import org.jtester.hamcrest.matcher.property.reflection.EqMode;
+import org.jtester.matcher.property.reflection.EqMode;
 import org.jtester.module.database.bean.TddUser;
 import org.jtester.testng.JTester;
 import org.testng.annotations.Test;

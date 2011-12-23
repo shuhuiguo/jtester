@@ -4,16 +4,16 @@ import static org.jtester.module.database.dbop.DBOperator.IN_DB_OPERATOR;
 
 import java.util.List;
 
+import org.jtester.assertion.object.impl.CollectionAssert;
+import org.jtester.assertion.object.impl.LongAssert;
+import org.jtester.assertion.object.impl.ObjectAssert;
+import org.jtester.assertion.object.intf.ICollectionAssert;
+import org.jtester.assertion.object.intf.INumberAssert;
+import org.jtester.assertion.object.intf.IObjectAssert;
 import org.jtester.core.IJTester.DataMap;
-import org.jtester.hamcrest.iassert.object.impl.CollectionAssert;
-import org.jtester.hamcrest.iassert.object.impl.LongAssert;
-import org.jtester.hamcrest.iassert.object.impl.ObjectAssert;
-import org.jtester.hamcrest.iassert.object.intf.ICollectionAssert;
-import org.jtester.hamcrest.iassert.object.intf.INumberAssert;
-import org.jtester.hamcrest.iassert.object.intf.IObjectAssert;
+import org.jtester.core.IJTester.DataSet;
 import org.jtester.helper.StringHelper;
 import org.jtester.json.JSON;
-import org.jtester.module.database.dbop.AbstractDataSet.EmptyDataSet;
 import org.jtester.module.database.util.DBHelper;
 import org.jtester.module.database.util.SqlRunner;
 
@@ -90,7 +90,7 @@ public class TableOp implements ITableOp {
 	public ITableOp insert(final int count, final DataMap datas) {
 		IN_DB_OPERATOR.set(true);
 		try {
-			AbstractDataSet ds = new EmptyDataSet();
+			DataSet ds = new EmptyDataSet();
 			ds.data(count, datas);
 			ds.insert(table);
 			return this;
@@ -99,7 +99,7 @@ public class TableOp implements ITableOp {
 		}
 	}
 
-	public ITableOp insert(AbstractDataSet dataset) {
+	public ITableOp insert(DataSet dataset) {
 		IN_DB_OPERATOR.set(true);
 		try {
 			if (dataset == null) {
@@ -179,5 +179,8 @@ public class TableOp implements ITableOp {
 		} finally {
 			IN_DB_OPERATOR.set(false);
 		}
+	}
+
+	public final static class EmptyDataSet extends DataSet {
 	}
 }

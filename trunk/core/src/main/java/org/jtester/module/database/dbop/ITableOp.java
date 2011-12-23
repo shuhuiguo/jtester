@@ -1,9 +1,10 @@
 package org.jtester.module.database.dbop;
 
+import org.jtester.assertion.object.intf.ICollectionAssert;
+import org.jtester.assertion.object.intf.INumberAssert;
+import org.jtester.assertion.object.intf.IObjectAssert;
 import org.jtester.core.IJTester.DataMap;
-import org.jtester.hamcrest.iassert.object.intf.ICollectionAssert;
-import org.jtester.hamcrest.iassert.object.intf.INumberAssert;
-import org.jtester.hamcrest.iassert.object.intf.IObjectAssert;
+import org.jtester.core.IJTester.DataSet;
 
 @SuppressWarnings("rawtypes")
 public interface ITableOp {
@@ -49,7 +50,7 @@ public interface ITableOp {
 	 * @param dataset
 	 * @return
 	 */
-	ITableOp insert(AbstractDataSet dataset);
+	ITableOp insert(DataSet dataset);
 
 	/**
 	 * 提交数据

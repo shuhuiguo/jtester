@@ -2,10 +2,10 @@ package org.jtester.json.helper.complex;
 
 import java.util.ArrayList;
 
-import org.jtester.hamcrest.matcher.modes.ItemsMode;
 import org.jtester.helper.DateHelper;
 import org.jtester.json.JSON;
 import org.jtester.json.helper.JSONFeature;
+import org.jtester.matcher.modes.ItemsMode;
 import org.jtester.testng.JTester;
 import org.testng.annotations.Test;
 

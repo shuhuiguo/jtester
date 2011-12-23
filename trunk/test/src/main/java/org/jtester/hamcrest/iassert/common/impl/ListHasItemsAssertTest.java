@@ -3,8 +3,8 @@ package org.jtester.hamcrest.iassert.common.impl;
 import java.util.Arrays;
 import java.util.List;
 
-import org.jtester.hamcrest.matcher.modes.ItemsMode;
-import org.jtester.hamcrest.matcher.modes.MatchMode;
+import org.jtester.matcher.modes.ItemsMode;
+import org.jtester.matcher.modes.MatchMode;
 import org.jtester.testng.JTester;
 import org.testng.annotations.Test;
 

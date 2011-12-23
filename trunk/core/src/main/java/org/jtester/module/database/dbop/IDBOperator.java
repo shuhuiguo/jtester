@@ -2,9 +2,9 @@ package org.jtester.module.database.dbop;
 
 import java.io.File;
 
-import org.jtester.hamcrest.iassert.object.intf.ICollectionAssert;
-import org.jtester.hamcrest.iassert.object.intf.IMapAssert;
-import org.jtester.hamcrest.iassert.object.intf.IObjectAssert;
+import org.jtester.assertion.object.intf.ICollectionAssert;
+import org.jtester.assertion.object.intf.IMapAssert;
+import org.jtester.assertion.object.intf.IObjectAssert;
 
 @SuppressWarnings("rawtypes")
 public interface IDBOperator {

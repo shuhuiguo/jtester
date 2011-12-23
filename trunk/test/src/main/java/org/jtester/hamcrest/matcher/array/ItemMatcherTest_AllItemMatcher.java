@@ -4,7 +4,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.jtester.hamcrest.matcher.modes.ItemsMode;
+import org.jtester.matcher.array.ListEveryItemMatcher;
+import org.jtester.matcher.modes.ItemsMode;
 import org.jtester.testng.JTester;
 import org.testng.annotations.Test;
 

@@ -5,7 +5,7 @@ import java.util.List;
 
 import mockit.Mock;
 
-import org.jtester.module.database.dbop.AbstractDataSet;
+import org.jtester.beans.AbstractDataSet;
 import org.jtester.testng.JTester;
 import org.testng.annotations.Test;
 

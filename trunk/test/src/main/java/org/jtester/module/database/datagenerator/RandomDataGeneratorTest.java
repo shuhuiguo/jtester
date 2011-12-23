@@ -2,6 +2,8 @@ package org.jtester.module.database.datagenerator;
 
 import java.util.Iterator;
 
+import org.jtester.beans.dataset.AbastractDataGenerator;
+import org.jtester.beans.dataset.RandomDataGenerator;
 import org.jtester.testng.JTester;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;

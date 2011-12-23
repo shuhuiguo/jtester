@@ -2,7 +2,7 @@ package org.jtester.core.junit;
 
 import mockit.Mock;
 
-import org.jtester.hamcrest.matcher.string.StringMode;
+import org.jtester.matcher.string.StringMode;
 import org.jtester.module.TestListener;
 import org.jtester.module.core.CoreModule;
 import org.junit.AfterClass;

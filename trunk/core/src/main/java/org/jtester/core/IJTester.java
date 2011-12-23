@@ -1,14 +1,16 @@
 package org.jtester.core;
 
+import org.jtester.assertion.TheStyleAssertion;
+import org.jtester.assertion.WantStyleAssertion;
+import org.jtester.beans.AbstractDataSet;
+import org.jtester.beans.DataMap;
+import org.jtester.beans.dataset.AbastractDataGenerator;
 import org.jtester.core.context.JTesterFitnesse;
 import org.jtester.core.context.JTesterReflector;
 import org.jtester.core.context.TestedSpringContext;
-import org.jtester.hamcrest.TheStyleAssertion;
-import org.jtester.hamcrest.WantStyleAssertion;
-import org.jtester.module.database.datagenerator.AbastractDataGenerator;
-import org.jtester.module.database.dbop.AbstractDataSet;
 import org.jtester.module.database.dbop.DBOperator;
 import org.jtester.module.database.dbop.IDBOperator;
+import org.jtester.module.database.dbop.InsertOp;
 
 @SuppressWarnings("rawtypes")
 public interface IJTester {
@@ -25,7 +27,7 @@ public interface IJTester {
 
 	final TestedSpringContext spring = new TestedSpringContext();
 
-	class Expectations extends org.jtester.module.jmockit.JMockitExpectations {
+	class Expectations extends org.jtester.assertion.jmockit.JMockitExpectations {
 
 		public Expectations() {
 			super();
@@ -41,7 +43,7 @@ public interface IJTester {
 
 	}
 
-	class NonStrictExpectations extends org.jtester.module.jmockit.JMockitNonStrictExpectations {
+	class NonStrictExpectations extends org.jtester.assertion.jmockit.JMockitNonStrictExpectations {
 
 		public NonStrictExpectations() {
 			super();
@@ -82,6 +84,17 @@ public interface IJTester {
 	}
 
 	public static abstract class DataSet extends AbstractDataSet {
+		/**
+		 * 插入列表中的数据集<br>
+		 * 插入完毕后列表不做清空，方便重用
+		 * 
+		 * @param table
+		 */
+		public void insert(String table) {
+			for (org.jtester.beans.DataMap map : this.datas) {
+				InsertOp.insert(table, map);
+			}
+		}
 	}
 
 	public static class DataIterator extends DataProviderIterator {

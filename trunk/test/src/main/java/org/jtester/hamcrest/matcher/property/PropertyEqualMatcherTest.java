@@ -5,8 +5,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import org.jtester.hamcrest.matcher.property.reflection.EqMode;
 import org.jtester.json.encoder.beans.test.User;
+import org.jtester.matcher.property.PropertyEqualMatcher;
+import org.jtester.matcher.property.reflection.EqMode;
 import org.jtester.testng.JTester;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;

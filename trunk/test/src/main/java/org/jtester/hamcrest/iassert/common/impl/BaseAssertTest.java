@@ -3,8 +3,8 @@ package org.jtester.hamcrest.iassert.common.impl;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.jtester.hamcrest.matcher.string.StringMode;
 import org.jtester.json.encoder.beans.test.User;
+import org.jtester.matcher.string.StringMode;
 import org.jtester.testng.JTester;
 import org.testng.annotations.Test;
 

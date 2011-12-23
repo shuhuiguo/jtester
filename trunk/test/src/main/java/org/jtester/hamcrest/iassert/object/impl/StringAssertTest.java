@@ -1,6 +1,6 @@
 package org.jtester.hamcrest.iassert.object.impl;
 
-import org.jtester.hamcrest.matcher.string.StringMode;
+import org.jtester.matcher.string.StringMode;
 import org.jtester.testng.JTester;
 import org.testng.annotations.Test;
 

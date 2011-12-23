@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.jtester.fortest.beans.User;
-import org.jtester.hamcrest.matcher.property.reflection.EqMode;
+import org.jtester.matcher.property.reflection.EqMode;
 import org.jtester.testng.JTester;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;

@@ -5,6 +5,7 @@ import java.util.List;
 
 import ext.jtester.hamcrest.MatcherAssert;
 import org.jtester.fortest.beans.User;
+import org.jtester.matcher.property.PropertyAnyItemMatcher;
 import org.jtester.testng.JTester;
 import org.testng.annotations.Test;
 

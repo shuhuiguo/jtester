@@ -13,9 +13,9 @@ import java.util.Map;
 import org.jtester.fortest.beans.Employee;
 import org.jtester.fortest.beans.Manager;
 import org.jtester.fortest.beans.User;
-import org.jtester.hamcrest.matcher.modes.ItemsMode;
-import org.jtester.hamcrest.matcher.property.reflection.EqMode;
-import org.jtester.hamcrest.matcher.string.StringMode;
+import org.jtester.matcher.modes.ItemsMode;
+import org.jtester.matcher.property.reflection.EqMode;
+import org.jtester.matcher.string.StringMode;
 import org.jtester.testng.JTester;
 import org.testng.annotations.Test;
 

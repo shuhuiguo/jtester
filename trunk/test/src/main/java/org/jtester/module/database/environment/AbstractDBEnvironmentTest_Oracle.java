@@ -4,7 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import org.jtester.annotations.DbFit;
-import org.jtester.hamcrest.matcher.property.reflection.EqMode;
+import org.jtester.matcher.property.reflection.EqMode;
 import org.jtester.module.database.environment.impl.MySqlEnvironment;
 import org.jtester.module.database.environment.impl.OracleEnvironment;
 import org.jtester.testng.JTester;

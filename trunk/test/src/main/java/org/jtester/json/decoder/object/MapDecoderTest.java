@@ -3,8 +3,8 @@ package org.jtester.json.decoder.object;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.jtester.hamcrest.matcher.property.reflection.EqMode;
 import org.jtester.json.JSON;
+import org.jtester.matcher.property.reflection.EqMode;
 import org.jtester.testng.JTester;
 import org.testng.annotations.Test;
 

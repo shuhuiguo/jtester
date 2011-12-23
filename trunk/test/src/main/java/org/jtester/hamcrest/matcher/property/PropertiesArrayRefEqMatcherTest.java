@@ -8,6 +8,7 @@ import java.util.Map;
 
 import ext.jtester.hamcrest.MatcherAssert;
 import org.jtester.fortest.beans.User;
+import org.jtester.matcher.property.PropertiesArrayRefEqMatcher;
 import org.jtester.testng.JTester;
 import org.testng.annotations.Test;
 

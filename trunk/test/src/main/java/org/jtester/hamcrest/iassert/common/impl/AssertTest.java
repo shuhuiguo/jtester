@@ -7,7 +7,7 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.Map;
 
-import org.jtester.hamcrest.iassert.common.intf.IAssert;
+import org.jtester.assertion.common.intf.IAssert;
 import org.jtester.testng.JTester;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;

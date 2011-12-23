@@ -4,6 +4,7 @@ import java.util.Calendar;
 
 import ext.jtester.hamcrest.MatcherAssert;
 import org.jtester.exception.JTesterException;
+import org.jtester.matcher.calendar.DateFormatMatcher;
 import org.jtester.testng.JTester;
 import org.jtester.utility.DateUtilTest;
 import org.testng.annotations.Test;

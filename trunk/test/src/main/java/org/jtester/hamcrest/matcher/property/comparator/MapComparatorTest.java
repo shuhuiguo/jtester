@@ -2,8 +2,8 @@ package org.jtester.hamcrest.matcher.property.comparator;
 
 import java.util.HashMap;
 
-import org.jtester.hamcrest.matcher.property.reflection.EqMode;
 import org.jtester.json.encoder.beans.test.User;
+import org.jtester.matcher.property.reflection.EqMode;
 import org.jtester.testng.JTester;
 import org.testng.annotations.Test;
 
