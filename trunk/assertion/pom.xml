@@ -1,0 +1,35 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.jtester</groupId>
+		<artifactId>jtester.parent</artifactId>
+		<version>1.2.0</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+	<groupId>org.jtester</groupId>
+	<artifactId>jtester.assertion</artifactId>
+	<packaging>jar</packaging>
+	<name>jtester junit module</name>
+
+	<repositories>
+		<repository>
+			<id>vt-oss-releases</id>
+			<name>Valtech Open Source Releases</name>
+			<url>http://source.valtech.com/repo/content/repositories/releases/</url>
+		</repository>
+	</repositories>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.jtester</groupId>
+			<artifactId>jtester.core</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.10</version>
+		</dependency>
+	</dependencies>
+</project>
