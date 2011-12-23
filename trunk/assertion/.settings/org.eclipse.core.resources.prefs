@@ -1,3 +1,4 @@
-#Fri Dec 23 18:32:51 CST 2011
+#Fri Dec 23 18:37:20 CST 2011
 eclipse.preferences.version=1
-encoding/<project>=UTF-8
+encoding//src/main/java=utf-8
+encoding//src/test/java=utf-8
