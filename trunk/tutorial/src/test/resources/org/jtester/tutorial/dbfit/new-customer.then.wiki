@@ -1,0 +1,5 @@
+|connect|
+
+|query|select * from customer|
+|name|address|
+|darui.wu||

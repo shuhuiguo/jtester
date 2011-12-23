@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="JTester">
+	<test name="JTester">
+		<packages>
+			<package name="org.jtester.tutorial.*" />
+		</packages>
+	</test>
+	<listeners>
+		<listener class-name="org.jtester.testng.UserTestReporter" />
+	</listeners>
+</suite>

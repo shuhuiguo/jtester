@@ -1,0 +1,9 @@
+|connect|
+
+|query|select count(*) as count from tdd_user|
+|count|
+|2|
+
+|insert|tdd_user|
+|id|first_name|
+|7|darui.wu44|
