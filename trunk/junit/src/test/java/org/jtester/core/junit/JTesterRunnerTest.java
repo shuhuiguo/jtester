@@ -2,6 +2,8 @@ package org.jtester.core.junit;
 
 import java.lang.reflect.Method;
 
+import junit.framework.Assert;
+
 import mockit.Mock;
 import mockit.MockUp;
 
@@ -21,7 +23,7 @@ import org.junit.runner.RunWith;
  */
 @RunWith(JTesterRunner.class)
 @SuppressWarnings("unused")
-public class JTesterRunnerTest implements IAssertion {
+public class JTesterRunnerTest {
 	private static StringBuffer buff = new StringBuffer();
 
 	@BeforeClass
@@ -54,8 +56,8 @@ public class JTesterRunnerTest implements IAssertion {
 	public static void teardowClass() {
 		buff.append("@A");
 		System.out.println("@AfterClass");
-		want.string(buff.toString()).isEqualTo("@B bC" + METHOD_BUFF_CONST + METHOD_BUFF_CONST + "aC @A",
-				StringMode.IgnoreSpace);
+		String result = buff.toString();
+		Assert.assertEquals("@B bC" + METHOD_BUFF_CONST + METHOD_BUFF_CONST + "aC @A", result);
 	}
 }
 

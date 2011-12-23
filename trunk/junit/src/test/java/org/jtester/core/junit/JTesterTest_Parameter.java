@@ -2,6 +2,9 @@ package org.jtester.core.junit;
 
 import java.util.Iterator;
 
+import junit.framework.Assert;
+
+import org.jtester.beans.DataIterator;
 import org.jtester.junit.DataFrom;
 import org.jtester.junit.JTester;
 import org.junit.Test;
@@ -15,7 +18,7 @@ public class JTesterTest_Parameter extends JTester {
 	 */
 	@Test
 	public void testWithMockPara(MockDto o) {
-		want.object(o).notNull();
+		Assert.assertNotNull(o);
 	}
 
 	/**
@@ -36,7 +39,9 @@ public class JTesterTest_Parameter extends JTester {
 	@DataFrom("dataWithParameter")
 	@Test
 	public void testWithParameter(String name, Integer index) {
-		want.string(name).in("darui.wu", "jobs.he");
+		if (!name.equals("darui.wu") && !name.equals("jobs.he")) {
+			throw new AssertionError();
+		}
 	}
 
 	public static Iterator dataWithParameter() {

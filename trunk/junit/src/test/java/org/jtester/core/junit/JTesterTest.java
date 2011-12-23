@@ -1,5 +1,6 @@
 package org.jtester.core.junit;
 
+import junit.framework.Assert;
 import mockit.Mock;
 import mockit.MockUp;
 
@@ -50,7 +51,6 @@ public class JTesterTest extends JTester {
 	public static void teardowClass() {
 		buff.append("@A");
 		System.out.println("@AfterClass");
-		want.string(buff.toString()).isEqualTo("@B bC" + METHOD_BUFF_CONST + METHOD_BUFF_CONST + "aC @A",
-				StringMode.IgnoreSpace);
+		Assert.assertEquals("@B bC" + METHOD_BUFF_CONST + METHOD_BUFF_CONST + "aC @A", buff.toString());
 	}
 }
