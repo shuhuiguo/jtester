@@ -6,6 +6,7 @@ import java.util.Date;
 import mockit.Mock;
 import mockit.Mocked;
 
+import org.jtester.helper.DateHelper;
 import org.jtester.testng.JTester;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -16,59 +17,59 @@ public class DateUtilTest extends JTester {
 
 	@Test
 	public void testToDateTimeStr() {
-		String dateStr = DateUtil.toDateTimeStr(getMockDate(), "yyyy-MM-dd HH:mm:ss");
+		String dateStr = DateHelper.toDateTimeStr(getMockDate(), "yyyy-MM-dd HH:mm:ss");
 		want.string(dateStr).isEqualTo("2010-02-12 19:58:55");
 	}
 
 	public void testToDateTimeStr_MockitExpectation() {
 		new NonStrictExpectations() {
 			@Mocked(methods = "now")
-			DateUtil dateUtil;
+			DateHelper dateUtil;
 			{
-				DateUtil.now();
+				DateHelper.now();
 				returns(getMockDate());
 			}
 		};
-		String str = DateUtil.currDateTimeStr();
+		String str = DateHelper.currDateTimeStr();
 		want.string(str).isEqualTo("2010-02-12 19:58:55");
 	}
 
 	public void testToDateTimeStr_MockitExpectation_returnSequence() {
 		new NonStrictExpectations() {
 			@Mocked(methods = "now")
-			DateUtil dateUtil;
+			DateHelper dateUtil;
 			{
-				DateUtil.now();
+				DateHelper.now();
 				returns(getMockDate(), mockCalendar(2013, 2, 12).getTime());
 			}
 		};
-		String str = DateUtil.currDateTimeStr();
+		String str = DateHelper.currDateTimeStr();
 		want.string(str).isEqualTo("2010-02-12 19:58:55");
-		str = DateUtil.currDateTimeStr();
+		str = DateHelper.currDateTimeStr();
 		want.string(str).isEqualTo("2013-02-12 19:58:55");
 	}
 
 	public void testToDateTimeStr_MockitExpectation2() {
 		new NonStrictExpectations() {
 			@Mocked(methods = "now")
-			DateUtil dateUtil;
+			DateHelper dateUtil;
 			{
-				DateUtil.now();
+				DateHelper.now();
 				returns(mockCalendar(2015, 6, 25).getTime());
 			}
 		};
-		String str = DateUtil.currDateTimeStr();
+		String str = DateHelper.currDateTimeStr();
 		want.string(str).isEqualTo("2015-06-25 19:58:55");
 	}
 
 	public void testToDateTimeStr_dynamicPartialMock() {
-		new Expectations(DateUtil.class) {
+		new Expectations(DateHelper.class) {
 			{
-				DateUtil.now();
+				DateHelper.now();
 				returns(mockCalendar(2009, 6, 25).getTime());
 			}
 		};
-		String str = DateUtil.currDateTimeStr();
+		String str = DateHelper.currDateTimeStr();
 		want.string(str).isEqualTo("2009-06-25 19:58:55");
 	}
 
@@ -100,7 +101,7 @@ public class DateUtilTest extends JTester {
 
 	@Test(dataProvider = "dataParse_Format")
 	public void testParse_Format(String input, String output) {
-		Date date = DateUtil.parse(input);
+		Date date = DateHelper.parse(input);
 		want.date(date).eqByFormat(output);
 	}
 
@@ -121,18 +122,18 @@ public class DateUtilTest extends JTester {
 
 	@Test
 	public void testParse() {
-		Date date = DateUtil.parse("2010-10-20");
+		Date date = DateHelper.parse("2010-10-20");
 		want.date(date).eqByFormat("2010/10/20", "yyyy/MM/dd");
 	}
 
 	@Test
 	public void testParse_包含毫秒() {
-		Date date = DateUtil.parse("2010-10-20 18:20:36.231");
+		Date date = DateHelper.parse("2010-10-20 18:20:36.231");
 		want.date(date).eqByFormat("2010/10/20 06:20:36.231", "yyyy/MM/dd hh:mm:ss.SSS");
 	}
 
 	@Test(expectedExceptions = RuntimeException.class)
 	public void testParse_格式异常() {
-		DateUtil.parse("2010-10/20 18:20:36.231");
+		DateHelper.parse("2010-10/20 18:20:36.231");
 	}
 }

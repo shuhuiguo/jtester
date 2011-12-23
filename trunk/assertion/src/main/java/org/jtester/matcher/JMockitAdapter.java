@@ -1,4 +1,4 @@
-package org.jtester.hamcrest.matcher;
+package org.jtester.matcher;
 
 import static mockit.internal.util.Utilities.getField;
 import ext.jtester.hamcrest.Description;

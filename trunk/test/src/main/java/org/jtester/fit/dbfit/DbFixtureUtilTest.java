@@ -6,9 +6,9 @@ import java.util.regex.Pattern;
 
 import org.jtester.annotations.DbFit;
 import org.jtester.exception.ExceptionWrapper;
+import org.jtester.helper.ResourceHelper;
 import org.jtester.module.database.util.SqlRunner;
 import org.jtester.testng.JTester;
-import org.jtester.utility.ResourceHelper;
 import org.testng.annotations.Test;
 
 @Test(groups = "jtester")

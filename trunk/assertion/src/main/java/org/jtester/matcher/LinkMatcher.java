@@ -1,4 +1,4 @@
-package org.jtester.hamcrest.matcher;
+package org.jtester.matcher;
 
 import java.util.ArrayList;
 import java.util.List;

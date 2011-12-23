@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.jtester.fortest.beans.Manager;
 import org.jtester.json.JSON;
+import org.jtester.json.JSONHelper;
 import org.jtester.json.helper.JSONFeature;
 import org.jtester.testng.JTester;
 import org.testng.annotations.Test;
@@ -14,7 +15,7 @@ public class JsonHelperTest_JsonString extends JTester {
 	@Test
 	public void fromJson() {
 		String filename = "classpath:org/jtester/utility/manager.json";
-		Manager manager = JsonHelper.fromJsonFile(Manager.class, filename);
+		Manager manager = JSONHelper.fromJsonFile(Manager.class, filename);
 		want.object(manager).propertyEq("name", "Tony Tester").propertyEq("phoneNumber.number", "0571-88886666");
 		want.date(manager.getDate()).isYear(2009).isMonth("08").isHour(16);
 	}

@@ -5,9 +5,9 @@ import java.util.List;
 
 import org.jtester.exception.NoSuchFieldRuntimeException;
 import org.jtester.fortest.beans.Manager;
+import org.jtester.helper.ClazzHelper;
+import org.jtester.helper.FieldHelper;
 import org.jtester.testng.JTester;
-import org.jtester.utility.ClazzHelper;
-import org.jtester.utility.FieldHelper;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 

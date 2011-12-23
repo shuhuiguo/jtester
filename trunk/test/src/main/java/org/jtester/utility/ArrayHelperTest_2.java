@@ -7,6 +7,8 @@ import java.util.HashMap;
 import java.util.HashSet;
 
 import org.jtester.fortest.beans.User;
+import org.jtester.helper.ArrayHelper;
+import org.jtester.helper.ListHelper;
 import org.jtester.testng.JTester;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;

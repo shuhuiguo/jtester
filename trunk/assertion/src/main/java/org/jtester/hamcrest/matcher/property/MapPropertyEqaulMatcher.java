@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.jtester.core.IJTester.DataMap;
+import org.jtester.beans.DataMap;
 import org.jtester.hamcrest.matcher.property.difference.Difference;
 import org.jtester.hamcrest.matcher.property.reflection.EqMode;
 import org.jtester.hamcrest.matcher.property.reflection.ReflectionComparator;

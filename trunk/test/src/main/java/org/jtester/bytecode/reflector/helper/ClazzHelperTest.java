@@ -4,10 +4,10 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
+import org.jtester.helper.ClazzHelper;
 import org.jtester.json.encoder.beans.test.TestedClazz;
 import org.jtester.json.encoder.beans.test.TestedIntf;
 import org.jtester.testng.JTester;
-import org.jtester.utility.ClazzHelper;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 

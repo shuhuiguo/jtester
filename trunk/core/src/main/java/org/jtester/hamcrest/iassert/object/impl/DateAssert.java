@@ -6,11 +6,11 @@ import java.util.Date;
 
 import org.jtester.hamcrest.iassert.common.impl.ComparableAssert;
 import org.jtester.hamcrest.iassert.object.intf.IDateAssert;
-import org.jtester.hamcrest.matcher.LinkMatcher;
 import org.jtester.hamcrest.matcher.calendar.DateFormatMatcher;
 import org.jtester.hamcrest.matcher.calendar.DateParterMatcher;
 import org.jtester.hamcrest.matcher.calendar.DateParterMatcher.DateFieldType;
 import org.jtester.helper.DateHelper;
+import org.jtester.matcher.LinkMatcher;
 
 public class DateAssert<T> extends ComparableAssert<T, IDateAssert<T>> implements IDateAssert<T> {
 

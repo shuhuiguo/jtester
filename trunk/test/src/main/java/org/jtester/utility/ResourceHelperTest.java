@@ -7,6 +7,7 @@ import java.net.URL;
 
 import org.jtester.annotations.DbFit;
 import org.jtester.annotations.DbFit.AUTO;
+import org.jtester.helper.ResourceHelper;
 import org.jtester.testng.JTester;
 import org.testng.annotations.Test;
 

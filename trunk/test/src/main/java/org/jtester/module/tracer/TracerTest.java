@@ -9,8 +9,8 @@ import org.jtester.annotations.Tracer;
 import org.jtester.annotations.Tracer.Info;
 import org.jtester.fortest.hibernate.User;
 import org.jtester.fortest.hibernate.UserService;
+import org.jtester.helper.ResourceHelper;
 import org.jtester.testng.JTester;
-import org.jtester.utility.ResourceHelper;
 import org.testng.annotations.Test;
 
 @SpringApplicationContext({ "classpath:/org/jtester/fortest/hibernate/project.xml" })

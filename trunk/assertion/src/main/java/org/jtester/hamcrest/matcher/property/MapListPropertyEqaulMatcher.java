@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.jtester.core.IJTester.DataMap;
+import org.jtester.beans.DataMap;
 import org.jtester.exception.NoSuchFieldRuntimeException;
 import org.jtester.hamcrest.matcher.property.difference.Difference;
 import org.jtester.hamcrest.matcher.property.reflection.EqMode;

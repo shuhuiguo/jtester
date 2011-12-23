@@ -12,6 +12,7 @@ import mockit.MockUp;
 import mockit.Mocked;
 import mockit.Mockit;
 
+import org.jtester.helper.DateHelper;
 import org.jtester.testng.JTester;
 import org.jtester.utility.DateUtilTest.MockDateUtil;
 import org.testng.annotations.Test;
@@ -24,22 +25,22 @@ public class DateUtilTest_jmockit extends JTester {
 	public void testCurrDateStr_mockExpectations() {
 		new Expectations() {
 			@Mocked("now")
-			DateUtil dateUtil;
+			DateHelper dateUtil;
 			{
-				DateUtil.now();
+				DateHelper.now();
 				result = mockCalendar().getTime();
 			}
 		};
-		String str = DateUtil.currDateStr();
+		String str = DateHelper.currDateStr();
 		want.string(str).isEqualTo("2010-02-12");
 	}
 
 	public void testCurrDateTimeStr_Delegate() {
 		new Expectations() {
 			@Mocked("now")
-			DateUtil dateUtil;
+			DateHelper dateUtil;
 			{
-				DateUtil.now();
+				DateHelper.now();
 				result = new Delegate() {
 					public Date now() {
 						Calendar cal = mockCalendar(2011, 1, 27);
@@ -48,43 +49,43 @@ public class DateUtilTest_jmockit extends JTester {
 				};
 			}
 		};
-		String str = DateUtil.currDateStr();
+		String str = DateHelper.currDateStr();
 		want.string(str).isEqualTo("2011-01-27");
 	}
 
 	@Test
 	public void testCurrDateStr() {
-		Mockit.setUpMock(DateUtil.class, MockDateUtil.class);
-		String str = DateUtil.currDateStr();
+		Mockit.setUpMock(DateHelper.class, MockDateUtil.class);
+		String str = DateHelper.currDateStr();
 		want.string(str).isEqualTo("2010-02-12");
 		Mockit.tearDownMocks();
 	}
 
 	@Test
 	public void testCurrDateTimeStr() {
-		Mockit.setUpMock(DateUtil.class, MockDateUtil.class);
-		String str = DateUtil.currDateTimeStr();
+		Mockit.setUpMock(DateHelper.class, MockDateUtil.class);
+		String str = DateHelper.currDateTimeStr();
 		want.string(str).isEqualTo("2010-02-12 19:58:55");
 		Mockit.tearDownMocks();
 	}
 
 	@Test
 	public void testCurrDateTimeStr_annotations() {
-		new MockUp<DateUtil>() {
+		new MockUp<DateHelper>() {
 			@Mock
 			Date now() {
 				Calendar cal = mockCalendar(2011, 1, 27);
 				return cal.getTime();
 			}
 		};
-		String str = DateUtil.currDateTimeStr();
+		String str = DateHelper.currDateTimeStr();
 		want.string(str).isEqualTo("2011-01-27 19:58:55");
 	}
 
 	@Test
 	public void testCurrDateTimeStr_format() {
-		Mockit.setUpMock(DateUtil.class, MockDateUtil.class);
-		String str = DateUtil.currDateTimeStr("MM/dd/yy hh:mm:ss");
+		Mockit.setUpMock(DateHelper.class, MockDateUtil.class);
+		String str = DateHelper.currDateTimeStr("MM/dd/yy hh:mm:ss");
 		want.string(str).isEqualTo("02/12/10 07:58:55");
 		Mockit.tearDownMocks();
 	}
@@ -92,13 +93,13 @@ public class DateUtilTest_jmockit extends JTester {
 	public void testCurrDateTimeStr_Delegate2() {
 		new Expectations() {
 			@Mocked("now")
-			DateUtil dateUtil;
+			DateHelper dateUtil;
 			{
-				DateUtil.now();
+				DateHelper.now();
 				result = new MyDateUtilNowDelegate();
 			}
 		};
-		String str = DateUtil.currDateStr();
+		String str = DateHelper.currDateStr();
 		want.string(str).isEqualTo("2311-01-27");
 	}
 

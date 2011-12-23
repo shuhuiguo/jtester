@@ -11,13 +11,14 @@ import mockit.UsingMocksAndStubs;
 
 import org.testng.annotations.Test;
 
+import org.jtester.helper.DateHelper;
 import org.jtester.testng.JTester;
 import org.jtester.utility.DateUtilTest_MockClass.MockDateUtil;
 
 @Test(groups = "jtester")
 @UsingMocksAndStubs( { MockDateUtil.class })
 public class DateUtilTest_MockClass extends JTester {
-	@MockClass(realClass = DateUtil.class)
+	@MockClass(realClass = DateHelper.class)
 	public static class MockDateUtil {
 		@Mock
 		public static Date now() {
@@ -28,7 +29,7 @@ public class DateUtilTest_MockClass extends JTester {
 
 	@Test
 	public void testCurrDateTimeStr_format() {
-		String str = DateUtil.currDateTimeStr("MM/dd/yy hh:mm:ss");
+		String str = DateHelper.currDateTimeStr("MM/dd/yy hh:mm:ss");
 		want.string(str).isEqualTo("01/28/12 07:58:55");
 	}
 

@@ -8,8 +8,8 @@ import mockit.Mock;
 
 import org.jtester.annotations.AutoBeanInject.BeanMap;
 import org.jtester.exception.FindBeanImplClassException;
+import org.jtester.helper.ClazzHelper;
 import org.jtester.testng.JTester;
-import org.jtester.utility.ClazzHelper;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 

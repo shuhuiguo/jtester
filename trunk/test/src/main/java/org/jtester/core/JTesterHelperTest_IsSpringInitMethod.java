@@ -5,7 +5,7 @@ import java.lang.reflect.Method;
 import org.jtester.annotations.SpringInitMethod;
 import org.jtester.core.IJTester;
 import org.jtester.core.JTesterHelper;
-import org.jtester.reflector.utility.MethodHelper;
+import org.jtester.helper.MethodHelper;
 import org.testng.annotations.Test;
 
 @Test(groups = "jtester")

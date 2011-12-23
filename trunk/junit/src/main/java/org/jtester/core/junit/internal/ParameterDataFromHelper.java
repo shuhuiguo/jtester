@@ -6,7 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.jtester.core.junit.DataFrom;
-import org.jtester.reflector.utility.MethodHelper;
+import org.jtester.helper.MethodHelper;
 
 @SuppressWarnings("rawtypes")
 public class ParameterDataFromHelper {

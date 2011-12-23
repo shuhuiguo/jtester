@@ -4,10 +4,10 @@ import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.Date;
 
+import org.jtester.helper.DateHelper;
 import org.jtester.json.encoder.single.spec.DateEncoder;
 import org.jtester.json.helper.JSONFeature;
 import org.jtester.testng.JTester;
-import org.jtester.utility.DateUtil;
 import org.testng.annotations.Test;
 
 @SuppressWarnings({ "rawtypes", "unchecked" })
@@ -15,7 +15,7 @@ import org.testng.annotations.Test;
 public class DateEncoderTest extends JTester {
 
 	public void testEncode() throws Exception {
-		Date date = DateUtil.parse("2011-08-01 08:11:41");
+		Date date = DateHelper.parse("2011-08-01 08:11:41");
 
 		DateEncoder encoder = DateEncoder.instance;
 		encoder.setFeatures(JSONFeature.UseSingleQuote);
@@ -26,7 +26,7 @@ public class DateEncoderTest extends JTester {
 	}
 
 	public void testEncode_NotFlagClazz() throws Exception {
-		Date date = DateUtil.parse("2011-08-01 08:11:41");
+		Date date = DateHelper.parse("2011-08-01 08:11:41");
 
 		DateEncoder encoder = DateEncoder.instance;
 		encoder.setFeatures(JSONFeature.UseSingleQuote, JSONFeature.UnMarkClassFlag);
@@ -38,7 +38,7 @@ public class DateEncoderTest extends JTester {
 	}
 
 	public void testEncode_SQLDate() throws Exception {
-		Date time = DateUtil.parse("2011-08-01 08:11:41");
+		Date time = DateHelper.parse("2011-08-01 08:11:41");
 		java.sql.Date date = new java.sql.Date(time.getTime());
 
 		DateEncoder encoder = DateEncoder.instance;
@@ -50,7 +50,7 @@ public class DateEncoderTest extends JTester {
 	}
 
 	public void testEncode_SQLDate_NotFlagClazz() throws Exception {
-		Date time = DateUtil.parse("2011-08-01 08:11:41");
+		Date time = DateHelper.parse("2011-08-01 08:11:41");
 		java.sql.Date date = new java.sql.Date(time.getTime());
 
 		DateEncoder encoder = DateEncoder.instance;

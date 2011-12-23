@@ -9,8 +9,8 @@ import mockit.MockUp;
 import org.jtester.annotations.AutoBeanInject;
 import org.jtester.annotations.SpringApplicationContext;
 import org.jtester.annotations.SpringBeanByName;
+import org.jtester.helper.DateHelper;
 import org.jtester.testng.JTester;
-import org.jtester.utility.DateUtil;
 import org.jtester.utility.DateUtilTest;
 import org.testng.annotations.Test;
 
@@ -30,20 +30,20 @@ public class MockUpTest_Depends extends JTester {
 
 	@Test
 	public void testStaticMethod_mock() {
-		new MockUp<DateUtil>() {
+		new MockUp<DateHelper>() {
 			@Mock
 			public Date now() {
 				Calendar cal = DateUtilTest.mockCalendar(2012, 1, 28);
 				return cal.getTime();
 			}
 		};
-		String str = DateUtil.currDateTimeStr("MM/dd/yy hh:mm:ss");
+		String str = DateHelper.currDateTimeStr("MM/dd/yy hh:mm:ss");
 		want.string(str).isEqualTo("01/28/12 07:58:55");
 	}
 
 	@Test(dependsOnMethods = "testStaticMethod_mock", expectedExceptions = AssertionError.class)
 	public void testStaticMethod_unmock() {
-		String str = DateUtil.currDateTimeStr("MM/dd/yy hh:mm:ss");
+		String str = DateHelper.currDateTimeStr("MM/dd/yy hh:mm:ss");
 		want.string(str).isEqualTo("01/28/12 07:58:55");
 	}
 

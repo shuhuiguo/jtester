@@ -2,8 +2,8 @@ package org.jtester.module.database.dbop;
 
 import java.util.Iterator;
 
+import org.jtester.helper.DateHelper;
 import org.jtester.testng.JTester;
-import org.jtester.utility.DateUtil;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -49,7 +49,7 @@ public class InsertOpTest extends JTester {
 		db.useDB("eve").table("MTN_PLAN").clean().insert(new DataMap() {
 			{
 				put("ID", 1);
-				put("GMT_CREATE", DateUtil.parse("2010-11-10"));
+				put("GMT_CREATE", DateHelper.parse("2010-11-10"));
 			}
 		});
 		db.table("MTN_PLAN").query().propertyEqMap(new DataMap() {

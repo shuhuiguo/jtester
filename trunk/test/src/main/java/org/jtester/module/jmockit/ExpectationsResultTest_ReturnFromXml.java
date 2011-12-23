@@ -3,8 +3,8 @@ package org.jtester.module.jmockit;
 import mockit.Mocked;
 
 import org.jtester.fortest.beans.Manager;
+import org.jtester.json.JSONHelper;
 import org.jtester.testng.JTester;
-import org.jtester.utility.JsonHelper;
 import org.testng.annotations.Test;
 
 @Test(groups = "jtester")
@@ -15,7 +15,7 @@ public class ExpectationsResultTest_ReturnFromXml extends JTester {
 	public void returnValue() {
 		new Expectations() {
 			{
-				when(service.getManager(the.string().any().wanted())).thenReturnFrom(Manager.class, JsonHelper.class,
+				when(service.getManager(the.string().any().wanted())).thenReturnFrom(Manager.class, JSONHelper.class,
 						"manager.json");
 			}
 		};

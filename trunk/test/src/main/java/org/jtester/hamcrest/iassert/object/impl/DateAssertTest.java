@@ -11,8 +11,8 @@ import java.util.Map;
 import mockit.Mocked;
 
 import org.jtester.annotations.Inject;
+import org.jtester.helper.DateHelper;
 import org.jtester.testng.JTester;
-import org.jtester.utility.DateUtil;
 import org.testng.annotations.Test;
 
 @SuppressWarnings({ "rawtypes", "serial", "unchecked" })
@@ -182,7 +182,7 @@ public class DateAssertTest extends JTester {
 	}
 
 	public void testPropertyEq() {
-		final Date date = DateUtil.parse("2010-06-18 15:26:34");
+		final Date date = DateHelper.parse("2010-06-18 15:26:34");
 		Map map = new HashMap() {
 			{
 				this.put("myDate", date);

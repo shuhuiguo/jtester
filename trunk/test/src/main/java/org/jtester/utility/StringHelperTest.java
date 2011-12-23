@@ -1,5 +1,6 @@
 package org.jtester.utility;
 
+import org.jtester.helper.StringHelper;
 import org.jtester.testng.JTester;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;

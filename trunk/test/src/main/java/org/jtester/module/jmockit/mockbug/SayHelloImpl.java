@@ -1,7 +1,7 @@
 package org.jtester.module.jmockit.mockbug;
 
 import org.apache.log4j.Logger;
-import org.jtester.utility.LogHelper;
+import org.jtester.helper.LogHelper;
 
 public class SayHelloImpl {
 	private final static Logger log4j = Logger.getLogger(SayHelloImpl.class);

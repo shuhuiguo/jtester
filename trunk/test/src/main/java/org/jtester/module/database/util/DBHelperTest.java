@@ -8,8 +8,8 @@ import java.util.Iterator;
 import mockit.Mock;
 
 import org.jtester.hamcrest.matcher.string.StringMode;
+import org.jtester.helper.ResourceHelper;
 import org.jtester.testng.JTester;
-import org.jtester.utility.ResourceHelper;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 

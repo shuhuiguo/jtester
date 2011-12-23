@@ -6,7 +6,7 @@ import org.jbehave.core.model.StepPattern;
 import org.jbehave.core.parsers.StepMatcher;
 import org.jbehave.core.parsers.StepPatternParser;
 import org.jbehave.core.steps.StepType;
-import org.jtester.utility.StringHelper;
+import org.jtester.helper.StringHelper;
 
 public class JSpecStepPatternParser implements StepPatternParser {
 
