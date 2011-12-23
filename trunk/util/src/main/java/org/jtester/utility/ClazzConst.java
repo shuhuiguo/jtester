@@ -1,4 +1,4 @@
-package org.jtester.reflector.utility;
+package org.jtester.utility;
 
 /**
  * 框架中用到的类名称常量

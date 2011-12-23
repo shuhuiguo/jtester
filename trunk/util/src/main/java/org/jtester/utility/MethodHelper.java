@@ -1,4 +1,4 @@
-package org.jtester.reflector.utility;
+package org.jtester.utility;
 
 import static java.lang.reflect.Modifier.isStatic;
 
@@ -13,8 +13,6 @@ import java.util.Set;
 import org.jtester.exception.JTesterReflectionException;
 import org.jtester.exception.NoSuchMethodRuntimeException;
 import org.jtester.reflector.MethodAccessor;
-import org.jtester.utility.ClazzHelper;
-import org.jtester.utility.PrimitiveHelper;
 
 @SuppressWarnings({ "rawtypes", "unchecked" })
 public final class MethodHelper {

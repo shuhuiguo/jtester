@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.io.Writer;
 import java.net.URL;
 
-import org.jtester.reflector.utility.MethodHelper;
 
 public class LogHelper {
 	public static final String LOG4J_XML_FILE = "log4j.xml.file";
