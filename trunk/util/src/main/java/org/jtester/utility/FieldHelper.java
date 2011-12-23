@@ -9,7 +9,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.jtester.bytecode.reflector.FieldAccessor;
+import org.jtester.reflector.FieldAccessor;
 import org.jtester.exception.NoSuchFieldRuntimeException;
 
 @SuppressWarnings({ "rawtypes" })
@@ -48,7 +48,8 @@ public final class FieldHelper {
 	 * @param fieldName
 	 * @param fieldValue
 	 */
-	public static void setFieldValue(Object target, String fieldName, Object fieldValue) {
+	public static void setFieldValue(Object target, String fieldName,
+			Object fieldValue) {
 		if (target == null) {
 			throw new RuntimeException("the target object can't be null.");
 		}
@@ -56,7 +57,8 @@ public final class FieldHelper {
 		accessor.set(target, fieldValue);
 	}
 
-	public static void setFieldValue(Object target, Field field, Object fieldValue) {
+	public static void setFieldValue(Object target, Field field,
+			Object fieldValue) {
 		if (target == null) {
 			throw new RuntimeException("the target object can't be null.");
 		}
@@ -69,8 +71,9 @@ public final class FieldHelper {
 			field.setAccessible(true);
 			field.set(target, fieldValue);
 		} catch (Exception e) {
-			String info = String.format("to set field[%s] value into target[%s] error.", field.getName(), target
-					.getClass().getName());
+			String info = String.format(
+					"to set field[%s] value into target[%s] error.",
+					field.getName(), target.getClass().getName());
 			throw new RuntimeException(info, e);
 		} finally {
 			field.setAccessible(isAccessible);
@@ -119,8 +122,9 @@ public final class FieldHelper {
 			Object o = field.get(target);
 			return o;
 		} catch (Exception e) {
-			String info = String.format("to get field[%s] value from target[%s] error.", field.getName(), target
-					.getClass().getName());
+			String info = String.format(
+					"to get field[%s] value from target[%s] error.",
+					field.getName(), target.getClass().getName());
 			throw new RuntimeException(info, e);
 		} finally {
 			field.setAccessible(isAccessible);
@@ -168,7 +172,8 @@ public final class FieldHelper {
 		Set<Field> fieldsOfType = new HashSet<Field>();
 		List<Field> allFields = getAllFields(clazz);
 		for (Field field : allFields) {
-			boolean isAssignFrom = ClazzHelper.isAssignable(type, field.getGenericType());
+			boolean isAssignFrom = ClazzHelper.isAssignable(type,
+					field.getGenericType());
 			if (isAssignFrom) {
 				fieldsOfType.add(field);
 			}

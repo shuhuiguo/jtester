@@ -18,8 +18,19 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+			<groupId>com.googlecode.jmockit</groupId>
+			<artifactId>jmockit</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib-nodep</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring</artifactId>
+			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 </project>

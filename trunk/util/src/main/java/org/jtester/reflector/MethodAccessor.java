@@ -5,7 +5,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.Arrays;
 
-import org.jtester.bytecode.reflector.helper.MethodHelper;
+import org.jtester.reflector.utility.MethodHelper;
 import org.jtester.exception.ExceptionWrapper;
 import org.jtester.exception.JTesterException;
 import org.jtester.exception.NoSuchMethodRuntimeException;
@@ -16,9 +16,11 @@ public class MethodAccessor<T> {
 	private final Method method;
 	private final Class targetClaz;
 
-	public MethodAccessor(Class targetClaz, String methodName, Class... parametersType) {
+	public MethodAccessor(Class targetClaz, String methodName,
+			Class... parametersType) {
 		this.targetClaz = targetClaz;
-		this.method = MethodHelper.getMethod(targetClaz, methodName, parametersType);
+		this.method = MethodHelper.getMethod(targetClaz, methodName,
+				parametersType);
 	}
 
 	/**
@@ -28,9 +30,11 @@ public class MethodAccessor<T> {
 	 * @param methodName
 	 * @param parametersType
 	 */
-	public MethodAccessor(Object target, String methodName, Class... parametersType) {
+	public MethodAccessor(Object target, String methodName,
+			Class... parametersType) {
 		this.targetClaz = target.getClass();
-		this.method = MethodHelper.getMethod(targetClaz, methodName, parametersType);
+		this.method = MethodHelper.getMethod(targetClaz, methodName,
+				parametersType);
 	}
 
 	public MethodAccessor(Method method) {
@@ -79,9 +83,10 @@ public class MethodAccessor<T> {
 
 	public T invokeStatic(Object[] args) throws Exception {
 		if (Modifier.isStatic(method.getModifiers()) == false) {
-			String methodDesc = method.getName() + "(" + Arrays.toString(method.getParameterTypes()) + ")";
-			throw new NoSuchMethodRuntimeException("No such static method: " + methodDesc + " in class["
-					+ this.targetClaz + "]");
+			String methodDesc = method.getName() + "("
+					+ Arrays.toString(method.getParameterTypes()) + ")";
+			throw new NoSuchMethodRuntimeException("No such static method: "
+					+ methodDesc + " in class[" + this.targetClaz + "]");
 		} else {
 			return (T) invoke(null, args);
 		}
@@ -112,7 +117,8 @@ public class MethodAccessor<T> {
 	 * @throws JTesterException
 	 *             if the method could not be invoked
 	 */
-	public static <T> T invokeMethod(Object target, Method method, Object... arguments) throws Exception {
+	public static <T> T invokeMethod(Object target, Method method,
+			Object... arguments) throws Exception {
 		boolean isAccessible = method.isAccessible();
 		try {
 			method.setAccessible(true);
@@ -122,18 +128,22 @@ public class MethodAccessor<T> {
 		}
 	}
 
-	public static <T> T invokeMethodUnThrow(Object target, Method method, Object... arguments) {
+	public static <T> T invokeMethodUnThrow(Object target, Method method,
+			Object... arguments) {
 		if (method == null) {
-			throw new RuntimeException("reflector invoke ,the argument[method] can't be null.");
+			throw new RuntimeException(
+					"reflector invoke ,the argument[method] can't be null.");
 		}
 		try {
 			return (T) invokeMethod(target, method, arguments);
 		} catch (Exception e) {
-			throw new JTesterException("Unable to invoke method[" + method.getName() + "].", e);
+			throw new JTesterException("Unable to invoke method["
+					+ method.getName() + "].", e);
 		}
 	}
 
-	public static <T> T invokeMethod(Object target, String methodNmae, Object... paras) throws Exception {
+	public static <T> T invokeMethod(Object target, String methodNmae,
+			Object... paras) throws Exception {
 		if (target == null) {
 			throw new RuntimeException("the target object can't be null!");
 		}
@@ -141,7 +151,8 @@ public class MethodAccessor<T> {
 		Object _target = ClazzHelper.getProxiedObject(target);
 
 		Class[] paraClazes = MethodHelper.getParameterClazz(paras);
-		Method method = MethodHelper.getMethod(_target.getClass(), methodNmae, paraClazes);
+		Method method = MethodHelper.getMethod(_target.getClass(), methodNmae,
+				paraClazes);
 
 		Object result = invokeMethod(_target, method, paras);
 		return (T) result;
@@ -157,11 +168,13 @@ public class MethodAccessor<T> {
 	 * @param paras
 	 * @return
 	 */
-	public static <T> T invokeMethodUnThrow(Object target, String methodName, Object... paras) {
+	public static <T> T invokeMethodUnThrow(Object target, String methodName,
+			Object... paras) {
 		try {
 			return (T) invokeMethod(target, methodName, paras);
 		} catch (Exception e) {
-			throw new JTesterException("Unable to invoke method[" + methodName + "].", e);
+			throw new JTesterException("Unable to invoke method[" + methodName
+					+ "].", e);
 		}
 	}
 }
