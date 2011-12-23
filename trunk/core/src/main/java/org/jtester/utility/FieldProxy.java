@@ -1,4 +1,4 @@
-package org.jtester.reflector.invokabel;
+package org.jtester.utility;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

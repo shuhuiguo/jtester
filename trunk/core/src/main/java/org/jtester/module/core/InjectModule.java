@@ -10,8 +10,8 @@ import org.jtester.annotations.Inject;
 import org.jtester.module.TestListener;
 import org.jtester.module.core.helper.InjectionModuleHelper;
 import org.jtester.reflector.PropertyAccessor;
-import org.jtester.reflector.imposteriser.JTesterProxy;
 import org.jtester.utility.ClazzHelper;
+import org.jtester.utility.JTesterProxy;
 import org.jtester.utility.StringHelper;
 
 @SuppressWarnings("rawtypes")

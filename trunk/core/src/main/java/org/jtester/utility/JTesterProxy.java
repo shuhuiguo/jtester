@@ -1,8 +1,10 @@
-package org.jtester.reflector.imposteriser;
+package org.jtester.utility;
 
 import java.lang.reflect.Field;
 
-import org.jtester.reflector.invokabel.FieldProxy;
+import org.jtester.reflector.imposteriser.ClassImposteriser;
+import org.jtester.reflector.imposteriser.Imposteriser;
+import org.jtester.reflector.imposteriser.Invokable;
 import org.jtester.utility.FieldHelper;
 
 @SuppressWarnings({ "rawtypes", "unchecked" })
