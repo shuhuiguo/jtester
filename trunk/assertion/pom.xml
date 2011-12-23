@@ -12,14 +12,6 @@
 	<packaging>jar</packaging>
 	<name>jtester junit module</name>
 
-	<repositories>
-		<repository>
-			<id>vt-oss-releases</id>
-			<name>Valtech Open Source Releases</name>
-			<url>http://source.valtech.com/repo/content/repositories/releases/</url>
-		</repository>
-	</repositories>
-
 	<dependencies>
 		<dependency>
 			<groupId>org.jtester</groupId>
@@ -29,7 +21,6 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.10</version>
 		</dependency>
 	</dependencies>
 </project>

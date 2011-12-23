@@ -8,13 +8,30 @@
 	<name>jtester parent pom</name>
 
 	<modules>
+		<module>assertion</module>
 		<module>core</module>
 		<module>test</module>
 		<module>junit</module>
 		<module>spec</module>
 	</modules>
+	<properties>
+		<junit.version>4.10</junit.version>
+	</properties>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${junit.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 	<repositories>
-	
+		<repository>
+			<id>vt-oss-releases</id>
+			<name>Valtech Open Source Releases</name>
+			<url>http://source.valtech.com/repo/content/repositories/releases/</url>
+		</repository>
 	</repositories>
 	<build>
 		<plugins>
