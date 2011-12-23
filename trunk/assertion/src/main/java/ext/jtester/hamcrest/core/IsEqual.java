@@ -9,7 +9,7 @@ import ext.jtester.hamcrest.Matcher;
 
 import java.lang.reflect.Array;
 
-import org.jtester.utility.PrimitiveHelper;
+import org.jtester.helper.PrimitiveHelper;
 
 /**
  * Is the value equal to another value, as tested by the
