@@ -3,7 +3,7 @@ package org.jtester.utility;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class DateUtil {
+public class DateHelper {
 	/**
 	 * 返回当前日期的默认格式("yyyy-MM-dd")字符串
 	 * 

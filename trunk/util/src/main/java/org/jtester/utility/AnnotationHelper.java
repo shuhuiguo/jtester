@@ -17,7 +17,7 @@ import org.jtester.exception.JTesterException;
  * 
  */
 @SuppressWarnings({ "unchecked", "rawtypes" })
-public class AnnotationUtils {
+public class AnnotationHelper {
 
 	/**
 	 * Returns the given class's declared fields that are marked with the given
