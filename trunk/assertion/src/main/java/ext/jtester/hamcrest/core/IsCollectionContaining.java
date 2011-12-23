@@ -51,6 +51,7 @@ public class IsCollectionContaining<T> extends TypeSafeDiagnosingMatcher<Iterabl
 		return new IsCollectionContaining<T>(equalTo(element));
 	}
 
+	@SuppressWarnings("unchecked")
 	@Factory
 	public static <T> Matcher<Iterable<T>> hasItems(Matcher... elementMatchers) {
 		List<Matcher> all = new ArrayList<Matcher>(elementMatchers.length);
