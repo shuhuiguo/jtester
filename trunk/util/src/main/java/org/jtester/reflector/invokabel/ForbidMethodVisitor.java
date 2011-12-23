@@ -1,4 +1,4 @@
-package org.jtester.bytecode.imposteriser.invokabel;
+package org.jtester.reflector.invokabel;
 
 import mockit.external.asm.MethodAdapter;
 import mockit.external.asm.MethodVisitor;

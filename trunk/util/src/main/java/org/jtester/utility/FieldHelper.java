@@ -1,4 +1,4 @@
-package org.jtester.bytecode.reflector.helper;
+package org.jtester.utility;
 
 import static java.util.Arrays.asList;
 
@@ -11,7 +11,6 @@ import java.util.Set;
 
 import org.jtester.bytecode.reflector.FieldAccessor;
 import org.jtester.exception.NoSuchFieldRuntimeException;
-import org.jtester.utility.ClazzHelper;
 
 @SuppressWarnings({ "rawtypes" })
 public final class FieldHelper {

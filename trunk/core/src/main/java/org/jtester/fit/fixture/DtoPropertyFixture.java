@@ -3,11 +3,11 @@ package org.jtester.fit.fixture;
 import java.util.List;
 import java.util.Map;
 
-import org.jtester.bytecode.reflector.FieldAccessor;
-import org.jtester.bytecode.reflector.MethodAccessor;
-import org.jtester.bytecode.reflector.helper.MethodHelper;
 import org.jtester.exception.NoSuchMethodRuntimeException;
 import org.jtester.fit.util.ParseArg;
+import org.jtester.reflector.FieldAccessor;
+import org.jtester.reflector.MethodAccessor;
+import org.jtester.reflector.utility.MethodHelper;
 import org.jtester.utility.StringHelper;
 
 import fit.Parse;

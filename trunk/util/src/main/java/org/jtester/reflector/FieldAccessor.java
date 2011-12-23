@@ -1,9 +1,9 @@
-package org.jtester.bytecode.reflector;
+package org.jtester.reflector;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
-import org.jtester.bytecode.reflector.helper.FieldHelper;
+import org.jtester.utility.FieldHelper;
 
 @SuppressWarnings({ "rawtypes", "unchecked" })
 public class FieldAccessor<T> {

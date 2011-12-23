@@ -8,9 +8,9 @@ import java.util.Set;
 
 import org.jtester.annotations.SpringBeanRemote;
 import org.jtester.annotations.SpringBeanRemote.SpringBeanRemoteType;
-import org.jtester.bytecode.reflector.helper.FieldHelper;
 import org.jtester.exception.JTesterException;
 import org.jtester.utility.AnnotationUtils;
+import org.jtester.utility.FieldHelper;
 import org.jtester.utility.JTesterLogger;
 import org.jtester.utility.StringHelper;
 import org.springframework.beans.MutablePropertyValues;

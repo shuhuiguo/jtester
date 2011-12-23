@@ -3,8 +3,8 @@ package org.jtester.hamcrest.matcher.property;
 import ext.jtester.hamcrest.BaseMatcher;
 import ext.jtester.hamcrest.Description;
 
-import org.jtester.bytecode.reflector.PropertyAccessor;
 import org.jtester.hamcrest.matcher.property.reflection.EqMode;
+import org.jtester.reflector.PropertyAccessor;
 import org.jtester.utility.StringHelper;
 
 /**

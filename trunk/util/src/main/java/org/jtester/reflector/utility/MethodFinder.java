@@ -1,4 +1,4 @@
-package org.jtester.bytecode.reflector.helper;
+package org.jtester.reflector.utility;
 
 import java.lang.reflect.Method;
 import java.util.LinkedList;

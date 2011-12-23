@@ -7,10 +7,10 @@ import java.util.HashMap;
 import java.util.Set;
 
 import org.jtester.annotations.SpringBeanFrom;
-import org.jtester.bytecode.imposteriser.JTesterProxy;
-import org.jtester.bytecode.reflector.helper.FieldHelper;
 import org.jtester.core.TestedContext;
 import org.jtester.exception.FindBeanImplClassException;
+import org.jtester.reflector.imposteriser.JTesterProxy;
+import org.jtester.utility.FieldHelper;
 import org.jtester.utility.JTesterLogger;
 import org.jtester.utility.StringHelper;
 import org.springframework.beans.MutablePropertyValues;

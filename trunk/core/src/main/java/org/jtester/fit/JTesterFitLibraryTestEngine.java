@@ -3,8 +3,8 @@ package org.jtester.fit;
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
 
-import org.jtester.bytecode.reflector.MethodAccessor;
 import org.jtester.exception.JTesterException;
+import org.jtester.reflector.MethodAccessor;
 
 import fitlibrary.batch.testRun.FitLibraryTestEngine;
 import fitlibrary.batch.trinidad.TestDescriptor;

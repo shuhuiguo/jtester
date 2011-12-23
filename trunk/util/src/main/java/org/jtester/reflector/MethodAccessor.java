@@ -1,4 +1,4 @@
-package org.jtester.bytecode.reflector;
+package org.jtester.reflector;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

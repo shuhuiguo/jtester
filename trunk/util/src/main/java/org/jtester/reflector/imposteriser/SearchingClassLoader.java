@@ -1,4 +1,4 @@
-package org.jtester.bytecode.imposteriser;
+package org.jtester.reflector.imposteriser;
 
 import java.util.ArrayList;
 import java.util.Arrays;

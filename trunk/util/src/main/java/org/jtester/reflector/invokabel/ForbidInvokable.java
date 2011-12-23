@@ -1,4 +1,4 @@
-package org.jtester.bytecode.imposteriser.invokabel;
+package org.jtester.reflector.invokabel;
 
 import java.lang.reflect.Method;
 import java.util.HashSet;

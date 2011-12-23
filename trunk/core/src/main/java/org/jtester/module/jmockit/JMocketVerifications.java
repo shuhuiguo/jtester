@@ -2,8 +2,8 @@ package org.jtester.module.jmockit;
 
 import mockit.Verifications;
 
-import org.jtester.bytecode.reflector.MethodAccessor;
 import org.jtester.hamcrest.matcher.JMockitAdapter;
+import org.jtester.reflector.MethodAccessor;
 
 import ext.jtester.hamcrest.Matcher;
 

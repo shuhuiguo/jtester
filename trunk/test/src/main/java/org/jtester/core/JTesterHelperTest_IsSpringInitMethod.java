@@ -3,9 +3,9 @@ package org.jtester.core;
 import java.lang.reflect.Method;
 
 import org.jtester.annotations.SpringInitMethod;
-import org.jtester.bytecode.reflector.helper.MethodHelper;
 import org.jtester.core.IJTester;
 import org.jtester.core.JTesterHelper;
+import org.jtester.reflector.utility.MethodHelper;
 import org.testng.annotations.Test;
 
 @Test(groups = "jtester")

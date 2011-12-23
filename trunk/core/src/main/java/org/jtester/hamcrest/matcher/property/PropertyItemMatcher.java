@@ -2,7 +2,7 @@ package org.jtester.hamcrest.matcher.property;
 
 import java.util.List;
 
-import org.jtester.bytecode.reflector.PropertyAccessor;
+import org.jtester.reflector.PropertyAccessor;
 import org.jtester.utility.ArrayHelper;
 import org.jtester.utility.ListHelper;
 

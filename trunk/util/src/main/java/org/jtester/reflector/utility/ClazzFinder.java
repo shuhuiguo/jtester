@@ -1,4 +1,4 @@
-package org.jtester.bytecode.reflector.helper;
+package org.jtester.reflector.utility;
 
 import java.io.File;
 import java.io.IOException;

@@ -4,10 +4,10 @@ import java.util.HashMap;
 
 import org.jtester.annotations.SpringApplicationContext;
 import org.jtester.annotations.SpringBeanByName;
-import org.jtester.bytecode.reflector.MethodAccessor;
 import org.jtester.bytecode.reflector.service.MyService;
 import org.jtester.bytecode.reflector.service.MyServiceImpl;
 import org.jtester.bytecode.reflector.service.MyServiceImpl.MyTestException;
+import org.jtester.reflector.MethodAccessor;
 import org.jtester.testng.JTester;
 import org.testng.annotations.Test;
 

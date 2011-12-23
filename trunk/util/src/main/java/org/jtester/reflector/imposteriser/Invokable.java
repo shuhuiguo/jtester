@@ -1,7 +1,7 @@
-package org.jtester.bytecode.imposteriser;
+package org.jtester.reflector.imposteriser;
 
 /**
- * An object that can receive an {@link org.jmock.api.Invocation}.
+ * An object that can receive an {@link org.jtester.reflector.imposteriser.jmock.api.Invocation}.
  * 
  * @author npryce
  */

@@ -7,12 +7,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.jtester.bytecode.reflector.PropertyAccessor;
-import org.jtester.bytecode.reflector.helper.FieldHelper;
 import org.jtester.fortest.beans.Address;
 import org.jtester.fortest.beans.Employee;
 import org.jtester.fortest.beans.User;
+import org.jtester.reflector.PropertyAccessor;
 import org.jtester.testng.JTester;
+import org.jtester.utility.FieldHelper;
 import org.testng.annotations.Test;
 
 @SuppressWarnings({ "unchecked", "rawtypes" })

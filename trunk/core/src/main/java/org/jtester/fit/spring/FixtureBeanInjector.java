@@ -8,8 +8,8 @@ import java.util.Set;
 
 import org.jtester.annotations.SpringBeanByName;
 import org.jtester.annotations.SpringBeanByType;
-import org.jtester.bytecode.reflector.helper.FieldHelper;
 import org.jtester.exception.JTesterException;
+import org.jtester.utility.FieldHelper;
 import org.jtester.utility.StringHelper;
 import org.springframework.context.ApplicationContext;
 

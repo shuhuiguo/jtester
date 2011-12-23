@@ -8,9 +8,9 @@ import java.util.Set;
 
 import org.jtester.annotations.SpringApplicationContext;
 import org.jtester.annotations.SpringBeanByName;
-import org.jtester.bytecode.reflector.helper.FieldHelper;
 import org.jtester.exception.JTesterException;
 import org.jtester.module.spring.JTesterBeanFactory;
+import org.jtester.utility.FieldHelper;
 import org.jtester.utility.StringHelper;
 
 @SuppressWarnings({ "unchecked", "rawtypes" })

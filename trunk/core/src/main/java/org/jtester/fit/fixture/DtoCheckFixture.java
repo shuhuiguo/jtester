@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-import org.jtester.bytecode.reflector.FieldAccessor;
 import org.jtester.fit.util.ParseArg;
+import org.jtester.reflector.FieldAccessor;
 
 import fit.Fixture;
 import fit.Parse;

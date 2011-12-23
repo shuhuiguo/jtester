@@ -1,12 +1,12 @@
 package org.jtester.hamcrest.iassert.common.impl;
 
-import org.jtester.bytecode.reflector.MethodAccessor;
 import org.jtester.exception.JTesterException;
 import org.jtester.hamcrest.TheStyleAssertion;
 import org.jtester.hamcrest.iassert.common.intf.IAssert;
 import org.jtester.hamcrest.matcher.LinkMatcher;
 import org.jtester.hamcrest.matcher.clazz.ClassAssignFromMatcher;
 import org.jtester.module.jmockit.ExpectationsUtil;
+import org.jtester.reflector.MethodAccessor;
 import org.jtester.utility.PrimitiveHelper;
 
 import ext.jtester.hamcrest.BaseMatcher;

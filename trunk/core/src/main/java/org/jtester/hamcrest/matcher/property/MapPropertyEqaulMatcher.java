@@ -7,13 +7,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.jtester.bytecode.reflector.PropertyAccessor;
 import org.jtester.core.IJTester.DataMap;
 import org.jtester.hamcrest.matcher.property.difference.Difference;
 import org.jtester.hamcrest.matcher.property.reflection.EqMode;
 import org.jtester.hamcrest.matcher.property.reflection.ReflectionComparator;
 import org.jtester.hamcrest.matcher.property.report.DefaultDifferenceReport;
 import org.jtester.hamcrest.matcher.property.report.DifferenceReport;
+import org.jtester.reflector.PropertyAccessor;
 import org.jtester.utility.ArrayHelper;
 import org.jtester.utility.ListHelper;
 

@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.jtester.exception.NoSuchFieldRuntimeException;
 import org.jtester.json.encoder.beans.test.User;
+import org.jtester.reflector.PropertyAccessor;
 import org.jtester.testng.JTester;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;

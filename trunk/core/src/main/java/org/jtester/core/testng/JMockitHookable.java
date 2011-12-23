@@ -3,8 +3,8 @@ package org.jtester.core.testng;
 import java.io.File;
 import java.util.regex.Pattern;
 
-import org.jtester.bytecode.reflector.FieldAccessor;
-import org.jtester.bytecode.reflector.MethodAccessor;
+import org.jtester.reflector.FieldAccessor;
+import org.jtester.reflector.MethodAccessor;
 import org.testng.IHookCallBack;
 import org.testng.IHookable;
 import org.testng.ITestContext;

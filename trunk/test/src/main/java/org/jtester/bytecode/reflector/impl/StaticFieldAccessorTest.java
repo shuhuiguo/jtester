@@ -1,7 +1,7 @@
 package org.jtester.bytecode.reflector.impl;
 
-import org.jtester.bytecode.reflector.FieldAccessor;
 import org.jtester.bytecode.reflector.model.TestObject;
+import org.jtester.reflector.FieldAccessor;
 import org.jtester.testng.JTester;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;

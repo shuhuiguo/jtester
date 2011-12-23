@@ -1,9 +1,9 @@
-package org.jtester.bytecode.imposteriser;
+package org.jtester.reflector.imposteriser;
 
 import java.lang.reflect.Field;
 
-import org.jtester.bytecode.imposteriser.invokabel.FieldProxy;
-import org.jtester.bytecode.reflector.helper.FieldHelper;
+import org.jtester.reflector.invokabel.FieldProxy;
+import org.jtester.utility.FieldHelper;
 
 @SuppressWarnings({ "rawtypes", "unchecked" })
 public final class JTesterProxy {

@@ -12,9 +12,9 @@ import ognl.Ognl;
 import ognl.OgnlContext;
 import ognl.OgnlException;
 
-import org.jtester.bytecode.reflector.helper.FieldHelper;
 import org.jtester.exception.JTesterException;
 import org.jtester.utility.AnnotationUtils;
+import org.jtester.utility.FieldHelper;
 import org.jtester.utility.JTesterLogger;
 
 /**

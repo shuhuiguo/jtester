@@ -1,7 +1,7 @@
 package org.jtester.hamcrest.matcher.property;
 
-import org.jtester.bytecode.reflector.PropertyAccessor;
 import org.jtester.hamcrest.matcher.string.StringMode;
+import org.jtester.reflector.PropertyAccessor;
 import org.jtester.utility.ArrayHelper;
 
 import ext.jtester.hamcrest.BaseMatcher;

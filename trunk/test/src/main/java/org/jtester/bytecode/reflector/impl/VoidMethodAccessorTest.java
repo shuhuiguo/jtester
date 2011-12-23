@@ -1,8 +1,8 @@
 package org.jtester.bytecode.reflector.impl;
 
-import org.jtester.bytecode.reflector.MethodAccessor;
 import org.jtester.bytecode.reflector.model.TestException;
 import org.jtester.bytecode.reflector.model.TestObject;
+import org.jtester.reflector.MethodAccessor;
 import org.jtester.testng.JTester;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;

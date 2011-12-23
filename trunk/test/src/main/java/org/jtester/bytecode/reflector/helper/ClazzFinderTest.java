@@ -2,9 +2,9 @@ package org.jtester.bytecode.reflector.helper;
 
 import java.util.List;
 
-import org.jtester.bytecode.reflector.helper.ClazzFinder;
-import org.jtester.bytecode.reflector.helper.MethodFinder;
 import org.jtester.fortest.hibernate.UserService;
+import org.jtester.reflector.utility.ClazzFinder;
+import org.jtester.reflector.utility.MethodFinder;
 import org.jtester.testng.JTester;
 import org.testng.annotations.Test;
 

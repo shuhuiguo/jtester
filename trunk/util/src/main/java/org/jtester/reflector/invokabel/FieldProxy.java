@@ -1,12 +1,12 @@
-package org.jtester.bytecode.imposteriser.invokabel;
+package org.jtester.reflector.invokabel;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import org.jtester.bytecode.imposteriser.Invocation;
 import org.jtester.bytecode.imposteriser.Invokable;
-import org.jtester.bytecode.reflector.FieldAccessor;
 import org.jtester.core.TestedContext;
+import org.jtester.reflector.FieldAccessor;
 
 /**
  * 目标对象字段的代理<br>

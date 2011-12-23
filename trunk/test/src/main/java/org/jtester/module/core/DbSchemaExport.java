@@ -7,7 +7,6 @@ import org.apache.log4j.Logger;
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.tool.hbm2ddl.SchemaExport;
-import org.jtester.bytecode.reflector.helper.FieldHelper;
 import org.jtester.exception.JTesterException;
 import org.jtester.module.core.helper.ConfigurationHelper;
 import org.jtester.module.core.helper.ModulesManager;
@@ -15,6 +14,7 @@ import org.jtester.module.database.support.DbSupport;
 import org.jtester.module.database.support.DefaultSQLHandler;
 import org.jtester.module.database.support.SQLHandler;
 import org.jtester.module.database.util.DataSourceType;
+import org.jtester.utility.FieldHelper;
 
 public class DbSchemaExport {
 	private final static Logger log4j = Logger.getLogger(DbSchemaExport.class);

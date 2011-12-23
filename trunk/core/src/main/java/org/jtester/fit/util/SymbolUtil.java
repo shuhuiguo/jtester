@@ -6,9 +6,9 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.jtester.bytecode.reflector.helper.FieldHelper;
 import org.jtester.exception.NoSuchFieldRuntimeException;
 import org.jtester.utility.DateUtil;
+import org.jtester.utility.FieldHelper;
 import org.jtester.utility.StringHelper;
 
 import fit.Fixture;

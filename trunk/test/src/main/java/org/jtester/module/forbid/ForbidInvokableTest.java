@@ -2,12 +2,12 @@ package org.jtester.module.forbid;
 
 import java.util.Arrays;
 
-import org.jtester.bytecode.imposteriser.JTesterProxy;
-import org.jtester.bytecode.imposteriser.invokabel.ForbidInvokable;
 import org.jtester.exception.ForbidCallException;
 import org.jtester.module.core.ForbidModule;
 import org.jtester.module.forbid.model.ForTesedForbidBeanFactory;
 import org.jtester.module.forbid.model.ForTestedForbid;
+import org.jtester.reflector.imposteriser.JTesterProxy;
+import org.jtester.reflector.invokabel.ForbidInvokable;
 import org.jtester.testng.JTester;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

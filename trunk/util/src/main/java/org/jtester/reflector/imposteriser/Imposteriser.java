@@ -1,9 +1,9 @@
-package org.jtester.bytecode.imposteriser;
+package org.jtester.reflector.imposteriser;
 
 /**
  * An object that can creates a proxy of the given type to capture
- * {@link org.jmock.api.Invocation}s and pass them to an
- * {@link org.jmock.api.Invokable} object for mocking or stubbing.
+ * {@link org.jtester.reflector.imposteriser.jmock.api.Invocation}s and pass them to an
+ * {@link org.jtester.reflector.imposteriser.jmock.api.Invokable} object for mocking or stubbing.
  */
 @SuppressWarnings({ "rawtypes" })
 public interface Imposteriser {

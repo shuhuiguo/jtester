@@ -13,7 +13,6 @@ import java.util.regex.Pattern;
 
 import javax.sql.DataSource;
 
-import org.jtester.bytecode.reflector.helper.ClazzConst;
 import org.jtester.core.TestedContext;
 import org.jtester.core.context.DbFitContext;
 import org.jtester.core.context.DbFitContext.RunIn;
@@ -26,6 +25,7 @@ import org.jtester.module.dbfit.db.model.BigDecimalParseDelegate;
 import org.jtester.module.dbfit.db.model.DbParameterAccessor;
 import org.jtester.module.dbfit.db.model.SqlDateParseDelegate;
 import org.jtester.module.dbfit.db.model.SqlTimestampParseDelegate;
+import org.jtester.reflector.utility.ClazzConst;
 import org.jtester.utility.ClazzHelper;
 import org.jtester.utility.JTesterLogger;
 import org.springframework.jdbc.datasource.DataSourceUtils;

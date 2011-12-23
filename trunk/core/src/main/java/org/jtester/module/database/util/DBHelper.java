@@ -9,10 +9,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.jtester.bytecode.reflector.FieldAccessor;
 import org.jtester.core.IJTester.DataMap;
 import org.jtester.exception.NoSuchFieldRuntimeException;
 import org.jtester.module.dbfit.db.model.DbParameterAccessor;
+import org.jtester.reflector.FieldAccessor;
 import org.jtester.utility.ClazzHelper;
 import org.jtester.utility.JTesterLogger;
 import org.jtester.utility.StringHelper;

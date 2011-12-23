@@ -7,8 +7,8 @@ import java.io.Writer;
 import java.net.URL;
 import static org.jtester.module.core.ConfigurationConst.LOG4J_XML_FILE;
 
-import org.jtester.bytecode.reflector.helper.MethodHelper;
 import org.jtester.module.core.helper.ConfigurationHelper;
+import org.jtester.reflector.utility.MethodHelper;
 
 public class JTesterLogger {
 	public static final int DEBUG = 0;

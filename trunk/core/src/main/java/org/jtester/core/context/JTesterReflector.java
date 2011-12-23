@@ -2,13 +2,13 @@ package org.jtester.core.context;
 
 import java.lang.reflect.Field;
 
-import org.jtester.bytecode.imposteriser.JTesterProxy;
-import org.jtester.bytecode.reflector.FieldAccessor;
-import org.jtester.bytecode.reflector.MethodAccessor;
-import org.jtester.bytecode.reflector.helper.FieldHelper;
-import org.jtester.bytecode.reflector.helper.MethodHelper;
 import org.jtester.json.JSON;
+import org.jtester.reflector.FieldAccessor;
+import org.jtester.reflector.MethodAccessor;
+import org.jtester.reflector.imposteriser.JTesterProxy;
+import org.jtester.reflector.utility.MethodHelper;
 import org.jtester.utility.ClazzHelper;
+import org.jtester.utility.FieldHelper;
 
 @SuppressWarnings({ "unchecked", "rawtypes" })
 public class JTesterReflector {

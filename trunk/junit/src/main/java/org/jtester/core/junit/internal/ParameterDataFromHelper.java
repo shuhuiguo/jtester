@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import org.jtester.bytecode.reflector.helper.MethodHelper;
 import org.jtester.core.junit.DataFrom;
+import org.jtester.reflector.utility.MethodHelper;
 
 @SuppressWarnings("rawtypes")
 public class ParameterDataFromHelper {
