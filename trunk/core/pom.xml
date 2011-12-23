@@ -2,130 +2,150 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>com.alibaba</groupId>
-		<artifactId>a2m.crm</artifactId>
-		<version>3</version>
+		<groupId>org.jtester</groupId>
+		<artifactId>jtester.parent</artifactId>
+		<version>1.2.0</version>
+		<relativePath>../pom.xml</relativePath>
 	</parent>
-
-	<groupId>com.alibaba.crm.shared</groupId>
-	<artifactId>jtester</artifactId>
-	<version>1.2.0</version>
+	<groupId>org.jtester</groupId>
+	<artifactId>jtester.core</artifactId>
 	<packaging>jar</packaging>
 	<name>jtester core</name>
-	<properties>
-		<file_encoding>utf-8</file_encoding>
-		<maven.test.skip>true</maven.test.skip>
-	</properties>
 
 	<dependencies>
 		<dependency>
-			<groupId>com.alibaba.external</groupId>
-			<artifactId>test.testng</artifactId>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
 			<version>6.3.1</version>
 		</dependency>
 		<dependency>
-			<groupId>com.alibaba.external</groupId>
-			<artifactId>test.jmockit</artifactId>
+			<groupId>com.googlecode.jmockit</groupId>
+			<artifactId>jmockit</artifactId>
 			<version>0.999.11</version>
 		</dependency>
 		<dependency>
-			<groupId>com.alibaba.external</groupId>
-			<artifactId>sourceforge.cglib</artifactId>
-			<version>nodep-2.1_3</version>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>1.2.2</version>
 		</dependency>
 		<dependency>
-			<groupId>com.alibaba.external</groupId>
-			<artifactId>misc.ognl</artifactId>
-			<version>2.6.9</version>
+			<groupId>cglib</groupId>
+			<artifactId>cglib-nodep</artifactId>
+			<version>2.1_3</version>
 		</dependency>
 		<dependency>
-			<groupId>com.alibaba.external</groupId>
-			<artifactId>test.fitnesse</artifactId>
+			<groupId>org.fitnesse</groupId>
+			<artifactId>fitnesse</artifactId>
 			<version>20100211</version>
 		</dependency>
 		<dependency>
-			<groupId>com.alibaba.external</groupId>
-			<artifactId>test.jcommander</artifactId>
-			<version>1.5</version>
-		</dependency>
-		<dependency>
-			<groupId>com.alibaba.external</groupId>
-			<artifactId>script.bsh</artifactId>
-			<version>2.0b4</version>
+			<groupId>ognl</groupId>
+			<artifactId>ognl</artifactId>
+			<version>2.7.2</version>
 		</dependency>
 
 		<dependency>
-			<groupId>com.alibaba.external</groupId>
-			<artifactId>misc.aspectj</artifactId>
-			<version>1.6.6</version>
-			<type>libd</type>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.alibaba.external</groupId>
-			<artifactId>java.j2ee</artifactId>
-			<version>5</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.alibaba.external</groupId>
-			<artifactId>java.servlet</artifactId>
-			<version>2.4</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.alibaba.external</groupId>
-			<artifactId>sourceforge.spring</artifactId>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring</artifactId>
 			<version>2.5.4</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.alibaba.external</groupId>
-			<artifactId>java.jta</artifactId>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aspects</artifactId>
+			<version>2.5.4</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.transaction</groupId>
+			<artifactId>jta</artifactId>
 			<version>1.1</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.alibaba.external</groupId>
-			<artifactId>sourceforge.spring.weaving.aspects</artifactId>
+			<groupId>org.apache.ibatis</groupId>
+			<artifactId>ibatis-sqlmap</artifactId>
+			<version>2.3.4.726</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
 			<version>2.5.4</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.alibaba.external</groupId>
-			<artifactId>sourceforge.spring.modules.aop</artifactId>
-			<version>2.5.4</version>
+			<groupId>javax.annotation</groupId>
+			<artifactId>jsr250-api</artifactId>
+			<version>1.0</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.alibaba.external</groupId>
-			<artifactId>jakarta.commons.dbcp</artifactId>
-			<version>1.2.2</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.alibaba.external</groupId>
-			<artifactId>sourceforge.ibatis</artifactId>
-			<version>2.3.4</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.alibaba.external</groupId>
-			<artifactId>jdbc.mysql.mysql-connector</artifactId>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.6</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.alibaba.external</groupId>
-			<artifactId>jdbc.oracle</artifactId>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>1.1.107</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc14</artifactId>
 			<version>10.2.0.3.0</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.alibaba.external</groupId>
-			<artifactId>sourceforge.h2database</artifactId>
-			<version>1.2.131</version>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.4</version>
 			<scope>provided</scope>
 		</dependency>
 	</dependencies>
+
+	<build>
+		<sourceDirectory>src/main/java</sourceDirectory>
+		<outputDirectory>target/classes</outputDirectory>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+		</resources>
+
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.0.2</version>
+				<configuration>
+					<source>1.5</source>
+					<target>1.5</target>
+					<encoding>utf-8</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.2</version>
+				<!-- <configuration> -->
+				<!-- <archive> -->
+				<!-- <manifestFile>src/main/resources/META-INF/MANIFEST.MF</manifestFile> -->
+				<!-- </archive> -->
+				<!-- </configuration> -->
+			</plugin>
+			<plugin>
+				<artifactId>maven-source-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 </project>

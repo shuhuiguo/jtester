@@ -13,7 +13,9 @@
 		<module>junit</module>
 		<module>spec</module>
 	</modules>
-
+	<repositories>
+	
+	</repositories>
 	<build>
 		<plugins>
 			<plugin>

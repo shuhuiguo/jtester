@@ -1,120 +1,30 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-
+	<parent>
+		<groupId>org.jtester</groupId>
+		<artifactId>jtester.all</artifactId>
+		<version>1.0-SNAPSHOT</version>
+		<relativePath>../all</relativePath>
+	</parent>
 	<groupId>org.jtester</groupId>
-	<artifactId>jtester-test</artifactId>
+	<artifactId>jtester.test</artifactId>
 	<packaging>jar</packaging>
-	<version>1.2.0</version>
 	<name>jtester test module</name>
-	<properties>
-		<jmockit.version>0.999.11</jmockit.version>
-	</properties>
 
 	<dependencies>
 		<dependency>
-			<groupId>com.alibaba.crm.shared</groupId>
+			<groupId>org.jtester</groupId>
 			<artifactId>jtester</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.alibaba.external</groupId>
-			<artifactId>org.slf4j.slf4j-log4j12</artifactId>
-			<version>1.5.2</version>
-		</dependency>
-		<dependency>
-			<groupId>com.alibaba.external</groupId>
-			<artifactId>jakarta.log4j</artifactId>
-			<version>1.2.15</version>
+			<version>${jtester.version}</version>
 		</dependency>
 
 		<dependency>
-			<groupId>com.alibaba.external</groupId>
-			<artifactId>java.j2ee</artifactId>
-			<version>5</version>
-		</dependency>
-		<dependency>
-			<groupId>com.alibaba.external</groupId>
-			<artifactId>java.servlet</artifactId>
-			<version>2.4</version>
-		</dependency>
-		<dependency>
-			<groupId>com.alibaba.external</groupId>
-			<artifactId>sourceforge.spring</artifactId>
-			<version>2.5.4</version>
-		</dependency>
-		<dependency>
-			<groupId>com.alibaba.external</groupId>
-			<artifactId>java.jta</artifactId>
-			<version>1.1</version>
-		</dependency>
-		<dependency>
-			<groupId>com.alibaba.external</groupId>
-			<artifactId>sourceforge.spring.weaving.aspects</artifactId>
-			<version>2.5.4</version>
-		</dependency>
-		<dependency>
-			<groupId>com.alibaba.external</groupId>
-			<artifactId>sourceforge.spring.modules.aop</artifactId>
-			<version>2.5.4</version>
-		</dependency>
-		<dependency>
-			<groupId>com.alibaba.external</groupId>
-			<artifactId>jakarta.commons.dbcp</artifactId>
-			<version>1.2.2</version>
-		</dependency>
-		<dependency>
-			<groupId>com.alibaba.external</groupId>
-			<artifactId>sourceforge.ibatis</artifactId>
-			<version>2.3.4</version>
-		</dependency>
-		<dependency>
-			<groupId>com.alibaba.external</groupId>
-			<artifactId>jdbc.mysql.mysql-connector</artifactId>
-			<version>5.1.6</version>
-		</dependency>
-		<dependency>
-			<groupId>com.alibaba.external</groupId>
-			<artifactId>jdbc.oracle</artifactId>
-			<version>10.2.0.3.0</version>
-		</dependency>
-		<dependency>
-			<groupId>com.alibaba.china.shared</groupId>
-			<artifactId>headquarters.jdbc.proxy</artifactId>
-			<version>1.2-cn-share</version>
-		</dependency>
-		<dependency>
-			<groupId>com.alibaba.external</groupId>
-			<artifactId>sourceforge.h2database</artifactId>
-			<version>1.2.131</version>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.5.8</version>
 		</dependency>
 
-		<dependency>
-			<groupId>com.alibaba.external</groupId>
-			<artifactId>misc.aspectj</artifactId>
-			<version>1.6.6</version>
-			<type>libd</type>
-		</dependency>
-		<dependency>
-			<groupId>com.alibaba.external</groupId>
-			<artifactId>sourceforge.spring.test</artifactId>
-			<version>2.5.6</version>
-		</dependency>
-		<dependency>
-			<groupId>com.alibaba.external</groupId>
-			<artifactId>sourceforge.hibernate.annotations</artifactId>
-			<version>3.2.1</version>
-		</dependency>
-		<dependency>
-			<groupId>com.alibaba.external</groupId>
-			<artifactId>jboss.hibernate</artifactId>
-			<version>3.2.6.ga</version>
-		</dependency>
-		<dependency>
-			<groupId>com.alibaba.external</groupId>
-			<artifactId>test.junit</artifactId>
-			<version>4.8.1</version>
-		</dependency>
 		<dependency>
 			<groupId>internal</groupId>
 			<artifactId>jar.file</artifactId>
@@ -122,37 +32,121 @@
 			<scope>system</scope>
 			<systemPath>${basedir}/lib/a-jar-file.jar</systemPath>
 		</dependency>
+		<dependency>
+			<groupId>internal</groupId>
+			<artifactId>headquarters-jdbc-proxy-1.1-cn-share</artifactId>
+			<version>UNKOWN</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/lib/my-oracle.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.transaction</groupId>
+			<artifactId>jta</artifactId>
+			<version>1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.ibatis</groupId>
+			<artifactId>ibatis-sqlmap</artifactId>
+			<version>2.3.4.726</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aspects</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>2.5.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>2.5.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.annotation</groupId>
+			<artifactId>jsr250-api</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-annotations</artifactId>
+			<version>${hibernate-annotations.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.connection.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>${h2db.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc14</artifactId>
+			<version>10.2.0.3.0</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.4</version>
+		</dependency>
+
+		<!-- <dependency> -->
+		<!-- <groupId>nl.tranquilizedquality</groupId> -->
+		<!-- <artifactId>cargo-itest</artifactId> -->
+		<!-- <version>${cargo-itest.version}</version> -->
+		<!-- <scope>provided</scope> -->
+		<!-- </dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>org.jbehave</groupId> -->
+		<!-- <artifactId>jbehave-core</artifactId> -->
+		<!-- <version>3.4</version> -->
+		<!-- </dependency> -->
 	</dependencies>
 
 	<build>
+		<sourceDirectory>src/main/java</sourceDirectory>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+		</resources>
+		<testSourceDirectory>src/main/java</testSourceDirectory>
+		<testResources>
+			<testResource>
+				<directory>src/main/resources</directory>
+			</testResource>
+		</testResources>
+
 		<plugins>
-			<plugin>
-				<groupId>com.alibaba.org.apache.maven.plugins</groupId>
-				<artifactId>maven-eclipse-plugin</artifactId>
-				<version>2.5.1-alibaba-0</version>
-				<configuration>
-					<addVersionToProjectName>false</addVersionToProjectName>
-					<downloadSources>true</downloadSources>
-					<projectTextFileEncoding>utf-8</projectTextFileEncoding>
-				</configuration>
-			</plugin>
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.0.2</version>
-				<configuration>
-					<source>1.5</source>
-					<target>1.5</target>
-					<encoding>utf-8</encoding>
-				</configuration>
-			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.6</version>
 				<configuration>
 					<testFailureIgnore>false</testFailureIgnore>
-					<testNGArtifactName>com.alibaba.external:test.testng</testNGArtifactName>
-					<argLine>-javaagent:"${settings.localRepository}/com/alibaba/external/test.jmockit/${jmockit.version}/test.jmockit-${jmockit.version}.jar"</argLine>
+					<!-- <testNGArtifactName>org.testng:testng</testNGArtifactName> -->
+					<argLine>-javaagent:"${settings.localRepository}/mockit/jmockit/${jmockit.version}/jmockit-${jmockit.version}.jar"</argLine>
+					<!-- <argLine>-javaagent:"${basedir}/lib/a-jar-file.jar"</argLine> -->
 					<suiteXmlFiles>
 						<suiteXmlFile>src/main/resources/testng-maven.xml</suiteXmlFile>
 					</suiteXmlFiles>
