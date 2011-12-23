@@ -5,8 +5,8 @@ import java.util.Date;
 
 import mockit.Mock;
 
-import org.jtester.annotation.Transactional;
-import org.jtester.annotation.Transactional.TransactionMode;
+import org.jtester.annotations.Transactional;
+import org.jtester.annotations.Transactional.TransactionMode;
 import org.jtester.annotations.DbFit;
 import org.jtester.beans.AbstractDataSet;
 import org.jtester.exception.ExceptionWrapper;

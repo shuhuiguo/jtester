@@ -1,7 +1,7 @@
 package org.jtester.module.spring.strategy.register;
 
-import org.jtester.annotation.Transactional;
-import org.jtester.annotation.Transactional.TransactionMode;
+import org.jtester.annotations.Transactional;
+import org.jtester.annotations.Transactional.TransactionMode;
 import org.testng.annotations.Test;
 
 /**

@@ -1,7 +1,7 @@
 package org.jtester.module.database.transaction;
 
-import org.jtester.annotation.Transactional;
-import org.jtester.annotation.Transactional.TransactionMode;
+import org.jtester.annotations.Transactional;
+import org.jtester.annotations.Transactional.TransactionMode;
 import org.jtester.annotations.AutoBeanInject;
 import org.jtester.annotations.DbFit;
 import org.jtester.annotations.SpringApplicationContext;

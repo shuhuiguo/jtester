@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 import mockit.Mocked;
 
-import org.jtester.annotation.Transactional;
-import org.jtester.annotation.Transactional.TransactionMode;
+import org.jtester.annotations.Transactional;
+import org.jtester.annotations.Transactional.TransactionMode;
 import org.jtester.annotations.Inject;
 import org.jtester.annotations.SpringApplicationContext;
 import org.jtester.annotations.SpringBeanByName;
