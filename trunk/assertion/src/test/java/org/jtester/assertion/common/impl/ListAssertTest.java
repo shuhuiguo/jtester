@@ -6,17 +6,17 @@ import java.util.List;
 import java.util.Map;
 
 import org.jtester.IAssertion;
-import org.jtester.fortest.beans.User;
+import org.jtester.beans.DataMap;
+import org.jtester.beans.User;
 import org.jtester.matcher.property.reflection.EqMode;
-import org.jtester.testng.JTester;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.junit.Before;
+import org.junit.Test;
 
 @SuppressWarnings({ "serial", "rawtypes", "unchecked" })
 public class ListAssertTest implements IAssertion {
 	List<User> users;
 
-	@BeforeMethod
+	@Before
 	public void initData() {
 		users = new ArrayList<User>();
 		users.add(new User("first1", "last1"));
@@ -61,13 +61,13 @@ public class ListAssertTest implements IAssertion {
 		want.list(arr).sizeBetween(1, 3);
 	}
 
-	@Test(expectedExceptions = AssertionError.class)
+	@Test(expected = AssertionError.class)
 	public void testSizeBetween_Failure() {
 		String[] arr = new String[] { "a", "b", "c" };
 		want.list(arr).sizeBetween(4, 5);
 	}
 
-	@Test(expectedExceptions = AssertionError.class)
+	@Test(expected = AssertionError.class)
 	public void testSizeBetween_Failure2() {
 		String[] arr = new String[] { "a", "b", "c" };
 		want.list(arr).sizeBetween(1, 2);

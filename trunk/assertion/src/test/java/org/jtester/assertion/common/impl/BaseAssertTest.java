@@ -4,16 +4,18 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.jtester.IAssertion;
+import org.jtester.beans.User;
 import org.jtester.matcher.string.StringMode;
 import org.junit.Test;
 
 public class BaseAssertTest implements IAssertion {
 
-	@Test(expectedExceptions = { AssertionError.class })
+	@Test(expected = AssertionError.class)
 	public void testClazIs() {
 		want.map(new HashMap<String, Object>()).clazIs(String.class);
 	}
 
+	@Test
 	public void testClazIs2() {
 		want.map(new HashMap<String, Object>()).clazIs(Map.class);
 	}
@@ -34,7 +36,7 @@ public class BaseAssertTest implements IAssertion {
 		want.string("test1").any(the.string().contains("test1"), the.string().regular("\\w{6}"));
 	}
 
-	@Test(expectedExceptions = { AssertionError.class })
+	@Test(expected = AssertionError.class)
 	public void testAnyOf_failure() {
 		want.string("test1").any(the.string().contains("test4"), the.string().regular("\\w{6}"));
 	}
@@ -45,7 +47,7 @@ public class BaseAssertTest implements IAssertion {
 		want.string("test1").any(the.string().contains("test5"), the.string().regular("\\w{5}"));
 	}
 
-	@Test(expectedExceptions = { AssertionError.class })
+	@Test(expected = AssertionError.class)
 	public void testAnyOf_iterable_failure() {
 		want.string("test1").any(the.string().contains("test6"), the.string().regular("\\w{6}"));
 	}
@@ -68,7 +70,7 @@ public class BaseAssertTest implements IAssertion {
 		want.string(actual).notAny(the.string().isEqualTo("bcd"), the.string().contains("bce"));
 	}
 
-	@Test(expectedExceptions = AssertionError.class)
+	@Test(expected = AssertionError.class)
 	public void testNotAny_Failure() {
 		String actual = "I am a test.";
 		want.string(actual).notAny(the.string().isEqualTo("bcd"), the.string().contains("test"));
@@ -80,7 +82,7 @@ public class BaseAssertTest implements IAssertion {
 		want.string(actual).notAll(the.string().contains("test"), the.string().contains("java"));
 	}
 
-	@Test(expectedExceptions = AssertionError.class)
+	@Test(expected = AssertionError.class)
 	public void testNotAll_Failure() {
 		String actual = "I am a java test.";
 		want.string(actual).notAll(the.string().contains("test"), the.string().contains("java"));

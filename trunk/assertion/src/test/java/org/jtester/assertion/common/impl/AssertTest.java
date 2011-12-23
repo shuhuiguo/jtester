@@ -8,17 +8,18 @@ import java.util.Map;
 
 import org.jtester.IAssertion;
 import org.jtester.assertion.common.intf.IAssert;
+import org.jtester.junit.DataFrom;
 import org.junit.Test;
 
 @SuppressWarnings({ "rawtypes" })
 public class AssertTest implements IAssertion {
-	@Test(dataProvider = "assertClass")
+	@Test
+	@DataFrom("assertClass")
 	public void wanted(IAssert<?, ?> as, Class claz) {
 		want.object(as).propertyEq("valueClaz", claz);
 	}
 
-	@DataProvider
-	public Object[][] assertClass() {
+	public static Object[][] assertClass() {
 		return new Object[][] { { the.bool(), Boolean.class }, /** <br> */
 		{ the.array(), Object[].class }, /** <br> */
 		{ the.bite(), Byte.class }, /** <br> */
