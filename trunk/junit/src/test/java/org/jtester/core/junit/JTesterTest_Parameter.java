@@ -2,6 +2,8 @@ package org.jtester.core.junit;
 
 import java.util.Iterator;
 
+import org.jtester.junit.DataFrom;
+import org.jtester.junit.JTester;
 import org.junit.Test;
 
 @SuppressWarnings("rawtypes")

@@ -12,17 +12,24 @@
 	<name>jtester junit module</name>
 
 	<dependencies>
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.jtester</groupId> -->
-<!-- 			<artifactId>jtester.core</artifactId> -->
-<!-- 			<version>${project.version}</version> -->
-<!-- 		</dependency> -->
+		<dependency>
+			<groupId>org.jtester</groupId>
+			<artifactId>jtester.util</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.10</version>
 		</dependency>
-
+		<dependency>
+			<groupId>com.googlecode.jmockit</groupId>
+			<artifactId>jmockit</artifactId>
+		</dependency>
+		<!-- <dependency> -->
+		<!-- <groupId>org.jtester</groupId> -->
+		<!-- <artifactId>jtester.core</artifactId> -->
+		<!-- <version>${project.version}</version> -->
+		<!-- </dependency> -->
 
 		<!-- <dependency> -->
 		<!-- <groupId>org.databene</groupId> -->
@@ -36,65 +43,4 @@
 		<!-- <scope>test</scope> -->
 		<!-- </dependency> -->
 	</dependencies>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>com.alibaba.org.apache.maven.plugins</groupId>
-				<artifactId>maven-eclipse-plugin</artifactId>
-				<version>2.5.1-alibaba-0</version>
-				<configuration>
-					<addVersionToProjectName>false</addVersionToProjectName>
-					<downloadSources>true</downloadSources>
-					<projectTextFileEncoding>utf-8</projectTextFileEncoding>
-				</configuration>
-			</plugin>
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.0.2</version>
-				<configuration>
-					<source>1.5</source>
-					<target>1.5</target>
-					<encoding>utf-8</encoding>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
-				<version>2.2</version>
-			</plugin>
-			<plugin>
-				<artifactId>maven-source-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>attach-sources</id>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-
-			<!-- <plugin> -->
-			<!-- <groupId>com.valtech.source.juca</groupId> -->
-			<!-- <artifactId>maven-juca-plugin</artifactId> -->
-			<!-- <version>1.1</version> -->
-			<!-- <configuration> -->
-			<!-- <classRoots> -->
-			<!-- <param>target/classes</param> -->
-			<!-- <param>target/test-classes</param> -->
-			<!-- </classRoots> -->
-			<!-- <packageIncludes> -->
-			<!-- <param>org.jtester.*</param> -->
-			<!-- </packageIncludes> -->
-			<!-- <skips> -->
-			<!-- <param>javax.*</param> -->
-			<!-- </skips> -->
-			<!-- <memoryConsumption>high</memoryConsumption> -->
-			<!-- <ignoreAbstractMethods>true</ignoreAbstractMethods> -->
-			<!-- <continueOnClassLoadingErrors>true</continueOnClassLoadingErrors> -->
-			<!-- </configuration> -->
-			<!-- </plugin> -->
-		</plugins>
-	</build>
 </project>

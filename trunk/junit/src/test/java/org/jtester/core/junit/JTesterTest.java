@@ -1,10 +1,11 @@
 package org.jtester.core.junit;
 
 import mockit.Mock;
+import mockit.MockUp;
 
-import org.jtester.matcher.string.StringMode;
-import org.jtester.module.TestListener;
-import org.jtester.module.core.CoreModule;
+import org.jtester.core.CoreModule;
+import org.jtester.core.TestListener;
+import org.jtester.junit.JTester;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;

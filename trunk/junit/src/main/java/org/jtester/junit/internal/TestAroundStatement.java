@@ -1,8 +1,8 @@
-package org.jtester.core.junit.internal;
+package org.jtester.junit.internal;
 
 import java.lang.reflect.Method;
 
-import org.jtester.module.TestListener;
+import org.jtester.core.TestListener;
 import org.junit.runners.model.Statement;
 
 /**

@@ -2,7 +2,7 @@ package org.jtester.core.junit;
 
 import java.util.Iterator;
 
-import org.jtester.core.IJTester.DataIterator;
+import org.jtester.beans.DataIterator;
 
 public class DataCase {
 	public static Iterator<Object[]> dataWithParameter() {

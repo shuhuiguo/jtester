@@ -1,12 +1,12 @@
-package org.jtester.core.junit.internal;
+package org.jtester.junit.internal;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import org.jtester.core.junit.DataFrom;
 import org.jtester.helper.MethodHelper;
+import org.jtester.junit.DataFrom;
 
 @SuppressWarnings("rawtypes")
 public class ParameterDataFromHelper {

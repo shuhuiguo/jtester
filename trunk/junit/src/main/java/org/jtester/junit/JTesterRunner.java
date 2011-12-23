@@ -1,16 +1,16 @@
-package org.jtester.core.junit;
+package org.jtester.junit;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.jtester.core.junit.internal.FrameworkMethodWithParameters;
-import org.jtester.core.junit.internal.MethodAroundStatement;
-import org.jtester.core.junit.internal.ParameterDataFromHelper;
-import org.jtester.core.junit.internal.TestAroundStatement;
+import org.jtester.core.CoreModule;
+import org.jtester.core.TestListener;
 import org.jtester.helper.MethodHelper;
-import org.jtester.module.TestListener;
-import org.jtester.module.core.CoreModule;
+import org.jtester.junit.internal.FrameworkMethodWithParameters;
+import org.jtester.junit.internal.MethodAroundStatement;
+import org.jtester.junit.internal.ParameterDataFromHelper;
+import org.jtester.junit.internal.TestAroundStatement;
 import org.junit.runner.notification.RunNotifier;
 import org.junit.runners.BlockJUnit4ClassRunner;
 import org.junit.runners.model.FrameworkMethod;

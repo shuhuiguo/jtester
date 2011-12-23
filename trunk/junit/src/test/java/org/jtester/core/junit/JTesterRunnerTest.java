@@ -5,10 +5,9 @@ import java.lang.reflect.Method;
 import mockit.Mock;
 import mockit.MockUp;
 
-import org.jtester.core.IJTester;
-import org.jtester.matcher.string.StringMode;
-import org.jtester.module.TestListener;
-import org.jtester.module.core.CoreModule;
+import org.jtester.core.CoreModule;
+import org.jtester.core.TestListener;
+import org.jtester.junit.JTesterRunner;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -22,7 +21,7 @@ import org.junit.runner.RunWith;
  */
 @RunWith(JTesterRunner.class)
 @SuppressWarnings("unused")
-public class JTesterRunnerTest implements IJTester {
+public class JTesterRunnerTest implements IAssertion {
 	private static StringBuffer buff = new StringBuffer();
 
 	@BeforeClass

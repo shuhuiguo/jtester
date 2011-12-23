@@ -1,4 +1,4 @@
-package org.jtester.core.junit.internal;
+package org.jtester.junit.internal;
 
 import java.lang.reflect.Method;
 import java.util.Arrays;

@@ -1,4 +1,4 @@
-package org.jtester.core.junit;
+package org.jtester.junit;
 
 import static java.lang.annotation.ElementType.METHOD;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
