@@ -10,6 +10,8 @@
 	<modules>
 		<module>assertion</module>
 		<module>core</module>
+		<module>spring</module>
+		<module>database</module>
 		<module>test</module>
 		<module>junit</module>
 		<module>spec</module>
