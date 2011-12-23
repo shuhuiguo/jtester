@@ -1,15 +1,13 @@
-package org.jtester.hamcrest.iassert.common.impl;
+package org.jtester.assertion.common.impl;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import org.jtester.json.encoder.beans.test.User;
+import org.jtester.IAssertion;
 import org.jtester.matcher.string.StringMode;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
-@Test(groups = { "jtester", "assertion" })
-public class BaseAssertTest extends JTester {
+public class BaseAssertTest implements IAssertion {
 
 	@Test(expectedExceptions = { AssertionError.class })
 	public void testClazIs() {

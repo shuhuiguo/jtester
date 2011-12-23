@@ -1,10 +1,11 @@
-package org.jtester.hamcrest.iassert.common.impl;
+package org.jtester.assertion.common.impl;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.jtester.IAssertion;
 import org.jtester.fortest.beans.User;
 import org.jtester.matcher.property.reflection.EqMode;
 import org.jtester.testng.JTester;
@@ -12,8 +13,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 @SuppressWarnings({ "serial", "rawtypes", "unchecked" })
-@Test(groups = { "jtester", "assertion" })
-public class ListAssertTest extends JTester {
+public class ListAssertTest implements IAssertion {
 	List<User> users;
 
 	@BeforeMethod

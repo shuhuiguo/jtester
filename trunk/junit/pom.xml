@@ -7,25 +7,16 @@
 		<version>1.2.0</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
-	<groupId>org.jtester</groupId>
 	<artifactId>jtester.junit</artifactId>
 	<packaging>jar</packaging>
 	<name>jtester junit module</name>
 
-	<repositories>
-		<repository>
-			<id>vt-oss-releases</id>
-			<name>Valtech Open Source Releases</name>
-			<url>http://source.valtech.com/repo/content/repositories/releases/</url>
-		</repository>
-	</repositories>
-
 	<dependencies>
-		<dependency>
-			<groupId>org.jtester</groupId>
-			<artifactId>jtester.core</artifactId>
-			<version>${project.version}</version>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.jtester</groupId> -->
+<!-- 			<artifactId>jtester.core</artifactId> -->
+<!-- 			<version>${project.version}</version> -->
+<!-- 		</dependency> -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>

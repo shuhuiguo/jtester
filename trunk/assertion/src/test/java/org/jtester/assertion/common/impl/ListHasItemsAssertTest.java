@@ -1,16 +1,16 @@
-package org.jtester.hamcrest.iassert.common.impl;
+package org.jtester.assertion.common.impl;
 
 import java.util.Arrays;
 import java.util.List;
 
+import org.jtester.IAssertion;
 import org.jtester.matcher.modes.ItemsMode;
 import org.jtester.matcher.modes.MatchMode;
 import org.jtester.testng.JTester;
 import org.testng.annotations.Test;
 
 @SuppressWarnings("rawtypes")
-@Test(groups = { "jtester", "assertion" })
-public class ListHasItemsAssertTest extends JTester {
+public class ListHasItemsAssertTest implements IAssertion {
 
 	@Test
 	public void testHasItems_objects() {

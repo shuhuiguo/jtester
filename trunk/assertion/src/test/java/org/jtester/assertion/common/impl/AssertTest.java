@@ -1,20 +1,17 @@
-package org.jtester.hamcrest.iassert.common.impl;
+package org.jtester.assertion.common.impl;
 
 import java.io.File;
-
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
 import java.util.Map;
 
+import org.jtester.IAssertion;
 import org.jtester.assertion.common.intf.IAssert;
-import org.jtester.testng.JTester;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
-@Test(groups = { "jtester", "assertion" })
 @SuppressWarnings({ "rawtypes" })
-public class AssertTest extends JTester {
+public class AssertTest implements IAssertion {
 	@Test(dataProvider = "assertClass")
 	public void wanted(IAssert<?, ?> as, Class claz) {
 		want.object(as).propertyEq("valueClaz", claz);
