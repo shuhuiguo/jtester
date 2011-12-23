@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
+import org.jtester.beans.DataIterator;
 import org.jtester.spec.steps.JSpecStepPatternParser.JSpecStepMatcher;
 import org.jtester.testng.JTester;
 import org.testng.annotations.DataProvider;
@@ -43,11 +44,11 @@ public class JSpecHelperTest extends JTester {
 		return new DataIterator() {
 			{
 				data("customerId=10023", "customerId", "10023", 16);
-				data("id=\"abc\"|说明}", "id", "abc", 11);
-				data("id=\"a\\|bc\"|说明}", "id", "a|bc", 13);
-				data("id=\"a\\}bc\"|说明}", "id", "a}bc", 13);
-				data("id=\"a\\\\bc\"|说明}", "id", "a\\bc", 13);
-				data("id=\"a\\\"bc\"|说明}", "id", "a\"bc", 13);
+				data("id=\"abc\"|璇存槑}", "id", "abc", 11);
+				data("id=\"a\\|bc\"|璇存槑}", "id", "a|bc", 13);
+				data("id=\"a\\}bc\"|璇存槑}", "id", "a}bc", 13);
+				data("id=\"a\\\\bc\"|璇存槑}", "id", "a\\bc", 13);
+				data("id=\"a\\\"bc\"|璇存槑}", "id", "a\"bc", 13);
 				data("abc", "1", "abc", 3);
 				data("\"=abc\"", "1", "=abc", 6);
 				data("\"\\}bc\"", "1", "}bc", 6);
@@ -73,14 +74,14 @@ public class JSpecHelperTest extends JTester {
 					}
 				});
 
-				data("do${key1=value1|说明}in${value2", new HashMap<String, String>() {
+				data("do${key1=value1|璇存槑}in${value2", new HashMap<String, String>() {
 					{
 						put("key1", "value1");
 						put("2", "value2");
 					}
 				});
 
-				data("do${key1=va\\}lue1|说明}in${value2", new HashMap<String, String>() {
+				data("do${key1=va\\}lue1|璇存槑}in${value2", new HashMap<String, String>() {
 					{
 						put("key1", "va}lue1");
 						put("2", "value2");
