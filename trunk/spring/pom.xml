@@ -8,7 +8,7 @@
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 	<groupId>org.jtester</groupId>
-	<artifactId>jtester.assertion</artifactId>
+	<artifactId>jtester.spring</artifactId>
 	<packaging>jar</packaging>
 	<name>jtester junit module</name>
 
