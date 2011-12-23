@@ -25,7 +25,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.atomic.AtomicReferenceArray;
 import java.util.regex.Pattern;
 
-import org.jtester.bytecode.reflector.helper.ClazzHelper;
+import org.jtester.utility.ClazzHelper;
 
 @SuppressWarnings("rawtypes")
 public final class ClazzMap {

@@ -1,6 +1,7 @@
 package org.jtester.bytecode.reflector.helper;
 
 import org.jtester.testng.JTester;
+import org.jtester.utility.ClazzHelper;
 import org.testng.annotations.Test;
 
 @Test(groups = "jtester")

@@ -5,10 +5,10 @@ import java.lang.reflect.Field;
 import org.jtester.bytecode.imposteriser.JTesterProxy;
 import org.jtester.bytecode.reflector.FieldAccessor;
 import org.jtester.bytecode.reflector.MethodAccessor;
-import org.jtester.bytecode.reflector.helper.ClazzHelper;
 import org.jtester.bytecode.reflector.helper.FieldHelper;
 import org.jtester.bytecode.reflector.helper.MethodHelper;
 import org.jtester.json.JSON;
+import org.jtester.utility.ClazzHelper;
 
 @SuppressWarnings({ "unchecked", "rawtypes" })
 public class JTesterReflector {

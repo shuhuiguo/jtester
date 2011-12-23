@@ -1,15 +1,15 @@
 package org.jtester.module.core.helper;
 
-import static ext.jtester.org.apache.commons.lang.ClassUtils.getShortClassName;
+import static ext.jtester.commons.ClassUtils.getShortClassName;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.jtester.bytecode.reflector.helper.ClazzHelper;
 import org.jtester.exception.JTesterException;
 import org.jtester.module.core.Module;
+import org.jtester.utility.ClazzHelper;
 
 /**
  * Class containing utility methods for module specific configuration. Contains

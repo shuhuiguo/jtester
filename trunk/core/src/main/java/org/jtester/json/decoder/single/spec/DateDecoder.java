@@ -5,9 +5,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import org.jtester.bytecode.reflector.helper.ClazzHelper;
 import org.jtester.json.decoder.single.SpecTypeDecoder;
 import org.jtester.json.helper.JSONSingle;
+import org.jtester.utility.ClazzHelper;
 import org.jtester.utility.DateUtil;
 
 @SuppressWarnings({ "rawtypes", "unchecked" })

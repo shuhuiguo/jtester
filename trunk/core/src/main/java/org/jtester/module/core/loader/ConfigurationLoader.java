@@ -22,7 +22,7 @@ import org.jtester.module.core.helper.ConfigurationHelper;
 import org.jtester.module.utils.PropertiesReader;
 import org.jtester.utility.JTesterLogger;
 
-import ext.jtester.org.apache.commons.lang.text.StrSubstitutor;
+import ext.jtester.commons.StrSubstitutor;
 
 /**
  * jtester配置文件加载器<br>

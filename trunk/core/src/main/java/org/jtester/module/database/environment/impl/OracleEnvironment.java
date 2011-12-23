@@ -22,7 +22,7 @@ import org.jtester.module.dbfit.db.model.OracleBlobTypeAdapter;
 import org.jtester.module.dbfit.db.model.SqlTimestampParseDelegate;
 import org.jtester.utility.ResourceHelper;
 
-import ext.jtester.org.apache.commons.io.IOUtils;
+import ext.jtester.commons.IOUtils;
 import fit.TypeAdapter;
 
 @SuppressWarnings({ "rawtypes" })

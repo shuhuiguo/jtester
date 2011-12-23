@@ -15,7 +15,7 @@
  */
 package org.jtester.hamcrest.matcher.property.report;
 
-import static ext.jtester.org.apache.commons.lang.ClassUtils.getShortClassName;
+import static ext.jtester.commons.ClassUtils.getShortClassName;
 import static org.jtester.hamcrest.matcher.property.reflection.HibernateUtil.getUnproxiedValue;
 
 import java.lang.reflect.AccessibleObject;

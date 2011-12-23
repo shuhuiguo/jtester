@@ -2,11 +2,11 @@ package org.jtester.json.decoder.single;
 
 import java.util.Map;
 
-import org.jtester.bytecode.reflector.helper.ClazzHelper;
 import org.jtester.json.decoder.SingleDecoder;
 import org.jtester.json.helper.JSONMap;
 import org.jtester.json.helper.JSONObject;
 import org.jtester.json.helper.JSONSingle;
+import org.jtester.utility.ClazzHelper;
 
 @SuppressWarnings({ "rawtypes", "unchecked" })
 public abstract class SpecTypeDecoder<E, T extends E> extends SingleDecoder<T> {

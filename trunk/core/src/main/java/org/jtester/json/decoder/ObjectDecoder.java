@@ -3,11 +3,11 @@ package org.jtester.json.decoder;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.jtester.bytecode.reflector.helper.ClazzHelper;
 import org.jtester.exception.JSONException;
 import org.jtester.json.helper.JSONMap;
 import org.jtester.json.helper.JSONObject;
 import org.jtester.json.helper.JSONSingle;
+import org.jtester.utility.ClazzHelper;
 
 @SuppressWarnings({ "rawtypes", "unchecked" })
 public abstract class ObjectDecoder<T> extends JSONDecoder<T> {

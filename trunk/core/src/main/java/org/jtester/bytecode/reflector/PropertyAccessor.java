@@ -5,10 +5,10 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
-import org.jtester.bytecode.reflector.helper.ClazzHelper;
 import org.jtester.bytecode.reflector.helper.FieldHelper;
 import org.jtester.exception.NoSuchFieldRuntimeException;
 import org.jtester.utility.ArrayHelper;
+import org.jtester.utility.ClazzHelper;
 import org.jtester.utility.ListHelper;
 import org.jtester.utility.StringHelper;
 

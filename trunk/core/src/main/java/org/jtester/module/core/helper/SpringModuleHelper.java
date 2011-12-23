@@ -5,13 +5,13 @@ import java.util.Arrays;
 import mockit.internal.RedefinitionEngine;
 
 import org.jtester.annotations.SpringApplicationContext;
-import org.jtester.bytecode.reflector.helper.ClazzHelper;
 import org.jtester.core.TestedContext;
 import org.jtester.exception.JTesterException;
 import org.jtester.module.core.SpringModule;
 import org.jtester.module.spring.ApplicationContextFactory;
 import org.jtester.module.spring.JTesterSpringContext;
 import org.jtester.utility.AnnotationUtils;
+import org.jtester.utility.ClazzHelper;
 import org.jtester.utility.JTesterLogger;
 import org.springframework.aop.framework.MockCglib2AopProxy;
 import org.springframework.beans.factory.BeanFactory;

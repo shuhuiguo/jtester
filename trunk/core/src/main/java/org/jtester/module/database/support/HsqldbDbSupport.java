@@ -15,7 +15,7 @@
  */
 package org.jtester.module.database.support;
 
-import static ext.jtester.org.apache.commons.dbutils.DbUtils.closeQuietly;
+import static ext.jtester.commons.DbUtils.closeQuietly;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

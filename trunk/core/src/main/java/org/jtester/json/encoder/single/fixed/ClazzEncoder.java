@@ -2,8 +2,8 @@ package org.jtester.json.encoder.single.fixed;
 
 import java.io.Writer;
 
-import org.jtester.bytecode.reflector.helper.ClazzHelper;
 import org.jtester.json.encoder.single.FixedTypeEncoder;
+import org.jtester.utility.ClazzHelper;
 
 @SuppressWarnings("rawtypes")
 public class ClazzEncoder extends FixedTypeEncoder<Class> {

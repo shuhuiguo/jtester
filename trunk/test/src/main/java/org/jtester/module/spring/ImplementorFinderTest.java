@@ -7,9 +7,9 @@ import java.util.List;
 import mockit.Mock;
 
 import org.jtester.annotations.AutoBeanInject.BeanMap;
-import org.jtester.bytecode.reflector.helper.ClazzHelper;
 import org.jtester.exception.FindBeanImplClassException;
 import org.jtester.testng.JTester;
+import org.jtester.utility.ClazzHelper;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 

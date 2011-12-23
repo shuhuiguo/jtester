@@ -3,7 +3,7 @@ package org.jtester.fit;
 import java.io.File;
 import java.io.FileNotFoundException;
 
-import org.jtester.bytecode.reflector.helper.ClazzHelper;
+import org.jtester.utility.ClazzHelper;
 import org.jtester.utility.ResourceHelper;
 import org.jtester.utility.StringHelper;
 

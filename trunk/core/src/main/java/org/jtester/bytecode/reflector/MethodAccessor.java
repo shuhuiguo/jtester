@@ -5,11 +5,11 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.Arrays;
 
-import org.jtester.bytecode.reflector.helper.ClazzHelper;
 import org.jtester.bytecode.reflector.helper.MethodHelper;
 import org.jtester.exception.ExceptionWrapper;
 import org.jtester.exception.JTesterException;
 import org.jtester.exception.NoSuchMethodRuntimeException;
+import org.jtester.utility.ClazzHelper;
 
 @SuppressWarnings({ "rawtypes", "unchecked" })
 public class MethodAccessor<T> {

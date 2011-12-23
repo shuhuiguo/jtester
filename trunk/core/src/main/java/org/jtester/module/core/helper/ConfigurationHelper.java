@@ -1,6 +1,6 @@
 package org.jtester.module.core.helper;
 
-import static org.jtester.bytecode.reflector.helper.ClazzHelper.createInstanceOfType;
+import static org.jtester.utility.ClazzHelper.createInstanceOfType;
 
 import java.util.ArrayList;
 import java.util.List;

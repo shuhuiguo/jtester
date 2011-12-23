@@ -1,16 +1,16 @@
 package org.jtester.module.core.loader;
 
-import static org.jtester.bytecode.reflector.helper.ClazzHelper.createInstanceOfType;
 import static org.jtester.module.core.ConfigurationConst.PROPKEY_MODULES;
+import static org.jtester.utility.ClazzHelper.createInstanceOfType;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import org.jtester.bytecode.reflector.helper.ClazzHelper;
 import org.jtester.exception.JTesterException;
 import org.jtester.module.core.Module;
 import org.jtester.module.core.helper.ConfigurationHelper;
 import org.jtester.module.core.helper.ModulesManager;
+import org.jtester.utility.ClazzHelper;
 import org.jtester.utility.JTesterLogger;
 import org.jtester.utility.StringHelper;
 

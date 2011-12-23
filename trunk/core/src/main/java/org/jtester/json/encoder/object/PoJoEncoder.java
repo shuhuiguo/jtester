@@ -6,9 +6,9 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 
-import org.jtester.bytecode.reflector.helper.ClazzHelper;
 import org.jtester.json.encoder.PropertyEncoder;
 import org.jtester.json.encoder.ObjectEncoder;
+import org.jtester.utility.ClazzHelper;
 
 /**
  * 按照pojo字段来输出json串

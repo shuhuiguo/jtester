@@ -10,10 +10,10 @@ import java.util.regex.Pattern;
 
 import org.jtester.annotations.AutoBeanInject.BeanMap;
 import org.jtester.annotations.SpringInitMethod;
-import org.jtester.bytecode.reflector.helper.ClazzHelper;
 import org.jtester.exception.FindBeanImplClassException;
 import org.jtester.utility.AnnotationUtils;
 import org.jtester.utility.ArrayHelper;
+import org.jtester.utility.ClazzHelper;
 import org.jtester.utility.JTesterLogger;
 import org.jtester.utility.StringHelper;
 

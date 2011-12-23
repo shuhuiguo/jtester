@@ -15,7 +15,7 @@
  */
 package org.jtester.module.database.support;
 
-import static ext.jtester.org.apache.commons.dbutils.DbUtils.closeQuietly;
+import static ext.jtester.commons.DbUtils.closeQuietly;
 import static org.jtester.module.utils.StoredIdentifierCase.LOWER_CASE;
 import static org.jtester.module.utils.StoredIdentifierCase.MIXED_CASE;
 import static org.jtester.module.utils.StoredIdentifierCase.UPPER_CASE;

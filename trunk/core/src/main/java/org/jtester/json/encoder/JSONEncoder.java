@@ -7,7 +7,6 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
-import org.jtester.bytecode.reflector.helper.ClazzHelper;
 import org.jtester.exception.JSONException;
 import org.jtester.json.encoder.array.ArraysEncoder;
 import org.jtester.json.encoder.array.CollectionEncoder;
@@ -17,6 +16,7 @@ import org.jtester.json.encoder.single.FixedTypeEncoder;
 import org.jtester.json.encoder.single.SpecTypeEncoder;
 import org.jtester.json.helper.ClazzMap;
 import org.jtester.json.helper.JSONFeature;
+import org.jtester.utility.ClazzHelper;
 
 /**
  * json串加码器基类<br>

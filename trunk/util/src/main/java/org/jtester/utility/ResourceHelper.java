@@ -1,6 +1,6 @@
 package org.jtester.utility;
 
-import static ext.jtester.org.apache.commons.io.IOUtils.closeQuietly;
+import static ext.jtester.commons.IOUtils.closeQuietly;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -24,7 +24,7 @@ import org.jtester.cpdetector.CodepageDetectorProxy;
 import org.jtester.cpdetector.JChardetFacade;
 import org.jtester.exception.JTesterException;
 
-import ext.jtester.org.apache.commons.io.IOUtils;
+import ext.jtester.commons.IOUtils;
 
 @SuppressWarnings("rawtypes")
 public class ResourceHelper {

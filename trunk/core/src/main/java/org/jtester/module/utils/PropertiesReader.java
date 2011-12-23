@@ -1,6 +1,6 @@
 package org.jtester.module.utils;
 
-import static ext.jtester.org.apache.commons.io.IOUtils.closeQuietly;
+import static ext.jtester.commons.IOUtils.closeQuietly;
 
 import java.io.File;
 import java.io.FileInputStream;

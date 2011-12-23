@@ -5,9 +5,9 @@ import java.io.Writer;
 import java.lang.reflect.Field;
 import java.util.List;
 
-import org.jtester.bytecode.reflector.helper.ClazzHelper;
 import org.jtester.bytecode.reflector.helper.FieldHelper;
 import org.jtester.exception.JSONException;
+import org.jtester.utility.ClazzHelper;
 
 public abstract class PropertyEncoder extends JSONEncoder<Object> {
 	protected PropertyEncoder(int features) {
