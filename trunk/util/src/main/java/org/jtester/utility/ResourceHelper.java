@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-import org.jtester.bytecode.reflector.helper.ClazzHelper;
+import org.jtester.utility.ClazzHelper;
 import org.jtester.cpdetector.CodepageDetectorProxy;
 import org.jtester.cpdetector.JChardetFacade;
 import org.jtester.exception.JTesterException;
@@ -254,7 +254,7 @@ public class ResourceHelper {
 				charset = detector.detectCodepage(file.toURL());
 			} catch (IllegalArgumentException e) {
 				charset = Charset.forName(ResourceHelper.defaultFileEncoding());
-				JTesterLogger.warn("get file encoding error:" + e.getMessage() + ", use default encoding:"
+				LogHelper.warn("get file encoding error:" + e.getMessage() + ", use default encoding:"
 						+ ResourceHelper.defaultFileEncoding());
 			}
 			String fileCharacterEnding = charset.name();
@@ -281,7 +281,7 @@ public class ResourceHelper {
 				charset = detector.detectCodepage(is, 2147483647);
 			} catch (IllegalArgumentException e) {
 				charset = Charset.forName(ResourceHelper.defaultFileEncoding());
-				JTesterLogger.warn("get file encoding error:" + e.getMessage() + ", use default encoding:"
+				LogHelper.warn("get file encoding error:" + e.getMessage() + ", use default encoding:"
 						+ ResourceHelper.defaultFileEncoding());
 			}
 			String fileCharacterEnding = charset.name();

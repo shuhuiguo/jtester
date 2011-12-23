@@ -26,7 +26,7 @@ import java.util.Set;
 import javax.sql.DataSource;
 
 import org.jtester.exception.JTesterException;
-import org.jtester.utility.JTesterLogger;
+import org.jtester.utility.LogHelper;
 
 /**
  * Class to which database updates and queries are passed. Is in fact a utility
@@ -83,7 +83,7 @@ public class DefaultSQLHandler implements SQLHandler {
 	 * org.unitils.core.dbsupport.SQLHandler#executeUpdate(java.lang.String)
 	 */
 	public int executeUpdate(String sql) {
-		JTesterLogger.debug(sql);
+		LogHelper.debug(sql);
 
 		if (!doExecuteUpdates) {
 			// skip update
@@ -109,7 +109,7 @@ public class DefaultSQLHandler implements SQLHandler {
 	 * @see org.unitils.core.dbsupport.SQLHandler#executeQuery(java.lang.String)
 	 */
 	public void executeQuery(String sql) {
-		JTesterLogger.debug(sql);
+		LogHelper.debug(sql);
 
 		if (!doExecuteUpdates) {
 			// skip query
@@ -138,7 +138,7 @@ public class DefaultSQLHandler implements SQLHandler {
 	 * String)
 	 */
 	public int executeUpdateAndCommit(String sql) {
-		JTesterLogger.debug(sql);
+		LogHelper.debug(sql);
 
 		if (!doExecuteUpdates) {
 			// skip update
@@ -169,7 +169,7 @@ public class DefaultSQLHandler implements SQLHandler {
 	 * org.unitils.core.dbsupport.SQLHandler#getItemAsLong(java.lang.String)
 	 */
 	public long getItemAsLong(String sql) {
-		JTesterLogger.debug(sql);
+		LogHelper.debug(sql);
 
 		Connection connection = null;
 		Statement statement = null;
@@ -198,7 +198,7 @@ public class DefaultSQLHandler implements SQLHandler {
 	 * org.unitils.core.dbsupport.SQLHandler#getItemAsString(java.lang.String)
 	 */
 	public String getItemAsString(String sql) {
-		JTesterLogger.debug(sql);
+		LogHelper.debug(sql);
 
 		Connection connection = null;
 		Statement statement = null;
@@ -228,7 +228,7 @@ public class DefaultSQLHandler implements SQLHandler {
 	 * )
 	 */
 	public Set<String> getItemsAsStringSet(String sql) {
-		JTesterLogger.debug(sql);
+		LogHelper.debug(sql);
 
 		Connection connection = null;
 		Statement statement = null;
@@ -256,7 +256,7 @@ public class DefaultSQLHandler implements SQLHandler {
 	 * @see org.unitils.core.dbsupport.SQLHandler#exists(java.lang.String)
 	 */
 	public boolean exists(String sql) {
-		JTesterLogger.debug(sql);
+		LogHelper.debug(sql);
 
 		Connection connection = null;
 		Statement statement = null;

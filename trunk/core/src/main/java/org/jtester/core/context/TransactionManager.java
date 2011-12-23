@@ -11,7 +11,7 @@ import org.jtester.core.TestedContext;
 import org.jtester.exception.UnConfigDataBaseTypeException;
 import org.jtester.module.database.environment.DBEnvironment;
 import org.jtester.module.database.environment.DBEnvironmentFactory;
-import org.jtester.utility.JTesterLogger;
+import org.jtester.utility.LogHelper;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionDefinition;
@@ -98,14 +98,14 @@ public class TransactionManager {
 			return;
 		}
 		try {
-			JTesterLogger.debug("commit transaction");
+			LogHelper.debug("commit transaction");
 			this.transactionManager.commit(this.transactionStatus);
 		} catch (UnexpectedRollbackException e) {
 			StringBuffer message = new StringBuffer();
 			message.append("Catch a transaction exception: org.springframework.transaction.UnexpectedRollbackException.\n");
 			message.append("\tplease use @Transactional(TransactionMode.DISABLED) on test method.\n");
 			message.append("\tException:" + e.getMessage());
-			JTesterLogger.warn(message.toString());
+			LogHelper.warn(message.toString());
 		} finally {
 			this.transactionManager = null;
 			this.transactionStatus = null;
@@ -121,7 +121,7 @@ public class TransactionManager {
 			return;
 		}
 		try {
-			JTesterLogger.debug("Rolling back transaction");
+			LogHelper.debug("Rolling back transaction");
 			this.transactionManager.rollback(this.transactionStatus);
 		} finally {
 			this.transactionManager = null;

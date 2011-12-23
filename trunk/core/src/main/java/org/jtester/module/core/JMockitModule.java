@@ -4,12 +4,12 @@ import java.lang.reflect.Method;
 
 import org.jtester.core.Startup;
 import org.jtester.module.TestListener;
-import org.jtester.utility.JTesterLogger;
+import org.jtester.utility.LogHelper;
 
 public class JMockitModule implements Module {
 
 	public void init() {
-		JTesterLogger.info("init jmockit in jmockit module.");
+		LogHelper.info("init jmockit in jmockit module.");
 
 		// mockit.internal.startup.Startup.initializeIfNeeded();
 		Startup.initializeIfNeeded();

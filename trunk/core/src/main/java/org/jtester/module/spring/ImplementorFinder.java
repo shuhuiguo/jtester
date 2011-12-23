@@ -14,7 +14,7 @@ import org.jtester.exception.FindBeanImplClassException;
 import org.jtester.utility.AnnotationUtils;
 import org.jtester.utility.ArrayHelper;
 import org.jtester.utility.ClazzHelper;
-import org.jtester.utility.JTesterLogger;
+import org.jtester.utility.LogHelper;
 import org.jtester.utility.StringHelper;
 
 /**
@@ -50,7 +50,7 @@ public class ImplementorFinder {
 			} catch (FindBeanImplClassException e) {
 				String message = String.format("Look for spring bean for property[%s] of class[%s] error!", beanName,
 						ownerClazz.getName());
-				JTesterLogger.warn(message);
+				LogHelper.warn(message);
 				throw new FindBeanImplClassException(message, e);
 			}
 		}

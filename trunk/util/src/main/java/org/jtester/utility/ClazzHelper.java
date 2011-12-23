@@ -23,9 +23,8 @@ import java.util.Map;
 
 import mockit.Mockit;
 
-import org.jtester.bytecode.reflector.helper.FieldHelper;
+import org.jtester.utility.FieldHelper;
 import org.jtester.exception.JTesterException;
-import org.jtester.module.core.helper.SpringModuleHelper;
 
 import ext.jtester.commons.IOUtils;
 import ext.jtester.objenesis.ObjenesisHelper;
@@ -516,6 +515,24 @@ public class ClazzHelper {
 	}
 
 	/**
+	 * 返回spring代理的目标对象
+	 * 
+	 * @param target
+	 * @return
+	 */
+	public static Object getAdvisedObject(Object target) {
+		if (target instanceof org.springframework.aop.framework.Advised) {
+			try {
+				return ((org.springframework.aop.framework.Advised) target).getTargetSource().getTarget();
+			} catch (Exception e) {
+				throw new JTesterException(e);
+			}
+		} else {
+			return target;
+		}
+	}
+
+	/**
 	 * 如果是spring代理对象，获得被代理的目标对象
 	 * 
 	 * @param target
@@ -523,7 +540,7 @@ public class ClazzHelper {
 	 */
 	public static Object getProxiedObject(Object target) {
 		if (ClazzHelper.isClassAvailable("org.springframework.aop.framework.Advised")) {
-			Object o = SpringModuleHelper.getAdvisedObject(target);
+			Object o = getAdvisedObject(target);
 			return o;
 		} else {
 			return target;

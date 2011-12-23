@@ -11,7 +11,7 @@ import org.jtester.core.TestedContext;
 import org.jtester.exception.FindBeanImplClassException;
 import org.jtester.reflector.imposteriser.JTesterProxy;
 import org.jtester.utility.FieldHelper;
-import org.jtester.utility.JTesterLogger;
+import org.jtester.utility.LogHelper;
 import org.jtester.utility.StringHelper;
 import org.springframework.beans.MutablePropertyValues;
 import org.springframework.beans.factory.FactoryBean;
@@ -86,7 +86,7 @@ public class SpringBeanFromFactory implements FactoryBean {// , BeanFactoryAware
 			final String beanName, final String fieldName) {
 		// SpringBeanFrom采用的是覆盖原有的bean定义
 		if (beanFactory.containsBeanDefinition(beanName)) {
-			JTesterLogger
+			LogHelper
 					.info(String
 							.format("SpringBeanFrom BeanName[%s] has been defined in application context, so override bean definition.",
 									beanName));

@@ -9,7 +9,7 @@ import java.util.Properties;
 import org.jtester.exception.JTesterException;
 import org.jtester.module.core.ConfigurationConst;
 import org.jtester.module.core.loader.ConfigurationLoader;
-import org.jtester.utility.JTesterLogger;
+import org.jtester.utility.LogHelper;
 import org.jtester.utility.StringHelper;
 
 /**
@@ -48,15 +48,15 @@ public class ConfigurationHelper implements ConfigurationConst {
 	public static int logLevel() {
 		String level = getString("log.level", "INFO");
 		if ("DEBUG".equalsIgnoreCase(level)) {
-			return JTesterLogger.DEBUG;
+			return LogHelper.DEBUG;
 		} else if ("INFO".equalsIgnoreCase(level)) {
-			return JTesterLogger.INFO;
+			return LogHelper.INFO;
 		} else if ("WARNING".equalsIgnoreCase(level)) {
-			return JTesterLogger.WARNING;
+			return LogHelper.WARNING;
 		} else if ("ERROR".equalsIgnoreCase(level)) {
-			return JTesterLogger.ERROR;
+			return LogHelper.ERROR;
 		}
-		return JTesterLogger.INFO;
+		return LogHelper.INFO;
 	}
 
 	public static String getString(String key) {
@@ -254,7 +254,7 @@ public class ConfigurationHelper implements ConfigurationConst {
 	 */
 	public static <T> T getInstanceOf(Class<? extends T> type, String... implementationDiscriminatorValues) {
 		String implClassName = getConfiguredClassName(type, implementationDiscriminatorValues);
-		JTesterLogger.debug("Creating instance of " + type + ". Implementation class " + implClassName);
+		LogHelper.debug("Creating instance of " + type + ". Implementation class " + implClassName);
 		return (T) createInstanceOfType(implClassName);
 	}
 

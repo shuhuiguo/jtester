@@ -8,7 +8,7 @@ import org.jtester.module.database.environment.DBEnvironment;
 import org.jtester.module.database.util.DBHelper;
 import org.jtester.module.dbfit.db.model.DataColumn;
 import org.jtester.module.dbfit.db.model.DataTable;
-import org.jtester.utility.JTesterLogger;
+import org.jtester.utility.LogHelper;
 
 @SuppressWarnings({ "rawtypes" })
 public class QueryFixture extends RowSetFixture {
@@ -34,7 +34,7 @@ public class QueryFixture extends RowSetFixture {
 		if (query.startsWith("<<")) {
 			return getFromSymbol();
 		}
-		JTesterLogger.info(String.format("Query: '%s'", query));
+		LogHelper.info(String.format("Query: '%s'", query));
 		PreparedStatement st = null;
 		ResultSet rs = null;
 		try {

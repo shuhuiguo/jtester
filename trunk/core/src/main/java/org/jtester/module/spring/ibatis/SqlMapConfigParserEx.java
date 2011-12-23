@@ -5,7 +5,7 @@ import java.util.Properties;
 
 import org.jtester.module.core.helper.ConfigurationHelper;
 import org.jtester.reflector.FieldAccessor;
-import org.jtester.utility.JTesterLogger;
+import org.jtester.utility.LogHelper;
 import org.w3c.dom.Node;
 
 import com.ibatis.common.resources.Resources;
@@ -65,7 +65,7 @@ public class SqlMapConfigParserEx extends SqlMapConfigParser {
 				if (throwException) {
 					throw new RuntimeException(error, e);
 				} else {
-					JTesterLogger.warn(error);
+					LogHelper.warn(error);
 				}
 			}
 		}

@@ -23,7 +23,7 @@ import org.jtester.module.core.helper.SpringModuleHelper;
 import org.jtester.module.spring.JTesterBeanFactory;
 import org.jtester.module.spring.JTesterSpringContext;
 import org.jtester.module.spring.strategy.cleaner.SpringBeanCleaner;
-import org.jtester.utility.JTesterLogger;
+import org.jtester.utility.LogHelper;
 
 /**
  * jTester测试上下文信息<br>
@@ -284,7 +284,7 @@ public class TestedContext {
 	 */
 	public static void setSpringContext(JTesterSpringContext springContext) {
 		if (springContext == null) {
-			JTesterLogger.info("no spring application context for test:" + currTestedClazzName());
+			LogHelper.info("no spring application context for test:" + currTestedClazzName());
 			return;
 		}
 		if (TestedContext.currTestedClazz() == null) {

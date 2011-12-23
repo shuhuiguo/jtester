@@ -11,7 +11,7 @@ import org.jtester.module.core.Module;
 import org.jtester.module.core.helper.ConfigurationHelper;
 import org.jtester.module.core.helper.ModulesManager;
 import org.jtester.utility.ClazzHelper;
-import org.jtester.utility.JTesterLogger;
+import org.jtester.utility.LogHelper;
 import org.jtester.utility.StringHelper;
 
 /**
@@ -130,7 +130,7 @@ public class ModulesLoader {
 			if (clazzAvailable) {
 				enabledModules.add(module);
 			} else {
-				JTesterLogger.warn(String.format("can't find class %s in classpath, so disabled module[%s]",
+				LogHelper.warn(String.format("can't find class %s in classpath, so disabled module[%s]",
 						clazzAvailable, module));
 			}
 		}

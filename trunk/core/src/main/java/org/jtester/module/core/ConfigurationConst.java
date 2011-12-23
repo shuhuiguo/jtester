@@ -17,8 +17,6 @@ public interface ConfigurationConst {
 
 	public static final String SPRING_DATASOURCE_NAME = "SpringModule.DataSource.Name";
 
-	public static final String LOG4J_XML_FILE = "log4j.xml.file";
-
 	/**
 	 * 测试中禁止启动的功能
 	 */

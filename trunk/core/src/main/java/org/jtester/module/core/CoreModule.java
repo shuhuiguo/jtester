@@ -10,7 +10,7 @@ import org.jtester.module.core.helper.ConfigurationHelper;
 import org.jtester.module.core.helper.ModulesManager;
 import org.jtester.module.core.loader.ConfigurationLoader;
 import org.jtester.module.core.loader.ModulesLoader;
-import org.jtester.utility.JTesterLogger;
+import org.jtester.utility.LogHelper;
 
 /**
  * jtester的核心类，所有事件监听器的总入口<br>
@@ -57,7 +57,7 @@ public class CoreModule {
 	 */
 	public static void initSingletonInstance() {
 		ConfigurationLoader.loading();
-		JTesterLogger.level = ConfigurationHelper.logLevel();
+		LogHelper.level = ConfigurationHelper.logLevel();
 		instance = new CoreModule();
 	}
 
@@ -98,7 +98,8 @@ public class CoreModule {
 		@SuppressWarnings("rawtypes")
 		@Override
 		public void beforeClass(Class testClazz) {
-			JTesterLogger.resetLog4jLevel();
+			String log4jxml = ConfigurationHelper.getString(LogHelper.LOG4J_XML_FILE);
+			LogHelper.resetLog4jLevel(log4jxml);
 
 			TestedContext.setContext(testClazz);
 			List<TestListener> listeners = ModulesManager.getTestListeners();

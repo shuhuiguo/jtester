@@ -20,7 +20,7 @@ import java.util.Properties;
 import org.jtester.exception.JTesterException;
 import org.jtester.module.core.helper.ConfigurationHelper;
 import org.jtester.module.utils.PropertiesReader;
-import org.jtester.utility.JTesterLogger;
+import org.jtester.utility.LogHelper;
 
 import ext.jtester.commons.StrSubstitutor;
 
@@ -107,7 +107,7 @@ public class ConfigurationLoader {
 		String customConfigurationFileName = getConfigurationFileName(PROPKEY_CUSTOM_CONFIGURATION, properties);
 		Properties customProperties = propertiesReader.loadPropertiesFileFromClasspath(customConfigurationFileName);
 		if (customProperties == null) {
-			JTesterLogger.warn("No custom configuration file " + customConfigurationFileName + " found.");
+			LogHelper.warn("No custom configuration file " + customConfigurationFileName + " found.");
 		} else {
 			properties.putAll(customProperties);
 		}
@@ -127,7 +127,7 @@ public class ConfigurationLoader {
 			localProperties = propertiesReader.loadPropertiesFileFromUserHome(localConfigurationFileName);
 		}
 		if (localProperties == null) {
-			JTesterLogger.info("No local configuration file " + localConfigurationFileName + " found.");
+			LogHelper.info("No local configuration file " + localConfigurationFileName + " found.");
 		} else {
 			properties.putAll(localProperties);
 		}

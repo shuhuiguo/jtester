@@ -10,7 +10,7 @@ import org.jtester.annotations.AutoBeanInject.BeanMap;
 import org.jtester.exception.FindBeanImplClassException;
 import org.jtester.module.spring.ImplementorFinder;
 import org.jtester.utility.ClazzHelper;
-import org.jtester.utility.JTesterLogger;
+import org.jtester.utility.LogHelper;
 import org.jtester.utility.StringHelper;
 import org.springframework.beans.factory.support.AbstractBeanDefinition;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
@@ -101,7 +101,7 @@ public class RegisterBeanDefinition {
 	 */
 	public void ignoreNotFoundException(Throwable e) {
 		if (this.autoBeanInject == null || this.autoBeanInject.ignoreNotFound()) {
-			JTesterLogger.warn("ignore NotFound:" + (e == null ? "<null>" : e.getMessage()));
+			LogHelper.warn("ignore NotFound:" + (e == null ? "<null>" : e.getMessage()));
 		} else {
 			throw new RuntimeException(e);
 		}

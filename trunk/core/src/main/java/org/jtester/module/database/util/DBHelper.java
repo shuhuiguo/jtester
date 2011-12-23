@@ -14,7 +14,7 @@ import org.jtester.exception.NoSuchFieldRuntimeException;
 import org.jtester.module.dbfit.db.model.DbParameterAccessor;
 import org.jtester.reflector.FieldAccessor;
 import org.jtester.utility.ClazzHelper;
-import org.jtester.utility.JTesterLogger;
+import org.jtester.utility.LogHelper;
 import org.jtester.utility.StringHelper;
 
 @SuppressWarnings({ "rawtypes", "unchecked" })
@@ -115,7 +115,7 @@ public final class DBHelper {
 				Object value = DbParameterAccessor.normaliseValue(o);
 				accessor.set(pojo, value);
 			} catch (NoSuchFieldRuntimeException e) {
-				JTesterLogger.warn("set pojo property errro: " + e.getMessage());
+				LogHelper.warn("set pojo property errro: " + e.getMessage());
 			}
 		}
 		return pojo;

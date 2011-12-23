@@ -4,8 +4,8 @@ import java.lang.reflect.Method;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.jtester.bytecode.imposteriser.Invocation;
-import org.jtester.bytecode.imposteriser.Invokable;
+import org.jtester.reflector.imposteriser.Invocation;
+import org.jtester.reflector.imposteriser.Invokable;
 import org.jtester.exception.ForbidCallException;
 
 /**
@@ -31,10 +31,10 @@ public class ForbidInvokable implements Invokable {
 			System.out.println("=============getClass()");
 			return clazz;
 		} else if (filter.contains(methodname)) {
-			Object target = invocation.getInvokedObject();
+			Object _target = invocation.getInvokedObject();
 			Object[] paras = invocation.getParametersAsArray();
 
-			return method.invoke(target, paras);
+			return method.invoke(_target, paras);
 		} else {
 			throw new ForbidCallException("this a forbid class to be called.");
 		}

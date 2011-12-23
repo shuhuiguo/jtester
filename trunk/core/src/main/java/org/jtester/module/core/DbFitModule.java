@@ -19,7 +19,7 @@ import org.jtester.module.dbfit.AutoFindDbFit;
 import org.jtester.module.dbfit.DbFitRunner;
 import org.jtester.module.tracer.jdbc.JdbcTracerManager;
 import org.jtester.utility.AnnotationUtils;
-import org.jtester.utility.JTesterLogger;
+import org.jtester.utility.LogHelper;
 
 @SuppressWarnings("rawtypes")
 public class DbFitModule implements Module {
@@ -84,7 +84,7 @@ public class DbFitModule implements Module {
 				DbFitRunner.runDbFit(testClazz, file);
 			} else if (file.endsWith(".sql")) {
 				SqlRunner.executeFromFile(testClazz, file);
-				JTesterLogger.info(String.format("execute sql file[%s] successfully.", file));
+				LogHelper.info(String.format("execute sql file[%s] successfully.", file));
 			} else {
 				String error = String.format(
 						"@DbFit only support wiki file or sql file, please check the file[%s] format.", file);

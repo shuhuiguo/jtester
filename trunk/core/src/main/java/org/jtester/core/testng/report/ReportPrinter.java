@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.jtester.core.testng.UserTestReporter.Status;
-import org.jtester.utility.JTesterLogger;
+import org.jtester.utility.LogHelper;
 import org.jtester.utility.ResourceHelper;
 
 /**
@@ -36,7 +36,7 @@ public class ReportPrinter {
 			writer.write("</html>");
 			writer.close();
 		} catch (Throwable e) {
-			JTesterLogger.warn("print user group report error:" + e.getMessage());
+			LogHelper.warn("print user group report error:" + e.getMessage());
 		}
 	}
 

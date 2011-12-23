@@ -3,8 +3,8 @@ package org.jtester.reflector.invokabel;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-import org.jtester.bytecode.imposteriser.Invocation;
-import org.jtester.bytecode.imposteriser.Invokable;
+import org.jtester.reflector.imposteriser.Invocation;
+import org.jtester.reflector.imposteriser.Invokable;
 import org.jtester.core.TestedContext;
 import org.jtester.reflector.FieldAccessor;
 

@@ -15,7 +15,7 @@ import ognl.OgnlException;
 import org.jtester.exception.JTesterException;
 import org.jtester.utility.AnnotationUtils;
 import org.jtester.utility.FieldHelper;
-import org.jtester.utility.JTesterLogger;
+import org.jtester.utility.LogHelper;
 
 /**
  * Class containing static methods that implement explicit injection using OGNL
@@ -51,7 +51,7 @@ public class InjectionModuleHelper {
 				Ognl.getValue(ognlExpression, ognlContext, target);
 
 			} catch (Throwable e) {
-				JTesterLogger
+				LogHelper
 						.warn("Unable to retrieve current value of field to inject into. Will not be able to restore value after injection.",
 								e);
 			}
@@ -200,7 +200,7 @@ public class InjectionModuleHelper {
 			oldValue = FieldHelper.getFieldValue(target, fieldToInjectTo);
 
 		} catch (Throwable e) {
-			JTesterLogger
+			LogHelper
 					.warn("Unable to retrieve current value of field to inject into. Will not be able to restore value after injection.",
 							e);
 		}

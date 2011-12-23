@@ -14,7 +14,7 @@ import org.jtester.module.database.environment.DBEnvironmentFactory;
 import org.jtester.module.database.support.DefaultSQLHandler;
 import org.jtester.module.database.support.SQLHandler;
 import org.jtester.module.database.util.ConstraintsDisabler;
-import org.jtester.utility.JTesterLogger;
+import org.jtester.utility.LogHelper;
 import org.springframework.transaction.PlatformTransactionManager;
 
 import com.ibatis.sqlmap.engine.datasource.DataSourceFactory;
@@ -61,7 +61,7 @@ public class DatabaseModule implements Module {
 	 *            The config, not null
 	 */
 	public void init() {
-		JTesterLogger.info("PlatformTransactionManager class init.");
+		LogHelper.info("PlatformTransactionManager class init.");
 		PlatformTransactionManager.class.getName();
 	}
 

@@ -23,7 +23,7 @@ import org.jtester.module.dbfit.db.fixture.StoreQueryFixture;
 import org.jtester.module.dbfit.db.fixture.StoreQueryTableFixture;
 import org.jtester.module.dbfit.db.fixture.UpdateFixture;
 import org.jtester.utility.DateUtil;
-import org.jtester.utility.JTesterLogger;
+import org.jtester.utility.LogHelper;
 
 import fit.Fixture;
 import fitlibrary.SequenceFixture;
@@ -45,14 +45,14 @@ public class DatabaseFixture extends SequenceFixture implements DbFitOp {
 		DBEnvironment environment = workingEnvironment();
 
 		try {
-			JTesterLogger.info("tearDown dbfit table");
+			LogHelper.info("tearDown dbfit table");
 			if (environment == null) {
 				return;
 			}
 			RunIn runIn = DbFitContext.getRunIn();
 			boolean isEnabledTransaction = TestedContext.isTransactionsEnabled();
 			if (runIn == RunIn.TestCase) {
-				JTesterLogger.info("run in testcase, isEnabledTransaction:" + isEnabledTransaction);
+				LogHelper.info("run in testcase, isEnabledTransaction:" + isEnabledTransaction);
 			}
 
 			if (runIn == RunIn.TestCase && isEnabledTransaction == false) {

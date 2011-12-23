@@ -5,7 +5,7 @@ import javax.sql.DataSource;
 import org.jtester.module.core.helper.ConfigurationHelper;
 import org.jtester.module.database.environment.DBEnvironmentFactory;
 import org.jtester.module.tracer.TracerBeanManager;
-import org.jtester.utility.JTesterLogger;
+import org.jtester.utility.LogHelper;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
@@ -28,7 +28,7 @@ public class JTesterBeanFactory extends DefaultListableBeanFactory {
 			return bean;
 		} catch (NoSuchBeanDefinitionException e) {
 			if (ignoreNoSuchBean) {
-				JTesterLogger.info("Ignore NoSuchBeanDefinitionException:" + e.getMessage());
+				LogHelper.info("Ignore NoSuchBeanDefinitionException:" + e.getMessage());
 				return null;
 			} else {
 				throw e;

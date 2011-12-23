@@ -12,7 +12,7 @@ import org.jtester.module.spring.ApplicationContextFactory;
 import org.jtester.module.spring.JTesterSpringContext;
 import org.jtester.utility.AnnotationUtils;
 import org.jtester.utility.ClazzHelper;
-import org.jtester.utility.JTesterLogger;
+import org.jtester.utility.LogHelper;
 import org.springframework.aop.framework.MockCglib2AopProxy;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.config.RuntimeBeanReference;
@@ -84,7 +84,7 @@ public class SpringModuleHelper {
 
 		springContext.refresh();
 		long duration = System.currentTimeMillis() - startTime;
-		JTesterLogger.warn(String.format("take %d ms to init spring context for test obejct[%s]", duration,
+		LogHelper.warn(String.format("take %d ms to init spring context for test obejct[%s]", duration,
 				testClazz.getName()));
 
 		TestedContext.setSpringContext(springContext);
@@ -103,7 +103,7 @@ public class SpringModuleHelper {
 		}
 		if (springContext instanceof JTesterSpringContext) {
 			((JTesterSpringContext) springContext).destroy();
-			JTesterLogger.warn("close spring context for class:" + TestedContext.currTestedClazzName());
+			LogHelper.warn("close spring context for class:" + TestedContext.currTestedClazzName());
 		} else {
 			String error = String.format("there must be something error, the type[%s] object isn't a spring context.",
 					springContext.getClass().getName());
@@ -147,24 +147,6 @@ public class SpringModuleHelper {
 				new RuntimeBeanReference("jtester-internal-springbeantracer"));
 
 		beanFactory.registerBeanDefinition("jtester-internal-beantracer-advisor", advisor);
-	}
-
-	/**
-	 * 返回spring代理的目标对象
-	 * 
-	 * @param target
-	 * @return
-	 */
-	public static Object getAdvisedObject(Object target) {
-		if (target instanceof org.springframework.aop.framework.Advised) {
-			try {
-				return ((org.springframework.aop.framework.Advised) target).getTargetSource().getTarget();
-			} catch (Exception e) {
-				throw new JTesterException(e);
-			}
-		} else {
-			return target;
-		}
 	}
 
 	/**

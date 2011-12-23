@@ -6,7 +6,7 @@ import org.jtester.module.core.helper.SpringModuleHelper;
 import org.jtester.module.core.helper.TracerModuleHelper;
 import org.jtester.module.spring.strategy.register.RegisterDynamicBean;
 import org.jtester.utility.AnnotationUtils;
-import org.jtester.utility.JTesterLogger;
+import org.jtester.utility.LogHelper;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
@@ -54,7 +54,7 @@ public class JTesterSpringContext extends ClassPathXmlApplicationContext {
 		// 注册SpringBeanFrom的proxy bean
 		SpringBeanFromFactory.registerSpringBeanFromField(beanFactory, testedClazz);
 
-		JTesterLogger.info("Refresh spring classpath application context, tested class:" + testedClazz.getName());
+		LogHelper.info("Refresh spring classpath application context, tested class:" + testedClazz.getName());
 
 		// @AutoInject生效时：@SpringBeanByName 和 @SpringBeanByType bean注册
 		RegisterDynamicBean.dynamicRegisterBeanDefinition(beanFactory, testedClazz);

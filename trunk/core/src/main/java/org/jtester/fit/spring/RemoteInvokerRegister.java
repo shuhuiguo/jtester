@@ -11,7 +11,7 @@ import org.jtester.annotations.SpringBeanRemote.SpringBeanRemoteType;
 import org.jtester.exception.JTesterException;
 import org.jtester.utility.AnnotationUtils;
 import org.jtester.utility.FieldHelper;
-import org.jtester.utility.JTesterLogger;
+import org.jtester.utility.LogHelper;
 import org.jtester.utility.StringHelper;
 import org.springframework.beans.MutablePropertyValues;
 import org.springframework.beans.factory.config.RuntimeBeanReference;
@@ -57,7 +57,7 @@ public class RemoteInvokerRegister {
 			}
 
 			if (beanFactory.containsBeanDefinition(beanID)) {
-				JTesterLogger.info(String.format("spring bean[%s] has been defined in application context!", beanID));
+				LogHelper.info(String.format("spring bean[%s] has been defined in application context!", beanID));
 				return;
 			}
 			String serviceUrl = springBeanRemote.serviceUrl();
@@ -179,12 +179,12 @@ public class RemoteInvokerRegister {
 					RootBeanDefinition beanDefinition = newServerRemoteInvokerBeanDefinition(bean, claz,
 							HttpInvokerServiceExporter.class.getName());
 					beanFactory.registerBeanDefinition("/httpinvoker/" + bean, beanDefinition);
-					JTesterLogger.info("register httpinvoker bean[/httpinvoker/" + bean + "] successfully.");
+					LogHelper.info("register httpinvoker bean[/httpinvoker/" + bean + "] successfully.");
 				} else if (type.equalsIgnoreCase("hessian")) {
 					RootBeanDefinition beanDefinition = newServerRemoteInvokerBeanDefinition(bean, claz,
 							HessianServiceExporter.class.getName());
 					beanFactory.registerBeanDefinition("/hessian/" + bean, beanDefinition);
-					JTesterLogger.info("register httpinvoker bean[/hessian/" + bean + "] successfully.");
+					LogHelper.info("register httpinvoker bean[/hessian/" + bean + "] successfully.");
 				} else {
 					throw new RuntimeException(String.format(
 							"unsupport remote invoker type[%s], only support hessian or httpinvoker.", type));

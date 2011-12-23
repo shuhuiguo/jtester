@@ -8,7 +8,7 @@ import org.jtester.fortest.beans.User;
 import org.jtester.fortest.service.UserDao;
 import org.jtester.fortest.service.UserService;
 import org.jtester.testng.JTester;
-import org.jtester.utility.JTesterLogger;
+import org.jtester.utility.LogHelper;
 import org.testng.annotations.Test;
 
 @Test
@@ -26,7 +26,7 @@ public class SpringBeanFromFactoryTest extends JTester {
 		}
 
 		public List<User> findAllUser() {
-			JTesterLogger.info("find all user");
+			LogHelper.info("find all user");
 			return Arrays.asList(new User(), new User());
 		}
 

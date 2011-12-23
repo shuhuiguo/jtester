@@ -8,7 +8,7 @@ import mockit.internal.startup.Startup;
 
 import org.jtester.module.TestListener;
 import org.jtester.module.core.helper.ConfigurationHelper;
-import org.jtester.utility.JTesterLogger;
+import org.jtester.utility.LogHelper;
 
 @SuppressWarnings("rawtypes")
 public class ForbidModule implements Module {
@@ -25,7 +25,7 @@ public class ForbidModule implements Module {
 				Class clazz = Class.forName(className);
 				forbids.add(clazz);
 			} catch (ClassNotFoundException e) {
-				JTesterLogger.warn("can't load forbid class, ClassNotFoundException:" + e.getLocalizedMessage());
+				LogHelper.warn("can't load forbid class, ClassNotFoundException:" + e.getLocalizedMessage());
 			}
 		}
 	}

@@ -9,7 +9,7 @@ import java.io.InputStream;
 import java.util.Properties;
 
 import org.jtester.exception.JTesterException;
-import org.jtester.utility.JTesterLogger;
+import org.jtester.utility.LogHelper;
 import org.jtester.utility.ResourceHelper;
 
 public class PropertiesReader {
@@ -37,7 +37,7 @@ public class PropertiesReader {
 			}
 			inputStream = new FileInputStream(localPropertiesFile);
 			properties.load(inputStream);
-			JTesterLogger.info("Loaded configuration file " + propertiesFileName + " from user home");
+			LogHelper.info("Loaded configuration file " + propertiesFileName + " from user home");
 			return properties;
 
 		} catch (FileNotFoundException e) {

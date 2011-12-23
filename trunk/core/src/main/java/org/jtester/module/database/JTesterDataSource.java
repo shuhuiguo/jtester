@@ -15,7 +15,7 @@ import org.jtester.module.core.ConfigurationConst;
 import org.jtester.module.core.helper.ConfigurationHelper;
 import org.jtester.module.database.util.DataSourceType;
 import org.jtester.module.tracer.jdbc.ConnectionProxy;
-import org.jtester.utility.JTesterLogger;
+import org.jtester.utility.LogHelper;
 
 /**
  * JTester DataSource
@@ -48,7 +48,7 @@ public class JTesterDataSource implements DataSource {
 		this.checkDoesTestDB();
 		this.registerDriver();
 		BasicDataSource dataSource = new BasicDataSource();
-		JTesterLogger.info("Creating data source. Driver: " + driver + ", url: " + url + ", user: " + username
+		LogHelper.info("Creating data source. Driver: " + driver + ", url: " + url + ", user: " + username
 				+ ", password: <not shown>");
 		dataSource.setDriverClassName(driver);
 		dataSource.setUrl(url);

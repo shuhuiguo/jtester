@@ -16,7 +16,7 @@
 package org.jtester.module.database.util;
 
 import org.jtester.module.database.support.DbSupport;
-import org.jtester.utility.JTesterLogger;
+import org.jtester.utility.LogHelper;
 
 /**
  * Default implementation of {@link ConstraintsDisabler}. This will disable all
@@ -34,7 +34,7 @@ public class DefaultConstraintsDisabler extends BaseDatabaseAccessor implements 
 	 */
 	public void disableConstraints() {
 		for (DbSupport dbSupport : dbSupports) {
-			JTesterLogger.info("Disabling constraints in database schema " + dbSupport.getSchemaName());
+			LogHelper.info("Disabling constraints in database schema " + dbSupport.getSchemaName());
 
 			// first disable referential constraints to avoid conflicts
 			disableReferentialConstraints(dbSupport);
@@ -54,7 +54,7 @@ public class DefaultConstraintsDisabler extends BaseDatabaseAccessor implements 
 		try {
 			dbSupport.disableReferentialConstraints();
 		} catch (Throwable t) {
-			JTesterLogger.error("Unable to remove referential constraints.", t);
+			LogHelper.error("Unable to remove referential constraints.", t);
 		}
 	}
 
@@ -69,7 +69,7 @@ public class DefaultConstraintsDisabler extends BaseDatabaseAccessor implements 
 		try {
 			dbSupport.disableValueConstraints();
 		} catch (Throwable t) {
-			JTesterLogger.error("Unable to remove value constraints.", t);
+			LogHelper.error("Unable to remove value constraints.", t);
 		}
 	}
 }

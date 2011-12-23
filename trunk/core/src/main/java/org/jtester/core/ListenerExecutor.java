@@ -4,7 +4,7 @@ import java.lang.reflect.Method;
 
 import org.jtester.module.TestListener;
 import org.jtester.module.core.CoreModule;
-import org.jtester.utility.JTesterLogger;
+import org.jtester.utility.LogHelper;
 
 /**
  * jTester Listener执行器
@@ -27,7 +27,7 @@ public class ListenerExecutor {
 	@SuppressWarnings("rawtypes")
 	public static Throwable executeBeforeClassEvents(Class testClazz) {
 		String hits = String.format(TEST_CLAZZ_INFO, "Begin", testClazz.getName(), Thread.currentThread().getId());
-		JTesterLogger.info("\n\n\n" + hits);
+		LogHelper.info("\n\n\n" + hits);
 
 		try {
 			getTestListener().beforeClass(testClazz);
@@ -50,7 +50,7 @@ public class ListenerExecutor {
 	public static Throwable executeBeforeMethodEvents(Object testedObject, Method testedMethod) {
 		String hits = String.format(TEST_METHOD_INFO, "Begin", testedObject.getClass().getName(),
 				testedMethod.getName(), Thread.currentThread().getId());
-		JTesterLogger.info("\n" + hits);
+		LogHelper.info("\n" + hits);
 
 		try {
 			getTestListener().beforeMethod(testedObject, testedMethod);
@@ -114,7 +114,7 @@ public class ListenerExecutor {
 			e.printStackTrace();
 			return e;
 		} finally {
-			JTesterLogger.info(hits + "\n");
+			LogHelper.info(hits + "\n");
 		}
 	}
 
@@ -135,7 +135,7 @@ public class ListenerExecutor {
 			e.printStackTrace();
 			return e;
 		} finally {
-			JTesterLogger.info(hits + "\n");
+			LogHelper.info(hits + "\n");
 		}
 	}
 

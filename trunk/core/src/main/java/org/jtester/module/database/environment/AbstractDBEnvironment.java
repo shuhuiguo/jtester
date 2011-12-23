@@ -27,7 +27,7 @@ import org.jtester.module.dbfit.db.model.SqlDateParseDelegate;
 import org.jtester.module.dbfit.db.model.SqlTimestampParseDelegate;
 import org.jtester.reflector.utility.ClazzConst;
 import org.jtester.utility.ClazzHelper;
-import org.jtester.utility.JTesterLogger;
+import org.jtester.utility.LogHelper;
 import org.springframework.jdbc.datasource.DataSourceUtils;
 import org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy;
 
@@ -315,7 +315,7 @@ public abstract class AbstractDBEnvironment implements DBEnvironment {
 			Object value = this.typeMap.toObjectByType(input, javaType);
 			return value;
 		} catch (Exception e) {
-			JTesterLogger.info("convert input[" + input + "] to type[" + javaType + "] error, so return input value.\n"
+			LogHelper.info("convert input[" + input + "] to type[" + javaType + "] error, so return input value.\n"
 					+ e.getMessage());
 			return input;
 		}

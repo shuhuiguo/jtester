@@ -5,12 +5,12 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
 import java.net.URL;
-import static org.jtester.module.core.ConfigurationConst.LOG4J_XML_FILE;
 
-import org.jtester.module.core.helper.ConfigurationHelper;
 import org.jtester.reflector.utility.MethodHelper;
 
-public class JTesterLogger {
+public class LogHelper {
+	public static final String LOG4J_XML_FILE = "log4j.xml.file";
+
 	public static final int DEBUG = 0;
 
 	public static final int INFO = 1;
@@ -64,9 +64,7 @@ public class JTesterLogger {
 	 * 重置log4j的设置
 	 */
 	@SuppressWarnings("rawtypes")
-	public static void resetLog4jLevel() {
-		String log4jxml = ConfigurationHelper.getString(LOG4J_XML_FILE);
-
+	public static void resetLog4jLevel(String log4jxml) {
 		boolean log4jAvailable = ClazzHelper.isClassAvailable("org.apache.log4j.xml.DOMConfigurator");
 		if (StringHelper.isBlankOrNull(log4jxml) || log4jAvailable == false) {
 			return;
