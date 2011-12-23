@@ -5,10 +5,10 @@ import java.util.Date;
 
 import mockit.Mock;
 
+import org.jtester.annotations.DbFit;
 import org.jtester.annotations.Transactional;
 import org.jtester.annotations.Transactional.TransactionMode;
-import org.jtester.annotations.DbFit;
-import org.jtester.beans.AbstractDataSet;
+import org.jtester.beans.DataMap;
 import org.jtester.exception.ExceptionWrapper;
 import org.jtester.matcher.property.reflection.EqMode;
 import org.jtester.matcher.string.StringMode;
@@ -36,7 +36,7 @@ public class TableOpTest extends JTester {
 	@Test
 	public void testInsert_ErrorColumnName() {
 		try {
-			db.table("tdd_user").insert(new AbstractDataSet() {
+			db.table("tdd_user").insert(new DataSet() {
 				{
 					this.data("{'id':1,'my_name':'darui.wu'}");
 				}
@@ -50,7 +50,7 @@ public class TableOpTest extends JTester {
 
 	@Test
 	public void testAdd() {
-		db.table("tdd_user").clean().insert(new AbstractDataSet() {
+		db.table("tdd_user").clean().insert(new DataSet() {
 			{
 				data("{'id':1, 'first_name':'name1'}");
 				data(2, new DataMap() {

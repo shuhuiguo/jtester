@@ -2,6 +2,7 @@ package org.jtester.exception;
 
 import java.util.Iterator;
 
+import org.jtester.beans.DataIterator;
 import org.jtester.testng.JTester;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;

@@ -3,7 +3,7 @@ package org.jtester.module.spring;
 import mockit.Mocked;
 
 import org.jtester.annotations.SpringBeanByName;
-import org.jtester.core.TestedContext;
+import org.jtester.core.TransactionHelper;
 import org.jtester.fortest.service.UserDao;
 import org.jtester.fortest.service.UserService;
 import org.springframework.beans.factory.BeanFactory;
@@ -20,7 +20,7 @@ public class JTesterSpringTest extends MockedBeanByNameTest_Base {
 
 	@Test
 	public void testGetBeanFactory() {
-		BeanFactory factory = (BeanFactory) TestedContext.getSpringBeanFactory();
+		BeanFactory factory = (BeanFactory) TransactionHelper.getSpringBeanFactory();
 		want.object(factory).notNull();
 		UserDao daoBean = (UserDao) factory.getBean("userDao");
 		want.object(daoBean).notNull();

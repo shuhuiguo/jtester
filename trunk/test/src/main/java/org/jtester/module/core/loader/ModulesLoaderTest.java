@@ -6,6 +6,7 @@ import java.util.List;
 import mockit.Mock;
 
 import org.jtester.core.helper.ConfigurationHelper;
+import org.jtester.core.helper.ModulesLoader;
 import org.jtester.testng.JTester;
 import org.testng.annotations.Test;
 

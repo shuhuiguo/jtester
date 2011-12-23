@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
-import org.jtester.core.IJTester.DataMap;
+import org.jtester.beans.DataMap;
 import org.jtester.exception.DbFitException;
 import org.jtester.exception.ExceptionWrapper;
 import org.jtester.fit.util.SymbolUtil;

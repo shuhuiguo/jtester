@@ -1,6 +1,7 @@
 package org.jtester.module.database.environment.typesmap;
 
 import org.jtester.annotations.DbFit;
+import org.jtester.beans.DataMap;
 import org.jtester.testng.JTester;
 import org.testng.annotations.Test;
 

@@ -7,6 +7,8 @@ import java.util.Iterator;
 
 import mockit.Mock;
 
+import org.jtester.beans.DataIterator;
+import org.jtester.beans.DataMap;
 import org.jtester.helper.ResourceHelper;
 import org.jtester.matcher.string.StringMode;
 import org.jtester.testng.JTester;

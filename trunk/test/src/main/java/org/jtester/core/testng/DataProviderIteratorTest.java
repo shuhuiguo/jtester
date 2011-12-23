@@ -1,6 +1,6 @@
 package org.jtester.core.testng;
 
-import org.jtester.beans.DataProviderIterator;
+import org.jtester.beans.DataIterator;
 import org.jtester.testng.JTester;
 import org.testng.annotations.Test;
 
@@ -10,7 +10,7 @@ public class DataProviderIteratorTest extends JTester {
 	@Test
 	public void testCheckDataLength() {
 		try {
-			new DataProviderIterator() {
+			new DataIterator() {
 				{
 					data(1);
 					data(1, 2);
@@ -25,7 +25,7 @@ public class DataProviderIteratorTest extends JTester {
 
 	public void testDataEmpty() {
 			try {
-				new DataProviderIterator() {
+				new DataIterator() {
 					{
 						data();
 						data(1, 2);

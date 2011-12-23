@@ -6,6 +6,7 @@ import java.util.Date;
 import mockit.Mock;
 import mockit.Mocked;
 
+import org.jtester.beans.DataIterator;
 import org.jtester.helper.DateHelper;
 import org.jtester.testng.JTester;
 import org.testng.annotations.DataProvider;

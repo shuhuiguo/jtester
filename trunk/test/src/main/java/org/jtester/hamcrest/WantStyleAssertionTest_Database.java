@@ -1,6 +1,7 @@
 package org.jtester.hamcrest;
 
 import org.jtester.annotations.DbFit;
+import org.jtester.beans.DataMap;
 import org.jtester.testng.JTester;
 import org.testng.annotations.Test;
 

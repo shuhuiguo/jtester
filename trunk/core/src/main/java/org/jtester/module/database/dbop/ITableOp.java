@@ -3,7 +3,7 @@ package org.jtester.module.database.dbop;
 import org.jtester.assertion.object.intf.ICollectionAssert;
 import org.jtester.assertion.object.intf.INumberAssert;
 import org.jtester.assertion.object.intf.IObjectAssert;
-import org.jtester.core.IJTester.DataMap;
+import org.jtester.beans.DataMap;
 import org.jtester.core.IJTester.DataSet;
 
 @SuppressWarnings("rawtypes")

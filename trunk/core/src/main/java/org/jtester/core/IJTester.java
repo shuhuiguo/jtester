@@ -73,10 +73,6 @@ public interface IJTester extends IAssertion {
 	public static abstract class DataGenerator extends AbastractDataGenerator {
 	}
 
-	@SuppressWarnings("serial")
-	public static class DataMap extends org.jtester.beans.DataMap {
-	}
-
 	public static abstract class DataSet extends AbstractDataSet {
 		/**
 		 * 插入列表中的数据集<br>

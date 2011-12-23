@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
+import org.jtester.beans.DataIterator;
 import org.jtester.exception.NoSuchFieldRuntimeException;
 import org.jtester.json.encoder.beans.test.User;
 import org.jtester.reflector.PropertyAccessor;

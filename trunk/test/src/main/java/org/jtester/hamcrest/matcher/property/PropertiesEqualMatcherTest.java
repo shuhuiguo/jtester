@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import org.jtester.beans.DataIterator;
 import org.jtester.json.encoder.beans.test.GenicBean;
 import org.jtester.json.encoder.beans.test.User;
 import org.jtester.matcher.property.PropertiesEqualMatcher;

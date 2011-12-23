@@ -1,5 +1,6 @@
 package org.jtester.hamcrest.matcher.property;
 
+import org.jtester.beans.DataMap;
 import org.jtester.fortest.beans.User;
 import org.jtester.testng.JTester;
 import org.testng.annotations.Test;

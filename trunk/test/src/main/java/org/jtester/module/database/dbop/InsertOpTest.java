@@ -2,6 +2,8 @@ package org.jtester.module.database.dbop;
 
 import java.util.Iterator;
 
+import org.jtester.beans.DataIterator;
+import org.jtester.beans.DataMap;
 import org.jtester.helper.DateHelper;
 import org.jtester.testng.JTester;
 import org.testng.annotations.DataProvider;

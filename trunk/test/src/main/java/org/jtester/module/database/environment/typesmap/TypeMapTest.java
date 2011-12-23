@@ -7,6 +7,8 @@ import java.sql.Timestamp;
 import java.util.Iterator;
 
 import org.jtester.annotations.DbFit;
+import org.jtester.beans.DataIterator;
+import org.jtester.beans.DataMap;
 import org.jtester.testng.JTester;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;

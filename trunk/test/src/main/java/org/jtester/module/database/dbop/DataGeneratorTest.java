@@ -5,8 +5,10 @@ import java.util.Date;
 import java.util.List;
 
 import org.jtester.beans.AbstractDataSet;
-import org.jtester.beans.AbstractDataSet.EmptyDataSet;
+import org.jtester.beans.DataIterator;
+import org.jtester.beans.DataMap;
 import org.jtester.matcher.property.reflection.EqMode;
+import org.jtester.module.database.dbop.TableOp.EmptyDataSet;
 import org.jtester.testng.JTester;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;

@@ -10,7 +10,7 @@ import org.jtester.assertion.object.impl.ObjectAssert;
 import org.jtester.assertion.object.intf.ICollectionAssert;
 import org.jtester.assertion.object.intf.INumberAssert;
 import org.jtester.assertion.object.intf.IObjectAssert;
-import org.jtester.core.IJTester.DataMap;
+import org.jtester.beans.DataMap;
 import org.jtester.core.IJTester.DataSet;
 import org.jtester.helper.StringHelper;
 import org.jtester.json.JSON;

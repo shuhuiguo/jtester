@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.jtester.core.IJTester.DataMap;
+import org.jtester.beans.DataMap;
 import org.jtester.exception.NoSuchFieldRuntimeException;
 import org.jtester.helper.ClazzHelper;
 import org.jtester.helper.LogHelper;

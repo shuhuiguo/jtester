@@ -5,6 +5,7 @@ import java.util.Map;
 
 import mockit.Mock;
 
+import org.jtester.beans.DataMap;
 import org.jtester.module.database.environment.TableMeta.ColumnMeta;
 import org.jtester.testng.JTester;
 import org.testng.annotations.Test;

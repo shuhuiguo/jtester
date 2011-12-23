@@ -9,6 +9,7 @@ import org.jtester.matcher.property.MapListPropertyEqaulMatcher;
 import org.jtester.matcher.property.reflection.EqMode;
 import org.jtester.testng.JTester;
 import org.testng.annotations.Test;
+import org.jtester.beans.DataMap;
 
 import ext.jtester.hamcrest.MatcherAssert;
 
@@ -18,7 +19,7 @@ public class MapListPropertyEqaulMatcherTest extends JTester {
 
 	public void testMapListPropertyEqaulMatcher() {
 
-		List<DataMap> expected = new ArrayList<DataMap>() {
+		List<org.jtester.beans.DataMap> expected = new ArrayList<org.jtester.beans.DataMap>() {
 			{
 				this.add(new DataMap() {
 					{
