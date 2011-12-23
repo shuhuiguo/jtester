@@ -1,4 +1,4 @@
-package org.jtester.assertion.jmockit;
+package org.jtester.jmockit;
 
 import ext.jtester.hamcrest.Description;
 import ext.jtester.hamcrest.Matcher;

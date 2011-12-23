@@ -1,7 +1,7 @@
-package org.jtester.assertion.jmockit;
+package org.jtester.jmockit;
 
+import mockit.Expectations;
 import mockit.Mocked;
-import mockit.NonStrictExpectations;
 import mockit.internal.expectations.transformation.ActiveInvocations;
 
 import org.jtester.assertion.TheStyleAssertion;
@@ -11,8 +11,7 @@ import org.jtester.reflector.MethodAccessor;
 import ext.jtester.hamcrest.Matcher;
 
 @SuppressWarnings({ "rawtypes", "unchecked" })
-public class JMockitNonStrictExpectations extends NonStrictExpectations implements JTesterInvocations {
-
+public class JMockitExpectations extends Expectations implements JTesterInvocations {
 	@Mocked(methods = { "" })
 	protected InvokeTimes invokerTimes;
 
@@ -22,38 +21,84 @@ public class JMockitNonStrictExpectations extends NonStrictExpectations implemen
 	@Mocked(methods = { "" })
 	protected final TheStyleAssertion the;
 
-	public JMockitNonStrictExpectations() {
+	public JMockitExpectations() {
 		super();
 		ExpectationsUtil.register(this);
 		this.the = new TheStyleAssertion();
 	}
 
-	public JMockitNonStrictExpectations(int numberOfIterations, Object... classesOrObjectsToBePartiallyMocked) {
+	public JMockitExpectations(int numberOfIterations, Object... classesOrObjectsToBePartiallyMocked) {
 		super(numberOfIterations, classesOrObjectsToBePartiallyMocked);
 		ExpectationsUtil.register(this);
 		this.the = new TheStyleAssertion();
 	}
 
-	public JMockitNonStrictExpectations(Object... classesOrObjectsToBePartiallyMocked) {
+	public JMockitExpectations(Object... classesOrObjectsToBePartiallyMocked) {
 		super(classesOrObjectsToBePartiallyMocked);
 		ExpectationsUtil.register(this);
 		this.the = new TheStyleAssertion();
 	}
 
-	public <T> ExpectationsResult when(T o) {
-		ActiveInvocations.maxTimes(-1);
-		return new ExpectationsResult(this);
+	public <T> InvokeTimes when(T o) {
+		return new InvokeTimes(this);
 	}
 
+	/**
+	 * @deprecated <br>
+	 *             please use thenReturn(value)
+	 */
+	@Deprecated
 	public void returnValue(Object value) {
 		super.returns(value);
 	}
 
+	public void thenReturn(Object value) {
+		super.returns(value);
+	}
+
+	/**
+	 * deprecated<br>
+	 * please use thenThrow(e)
+	 * 
+	 * @param e
+	 */
+	@Deprecated
+	public void throwException(Throwable e) {
+		ActiveInvocations.addResult(e);
+	}
+
+	public void thenThrow(Throwable e) {
+		ActiveInvocations.addResult(e);
+	}
+
+	/**
+	 * @deprecated <br>
+	 *             please use thenReturn(value...)
+	 */
+	@Deprecated
 	public void returnValue(Object firstValue, Object... remainingValues) {
 		super.returns(firstValue, remainingValues);
 	}
 
-	final static MethodAccessor methodAccessor = new MethodAccessor(NonStrictExpectations.class, "addMatcher",
+	public void thenReturn(Object firstValue, Object... remainingValues) {
+		super.returns(firstValue, remainingValues);
+	}
+
+	public void thenDoing(Delegate delegate) {
+		super.returns(delegate);
+	}
+
+	public <T> T any(Class<T> claz) {
+		T o = the.object().any().wanted(claz);
+		return o;
+	}
+
+	public <T> T is(T value) {
+		T o = (T) the.object().reflectionEq(value).wanted();
+		return o;
+	}
+
+	final static MethodAccessor methodAccessor = new MethodAccessor(Expectations.class, "addMatcher",
 			mockit.external.hamcrest.Matcher.class);
 
 	protected final <T> T with(Matcher argumentMatcher) {
@@ -68,5 +113,8 @@ public class JMockitNonStrictExpectations extends NonStrictExpectations implemen
 		JMockitAdapter<T> adapter = JMockitAdapter.create(argumentMatcher);
 		methodAccessor.invokeUnThrow(this, new Object[] { adapter });
 		return argValue;
+	}
+
+	public static interface Delegate extends mockit.Delegate {
 	}
 }

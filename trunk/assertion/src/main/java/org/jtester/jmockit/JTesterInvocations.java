@@ -1,4 +1,4 @@
-package org.jtester.assertion.jmockit;
+package org.jtester.jmockit;
 
 public interface JTesterInvocations {
 	void returnValue(Object value);

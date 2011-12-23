@@ -1,4 +1,4 @@
-package org.jtester.assertion.jmockit;
+package org.jtester.jmockit;
 
 import java.io.File;
 

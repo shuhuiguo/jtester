@@ -2,9 +2,9 @@ package org.jtester.assertion.common.impl;
 
 import org.jtester.assertion.TheStyleAssertion;
 import org.jtester.assertion.common.intf.IAssert;
-import org.jtester.assertion.jmockit.ExpectationsUtil;
 import org.jtester.exception.JTesterException;
 import org.jtester.helper.PrimitiveHelper;
+import org.jtester.jmockit.ExpectationsUtil;
 import org.jtester.matcher.LinkMatcher;
 import org.jtester.matcher.clazz.ClassAssignFromMatcher;
 import org.jtester.reflector.MethodAccessor;
