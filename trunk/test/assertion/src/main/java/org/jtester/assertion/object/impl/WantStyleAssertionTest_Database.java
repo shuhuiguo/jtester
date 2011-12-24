@@ -1,4 +1,4 @@
-package org.jtester.hamcrest;
+package org.jtester.assertion.object.impl;
 
 import org.jtester.annotations.DbFit;
 import org.jtester.beans.DataMap;

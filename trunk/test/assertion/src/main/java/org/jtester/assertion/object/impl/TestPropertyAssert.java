@@ -1,4 +1,4 @@
-package org.jtester.hamcrest;
+package org.jtester.assertion.object.impl;
 
 import org.jtester.fortest.beans.Address;
 import org.jtester.fortest.beans.User;

@@ -1,4 +1,4 @@
-package org.jtester.hamcrest;
+package org.jtester.assertion.object.impl;
 
 import java.util.ArrayList;
 import java.util.Arrays;

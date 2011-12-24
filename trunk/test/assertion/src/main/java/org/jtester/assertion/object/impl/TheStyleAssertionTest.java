@@ -1,4 +1,4 @@
-package org.jtester.hamcrest;
+package org.jtester.assertion.object.impl;
 
 import org.jtester.assertion.object.intf.IArrayAssert;
 import org.jtester.assertion.object.intf.IBooleanAssert;
