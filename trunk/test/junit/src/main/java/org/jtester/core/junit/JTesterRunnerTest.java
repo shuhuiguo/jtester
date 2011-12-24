@@ -2,12 +2,13 @@ package org.jtester.core.junit;
 
 import java.lang.reflect.Method;
 
-import junit.framework.Assert;
 import mockit.Mock;
 import mockit.MockUp;
 
+import org.jtester.IAssertion;
 import org.jtester.core.TestListener;
 import org.jtester.junit.JTesterRunner;
+import org.jtester.matcher.string.StringMode;
 import org.jtester.module.CoreModule;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -22,7 +23,7 @@ import org.junit.runner.RunWith;
  */
 @RunWith(JTesterRunner.class)
 @SuppressWarnings("unused")
-public class JTesterRunnerTest {
+public class JTesterRunnerTest implements IAssertion {
 	private static StringBuffer buff = new StringBuffer();
 
 	@BeforeClass
@@ -56,7 +57,8 @@ public class JTesterRunnerTest {
 		buff.append("@A");
 		System.out.println("@AfterClass");
 		String result = buff.toString();
-		Assert.assertEquals("@B bC" + METHOD_BUFF_CONST + METHOD_BUFF_CONST + "aC @A", result);
+		want.string(result)
+				.isEqualTo("@B bC" + METHOD_BUFF_CONST + METHOD_BUFF_CONST + "aC @A", StringMode.IgnoreSpace);
 	}
 }
 
