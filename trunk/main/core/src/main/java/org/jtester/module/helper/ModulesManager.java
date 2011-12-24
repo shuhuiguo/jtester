@@ -1,4 +1,4 @@
-package org.jtester.core.helper;
+package org.jtester.module.helper;
 
 import java.util.ArrayList;
 import java.util.Collections;
