@@ -1,23 +1,24 @@
 package org.jtester.matcher.property;
 
+import static org.jtester.helper.ArrayHelper.toArray;
+import static org.jtester.helper.ListHelper.toList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import org.jtester.IAssertion;
 import org.jtester.beans.DataIterator;
-import org.jtester.json.encoder.beans.test.User;
-import org.jtester.matcher.property.PropertyEqualMatcher;
+import org.jtester.beans.User;
+import org.jtester.junit.DataFrom;
 import org.jtester.matcher.property.reflection.EqMode;
-import org.jtester.testng.JTester;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
 import ext.jtester.hamcrest.MatcherAssert;
 
 @SuppressWarnings({ "rawtypes", "serial", "unchecked" })
-@Test(groups = { "jtester", "assertion" })
-public class PropertyEqualMatcherTest extends JTester {
+public class PropertyEqualMatcherTest implements IAssertion {
+	@Test
 	public void testProperIsArray() {
 		Map actual = new HashMap() {
 			{
@@ -27,7 +28,7 @@ public class PropertyEqualMatcherTest extends JTester {
 		want.object(actual).propertyEq("key1", new String[] { "value1", "value2" });
 	}
 
-	@Test(expectedExceptions = AssertionError.class)
+	@Test(expected = AssertionError.class)
 	public void testProperIsArray_failure() {
 		Map actual = new HashMap() {
 			{
@@ -38,6 +39,7 @@ public class PropertyEqualMatcherTest extends JTester {
 		want.object(actual).propertyEq("key1", "value1");
 	}
 
+	@Test
 	public void testPropertyActualIsArray() {
 		List list = toList(User.newInstance(124, ""), User.newInstance(125, ""));
 		want.object(list).propertyEq("id", toList(124, 125));
@@ -45,12 +47,13 @@ public class PropertyEqualMatcherTest extends JTester {
 		want.object(list).propertyEq("id", toList(User.newInstance(124, ""), User.newInstance(125, "")));
 	}
 
-	@Test(expectedExceptions = AssertionError.class)
+	@Test(expected = AssertionError.class)
 	public void testPropertyActualIsArray_Failure() {
 		List list = toList(User.newInstance(124, ""));
 		want.object(list).propertyEq("id", User.newInstance(124, ""));
 	}
 
+	@Test
 	public void testProper_Normal() {
 		Map actual = new HashMap() {
 			{
@@ -60,6 +63,7 @@ public class PropertyEqualMatcherTest extends JTester {
 		want.object(actual).propertyEq("key1", "value1");
 	}
 
+	@Test
 	public void testProper_NormalPoJo() {
 		User user = User.newInstance(125, "darui.wu");
 		want.object(user).propertyEq("name", "darui.wu").propertyEq("id", new HashMap() {
@@ -69,7 +73,8 @@ public class PropertyEqualMatcherTest extends JTester {
 		});
 	}
 
-	@Test(dataProvider = "matchData")
+	@Test
+	@DataFrom("matchData")
 	public void testProperEqual(Object actual, Object expected, String property, EqMode[] modes, boolean match) {
 		PropertyEqualMatcher matcher = new PropertyEqualMatcher(expected, property, modes);
 		try {
@@ -81,8 +86,7 @@ public class PropertyEqualMatcherTest extends JTester {
 		}
 	}
 
-	@DataProvider
-	public Iterator matchData() {
+	public static Iterator matchData() {
 		return new DataIterator() {
 			{
 				data(newUser("abc"), "abc", "name", null, true);

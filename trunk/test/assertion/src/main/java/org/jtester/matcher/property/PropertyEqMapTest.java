@@ -1,14 +1,13 @@
 package org.jtester.matcher.property;
 
+import org.jtester.IAssertion;
 import org.jtester.beans.DataMap;
-import org.jtester.fortest.beans.User;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.jtester.beans.User;
+import org.junit.Test;
 
-@Test(groups = "assertion")
 @SuppressWarnings("serial")
-public class PropertyEqMapTest extends JTester {
-	@Test(expectedExceptions = AssertionError.class)
+public class PropertyEqMapTest implements IAssertion {
+	@Test(expected = AssertionError.class)
 	public void testPropertyEqMap() {
 		User user = new User();
 		user.setAssistor(User.newUser("siri", new String[] { "139xxx", "159xxx" }));
@@ -19,6 +18,7 @@ public class PropertyEqMapTest extends JTester {
 		});
 	}
 
+	@Test
 	public void testPropertyEqMap_List() {
 		User[] users = new User[] { new User() {
 			{

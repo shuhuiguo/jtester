@@ -3,15 +3,14 @@ package org.jtester.matcher.property;
 import java.util.Arrays;
 import java.util.List;
 
+import org.jtester.IAssertion;
+import org.jtester.beans.User;
+import org.junit.Test;
+
 import ext.jtester.hamcrest.MatcherAssert;
-import org.jtester.fortest.beans.User;
-import org.jtester.matcher.property.PropertyAnyItemMatcher;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
 
 @SuppressWarnings("unchecked")
-@Test(groups = { "jtester", "assertion" })
-public class PropertyAnyItemMatcherTest extends JTester {
+public class PropertyAnyItemMatcherTest implements IAssertion {
 	PropertyAnyItemMatcher matcher = new PropertyAnyItemMatcher("first", the.string().regular("\\w+\\d+\\w+"));
 
 	@Test
@@ -26,7 +25,7 @@ public class PropertyAnyItemMatcherTest extends JTester {
 		MatcherAssert.assertThat(users, matcher);
 	}
 
-	@Test(expectedExceptions = AssertionError.class)
+	@Test(expected = AssertionError.class)
 	public void testMatches_List_HasPropNotMatch() {
 		List<User> users = Arrays.asList(new User("dfasdf", "eedaf"), new User("eaafsd", "lastname"));
 		MatcherAssert.assertThat(users, matcher);

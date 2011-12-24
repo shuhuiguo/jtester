@@ -5,12 +5,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.jtester.fortest.beans.User;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.jtester.IAssertion;
+import org.jtester.beans.User;
+import org.junit.Test;
 
-@Test(groups = { "jtester", "assertion" })
-public class PropertiesArrayMatcherTest extends JTester {
+public class PropertiesArrayMatcherTest implements IAssertion {
 
 	@Test
 	public void testMatches() {
@@ -25,6 +24,7 @@ public class PropertiesArrayMatcherTest extends JTester {
 				.propertyEq("last", new String[] { "abc", "abc" });
 	}
 
+	@Test
 	public void testMatches_Map() {
 		Map<String, String> maps = new HashMap<String, String>();
 		maps.put("first", "aaaaa 123 ddd");

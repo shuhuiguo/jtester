@@ -6,48 +6,50 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import ext.jtester.hamcrest.MatcherAssert;
-import org.jtester.fortest.beans.User;
-import org.jtester.matcher.property.PropertiesArrayRefEqMatcher;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.jtester.IAssertion;
+import org.jtester.beans.User;
+import org.junit.Test;
 
-@Test(groups = { "jtester", "assertion" })
-public class PropertiesArrayRefEqMatcherTest extends JTester {
+import ext.jtester.hamcrest.MatcherAssert;
+
+public class PropertiesArrayRefEqMatcherTest implements IAssertion {
 	PropertiesArrayRefEqMatcher matcher = new PropertiesArrayRefEqMatcher(new String[] { "first", "last" },
 			new String[][] { { "aaa", "bbb" }, { "ccc", "ddd" } });
 
+	@Test
 	public void testMatches_PropListEqExpected() {
 		List<User> users = Arrays.asList(new User("aaa", "bbb"), new User("ccc", "ddd"));
 		MatcherAssert.assertThat(users, matcher);
 	}
 
-	@Test(expectedExceptions = AssertionError.class)
+	@Test(expected = AssertionError.class)
 	public void testMatches_PropList_HasPropNotEqExpected() {
 		List<User> users = Arrays.asList(new User("aaa", "bbb"), new User("ccc", "dddd"));
 		MatcherAssert.assertThat(users, matcher);
 	}
 
+	@Test
 	public void testMatches_SingleValue_PropListEqExpected() {
 		PropertiesArrayRefEqMatcher m = new PropertiesArrayRefEqMatcher(new String[] { "first", "last" },
 				new String[][] { { "aaa", "bbb" } });
 		MatcherAssert.assertThat(new User("aaa", "bbb"), m);
 	}
 
-	@Test(expectedExceptions = AssertionError.class)
+	@Test(expected = AssertionError.class)
 	public void testMatches_SingleValue_HasPropNotEqExpected() {
 		PropertiesArrayRefEqMatcher m = new PropertiesArrayRefEqMatcher(new String[] { "first", "last" },
 				new String[][] { { "aaa", "bbb" } });
 		MatcherAssert.assertThat(new User("aaa", "bbbb"), m);
 	}
 
+	@Test
 	public void testMatches_MapList_PropListEqExpected() {
 		List<Map<String, String>> maps = maps("ccc", "ddd");
 
 		MatcherAssert.assertThat(maps, matcher);
 	}
 
-	@Test(expectedExceptions = AssertionError.class)
+	@Test(expected = AssertionError.class)
 	public void testMatches_MapList_HasPropNotEqExpected() {
 		List<Map<String, String>> maps = maps("ccc", "dddd");
 

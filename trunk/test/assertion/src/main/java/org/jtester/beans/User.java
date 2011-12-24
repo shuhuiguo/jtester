@@ -21,6 +21,10 @@ public class User {
 
 	private List<Address> addresses;
 
+	private String[] phones;
+
+	private User assistor;
+
 	public User() {
 
 	}
@@ -73,6 +77,13 @@ public class User {
 		user.setId(id);
 		user.setName(name);
 
+		return user;
+	}
+
+	public static User newUser(String name, String[] phones) {
+		User user = new User();
+		user.first = name;
+		user.setPhones(phones);
 		return user;
 	}
 
@@ -135,6 +146,22 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", name=" + name + "]";
+	}
+
+	public String[] getPhones() {
+		return phones;
+	}
+
+	public void setPhones(String[] phones) {
+		this.phones = phones;
+	}
+
+	public User getAssistor() {
+		return assistor;
+	}
+
+	public void setAssistor(User assistor) {
+		this.assistor = assistor;
 	}
 
 	public static User mock() {

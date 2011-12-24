@@ -2,16 +2,16 @@ package org.jtester.matcher.property;
 
 import java.util.HashMap;
 
+import org.jtester.IAssertion;
 import org.jtester.beans.DataMap;
-import org.jtester.json.encoder.beans.test.GenicBean;
-import org.jtester.json.encoder.beans.test.User;
+import org.jtester.beans.GenicBean;
+import org.jtester.beans.User;
+import org.jtester.helper.ListHelper;
 import org.jtester.matcher.property.reflection.EqMode;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
-@Test(groups = { "jtester", "assertion" })
-@SuppressWarnings({ "rawtypes", "serial" })
-public class MapPropertyEqaulMatcherTest extends JTester {
+@SuppressWarnings({ "rawtypes", "serial", "unchecked" })
+public class MapPropertyEqaulMatcherTest implements IAssertion {
 
 	@Test
 	public void testMatches() {
@@ -23,6 +23,7 @@ public class MapPropertyEqaulMatcherTest extends JTester {
 		});
 	}
 
+	@Test
 	public void testMatches_IgnoreDefault() {
 		User user = User.newInstance(123, "darui.wu");
 		want.object(user).reflectionEqMap(new DataMap() {
@@ -44,6 +45,7 @@ public class MapPropertyEqaulMatcherTest extends JTester {
 		});
 	}
 
+	@Test
 	public void testMatches_PropertyList_IgnoreDefault() {
 		GenicBean bean = GenicBean.newInstance("bean1", new String[] { "value1", "value2" });
 		want.object(bean).reflectionEqMap(new DataMap() {
@@ -54,7 +56,7 @@ public class MapPropertyEqaulMatcherTest extends JTester {
 		}, EqMode.IGNORE_DEFAULTS, EqMode.IGNORE_ORDER);
 	}
 
-	@Test(expectedExceptions = AssertionError.class)
+	@Test(expected = AssertionError.class)
 	public void testMatches_PropertyList_Failure1() {
 		GenicBean bean = GenicBean.newInstance("bean1", new String[] { "value1", "value2" });
 		want.object(bean).reflectionEqMap(new DataMap() {
@@ -65,7 +67,7 @@ public class MapPropertyEqaulMatcherTest extends JTester {
 		}, EqMode.IGNORE_ORDER);
 	}
 
-	@Test(expectedExceptions = AssertionError.class)
+	@Test(expected = AssertionError.class)
 	public void testMatches_PropertyList_Failure2() {
 		GenicBean bean = GenicBean.newInstance("bean1", new String[] { "value1", "value2" });
 		want.object(bean).reflectionEqMap(new DataMap() {
@@ -76,6 +78,7 @@ public class MapPropertyEqaulMatcherTest extends JTester {
 		}, EqMode.IGNORE_DEFAULTS);
 	}
 
+	@Test
 	public void testMatches_List_PoJo() {
 		want.list(new User[] { User.newInstance(123, "darui.wu"), User.newInstance(124, "darui.wu") }).reflectionEqMap(
 				2, new DataMap() {
@@ -86,9 +89,9 @@ public class MapPropertyEqaulMatcherTest extends JTester {
 				}, EqMode.IGNORE_ORDER);
 	}
 
-	@SuppressWarnings("unchecked")
+	@Test
 	public void testMatches_List_Map() {
-		want.list(toList(new HashMap() {
+		want.list(ListHelper.toList(new HashMap() {
 			{
 				this.put("id", 123);
 				this.put("name", "darui.wu");

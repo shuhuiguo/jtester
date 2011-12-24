@@ -5,18 +5,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.jtester.matcher.property.MapListPropertyEqaulMatcher;
-import org.jtester.matcher.property.reflection.EqMode;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.jtester.IAssertion;
 import org.jtester.beans.DataMap;
+import org.jtester.matcher.property.reflection.EqMode;
+import org.junit.Test;
 
 import ext.jtester.hamcrest.MatcherAssert;
 
 @SuppressWarnings({ "unchecked", "serial", "rawtypes" })
-@Test
-public class MapListPropertyEqaulMatcherTest extends JTester {
-
+public class MapListPropertyEqaulMatcherTest implements IAssertion {
+	@Test
 	public void testMapListPropertyEqaulMatcher() {
 
 		List<org.jtester.beans.DataMap> expected = new ArrayList<org.jtester.beans.DataMap>() {
