@@ -1,12 +1,12 @@
-package org.jtester.bytecode.reflector.helper;
+package org.jtester.helper;
 
 import java.util.List;
 
-import org.jtester.fortest.hibernate.UserService;
+import org.jtester.IAssertion;
+import org.jtester.beans.UserService;
 import org.jtester.reflector.finder.ClazzFinder;
 import org.jtester.reflector.finder.MethodFinder;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
 /**
  * this test will break for EclEmma Test
@@ -15,8 +15,8 @@ import org.testng.annotations.Test;
  * 
  */
 @SuppressWarnings({ "rawtypes" })
-@Test(groups = { "JTester", "broken-install" })
-public class ClazzFinderTest extends JTester {
+public class ClazzFinderTest implements IAssertion {
+	@Test
 	public void findClazz_1() {
 		String packagename = ClazzFinder.class.getPackage().getName();
 		want.string(packagename).isEqualTo("org.jtester.bytecode.reflector.helper");
@@ -24,6 +24,7 @@ public class ClazzFinderTest extends JTester {
 		want.collection(clazz).sizeGe(7);
 	}
 
+	@Test
 	public void findClazz() {
 		Class claz = UserService.class;
 		List<String> clazz = ClazzFinder.findClazz(claz);
@@ -31,6 +32,7 @@ public class ClazzFinderTest extends JTester {
 		want.collection(clazz).allItemsMatchAll(the.string().regular("org\\.jtester\\.fortest\\.hibernate\\..*"));
 	}
 
+	@Test
 	public void findTestClaz() {
 		Class claz = UserService.class;
 		List<String> clazz = MethodFinder.findTestClaz(claz);

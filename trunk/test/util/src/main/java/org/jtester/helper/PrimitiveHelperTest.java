@@ -1,15 +1,15 @@
-package org.jtester.bytecode.reflector.helper;
+package org.jtester.helper;
 
 import mockit.Mocked;
 
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.jtester.IAssertion;
+import org.junit.Test;
 
-@Test(groups = "jtester")
-public class PrimitiveHelperTest extends JTester {
+public class PrimitiveHelperTest implements IAssertion {
 	@Mocked
 	NumberDeal deal;
 
+	@Test
 	public void getPrimitiveDefaultValue() {
 		new Expectations() {
 			{
@@ -25,6 +25,7 @@ public class PrimitiveHelperTest extends JTester {
 		want.number(ret).isEqualTo(3);
 	}
 
+	@Test
 	public void getPrimitiveDefaultValue_2() {
 		want.number((short) 3).isEqualTo(3);
 		want.number((short) 3).isEqualTo((long) 3);

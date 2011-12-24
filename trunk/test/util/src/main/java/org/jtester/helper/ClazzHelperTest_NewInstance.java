@@ -1,11 +1,9 @@
-package org.jtester.bytecode.reflector.helper;
+package org.jtester.helper;
 
-import org.jtester.helper.ClazzHelper;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.jtester.IAssertion;
+import org.junit.Test;
 
-@Test(groups = "jtester")
-public class ClazzHelperTest_NewInstance extends JTester {
+public class ClazzHelperTest_NewInstance implements IAssertion {
 	@Test
 	public void testNewInstance_Abstract() {
 		try {
@@ -17,26 +15,31 @@ public class ClazzHelperTest_NewInstance extends JTester {
 		}
 	}
 
+	@Test
 	public void testNewInstance_Interface() {
 		Object o = ClazzHelper.newInstance(IClazz.class);
 		want.string(o.getClass().getName()).contains("$Proxy");
 	}
 
+	@Test
 	public void testNewInstance_DefautClazz() {
 		DefautClazz o = ClazzHelper.newInstance(DefautClazz.class);
 		want.string(o.name).isEqualTo("default");
 	}
 
+	@Test
 	public void testNewInstance_ParamClazz() {
 		ParamClazz o = ClazzHelper.newInstance(ParamClazz.class);
 		want.string(o.name).isNull();
 	}
 
+	@Test
 	public void testNewInstance_PrivateClazz() {
 		PrivateClazz o = ClazzHelper.newInstance(PrivateClazz.class);
 		want.string(o.name).isEqualTo("private");
 	}
 
+	@Test
 	public void testNewInstance_SubPrivateClazz() {
 		SubPrivateClazz o = ClazzHelper.newInstance(SubPrivateClazz.class);
 		want.string(o.name).isEqualTo("private");

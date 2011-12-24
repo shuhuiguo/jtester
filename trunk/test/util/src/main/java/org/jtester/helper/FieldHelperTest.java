@@ -1,20 +1,18 @@
-package org.jtester.bytecode.reflector.helper;
+package org.jtester.helper;
 
 import java.lang.reflect.Field;
 import java.util.List;
 
+import org.jtester.IAssertion;
+import org.jtester.beans.Manager;
 import org.jtester.exception.NoSuchFieldRuntimeException;
-import org.jtester.fortest.beans.Manager;
-import org.jtester.helper.ClazzHelper;
-import org.jtester.helper.FieldHelper;
-import org.jtester.testng.JTester;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.jtester.junit.DataFrom;
+import org.junit.Test;
 
-@Test(groups = "jtester")
-public class FieldHelperTest extends JTester {
+public class FieldHelperTest implements IAssertion {
 
-	@Test(dataProvider = "getFieldData")
+	@Test
+	@DataFrom("getFieldData")
 	public void testGetField(String fieldname, String value) throws IllegalArgumentException, IllegalAccessException {
 		Object target = new ChildClaz();
 		Field field = FieldHelper.getField(ChildClaz.class, fieldname);
@@ -24,13 +22,12 @@ public class FieldHelperTest extends JTester {
 		want.string(result).isEqualTo(value);
 	}
 
-	@Test(expectedExceptions = NoSuchFieldRuntimeException.class)
+	@Test(expected = NoSuchFieldRuntimeException.class)
 	public void testGetField_NoSuchField() {
 		FieldHelper.getField(ChildClaz.class, "no_such_field");
 	}
 
-	@DataProvider
-	public Object[][] getFieldData() {
+	public static Object[][] getFieldData() {
 		return new Object[][] { { "static_field", "ChildClaz" }, // <br>
 				{ "public_field", "ChildClaz" }, // <br>
 				{ "private_field", "ChildClaz" }, // <br>
