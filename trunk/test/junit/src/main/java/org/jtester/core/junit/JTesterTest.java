@@ -4,9 +4,9 @@ import junit.framework.Assert;
 import mockit.Mock;
 import mockit.MockUp;
 
+import org.jtester.core.TestListener;
 import org.jtester.junit.JTester;
 import org.jtester.module.CoreModule;
-import org.jtester.module.TestListener;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
