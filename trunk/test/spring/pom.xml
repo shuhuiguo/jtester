@@ -10,4 +10,21 @@
 	<artifactId>jtester.spring.test</artifactId>
 	<packaging>jar</packaging>
 	<name>test jtester spring module</name>
+	<dependencies>
+		<dependency>
+			<groupId>org.jtester</groupId>
+			<artifactId>jtester.assertion</artifactId>
+			<version>${jtester.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jtester</groupId>
+			<artifactId>jtester.spring</artifactId>
+			<version>${jtester.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jtester</groupId>
+			<artifactId>jtester.junit</artifactId>
+			<version>${jtester.version}</version>
+		</dependency>
+	</dependencies>
 </project>
