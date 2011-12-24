@@ -5,6 +5,8 @@ import org.jtester.annotations.DbFit;
 import org.jtester.annotations.FitVar;
 import org.jtester.annotations.SpringApplicationContext;
 import org.jtester.annotations.SpringBeanByType;
+import org.jtester.fortest.hibernate.User;
+import org.jtester.fortest.hibernate.UserService;
 import org.junit.Test;
 
 @SpringApplicationContext({ "classpath:/org/jtester/fortest/hibernate/project.xml" })

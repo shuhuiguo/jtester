@@ -4,15 +4,15 @@ import java.io.File;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.jtester.IAssertion;
+import org.jtester.IDatabase;
 import org.jtester.annotations.DbFit;
 import org.jtester.exception.ExceptionWrapper;
 import org.jtester.helper.ResourceHelper;
 import org.jtester.module.database.util.SqlRunner;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
-@Test(groups = "jtester")
-public class DbFixtureUtilTest extends JTester {
+public class DbFixtureUtilTest implements IAssertion, IDatabase {
 
 	@Test
 	@DbFit(when = "testExecuteFromFile.when.wiki", then = "testExecuteFromFile.then.wiki")
@@ -20,12 +20,18 @@ public class DbFixtureUtilTest extends JTester {
 		SqlRunner.executeFromFile("org/jtester/utility/executeFile.sql");
 	}
 
+	@Test
 	@DbFit(when = "testTransaction.when.wiki", then = "testTransaction.then.wiki")
 	public void testTransaction() {
 
 	}
 
-	@Test(description = "验证变量回显功能_包含匹配和不匹配的情况")
+	/**
+	 * 验证变量回显功能_包含匹配和不匹配的情况
+	 * 
+	 * @throws Exception
+	 */
+	@Test
 	@DbFit(when = "testExecuteFromFile.when.wiki")
 	public void testRunDbFit_VerifyVarable() throws Exception {
 		SqlRunner.executeFromFile("org/jtester/utility/executeFile.sql");
@@ -55,14 +61,20 @@ public class DbFixtureUtilTest extends JTester {
 		throw new RuntimeException("find result html file error.");
 	}
 
-	@Test(description = "变量是非字符串的_在query语句中使用")
+	/**
+	 * 变量是非字符串的_在query语句中使用
+	 */
+	@Test
 	@DbFit(when = "use_symbol_not_string.when.wiki", then = "use_symbol_not_string.then.wiki")
 	public void testSetSymbo() {
 		fit.setSymbol("limited", 2);
 	}
 
+	/**
+	 * 变量是非字符串的_在query语句中使用_oracle环境
+	 */
 	@DbFit(when = "use_symbol_not_string_oracle.when.wiki", then = "use_symbol_not_string_oracle.then.wiki")
-	@Test(groups = { "broken-install", "oracle" }, description = "变量是非字符串的_在query语句中使用_oracle环境")
+	@Test
 	public void testSetSymbol_Oracle() {
 		fit.setSymbol("limitrow", 2);
 	}

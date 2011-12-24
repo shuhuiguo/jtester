@@ -3,14 +3,14 @@ package org.jtester.fit.dbfit;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.jtester.IAssertion;
+import org.jtester.IDatabase;
 import org.jtester.annotations.DbFit;
 import org.jtester.database.DbFitModuleTest;
 import org.jtester.module.dbfit.DbFitRunner;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
-@Test(groups = { "jtester", "dbfit" })
-public class DbFitRunnerTest extends JTester {
+public class DbFitRunnerTest implements IAssertion, IDatabase {
 	@Test
 	@DbFit(when = "org/jtester/fit/dbfit/SimpleQuery_Init.wiki")
 	public void runTest_HasName() throws Exception {
@@ -35,7 +35,12 @@ public class DbFitRunnerTest extends JTester {
 				"DbFitModuleTest.exactFitVar.then.wiki");
 	}
 
-	@Test(description = "测试wiki文件query中使用变量")
+	/**
+	 * 测试wiki文件query中使用变量
+	 * 
+	 * @throws Exception
+	 */
+	@Test
 	@DbFit(when = "org/jtester/fit/dbfit/SimpleQuery_Init.wiki")
 	public void test_WikiFileHasVariable() throws Exception {
 		fit.setSymbol("first_name1", "aaa");

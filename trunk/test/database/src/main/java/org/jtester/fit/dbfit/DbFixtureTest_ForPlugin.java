@@ -1,12 +1,11 @@
 package org.jtester.fit.dbfit;
 
+import org.jtester.IAssertion;
 import org.jtester.annotations.DbFit;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
-@Test(groups = "jtester")
-public class DbFixtureTest_ForPlugin extends JTester {
-
+public class DbFixtureTest_ForPlugin implements IAssertion {
+	@Test
 	@DbFit(when = "DbFixtureTest_ForPlugin.nullValueInsert.wiki")
 	public void nullValueInsert() {
 	}

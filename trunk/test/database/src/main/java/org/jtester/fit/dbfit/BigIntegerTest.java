@@ -1,20 +1,19 @@
 package org.jtester.fit.dbfit;
 
+import org.jtester.IAssertion;
 import org.jtester.annotations.DbFit;
 import org.jtester.annotations.DbFit.AUTO;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
-@Test(groups = "jtester")
 @DbFit(auto = AUTO.AUTO)
-public class BigIntegerTest extends JTester {
+public class BigIntegerTest implements IAssertion {
 
 	@Test
 	public void testInsertBigInteger() {
 
 	}
 
-	@Test(groups = "oracle")
+	@Test
 	public void testOracleBinDecimal() {
 
 	}

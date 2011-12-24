@@ -1,19 +1,17 @@
 package org.jtester.fit.dbfit;
 
-import org.jtester.annotations.Transactional;
-import org.jtester.annotations.Transactional.TransactionMode;
+import org.jtester.IAssertion;
 import org.jtester.annotations.DbFit;
 import org.jtester.annotations.SpringApplicationContext;
 import org.jtester.annotations.SpringBeanByType;
+import org.jtester.annotations.Transactional;
+import org.jtester.annotations.Transactional.TransactionMode;
 import org.jtester.fortest.hibernate.User;
 import org.jtester.fortest.hibernate.UserService;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
-
+import org.junit.Test;
 
 @SpringApplicationContext({ "classpath:/org/jtester/fortest/hibernate/project.xml" })
-@Test(groups = { "jtester", "dbfit", "hibernate" })
-public class DbFixtureTest_UserSameDataSource_Hibernate extends JTester {
+public class DbFixtureTest_UserSameDataSource_Hibernate implements IAssertion {
 	@SpringBeanByType
 	private UserService userService;
 
