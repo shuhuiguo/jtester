@@ -2,7 +2,6 @@ package org.jtester.module.helper;
 
 import java.lang.reflect.Method;
 
-import org.jtester.helper.LogHelper;
 import org.jtester.module.CoreModule;
 import org.jtester.module.TestListener;
 

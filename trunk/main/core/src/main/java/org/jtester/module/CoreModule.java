@@ -4,11 +4,11 @@ import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Properties;
 
-import org.jtester.core.helper.ConfigurationHelper;
-import org.jtester.core.helper.ConfigurationLoader;
-import org.jtester.core.helper.ModulesLoader;
-import org.jtester.core.helper.ModulesManager;
-import org.jtester.helper.LogHelper;
+import org.jtester.module.helper.ConfigurationHelper;
+import org.jtester.module.helper.ConfigurationLoader;
+import org.jtester.module.helper.LogHelper;
+import org.jtester.module.helper.ModulesLoader;
+import org.jtester.module.helper.ModulesManager;
 
 /**
  * jtester的核心类，所有事件监听器的总入口<br>

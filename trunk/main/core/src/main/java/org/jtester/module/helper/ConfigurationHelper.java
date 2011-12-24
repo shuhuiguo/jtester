@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Properties;
 
 import org.jtester.exception.JTesterException;
-import org.jtester.helper.LogHelper;
 import org.jtester.helper.StringHelper;
 import org.jtester.module.ConfigurationConst;
 

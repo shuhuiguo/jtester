@@ -18,7 +18,6 @@ package org.jtester.module.helper;
 import java.util.Properties;
 
 import org.jtester.exception.JTesterException;
-import org.jtester.helper.LogHelper;
 
 import ext.jtester.commons.StrSubstitutor;
 
