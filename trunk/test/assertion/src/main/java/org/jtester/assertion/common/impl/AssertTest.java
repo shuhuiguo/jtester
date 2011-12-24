@@ -4,14 +4,19 @@ import java.io.File;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.Map;
 
 import org.jtester.IAssertion;
 import org.jtester.assertion.common.intf.IAssert;
+import org.jtester.beans.DataIterator;
 import org.jtester.junit.DataFrom;
+import org.jtester.junit.JTesterRunner;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
 @SuppressWarnings({ "rawtypes" })
+@RunWith(JTesterRunner.class)
 public class AssertTest implements IAssertion {
 	@Test
 	@DataFrom("assertClass")
@@ -19,23 +24,27 @@ public class AssertTest implements IAssertion {
 		want.object(as).propertyEq("valueClaz", claz);
 	}
 
-	public static Object[][] assertClass() {
-		return new Object[][] { { the.bool(), Boolean.class }, /** <br> */
-		{ the.array(), Object[].class }, /** <br> */
-		{ the.bite(), Byte.class }, /** <br> */
-		{ the.calendar(), Calendar.class }, /** <br> */
-		{ the.character(), Character.class }, /** <br> */
-		{ the.collection(), Collection.class }, /** <br> */
-		{ the.date(), Date.class }, /** <br> */
-		{ the.doublenum(), Double.class }, /** <br> */
-		{ the.file(), File.class }, /** <br> */
-		{ the.floatnum(), Float.class }, /** <br> */
-		{ the.integer(), Integer.class }, /** <br> */
-		{ the.longnum(), Long.class }, /** <br> */
-		{ the.map(), Map.class }, /** <br> */
-		{ the.object(), Object.class }, /** <br> */
-		{ the.shortnum(), Short.class }, /** <br> */
-		{ the.string(), String.class } };
+	public static Iterator assertClass() {
+		return new DataIterator() {
+			{
+				data(the.bool(), Boolean.class);
+				data(the.array(), Object[].class);
+				data(the.bite(), Byte.class);
+				data(the.calendar(), Calendar.class);
+				data(the.character(), Character.class);
+				data(the.collection(), Collection.class);
+				data(the.date(), Date.class);
+				data(the.doublenum(), Double.class);
+				data(the.file(), File.class);
+				data(the.floatnum(), Float.class);
+				data(the.integer(), Integer.class);
+				data(the.longnum(), Long.class);
+				data(the.map(), Map.class);
+				data(the.object(), Object.class);
+				data(the.shortnum(), Short.class);
+				data(the.string(), String.class);
+			}
+		};
 	}
 
 	@Test
