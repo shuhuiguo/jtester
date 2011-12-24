@@ -10,6 +10,6 @@
 	<modules>
 		<module>main</module>
 		<module>test</module>
-		<module>test.init</module>
+		<!-- <module>test.init</module> -->
 	</modules>
 </project>
