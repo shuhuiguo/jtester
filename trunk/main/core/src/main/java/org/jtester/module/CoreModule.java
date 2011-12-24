@@ -6,9 +6,9 @@ import java.util.Properties;
 
 import org.jtester.core.TestListener;
 import org.jtester.core.TestedContext;
-import org.jtester.module.helper.ConfigurationHelper;
-import org.jtester.module.helper.ConfigurationLoader;
-import org.jtester.module.helper.LogHelper;
+import org.jtester.helper.ConfigurationHelper;
+import org.jtester.helper.ConfigurationLoader;
+import org.jtester.helper.LogHelper;
 import org.jtester.module.helper.ModulesLoader;
 import org.jtester.module.helper.ModulesManager;
 

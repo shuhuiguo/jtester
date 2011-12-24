@@ -8,6 +8,8 @@ import java.util.List;
 
 import org.jtester.exception.JTesterException;
 import org.jtester.helper.ClazzHelper;
+import org.jtester.helper.ConfigurationHelper;
+import org.jtester.helper.LogHelper;
 import org.jtester.helper.StringHelper;
 import org.jtester.module.Module;
 

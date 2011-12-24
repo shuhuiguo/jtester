@@ -1,4 +1,4 @@
-package org.jtester.module.helper;
+package org.jtester.helper;
 
 import static org.jtester.helper.ClazzHelper.createInstanceOfType;
 

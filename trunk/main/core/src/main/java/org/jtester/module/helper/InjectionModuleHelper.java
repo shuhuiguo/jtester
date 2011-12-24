@@ -15,6 +15,7 @@ import ognl.OgnlException;
 import org.jtester.exception.JTesterException;
 import org.jtester.helper.AnnotationHelper;
 import org.jtester.helper.FieldHelper;
+import org.jtester.helper.LogHelper;
 
 /**
  * Class containing static methods that implement explicit injection using OGNL

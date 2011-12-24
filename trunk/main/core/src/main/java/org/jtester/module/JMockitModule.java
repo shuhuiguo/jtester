@@ -4,7 +4,7 @@ import java.lang.reflect.Method;
 
 import org.jtester.core.Startup;
 import org.jtester.core.TestListener;
-import org.jtester.module.helper.LogHelper;
+import org.jtester.helper.LogHelper;
 
 public class JMockitModule implements Module {
 

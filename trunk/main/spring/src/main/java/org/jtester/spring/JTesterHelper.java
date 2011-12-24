@@ -1,4 +1,4 @@
-package org.jtester.core;
+package org.jtester.spring;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;

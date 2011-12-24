@@ -1,8 +1,8 @@
-package org.jtester.module.helper;
+package org.jtester.core;
 
 import java.lang.reflect.Method;
 
-import org.jtester.core.TestListener;
+import org.jtester.helper.LogHelper;
 import org.jtester.module.CoreModule;
 
 /**

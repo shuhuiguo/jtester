@@ -1,4 +1,4 @@
-package org.jtester.module.helper;
+package org.jtester.helper;
 
 import static ext.jtester.commons.IOUtils.closeQuietly;
 
