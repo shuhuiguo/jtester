@@ -7,7 +7,7 @@
 		<version>1.2.0</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
-	<artifactId>jtester.junit</artifactId>
+	<artifactId>jtester.testng</artifactId>
 	<packaging>jar</packaging>
 	<name>jtester testng module</name>
 
