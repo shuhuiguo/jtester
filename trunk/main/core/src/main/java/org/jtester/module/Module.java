@@ -1,5 +1,8 @@
 package org.jtester.module;
 
+import org.jtester.core.ConfigurationConst;
+import org.jtester.core.TestListener;
+
 
 /**
  * A type for modules that offer services to tests. Before a module is used,

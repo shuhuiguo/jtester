@@ -1,4 +1,4 @@
-package org.jtester.module;
+package org.jtester.core;
 
 /**
  * jTester配置常量属性

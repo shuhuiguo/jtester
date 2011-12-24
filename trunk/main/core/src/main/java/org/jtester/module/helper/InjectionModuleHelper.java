@@ -1,4 +1,4 @@
-package org.jtester.module.core.helper;
+package org.jtester.module.helper;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
@@ -15,7 +15,6 @@ import ognl.OgnlException;
 import org.jtester.exception.JTesterException;
 import org.jtester.helper.AnnotationHelper;
 import org.jtester.helper.FieldHelper;
-import org.jtester.module.helper.LogHelper;
 
 /**
  * Class containing static methods that implement explicit injection using OGNL

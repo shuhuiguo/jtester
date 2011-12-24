@@ -5,12 +5,12 @@ import java.util.Arrays;
 import mockit.internal.RedefinitionEngine;
 
 import org.jtester.annotations.SpringApplicationContext;
+import org.jtester.core.TestedContext;
 import org.jtester.core.helper.ModulesManager;
 import org.jtester.database.TransactionHelper;
 import org.jtester.helper.AnnotationHelper;
 import org.jtester.helper.ClazzHelper;
 import org.jtester.helper.LogHelper;
-import org.jtester.module.TestedContext;
 import org.jtester.module.spring.ApplicationContextFactory;
 import org.jtester.module.spring.JTesterSpringContext;
 import org.springframework.aop.framework.MockCglib2AopProxy;

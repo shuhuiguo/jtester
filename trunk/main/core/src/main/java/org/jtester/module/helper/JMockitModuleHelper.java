@@ -1,4 +1,4 @@
-package org.jtester.module.core.helper;
+package org.jtester.module.helper;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;

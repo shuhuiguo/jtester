@@ -6,10 +6,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.jtester.core.TestListener;
 import org.jtester.exception.JTesterException;
 import org.jtester.helper.ClazzHelper;
 import org.jtester.module.Module;
-import org.jtester.module.TestListener;
 
 /**
  * jTester模块管理器<br>

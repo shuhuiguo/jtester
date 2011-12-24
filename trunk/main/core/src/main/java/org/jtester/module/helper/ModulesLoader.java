@@ -1,7 +1,7 @@
 package org.jtester.module.helper;
 
+import static org.jtester.core.ConfigurationConst.PROPKEY_MODULES;
 import static org.jtester.helper.ClazzHelper.createInstanceOfType;
-import static org.jtester.module.ConfigurationConst.PROPKEY_MODULES;
 
 import java.util.ArrayList;
 import java.util.List;

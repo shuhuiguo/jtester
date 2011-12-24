@@ -4,6 +4,8 @@ import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Properties;
 
+import org.jtester.core.TestListener;
+import org.jtester.core.TestedContext;
 import org.jtester.module.helper.ConfigurationHelper;
 import org.jtester.module.helper.ConfigurationLoader;
 import org.jtester.module.helper.LogHelper;

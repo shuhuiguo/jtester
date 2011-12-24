@@ -1,4 +1,4 @@
-package org.jtester.module;
+package org.jtester.core;
 
 import java.lang.reflect.Method;
 
