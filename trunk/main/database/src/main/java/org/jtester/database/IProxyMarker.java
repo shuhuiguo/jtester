@@ -1,4 +1,4 @@
-package org.jtester.jdbc;
+package org.jtester.database;
 
 /**
  * do nothing, only proxy flag
