@@ -4,9 +4,7 @@ import java.lang.reflect.Method;
 
 import org.jtester.core.TestListener;
 import org.jtester.core.TestedContext;
-import org.jtester.core.helper.ConfigurationHelper;
-import org.jtester.database.TransactionHelper;
-import org.jtester.module.Module;
+import org.jtester.helper.ConfigurationHelper;
 import org.jtester.module.spring.ApplicationContextFactory;
 import org.jtester.module.spring.JTesterBeanFactory;
 import org.jtester.module.spring.JTesterSpringContext;

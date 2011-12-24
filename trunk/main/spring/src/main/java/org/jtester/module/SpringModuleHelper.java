@@ -1,18 +1,21 @@
 package org.jtester.module;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 import mockit.internal.RedefinitionEngine;
 
 import org.jtester.annotations.SpringApplicationContext;
 import org.jtester.core.TestedContext;
-import org.jtester.core.helper.ModulesManager;
-import org.jtester.database.TransactionHelper;
 import org.jtester.helper.AnnotationHelper;
 import org.jtester.helper.ClazzHelper;
 import org.jtester.helper.LogHelper;
+import org.jtester.module.helper.ModulesManager;
 import org.jtester.module.spring.ApplicationContextFactory;
+import org.jtester.module.spring.JTesterBeanFactory;
 import org.jtester.module.spring.JTesterSpringContext;
+import org.jtester.module.spring.strategy.cleaner.SpringBeanCleaner;
 import org.springframework.aop.framework.MockCglib2AopProxy;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.config.RuntimeBeanReference;
@@ -29,7 +32,7 @@ public class SpringModuleHelper {
 	 * @return
 	 */
 	public static Object getBeanByName(String beanname) {
-		BeanFactory factory = (BeanFactory) TransactionHelper.getSpringBeanFactory();
+		BeanFactory factory = (BeanFactory) SpringModuleHelper.getSpringBeanFactory();
 		if (factory == null) {
 			throw new RuntimeException("can't find SpringApplicationContext for tested class:"
 					+ TestedContext.currTestedClazzName());
@@ -66,7 +69,7 @@ public class SpringModuleHelper {
 	 */
 	@SuppressWarnings("rawtypes")
 	public static JTesterSpringContext initSpringContext(Class testClazz, ApplicationContextFactory contextFactory) {
-		JTesterSpringContext springContext = TransactionHelper.getSpringContext();
+		JTesterSpringContext springContext = SpringModuleHelper.getSpringContext();
 		if (springContext != null) {
 			return springContext;
 		}
@@ -87,7 +90,7 @@ public class SpringModuleHelper {
 		LogHelper.warn(String.format("take %d ms to init spring context for test obejct[%s]", duration,
 				testClazz.getName()));
 
-		TransactionHelper.setSpringContext(springContext);
+		SpringModuleHelper.setSpringContext(springContext);
 		return springContext;
 	}
 
@@ -171,5 +174,69 @@ public class SpringModuleHelper {
 			return;
 		}
 		new RedefinitionEngine(null, MockCglib2AopProxy.class).setUpStartupMock();
+	}
+
+	/**
+	 * AbstractApplicationContext类<br>
+	 * <br>
+	 * <br>
+	 * 第一个Object是测试类实例<br>
+	 * 第二个Object是AbstractApplicationContext实例，这里定义为Object类型是为了兼容没有使用spring容器的测试
+	 */
+	private static Map<Class, JTesterSpringContext> springBeanFactories = new HashMap<Class, JTesterSpringContext>();
+
+	/**
+	 * 获取当前测试实例的spring application context实例
+	 * 
+	 * @return
+	 */
+	public static JTesterBeanFactory getSpringBeanFactory() {
+		if (TestedContext.currTestedClazz() == null) {
+			throw new RuntimeException("the tested object can't be null.");
+		} else {
+			JTesterSpringContext springContext = springBeanFactories.get(TestedContext.currTestedClazz());
+			return springContext == null ? null : springContext.getJTesterBeanFactory();
+		}
+	}
+
+	public static JTesterSpringContext getSpringContext() {
+		if (TestedContext.currTestedClazz() == null) {
+			throw new RuntimeException("the tested object can't be null.");
+		} else {
+			JTesterSpringContext springContext = springBeanFactories.get(TestedContext.currTestedClazz());
+			return springContext;
+		}
+	}
+
+	/**
+	 * 释放spring context，清空测试类中的spring bean实例
+	 */
+	public static void removeSpringContext() {
+		if (TestedContext.currTestedClazz() == null) {
+			throw new RuntimeException("the tested object can't be null.");
+		} else {
+			SpringBeanCleaner.cleanSpringBeans(TestedContext.currTestedObject());
+			Object springContext = springBeanFactories.remove(TestedContext.currTestedClazz());
+			if (springContext != null) {
+				SpringModuleHelper.closeSpringContext(springContext);
+			}
+		}
+	}
+
+	/**
+	 * 存放当前测试实例下的spring application context实例
+	 * 
+	 * @param springContext
+	 */
+	public static void setSpringContext(JTesterSpringContext springContext) {
+		if (springContext == null) {
+			LogHelper.info("no spring application context for test:" + TestedContext.currTestedClazzName());
+			return;
+		}
+		if (TestedContext.currTestedClazz() == null) {
+			throw new RuntimeException("the tested object can't be null.");
+		} else {
+			springBeanFactories.put(TestedContext.currTestedClazz(), springContext);
+		}
 	}
 }

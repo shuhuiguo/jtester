@@ -3,7 +3,7 @@ package org.jtester.module.spring.ibatis;
 import java.io.InputStream;
 import java.util.Properties;
 
-import org.jtester.core.helper.ConfigurationHelper;
+import org.jtester.helper.ConfigurationHelper;
 import org.jtester.helper.LogHelper;
 import org.jtester.reflector.FieldAccessor;
 import org.w3c.dom.Node;
