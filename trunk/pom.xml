@@ -11,7 +11,5 @@
 		<module>main</module>
 		<module>test</module>
 		<module>test.init</module>
-		<module>jspec</module>
-		<module>tutorial</module>
 	</modules>
 </project>
