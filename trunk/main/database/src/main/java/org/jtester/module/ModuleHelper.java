@@ -1,4 +1,4 @@
-package org.jtester.module.core.helper;
+package org.jtester.module;
 
 import static ext.jtester.commons.ClassUtils.getShortClassName;
 

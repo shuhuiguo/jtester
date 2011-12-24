@@ -1,4 +1,4 @@
-package org.jtester.module.core.helper;
+package org.jtester.module;
 
 import java.util.Arrays;
 
@@ -11,7 +11,6 @@ import org.jtester.helper.AnnotationHelper;
 import org.jtester.helper.ClazzHelper;
 import org.jtester.helper.LogHelper;
 import org.jtester.module.TestedContext;
-import org.jtester.module.core.SpringModule;
 import org.jtester.module.spring.ApplicationContextFactory;
 import org.jtester.module.spring.JTesterSpringContext;
 import org.springframework.aop.framework.MockCglib2AopProxy;

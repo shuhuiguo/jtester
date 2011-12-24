@@ -1,6 +1,6 @@
 package org.jtester.spring;
 
-import org.jtester.module.core.helper.SpringModuleHelper;
+import org.jtester.module.SpringModuleHelper;
 
 /**
  * 测试类中spring上下文

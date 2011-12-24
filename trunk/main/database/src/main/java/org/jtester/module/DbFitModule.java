@@ -1,4 +1,4 @@
-package org.jtester.module.core;
+package org.jtester.module;
 
 import java.io.FileNotFoundException;
 import java.lang.reflect.Method;

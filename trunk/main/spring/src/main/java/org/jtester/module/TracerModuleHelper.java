@@ -1,4 +1,4 @@
-package org.jtester.module.core.helper;
+package org.jtester.module;
 
 import java.io.File;
 import java.io.FileWriter;
