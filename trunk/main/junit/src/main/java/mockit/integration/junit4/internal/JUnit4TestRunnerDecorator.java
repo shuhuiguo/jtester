@@ -1,28 +1,22 @@
 /*
- * Copyright (c) 2006-2011 Rogorio Liesenfeld
+ * Copyright (c) 2006-2011 Rogério Liesenfeld
  * This file is subject to the terms of the MIT license (see LICENSE.txt).
  */
 package mockit.integration.junit4.internal;
 
-import java.lang.reflect.Method;
-import java.util.List;
-
-import mockit.Expectations;
-import mockit.Instantiation;
-import mockit.Mock;
-import mockit.MockClass;
-import mockit.integration.TestRunnerDecorator;
-import mockit.internal.expectations.RecordAndReplayExecution;
-import mockit.internal.state.SavePoint;
-import mockit.internal.state.TestRun;
-import mockit.internal.util.Utilities;
+import java.lang.reflect.*;
+import java.util.*;
 
 import org.jtester.junit.DataFrom;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runners.Suite.SuiteClasses;
-import org.junit.runners.model.FrameworkMethod;
+import org.junit.*;
+import org.junit.runners.Suite.*;
+import org.junit.runners.model.*;
+
+import mockit.*;
+import mockit.integration.*;
+import mockit.internal.expectations.*;
+import mockit.internal.state.*;
+import mockit.internal.util.*;
 
 /**
  * Startup mock that modifies the JUnit 4.5+ test runner so that it calls back
@@ -76,11 +70,14 @@ public final class JUnit4TestRunnerDecorator extends TestRunnerDecorator {
 		TestRun.setRunningTestMethod(method);
 
 		try {
+			// begin modified by darui.wu 2011-12-24
 			if (method.isAnnotationPresent(DataFrom.class)) {
-				executeParameterTestMethod(target, params);
+				executeDataFromTestMethod(target, params);
 			} else {
 				executeTestMethod(target, params);
 			}
+			// end modified by darui.wu 2011-12-24
+
 			return null; // it's a test method, therefore has void return type
 		} catch (Throwable t) {
 			Utilities.filterStackTrace(t);
@@ -104,12 +101,13 @@ public final class JUnit4TestRunnerDecorator extends TestRunnerDecorator {
 		}
 	}
 
-	private void executeParameterTestMethod(Object target, Object... parameters) throws Throwable {
+	private void executeDataFromTestMethod(Object target, Object... parameters) throws Throwable {
 		SavePoint savePoint = new SavePoint();
 		Throwable testFailure = null;
 
 		try {
 			createInstancesForTestedFields(target);
+
 			TestRun.setRunningIndividualTest(target);
 			it.invokeExplosively(target, parameters);
 		} catch (Throwable thrownByTest) {
