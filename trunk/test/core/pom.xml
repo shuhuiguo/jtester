@@ -10,4 +10,16 @@
 	<artifactId>jtester.core.test</artifactId>
 	<packaging>jar</packaging>
 	<name>test jtester core module</name>
+	<dependencies>
+		<dependency>
+			<groupId>org.jtester</groupId>
+			<artifactId>jtester.assertion</artifactId>
+			<version>${jtester.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jtester</groupId>
+			<artifactId>jtester.junit</artifactId>
+			<version>${jtester.version}</version>
+		</dependency>
+	</dependencies>
 </project>

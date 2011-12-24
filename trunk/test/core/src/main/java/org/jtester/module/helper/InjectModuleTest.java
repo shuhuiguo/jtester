@@ -1,10 +1,10 @@
-package org.jtester.module.core;
+package org.jtester.module.helper;
 
+import org.jtester.IAssertion;
 import org.jtester.annotations.Inject;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
-public class InjectModuleTest extends JTester {
+public class InjectModuleTest implements IAssertion {
 
 	OuterClaz outer = new OuterClaz();
 

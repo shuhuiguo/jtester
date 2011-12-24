@@ -1,15 +1,15 @@
-package org.jtester.module.core.helper;
+package org.jtester.module.spring;
 
 import java.lang.reflect.Field;
 
 import mockit.NonStrict;
 
+import org.jtester.IAssertion;
 import org.jtester.annotations.SpringBeanByName;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.jtester.module.helper.JMockitModuleHelper;
+import org.junit.Test;
 
-@Test(groups = { "jtester", "spring" })
-public class JMockitModuleHelperTest extends JTester {
+public class JMockitModuleHelperTest implements IAssertion {
 
 	@Test
 	public void testDoesSpringBeanFieldIllegal() throws Exception {
