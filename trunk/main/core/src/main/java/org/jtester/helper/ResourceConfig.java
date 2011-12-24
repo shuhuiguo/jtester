@@ -1,5 +1,5 @@
 /*
- * Copyright 2006-2008,  Unitils.org
+ * Copyright 2008,  Unitils.org
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -12,32 +12,16 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- *
- * $Id$
  */
-package org.jtester.module.utils;
-
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.Writer;
+package org.jtester.helper;
 
 /**
+ * Marker interface that indicates that the implementation wraps the necessary configuration for
+ * configuring some resource
+ * 
  * @author Filip Neven
  * @author Tim Ducheyne
  */
-public class WriterOutputStream extends OutputStream {
-
-	private Writer writer;
-	
-	
-	public WriterOutputStream(Writer writer) {
-		this.writer = writer;
-	}
-
-	
-	@Override
-	public void write(int b) throws IOException {
-		writer.write(b);
-	}
+public interface ResourceConfig {
 
 }

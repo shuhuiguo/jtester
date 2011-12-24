@@ -16,9 +16,9 @@
 package org.jtester.module.database.support;
 
 import static ext.jtester.commons.DbUtils.closeQuietly;
-import static org.jtester.module.utils.StoredIdentifierCase.LOWER_CASE;
-import static org.jtester.module.utils.StoredIdentifierCase.MIXED_CASE;
-import static org.jtester.module.utils.StoredIdentifierCase.UPPER_CASE;
+import static org.jtester.helper.StoredIdentifierCase.LOWER_CASE;
+import static org.jtester.helper.StoredIdentifierCase.MIXED_CASE;
+import static org.jtester.helper.StoredIdentifierCase.UPPER_CASE;
 
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
@@ -28,7 +28,7 @@ import java.util.Set;
 
 import org.jtester.core.helper.ConfigurationHelper;
 import org.jtester.exception.JTesterException;
-import org.jtester.module.utils.StoredIdentifierCase;
+import org.jtester.helper.StoredIdentifierCase;
 
 /**
  * Helper class that implements a number of common operations on a database

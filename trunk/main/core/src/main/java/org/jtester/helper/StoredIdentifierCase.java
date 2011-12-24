@@ -13,15 +13,28 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jtester.module.utils;
+package org.jtester.helper;
 
 /**
- * Marker interface that indicates that the implementation wraps the necessary configuration for
- * configuring some resource
- * 
- * @author Filip Neven
+ * Possible values for the stored identifier case.
+ *
  * @author Tim Ducheyne
+ * @author Filip Neven
  */
-public interface ResourceConfig {
+public enum StoredIdentifierCase {
 
+    /**
+     * The database stores unquoted identifiers as lower case
+     */
+    LOWER_CASE,
+
+    /**
+     * The database stores unquoted identifiers as upper case
+     */
+    UPPER_CASE,
+
+    /**
+     * The database stores unquoted identifiers as case sensitive
+     */
+    MIXED_CASE
 }

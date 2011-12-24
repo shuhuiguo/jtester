@@ -15,10 +15,10 @@
  */
 package org.jtester.module.database.support;
 
-import org.jtester.module.utils.StoredIdentifierCase;
+import org.jtester.helper.StoredIdentifierCase;
 
-import static org.jtester.module.utils.StoredIdentifierCase.LOWER_CASE;
-import static org.jtester.module.utils.StoredIdentifierCase.UPPER_CASE;
+import static org.jtester.helper.StoredIdentifierCase.LOWER_CASE;
+import static org.jtester.helper.StoredIdentifierCase.UPPER_CASE;
 
 import java.util.Set;
 

@@ -13,28 +13,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jtester.module.utils;
+package org.jtester.helper;
+
 
 /**
- * Possible values for the stored identifier case.
- *
- * @author Tim Ducheyne
+ * Defines the contract for implementations that find a resource configuration on a test object, returning
+ * a subtype of {@link ResourceConfig} that wraps the configuration
+ * 
  * @author Filip Neven
+ * @author Tim Ducheyne
+ *
+ * @param <RC> Implementation of {@link ResourceConfig}
  */
-public enum StoredIdentifierCase {
+public interface ResourceConfigLoader<RC extends ResourceConfig> {
 
-    /**
-     * The database stores unquoted identifiers as lower case
-     */
-    LOWER_CASE,
-
-    /**
-     * The database stores unquoted identifiers as upper case
-     */
-    UPPER_CASE,
-
-    /**
-     * The database stores unquoted identifiers as case sensitive
-     */
-    MIXED_CASE
+	
+	/**
+	 * @param testObject The test instance, not null
+	 * @return The resource configuration for the given test object. Null if the test object
+	 * doesn't specify any configuration for the resource type in question
+	 */
+	RC loadResourceConfig(Object testObject);
 }
