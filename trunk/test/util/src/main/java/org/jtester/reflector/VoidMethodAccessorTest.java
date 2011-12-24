@@ -1,24 +1,22 @@
-package org.jtester.bytecode.reflector.impl;
+package org.jtester.reflector;
 
-import org.jtester.bytecode.reflector.model.TestException;
-import org.jtester.bytecode.reflector.model.TestObject;
-import org.jtester.reflector.MethodAccessor;
-import org.jtester.testng.JTester;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.jtester.IAssertion;
+import org.jtester.reflector.model.TestException;
+import org.jtester.reflector.model.TestObject;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
-@Test(groups = "jtester")
-public class VoidMethodAccessorTest extends JTester {
+public class VoidMethodAccessorTest implements IAssertion {
 
 	private MethodAccessor<Void> throwingMethod;
 
-	@BeforeMethod
+	@Before
 	public void setUp() {
 		throwingMethod = new MethodAccessor<Void>(TestObject.class, "throwingMethod");
 	}
 
-	@AfterMethod
+	@After
 	public void tearDown() {
 		throwingMethod = null;
 	}
@@ -27,7 +25,6 @@ public class VoidMethodAccessorTest extends JTester {
 	 * Test method for
 	 * {@link com.j2speed.accessor.AbstractMethodAccessor#invokeBase(java.lang.Object[])}
 	 * .
-	 * @throws Exception 
 	 */
 	@Test
 	public void testInvoke() throws Exception {

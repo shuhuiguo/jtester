@@ -1,4 +1,4 @@
-package org.jtester.bytecode.reflector.impl;
+package org.jtester.reflector;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -7,18 +7,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.jtester.fortest.beans.Address;
-import org.jtester.fortest.beans.Employee;
-import org.jtester.fortest.beans.User;
+import org.jtester.IAssertion;
+import org.jtester.beans.Address;
+import org.jtester.beans.Employee;
+import org.jtester.beans.User;
 import org.jtester.helper.FieldHelper;
-import org.jtester.reflector.PropertyAccessor;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
 @SuppressWarnings({ "unchecked", "rawtypes" })
-@Test(groups = { "JTester" })
-public class FieldAccessorTest_FromReflectorUtil extends JTester {
-
+public class FieldAccessorTest_FromReflectorUtil implements IAssertion {
+	@Test
 	public void setFieldValue() {
 		Employee employee = new Employee();
 		want.object(employee.getName()).isNull();
@@ -26,18 +24,19 @@ public class FieldAccessorTest_FromReflectorUtil extends JTester {
 		want.object(employee).propertyEq("name", "my name");
 	}
 
-	@Test(expectedExceptions = { Exception.class })
+	@Test(expected =  Exception.class )
 	public void setFieldValue_exception() {
 		Employee employee = new Employee();
 		want.object(employee.getName()).isNull();
 		FieldHelper.setFieldValue(employee, "name1", "my name");
 	}
 
-	@Test(expectedExceptions = { RuntimeException.class })
+	@Test(expected =  RuntimeException.class )
 	public void setFieldValue_AssertError() {
 		FieldHelper.setFieldValue(null, "name1", "my name");
 	}
 
+	@Test
 	public void getFieldValue() {
 		Employee employee = new Employee();
 		employee.setName("test name");
@@ -59,12 +58,12 @@ public class FieldAccessorTest_FromReflectorUtil extends JTester {
 		}
 	}
 
-	@Test(expectedExceptions = { RuntimeException.class })
+	@Test(expected =  RuntimeException.class )
 	public void getFieldValue_AssertError() {
 		FieldHelper.getFieldValue(null, "name1");
 	}
 
-	@Test(expectedExceptions = { RuntimeException.class })
+	@Test(expected = RuntimeException.class )
 	public void getFieldValue_AssertError2() {
 		FieldHelper.getStaticFieldValue(Employee.class, "name1");
 	}
@@ -75,21 +74,27 @@ public class FieldAccessorTest_FromReflectorUtil extends JTester {
 				Arrays.asList(new User("ddd", "eeee"), new User("ccc", "dddd")), "first");
 		want.collection(values).reflectionEq(new String[] { "ddd", "ccc" });
 	}
-
-	@Test(description = "数组类型")
+	/**
+	 * 数组类型
+	 */
+	@Test
 	public void testGetArrayItemProperty_Array() {
 		List<?> values = PropertyAccessor.getArrayItemProperty(new User[] { new User("ddd", "eeee"),
 				new User("ccc", "dddd") }, "first");
 		want.collection(values).reflectionEq(new String[] { "ddd", "ccc" });
 	}
-
-	@Test(description = "单值")
+	/**
+	 * 单值
+	 */
+	@Test
 	public void testGetArrayItemProperty_SingleValue() {
 		List<?> values = PropertyAccessor.getArrayItemProperty(new User("ddd", "eeee"), "first");
 		want.collection(values).reflectionEq(new String[] { "ddd" });
 	}
-
-	@Test(description = "Map类型")
+	/**
+	 * Map类型
+	 */
+	@Test
 	public void testGetArrayItemProperty_Map() {
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("first", "ddd");
@@ -97,8 +102,10 @@ public class FieldAccessorTest_FromReflectorUtil extends JTester {
 		List<?> values = PropertyAccessor.getArrayItemProperty(map, "first");
 		want.collection(values).reflectionEq(new String[] { "ddd" });
 	}
-
-	@Test(description = "Map类型_集合")
+	/**
+	 * Map类型_集合
+	 */
+	@Test
 	public void testGetArrayItemProperty_MapList() {
 		List list = new ArrayList();
 		for (int i = 0; i < 2; i++) {
@@ -116,22 +123,30 @@ public class FieldAccessorTest_FromReflectorUtil extends JTester {
 				Arrays.asList(new User("ddd", "eeee"), new User("ccc", "dddd")), new String[] { "first", "last" });
 		want.array(values).reflectionEq(new String[][] { { "ddd", "eeee" }, { "ccc", "dddd" } });
 	}
-
-	@Test(description = "数组类型")
+	/**
+	 * 数组类型
+	 */
+	@Test
 	public void testGetArrayItemProperties_Array() {
 		Object[][] values = PropertyAccessor.getArrayItemProperties(new User[] { new User("ddd", "eeee"),
 				new User("ccc", "dddd") }, new String[] { "first", "last" });
 		want.array(values).reflectionEq(new String[][] { { "ddd", "eeee" }, { "ccc", "dddd" } });
 	}
 
-	@Test(description = "单值")
+	/**
+	 * 单值
+	 */
+	@Test
 	public void testGetArrayItemProperties_SingleValue() {
 		Object[][] values = PropertyAccessor.getArrayItemProperties(new User("ddd", "eeee"), new String[] { "first",
 				"last" });
 		want.array(values).reflectionEq(new String[][] { { "ddd", "eeee" } });
 	}
 
-	@Test(description = "Map类型")
+	/**
+	 * Map类型
+	 */
+	@Test
 	public void testGetArrayItemProperties_Map() {
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("first", "ddd");
@@ -141,7 +156,10 @@ public class FieldAccessorTest_FromReflectorUtil extends JTester {
 		want.array(values).reflectionEq(new String[][] { { "ddd", "eeee" } });
 	}
 
-	@Test(description = "Map类型集合")
+	/**
+	 * Map类型集合
+	 */
+	@Test
 	public void testGetArrayItemProperties_MapList() {
 		List list = new ArrayList();
 		for (int i = 0; i < 2; i++) {
@@ -154,12 +172,15 @@ public class FieldAccessorTest_FromReflectorUtil extends JTester {
 		want.array(values).reflectionEq(new String[][] { { "ddd", "eeee" }, { "ddd", "eeee" } });
 	}
 
-	@Test(expectedExceptions = RuntimeException.class)
+	@Test(expected = RuntimeException.class)
 	public void testGetProperty() {
 		PropertyAccessor.getProperty(null, "dd");
 	}
 
-	@Test(description = "对象是Map")
+	/**
+	 * 对象是Map
+	 */
+	@Test
 	public void testGetProperty_Map() {
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("wikiName", "eeee");
@@ -174,7 +195,10 @@ public class FieldAccessorTest_FromReflectorUtil extends JTester {
 		}
 	}
 
-	@Test(description = "没有这个属性")
+	/**
+	 * 没有这个属性
+	 */
+	@Test
 	public void testGetProperty_NoProp() {
 		try {
 			PropertyAccessor.getProperty(item, "dde");
@@ -187,37 +211,53 @@ public class FieldAccessorTest_FromReflectorUtil extends JTester {
 
 	ForReflectUtil item = new ForReflectUtil("first name", "last name");
 
-	@Test(description = "Get方法可以取到值")
+	/**
+	 * Get方法可以取到值
+	 */
+	@Test
 	public void testGetProperty_GetMethod() {
 		String first = (String) PropertyAccessor.getProperty(item, "first");
 		want.string(first).isEqualTo("first name");
 	}
 
-	@Test(description = "方法可以取到值_但方法在父类")
+	/**
+	 * 方法可以取到值_但方法在父类
+	 */
+	@Test
 	public void testGetProperty_GetMethodInParentClass() {
 		SubForReflectUtil item1 = new SubForReflectUtil("first name", "last name");
 		String field = (String) PropertyAccessor.getProperty(item1, "myName");
 		want.string(field).isEqualTo("first name,last name");
 	}
 
+	@Test
 	public void testGetProperty_IsMethod() {
 		boolean isMan = (Boolean) PropertyAccessor.getProperty(item, "man");
 		want.bool(isMan).is(true);
 	}
 
-	@Test(description = "只能通过直接取字段")
+	/**
+	 * 只能通过直接取字段
+	 */
+	@Test
 	public void testGetProperty_NotGetMethod() {
 		String field = (String) PropertyAccessor.getProperty(item, "noGetMethod");
 		want.string(field).isEqualTo("no get method field");
 	}
 
-	@Test(description = "Get方法有逻辑")
+	/**
+	 * Get方法有逻辑
+	 */
+	@Test
 	public void testGetProperty_GetMethodHasLogical() {
 		String field = (String) PropertyAccessor.getProperty(item, "myName");
 		want.string(field).isEqualTo("first name,last name");
 	}
 
-	@Test(description = "只能通过直接取字段_且字段在父类中")
+	/**
+	 * 只能通过直接取字段_且字段在父类中
+	 */
+	@Test
 	public void testGetProperty_FieldInParentClass() {
 		SubForReflectUtil item1 = new SubForReflectUtil("first name", "last name");
 		String field = (String) PropertyAccessor.getProperty(item1, "noGetMethod");
@@ -230,13 +270,19 @@ public class FieldAccessorTest_FromReflectorUtil extends JTester {
 		}
 	}
 
-	@Test(description = "单值对象_且属性值非集合")
+	/**
+	 * 单值对象_且属性值非集合
+	 */
+	@Test
 	public void testGetArrayOrItemProperty_SingleValue_And_PropNotList() {
 		Collection values = PropertyAccessor.getArrayOrItemProperty(new User("ddd", "ddd"), "first");
 		want.collection(values).sizeEq(1).reflectionEq(new String[] { "ddd" });
 	}
 
-	@Test(description = "单值对象_且属性值为集合")
+	/**
+	 * 单值对象_且属性值为集合
+	 */
+	@Test
 	public void testGetArrayOrItemProperty_SingleValue_PropIsList() {
 		User user = new User("ddd", "ddd");
 		user.setAddresses(Arrays.asList(new Address("aaa"), new Address("bbb")));

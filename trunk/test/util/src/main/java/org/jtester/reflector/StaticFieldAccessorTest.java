@@ -1,32 +1,30 @@
-package org.jtester.bytecode.reflector.impl;
+package org.jtester.reflector;
 
-import org.jtester.bytecode.reflector.model.TestObject;
-import org.jtester.reflector.FieldAccessor;
-import org.jtester.testng.JTester;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.jtester.IAssertion;
+import org.jtester.reflector.model.TestObject;
+import org.junit.Before;
+import org.junit.Test;
 
-@Test(groups = "jtester")
-public class StaticFieldAccessorTest extends JTester {
+public class StaticFieldAccessorTest implements IAssertion {
 
 	private FieldAccessor<Integer> aStaticPrivate;
 
-	@BeforeMethod
+	@Before
 	public void setUp() throws Exception {
 		aStaticPrivate = new FieldAccessor<Integer>(TestObject.class, "aStaticPrivate");
 	}
 
-	@Test(expectedExceptions = RuntimeException.class)
+	@Test(expected = RuntimeException.class)
 	public void testStaticFieldAccessor() {
 		new FieldAccessor<Integer>(Object.class, "missing");
 	}
 
-	@Test(expectedExceptions = NullPointerException.class)
+	@Test(expected = NullPointerException.class)
 	public void testStaticFieldAccessor2() {
 		new FieldAccessor<Integer>(null, "missing");
 	}
 
-	@Test(expectedExceptions = RuntimeException.class)
+	@Test(expected = RuntimeException.class)
 	public void testStaticFieldAccessor3() {
 		FieldAccessor<Integer> accessor = new FieldAccessor<Integer>(TestObject.class, "aPrivate");
 		accessor.setStatic(1);
@@ -34,7 +32,7 @@ public class StaticFieldAccessorTest extends JTester {
 	}
 
 	@Test
-	// (expectedExceptions = RuntimeException.class)
+	// (expected = RuntimeException.class)
 	public void testStaticFieldAccessor4() {
 		FieldAccessor<Integer> accessor = new FieldAccessor<Integer>(TestObject.class, "aSuperStaticPrivate");
 		accessor.setStatic(1);
@@ -53,7 +51,8 @@ public class StaticFieldAccessorTest extends JTester {
 	 * Test method for
 	 * {@link com.j2speed.accessor.FieldAccessor#set(java.lang.Object)}.
 	 */
-	@Test(dependsOnMethods = "testGet")
+	@Test
+	// (dependsOnMethods = "testGet")
 	public void testSet() {
 		int newValue = 26072007;
 

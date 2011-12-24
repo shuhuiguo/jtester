@@ -1,15 +1,54 @@
 package org.jtester.beans;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class User {
 	private Integer id;
 
 	private String name;
+
+	private String first;
+	private String last;
 
 	private int age;
 
 	private double salary;
 
 	private boolean isFemale = false;
+
+	private Address address;
+
+	private List<Address> addresses;
+
+	private String[] phones;
+
+	private User assistor;
+
+	public User() {
+
+	}
+
+	public User(String name) {
+		this.name = name;
+	}
+
+	public User(String first, String last) {
+		this.first = first;
+		this.last = last;
+	}
+
+	public User(Integer id, String first, String last) {
+		this.id = id;
+		this.first = first;
+		this.last = last;
+	}
+
+	public User(String first, String last, Address address) {
+		this.first = first;
+		this.last = last;
+		this.address = address;
+	}
 
 	public Integer getId() {
 		return id;
@@ -41,6 +80,13 @@ public class User {
 		return user;
 	}
 
+	public static User newUser(String name, String[] phones) {
+		User user = new User();
+		user.first = name;
+		user.setPhones(phones);
+		return user;
+	}
+
 	public int getAge() {
 		return age;
 	}
@@ -65,8 +111,69 @@ public class User {
 		this.isFemale = isFemale;
 	}
 
+	public String getFirst() {
+		return first;
+	}
+
+	public void setFirst(String first) {
+		this.first = first;
+	}
+
+	public String getLast() {
+		return last;
+	}
+
+	public void setLast(String last) {
+		this.last = last;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	public List<Address> getAddresses() {
+		return addresses;
+	}
+
+	public void setAddresses(List<Address> addresses) {
+		this.addresses = addresses;
+	}
+
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", name=" + name + "]";
+	}
+
+	public String[] getPhones() {
+		return phones;
+	}
+
+	public void setPhones(String[] phones) {
+		this.phones = phones;
+	}
+
+	public User getAssistor() {
+		return assistor;
+	}
+
+	public void setAssistor(User assistor) {
+		this.assistor = assistor;
+	}
+
+	public static User mock() {
+		User user = new User(1, "wu", "darui");
+		user.setAddresses(new ArrayList<Address>() {
+
+			private static final long serialVersionUID = 516532764093459888L;
+			{
+				this.add(new Address(2, "stree2"));
+				this.add(new Address(3, "stree3"));
+			}
+		});
+		return user;
 	}
 }

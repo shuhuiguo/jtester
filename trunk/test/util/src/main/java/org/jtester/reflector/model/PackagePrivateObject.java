@@ -1,4 +1,4 @@
-package org.jtester.bytecode.reflector.model;
+package org.jtester.reflector.model;
 
 import java.util.Date;
 

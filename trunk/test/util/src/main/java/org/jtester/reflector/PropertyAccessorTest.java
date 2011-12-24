@@ -1,29 +1,27 @@
-package org.jtester.bytecode.reflector;
+package org.jtester.reflector;
 
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
+import org.jtester.IAssertion;
 import org.jtester.beans.DataIterator;
+import org.jtester.beans.User;
 import org.jtester.exception.NoSuchFieldRuntimeException;
-import org.jtester.json.encoder.beans.test.User;
-import org.jtester.reflector.PropertyAccessor;
-import org.jtester.testng.JTester;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.jtester.junit.DataFrom;
+import org.junit.Test;
 
 @SuppressWarnings({ "rawtypes", "serial", "unchecked" })
-@Test(groups = "jtester")
-public class PropertyAccessorTest extends JTester {
+public class PropertyAccessorTest implements IAssertion {
 
-	@Test(dataProvider = "testGetPropertyDatas")
+	@Test
+	@DataFrom("testGetPropertyDatas")
 	public void testGetPropertyByOgnl(Object target, String property, String expected) {
 		String value = (String) PropertyAccessor.getPropertyByOgnl(target, property, true);
 		want.string(value).isEqualTo(expected);
 	}
 
-	@DataProvider
-	public Iterator testGetPropertyDatas() {
+	public static Iterator testGetPropertyDatas() {
 		return new DataIterator() {
 			{
 				data(new HashMap() {
@@ -55,7 +53,7 @@ public class PropertyAccessorTest extends JTester {
 		};
 	}
 
-	@Test(expectedExceptions = NoSuchFieldRuntimeException.class)
+	@Test(expected = NoSuchFieldRuntimeException.class)
 	public void testGetPropertyByOgnl_NoKey_Failure() {
 		Map target = new HashMap() {
 			{
@@ -69,6 +67,7 @@ public class PropertyAccessorTest extends JTester {
 		PropertyAccessor.getPropertyByOgnl(target, "map1.key1.map2.key1", true);
 	}
 
+	@Test
 	public void testGetPropertyByOgnl_NoKey_Success() {
 		Map target = new HashMap() {
 			{

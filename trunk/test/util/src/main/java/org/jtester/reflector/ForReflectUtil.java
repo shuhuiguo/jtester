@@ -1,4 +1,4 @@
-package org.jtester.bytecode.reflector.impl;
+package org.jtester.reflector;
 
 @SuppressWarnings("unused")
 public class ForReflectUtil {

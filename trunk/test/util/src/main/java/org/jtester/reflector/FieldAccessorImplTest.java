@@ -1,34 +1,32 @@
-package org.jtester.bytecode.reflector.impl;
+package org.jtester.reflector;
 
-import org.jtester.bytecode.reflector.model.TestObject;
-import org.jtester.reflector.FieldAccessor;
-import org.jtester.testng.JTester;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.jtester.IAssertion;
+import org.jtester.reflector.model.TestObject;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 @SuppressWarnings("rawtypes")
-@Test(groups = "jtester")
-public class FieldAccessorImplTest extends JTester {
+public class FieldAccessorImplTest implements IAssertion {
 
 	private FieldAccessor aPrivate;
 
-	@BeforeMethod
+	@Before
 	public void setUp() throws Exception {
 		aPrivate = new FieldAccessor(TestObject.class, "aPrivate");
 	}
 
-	@AfterMethod
+	@After
 	public void tearDown() throws Exception {
 		aPrivate = null;
 	}
 
-	@Test(expectedExceptions = RuntimeException.class)
+	@Test(expected = RuntimeException.class)
 	public void testFieldAccessor1() {
 		new FieldAccessor(Object.class, "missing");
 	}
 
-	@Test(expectedExceptions = NullPointerException.class)
+	@Test(expected = NullPointerException.class)
 	public void testFieldAccessor2() {
 		new FieldAccessor("missing", null);
 	}

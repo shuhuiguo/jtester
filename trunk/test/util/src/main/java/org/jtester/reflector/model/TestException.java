@@ -1,4 +1,4 @@
-package org.jtester.bytecode.reflector.model;
+package org.jtester.reflector.model;
 
 public class TestException extends Exception {
 	private static final long serialVersionUID = -3003266231421877135L;

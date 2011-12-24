@@ -1,20 +1,19 @@
-package org.jtester.bytecode.reflector.impl;
+package org.jtester.reflector;
 
 import java.util.HashMap;
 
+import org.jtester.IAssertion;
+import org.jtester.IReflector;
 import org.jtester.annotations.SpringApplicationContext;
 import org.jtester.annotations.SpringBeanByName;
-import org.jtester.bytecode.reflector.service.MyService;
-import org.jtester.bytecode.reflector.service.MyServiceImpl;
-import org.jtester.bytecode.reflector.service.MyServiceImpl.MyTestException;
-import org.jtester.reflector.MethodAccessor;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.jtester.beans.MyService;
+import org.jtester.beans.MyServiceImpl;
+import org.jtester.beans.MyServiceImpl.MyTestException;
+import org.junit.Test;
 
 @SpringApplicationContext("org/jtester/bytecode/reflector/mybeans.xml")
-@Test(groups = "jtester")
 @SuppressWarnings({ "unchecked", "rawtypes" })
-public class SuperClazMethodAccessorTest extends JTester {
+public class SuperClazMethodAccessorTest implements IAssertion, IReflector {
 	@SpringBeanByName
 	private ExMyService myService;
 
@@ -44,11 +43,12 @@ public class SuperClazMethodAccessorTest extends JTester {
 		want.number(ret).isEqualTo(1);
 	}
 
-	@Test(expectedExceptions = MyTestException.class)
+	@Test(expected = MyTestException.class)
 	public void invokeException() {
 		myService.invokeException();
 	}
 
+	@Test
 	public void reflectSetField() {
 		reflector.setField(myService, "privateStr", "test");
 		want.object(myService).propertyEq("privateStr", "test");

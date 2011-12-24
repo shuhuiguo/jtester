@@ -1,46 +1,44 @@
-package org.jtester.bytecode.reflector.impl;
+package org.jtester.reflector;
 
-import org.jtester.bytecode.reflector.model.TestObject;
-import org.jtester.reflector.MethodAccessor;
-import org.jtester.testng.JTester;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.jtester.IAssertion;
+import org.jtester.junit.DataFrom;
+import org.jtester.reflector.model.TestObject;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 @SuppressWarnings({ "rawtypes" })
-@Test(groups = "jtester")
-public class MethodAccessorImplTest extends JTester {
+public class MethodAccessorImplTest implements IAssertion {
 	TestObject test = null;
 
 	private MethodAccessor<Integer> getPrivate;
 
 	private MethodAccessor<Integer> setPrivate;
 
-	@BeforeMethod
+	@Before
 	public void setUp() throws Exception {
 		test = new TestObject();
 		getPrivate = new MethodAccessor<Integer>(test, "getPrivate", new Class[0]);
 		setPrivate = new MethodAccessor<Integer>(test, "setPrivate", new Class[] { int.class });
 	}
 
-	@AfterMethod
+	@After
 	public void tearDown() throws Exception {
 		getPrivate = null;
 		setPrivate = null;
 	}
 
-	@Test(expectedExceptions = RuntimeException.class)
+	@Test(expected = RuntimeException.class)
 	public void testMethodAccessor1() {
 		new MethodAccessor<Void>(new Object(), "missing");
 	}
 
-	@Test(expectedExceptions = RuntimeException.class)
+	@Test(expected = RuntimeException.class)
 	public void testMethodAccessor2() {
 		new MethodAccessor<Void>(new TestObject(), "missing");
 	}
 
-	@Test(expectedExceptions = NullPointerException.class)
+	@Test(expected = NullPointerException.class)
 	public void testMethodAccessor3() {
 		new MethodAccessor(null, "missing");
 	}
@@ -49,7 +47,8 @@ public class MethodAccessorImplTest extends JTester {
 	 * Test method for
 	 * {@link com.j2speed.accessor.AbstractMethodAccessor#invokeBase(java.lang.Object[])}
 	 * .
-	 * @throws Exception 
+	 * 
+	 * @throws Exception
 	 * 
 	 * @throws Throwable
 	 */
@@ -63,7 +62,8 @@ public class MethodAccessorImplTest extends JTester {
 		want.number(getPrivate.invoke(test, new Object[] {})).isEqualTo(newValue);
 	}
 
-	@Test(dataProvider = "invokeMethodData")
+	@Test
+	@DataFrom("invokeMethodData")
 	public void testInvokeMethod(String methodName, String value) throws Exception {
 		MethodAccessor<Void> accessor = new MethodAccessor<Void>(ChildClaz.class, methodName);
 		accessor.invoke(new ChildClaz(), new Object[0]);
@@ -71,8 +71,7 @@ public class MethodAccessorImplTest extends JTester {
 		want.string(result).isEqualTo(value);
 	}
 
-	@DataProvider
-	public Object[][] invokeMethodData() {
+	public static Object[][] invokeMethodData() {
 		return new Object[][] { { "parentStaticMethod", "parentStaticMethod" },// <br>
 				{ "childStaticMethod", "childStaticMethod" },// <br>
 				{ "staticMethod", "child static method" },// <br>

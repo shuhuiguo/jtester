@@ -1,15 +1,15 @@
-package org.jtester.bytecode.reflector.impl;
+package org.jtester.reflector;
 
+import org.jtester.IAssertion;
+import org.jtester.IReflector;
 import org.jtester.annotations.SpringApplicationContext;
 import org.jtester.annotations.SpringBeanByName;
-import org.jtester.bytecode.reflector.service.MyService;
-import org.jtester.bytecode.reflector.service.MyServiceImpl;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.jtester.beans.MyService;
+import org.jtester.beans.MyServiceImpl;
+import org.junit.Test;
 
 @SpringApplicationContext("org/jtester/bytecode/reflector/mybeans-invoke.xml")
-@Test(groups = "jtester")
-public class SuperClazMethodAccessorTest_Invoke extends JTester {
+public class SuperClazMethodAccessorTest_Invoke implements IAssertion, IReflector {
 	@SpringBeanByName
 	private ExMyService myService;
 

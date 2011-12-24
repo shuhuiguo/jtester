@@ -1,6 +1,4 @@
-package org.jtester.bytecode.reflector.model;
-
-import org.testng.annotations.Test;
+package org.jtester.reflector.model;
 
 @SuppressWarnings("unused")
 public class TestObject extends SuperTestObject {
