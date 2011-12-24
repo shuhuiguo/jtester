@@ -3,13 +3,13 @@ package org.jtester.core.testng;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
+import org.jtester.IAssertion;
+import org.jtester.core.ListenerExecutor;
 import org.jtester.core.TestListener;
 import org.jtester.core.TestedContext;
-import org.jtester.core.context.IJTester;
-import org.jtester.core.helper.ListenerExecutor;
-import org.jtester.core.helper.ModulesManager;
 import org.jtester.exception.ExceptionWrapper;
-import org.jtester.module.core.JMockitModule;
+import org.jtester.module.JMockitModule;
+import org.jtester.module.helper.ModulesManager;
 import org.testng.IHookCallBack;
 import org.testng.IHookable;
 import org.testng.ITestContext;
@@ -20,7 +20,7 @@ import org.testng.ITestResult;
  * 
  * @author darui.wudr
  */
-public abstract class JTesterHookable implements IHookable, IJTester {
+public abstract class JTesterHookable implements IHookable, IAssertion {
 	protected final static String TEST_CLAZZ_INFO = "%s executing test class[%s] in thread[%d].";
 
 	protected final static String TEST_METHOD_INFO = "%s executing test method[%s . %s ()] in thread[%d].";

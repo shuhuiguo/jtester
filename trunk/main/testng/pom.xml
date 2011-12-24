@@ -17,6 +17,20 @@
 			<artifactId>jtester.util</artifactId>
 			<version>${project.version}</version>
 		</dependency>
-	
+		<dependency>
+			<groupId>org.jtester</groupId>
+			<artifactId>jtester.core</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jtester</groupId>
+			<artifactId>jtester.assertion</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>6.3.1</version>
+		</dependency>
 	</dependencies>
 </project>

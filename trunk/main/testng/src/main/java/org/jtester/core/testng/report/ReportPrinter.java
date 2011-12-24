@@ -8,8 +8,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.jtester.core.testng.UserTestReporter.Status;
+import org.jtester.helper.LogHelper;
 import org.jtester.helper.ResourceHelper;
-import org.jtester.module.helper.LogHelper;
 
 /**
  * ReportPrinter
