@@ -10,30 +10,30 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.jtester.fortest.beans.Employee;
-import org.jtester.fortest.beans.Manager;
-import org.jtester.fortest.beans.User;
+import org.jtester.IAssertion;
+import org.jtester.beans.Employee;
+import org.jtester.beans.Manager;
+import org.jtester.beans.User;
 import org.jtester.matcher.modes.ItemsMode;
-import org.jtester.matcher.property.reflection.EqMode;
 import org.jtester.matcher.string.StringMode;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
-@Test(groups = { "jtester", "assertion" })
-public class ReflectionAssertTest extends JTester {
+public class ReflectionAssertTest implements IAssertion {
+	@Test
 	public void propertyMatch() {
 		Manager manager = new Manager();
 		manager.setName("I am darui.wu");
 		want.object(manager).propertyMatch("name", the.string().contains("darui"));
 	}
 
-	@Test(expectedExceptions = { AssertionError.class })
+	@Test(expected = AssertionError.class)
 	public void propertyMatch_AssertFail() {
 		Manager manager = new Manager();
 		manager.setName("I am darui.wu");
 		want.object(manager).propertyMatch("name", the.string().contains("darui1"));
 	}
 
+	@Test
 	public void propertyEq() {
 		Employee employee = new Employee();
 		want.object(employee).propertyEq("name", null);
@@ -41,6 +41,7 @@ public class ReflectionAssertTest extends JTester {
 		want.object(employee).propertyEq("name", "my name");
 	}
 
+	@Test
 	public void propertyMatch2() {
 		Employee employee = new Employee();
 		want.object(employee).propertyMatch("name", the.string().isNull());
@@ -49,22 +50,25 @@ public class ReflectionAssertTest extends JTester {
 		want.object(employee).propertyEq("name", "my name");
 	}
 
+	@Test
 	public void propertyMatch_forlist() {
 		List<Employee> list = createEmployee();
 		want.collection(list).sizeEq(4).propertyMatch("name", the.collection().hasItems("test name 1"));
 	}
 
-	@Test(expectedExceptions = AssertionError.class)
+	@Test(expected = AssertionError.class)
 	public void propertyMatch_forlist_failure() {
 		List<Employee> list = createEmployee();
 		want.collection(list).sizeEq(4).propertyMatch("name", the.string().contains("name 1"));
 	}
 
+	@Test
 	public void propertyMatch_formap() {
 		Map<String, String> map = createStringMap();
 		want.map(map).propertyEq("key1", "test1").propertyEq("key2", "test2");
 	}
 
+	@Test
 	public void propertyMatch_formap_NoKey() {
 		Map<String, String> map = createStringMap();
 		try {
@@ -75,6 +79,7 @@ public class ReflectionAssertTest extends JTester {
 		}
 	}
 
+	@Test
 	public void propertyMatch_formap_list() {
 		List<Map<String, String>> list = createMapList();
 		want.collection(list).propertyMatch("key1", the.collection().hasItems("test1"));
@@ -86,13 +91,13 @@ public class ReflectionAssertTest extends JTester {
 		want.collection(list).sizeEq(4).propertyMatch(ItemsMode.AnyItems, "name", the.string().contains("name 1"));
 	}
 
-	@Test(expectedExceptions = AssertionError.class)
+	@Test(expected = AssertionError.class)
 	public void propertyMatchOne_forlist_failure() {
 		List<Employee> list = createEmployee();
 		want.collection(list).sizeEq(4).propertyMatch("name", the.string().contains("name 5"));
 	}
 
-	@Test(timeOut = 1000, expectedExceptions = AssertionError.class)
+	@Test(timeout = 1000, expected = AssertionError.class)
 	public void lenientEq_failure() {
 		String[] expected = { "1", "2", "3", "4", "17", "18", "19", "20", "22", "23", "50" };
 		String[] received = { "1", "3", "4", "2", "17", "18", "19", "20", "21", "22", "23" };
@@ -100,7 +105,7 @@ public class ReflectionAssertTest extends JTester {
 		want.array(received).isEqualTo(expected, EqMode.IGNORE_ORDER);
 	}
 
-	@Test(timeOut = 1000)
+	@Test(timeout = 1000)
 	public void lenientEq() {
 		String[] expected = { "1", "2", "3", "4", "17", "18", "19", "20", "22", "23", "50" };
 		String[] received = { "1", "3", "4", "2", "17", "18", "19", "20", "50", "22", "23" };
@@ -134,6 +139,7 @@ public class ReflectionAssertTest extends JTester {
 		return list;
 	}
 
+	@Test
 	public void testEvaluatesToTheTheLogicalConjunctionOfManyOtherMatchers() {
 		assertThat("good", allOf(equalTo("good"), equalTo("good"), equalTo("good"), equalTo("good"), equalTo("good")));
 	}
@@ -150,7 +156,7 @@ public class ReflectionAssertTest extends JTester {
 		want.object(map).propertyEq(new String[] { "wikiName", "age" }, new String[] { "my name", "34" });
 	}
 
-	@Test(expectedExceptions = { AssertionError.class })
+	@Test(expected = AssertionError.class)
 	public void testPropertyEq_Error() {
 		Map<String, String> map = new HashMap<String, String>() {
 			private static final long serialVersionUID = 1951222957450829884L;
@@ -162,7 +168,7 @@ public class ReflectionAssertTest extends JTester {
 		want.object(map).propertyEq(new String[] { "wikiName", "age" }, new String[] { "my name", "35" });
 	}
 
-	@Test(expectedExceptions = { AssertionError.class })
+	@Test(expected = AssertionError.class)
 	public void testPropertyEq_Exception() {
 		Map<String, String> map = new HashMap<String, String>() {
 			private static final long serialVersionUID = 1951222957450829884L;

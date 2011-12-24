@@ -2,16 +2,15 @@ package org.jtester.matcher.property.comparator;
 
 import java.util.HashMap;
 
+import org.jtester.IAssertion;
 import org.jtester.beans.DataMap;
-import org.jtester.json.encoder.beans.test.User;
+import org.jtester.beans.User;
 import org.jtester.matcher.property.reflection.EqMode;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
 @SuppressWarnings({ "rawtypes", "unchecked", "serial" })
-@Test
-public class MapComparatorTest extends JTester {
-
+public class MapComparatorTest implements IAssertion {
+	@Test
 	public void testMap() {
 		want.object(new HashMap() {
 			{
@@ -26,6 +25,7 @@ public class MapComparatorTest extends JTester {
 		}, EqMode.IGNORE_DEFAULTS);
 	}
 
+	@Test
 	public void testMap2() {
 		want.object(User.newInstance(123, "darui.wu")).reflectionEqMap(new DataMap() {
 			{
@@ -35,7 +35,7 @@ public class MapComparatorTest extends JTester {
 		}, EqMode.IGNORE_DEFAULTS);
 	}
 
-	@Test(expectedExceptions = AssertionError.class)
+	@Test(expected = AssertionError.class)
 	public void testMap3() {
 		want.object(new HashMap() {
 			{
