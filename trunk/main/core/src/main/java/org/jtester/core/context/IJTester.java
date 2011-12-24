@@ -1,9 +1,8 @@
-package org.jtester.core;
+package org.jtester.core.context;
 
 import org.jtester.IAssertion;
 import org.jtester.beans.AbstractDataSet;
 import org.jtester.beans.dataset.AbastractDataGenerator;
-import org.jtester.core.context.JTesterReflector;
 import org.jtester.database.JTesterFitnesse;
 import org.jtester.module.database.dbop.DBOperator;
 import org.jtester.module.database.dbop.IDBOperator;

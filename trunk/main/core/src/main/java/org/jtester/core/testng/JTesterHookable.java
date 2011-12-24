@@ -3,9 +3,9 @@ package org.jtester.core.testng;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-import org.jtester.core.IJTester;
 import org.jtester.core.TestListener;
 import org.jtester.core.TestedContext;
+import org.jtester.core.context.IJTester;
 import org.jtester.core.helper.ListenerExecutor;
 import org.jtester.core.helper.ModulesManager;
 import org.jtester.exception.ExceptionWrapper;
