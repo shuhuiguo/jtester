@@ -2,11 +2,11 @@ package org.jtester.module.core;
 
 import java.lang.reflect.Method;
 
-import org.jtester.core.Module;
-import org.jtester.core.TestListener;
-import org.jtester.core.TestedContext;
 import org.jtester.core.helper.ConfigurationHelper;
 import org.jtester.database.TransactionHelper;
+import org.jtester.module.Module;
+import org.jtester.module.TestListener;
+import org.jtester.module.TestedContext;
 import org.jtester.module.core.helper.SpringModuleHelper;
 import org.jtester.module.spring.ApplicationContextFactory;
 import org.jtester.module.spring.JTesterBeanFactory;

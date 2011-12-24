@@ -8,13 +8,13 @@ import java.util.Map;
 
 import org.jtester.annotations.DbFit;
 import org.jtester.annotations.FitVar;
-import org.jtester.core.Module;
-import org.jtester.core.TestListener;
 import org.jtester.database.DbFitContext;
 import org.jtester.database.DbFitContext.RunIn;
 import org.jtester.fit.util.SymbolUtil;
 import org.jtester.helper.AnnotationHelper;
 import org.jtester.helper.LogHelper;
+import org.jtester.module.Module;
+import org.jtester.module.TestListener;
 import org.jtester.module.database.environment.DBEnvironment;
 import org.jtester.module.database.environment.DBEnvironmentFactory;
 import org.jtester.module.database.util.SqlRunner;

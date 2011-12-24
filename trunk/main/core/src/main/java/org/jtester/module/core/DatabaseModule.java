@@ -6,12 +6,12 @@ import javax.sql.DataSource;
 
 import org.jtester.annotations.Transactional;
 import org.jtester.annotations.Transactional.TransactionMode;
-import org.jtester.core.Module;
-import org.jtester.core.TestListener;
 import org.jtester.core.helper.ConfigurationHelper;
 import org.jtester.database.TransactionHelper;
 import org.jtester.database.TransactionManager;
 import org.jtester.helper.LogHelper;
+import org.jtester.module.Module;
+import org.jtester.module.TestListener;
 import org.jtester.module.database.environment.DBEnvironmentFactory;
 import org.jtester.module.database.support.DefaultSQLHandler;
 import org.jtester.module.database.support.SQLHandler;

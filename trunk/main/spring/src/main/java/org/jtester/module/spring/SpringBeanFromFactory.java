@@ -7,11 +7,11 @@ import java.util.HashMap;
 import java.util.Set;
 
 import org.jtester.annotations.SpringBeanFrom;
-import org.jtester.core.TestedContext;
 import org.jtester.exception.FindBeanImplClassException;
 import org.jtester.helper.FieldHelper;
 import org.jtester.helper.LogHelper;
 import org.jtester.helper.StringHelper;
+import org.jtester.module.TestedContext;
 import org.jtester.utility.JTesterProxy;
 import org.springframework.beans.MutablePropertyValues;
 import org.springframework.beans.factory.FactoryBean;

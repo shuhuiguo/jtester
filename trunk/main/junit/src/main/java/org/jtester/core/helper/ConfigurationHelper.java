@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-import org.jtester.core.ConfigurationConst;
 import org.jtester.exception.JTesterException;
 import org.jtester.helper.LogHelper;
 import org.jtester.helper.StringHelper;
+import org.jtester.module.ConfigurationConst;
 
 /**
  * jtester配置文件工具类

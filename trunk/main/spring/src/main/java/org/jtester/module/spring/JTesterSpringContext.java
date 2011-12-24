@@ -1,9 +1,9 @@
 package org.jtester.module.spring;
 
 import org.jtester.annotations.Tracer;
-import org.jtester.core.TestedContext;
 import org.jtester.helper.AnnotationHelper;
 import org.jtester.helper.LogHelper;
+import org.jtester.module.TestedContext;
 import org.jtester.module.core.helper.SpringModuleHelper;
 import org.jtester.module.core.helper.TracerModuleHelper;
 import org.jtester.module.spring.strategy.register.RegisterDynamicBean;

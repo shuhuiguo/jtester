@@ -1,6 +1,6 @@
 package org.jtester.junit;
 
-import org.jtester.core.CoreModule;
+import org.jtester.module.CoreModule;
 import org.junit.runner.RunWith;
 
 @RunWith(JTesterRunner.class)
