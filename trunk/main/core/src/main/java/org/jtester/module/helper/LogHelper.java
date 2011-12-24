@@ -1,10 +1,15 @@
-package org.jtester.helper;
+package org.jtester.module.helper;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
 import java.net.URL;
+
+import org.jtester.helper.ClazzHelper;
+import org.jtester.helper.MethodHelper;
+import org.jtester.helper.ResourceHelper;
+import org.jtester.helper.StringHelper;
 
 
 public class LogHelper {

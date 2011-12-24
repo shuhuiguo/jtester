@@ -23,6 +23,7 @@ import org.jtester.cpdetector.CodepageDetectorProxy;
 import org.jtester.cpdetector.JChardetFacade;
 import org.jtester.exception.JTesterException;
 import org.jtester.helper.ClazzHelper;
+import org.jtester.module.helper.LogHelper;
 
 import ext.jtester.commons.IOUtils;
 
