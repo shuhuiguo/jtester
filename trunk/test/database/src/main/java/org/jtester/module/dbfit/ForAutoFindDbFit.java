@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
  */
 @DbFit(when = "data/clazz.wiki", auto = AUTO.AUTO)
 @Test(groups = "for-test")
-public class ForAutoFindDbFit extends JTester {
+public class ForAutoFindDbFit implements IAssertion {
 
 	@Test(groups = "jtester")
 	@DbFit(then = "data/ForAutoFindDbFit/test_classwiki_autoLoader.wiki")

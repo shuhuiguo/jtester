@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 
 @SuppressWarnings("rawtypes")
 @Test(groups = { "jtester", "tools" })
-public class RepeatDataGeneratorTest extends JTester {
+public class RepeatDataGeneratorTest implements IAssertion {
 
 	@Test(dataProvider = "dataRepeat")
 	public void testRepeatDataGenerator(int index, Object expected) {

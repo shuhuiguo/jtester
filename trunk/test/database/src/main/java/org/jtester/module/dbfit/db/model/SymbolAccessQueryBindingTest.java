@@ -4,7 +4,7 @@ import org.jtester.testng.JTester;
 import org.testng.annotations.Test;
 
 @Test(groups = "jtester")
-public class SymbolAccessQueryBindingTest extends JTester {
+public class SymbolAccessQueryBindingTest implements IAssertion {
 	SymbolAccessQueryBinding binding = new SymbolAccessQueryBinding();
 
 	@Test

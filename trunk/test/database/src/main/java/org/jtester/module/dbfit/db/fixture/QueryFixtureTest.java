@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 @SuppressWarnings("serial")
 @Test(groups = { "jtester", "dbfit" })
-public class QueryFixtureTest extends JTester {
+public class QueryFixtureTest implements IAssertion {
 
 	@DbFit(then = "testQueryFixture.then.wiki")
 	public void testQueryFixture() {

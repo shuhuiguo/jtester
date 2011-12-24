@@ -6,7 +6,7 @@ import org.jtester.testng.JTester;
 import org.testng.annotations.Test;
 
 @Test(groups = { "jtester", "database" })
-public class SqlSetTest extends JTester {
+public class SqlSetTest implements IAssertion {
 
 	@Test
 	public void testReadFrom() {

@@ -16,7 +16,7 @@ import org.jtester.annotations.AutoBeanInject.BeanMap;
 @AutoBeanInject(maps = { @BeanMap(intf = "**.*Service", impl = "**.*ServiceImpl"),
 		@BeanMap(intf = "**.*Dao", impl = "**.*DaoImpl") })
 @Test(groups = "jtester")
-public class JTesterTransactionManagerTest extends JTester {
+public class JTesterTransactionManagerTest implements IAssertion {
 	@SpringBeanByName
 	private UserService userService;
 

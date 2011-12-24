@@ -19,7 +19,7 @@ import org.testng.annotations.Test;
 @SuppressWarnings({ "serial", "unchecked", "unused" })
 @Transactional(TransactionMode.COMMIT)
 @Test(groups = { "jtester", "database" })
-public class TableOpTest extends JTester {
+public class TableOpTest implements IAssertion {
 
 	@Test
 	@DbFit(then = "data/TableOpTest/testInsertData.then.wiki")

@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 
 @SuppressWarnings("unused")
 @Test(groups = { "jtester", "database" })
-public class TableMetaTest extends JTester {
+public class TableMetaTest implements IAssertion {
 
 	@Test(dataProvider = "dataTruncate")
 	public void testTruncateString(String input, String expected) {

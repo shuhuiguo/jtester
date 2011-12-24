@@ -11,7 +11,7 @@ import org.jtester.testng.JTester;
 import org.testng.annotations.Test;
 
 @Test(groups = { "jtester", "database" })
-public class AbstractDBEnvironmentTest_Oracle extends JTester {
+public class AbstractDBEnvironmentTest_Oracle implements IAssertion {
 
 	public void testExtractParamNames_oracle() {
 		AbstractDBEnvironment env = new OracleEnvironment(null, null);

@@ -15,7 +15,7 @@ import org.testng.annotations.Test;
 
 @SuppressWarnings({ "serial", "rawtypes" })
 @Test(groups = { "jtester", "database" })
-public class TypeMapTest extends JTester {
+public class TypeMapTest implements IAssertion {
 
 	@Test(dataProvider = "dataObjectByType_Timestamp")
 	public void testToObjectByType_Timestamp(Class dateType, String input, String output) {

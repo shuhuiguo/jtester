@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 @Test(groups = { "JTester" })
 @SpringApplicationContext({ "classpath:org/jtester/module/spring/testedbeans/xml/beans.xml",
 		"classpath:org/jtester/module/spring/testedbeans/xml/data-source.xml" })
-public class DbFitTest extends JTester {
+public class DbFitTest implements IAssertion {
 	@SpringBeanByName
 	private UserService userService;
 

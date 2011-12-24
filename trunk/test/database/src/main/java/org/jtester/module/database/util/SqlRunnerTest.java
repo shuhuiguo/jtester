@@ -16,7 +16,7 @@ import org.testng.annotations.Test;
 @Test(groups = "jtester")
 @DbFit(auto = AUTO.AUTO)
 @SuppressWarnings({ "rawtypes" })
-public class SqlRunnerTest extends JTester {
+public class SqlRunnerTest implements IAssertion {
 
 	@Test
 	@Transactional(TransactionMode.COMMIT)

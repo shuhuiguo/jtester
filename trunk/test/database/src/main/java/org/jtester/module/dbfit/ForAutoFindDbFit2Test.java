@@ -7,7 +7,7 @@ import org.jtester.testng.JTester;
 import org.testng.annotations.Test;
 
 @Test(groups = "jtester")
-public class ForAutoFindDbFit2Test extends JTester {
+public class ForAutoFindDbFit2Test implements IAssertion {
 	@Test(description = "class上定义了禁止自动查找_方法上未覆盖定义")
 	public void test_when() throws Exception {
 		Method m = ForAutoFindDbFit2.class.getMethod("test1");

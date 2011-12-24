@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 
 @SuppressWarnings({ "rawtypes", "serial" })
 @Test(groups = { "jtester", "database" })
-public class InsertOpTest extends JTester {
+public class InsertOpTest implements IAssertion {
 	@Test(dataProvider = "testGetInsertCommandText_data")
 	public void testGetInsertCommandText(DataMap data, String result) {
 		InsertOp ds = reflector.newInstance(InsertOp.class);

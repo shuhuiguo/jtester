@@ -7,7 +7,7 @@ import org.jtester.testng.JTester;
 import org.testng.annotations.Test;
 
 @Test(groups = "jtester")
-public class AutoFindDbFitTest extends JTester {
+public class AutoFindDbFitTest implements IAssertion {
 
 	@Test
 	public void testAutoFindMethodWhen_HasDBFit_FileExist() throws Exception {

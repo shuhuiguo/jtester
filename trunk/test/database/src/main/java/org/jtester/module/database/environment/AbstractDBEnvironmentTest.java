@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 
 @SuppressWarnings({ "rawtypes", "serial", "unchecked", "unused" })
 @Test(groups = { "jtester", "database" })
-public class AbstractDBEnvironmentTest extends JTester {
+public class AbstractDBEnvironmentTest implements IAssertion {
 
 	@Test
 	public void testGetTableMetaData() throws Exception {

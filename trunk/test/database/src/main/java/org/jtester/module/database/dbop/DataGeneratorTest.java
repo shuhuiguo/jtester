@@ -15,7 +15,7 @@ import org.testng.annotations.Test;
 
 @SuppressWarnings({ "rawtypes", "serial", "unchecked" })
 @Test(groups = { "jtester", "database" })
-public class DataGeneratorTest extends JTester {
+public class DataGeneratorTest implements IAssertion {
 
 	@Test(dataProvider = "dataGenerator")
 	public void testParseMapList(final Object input, Object expected) {

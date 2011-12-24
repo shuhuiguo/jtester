@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 
 @SuppressWarnings({ "serial", "unused", "rawtypes", "unchecked" })
 @Test(groups = { "jtester", "database" })
-public class AbastractDataGeneratorTest extends JTester {
+public class AbastractDataGeneratorTest implements IAssertion {
 	@Test
 	public void testValue() {
 		final List actual = new ArrayList();

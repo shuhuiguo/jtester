@@ -6,7 +6,7 @@ import org.jtester.testng.JTester;
 import org.testng.annotations.Test;
 
 @Test(groups = "mysql")
-public class MySqlEnvironmentTest extends JTester {
+public class MySqlEnvironmentTest implements IAssertion {
 
 	/**
 	 * 在dbfit文件中测试mysql bigint数据类型

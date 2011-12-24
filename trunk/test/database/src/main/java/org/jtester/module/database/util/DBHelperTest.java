@@ -17,7 +17,7 @@ import org.testng.annotations.Test;
 
 @SuppressWarnings({ "rawtypes", "serial" })
 @Test(groups = "jtester")
-public class DBHelperTest extends JTester {
+public class DBHelperTest implements IAssertion {
 
 	@Test
 	public void testParseSQL() throws FileNotFoundException {

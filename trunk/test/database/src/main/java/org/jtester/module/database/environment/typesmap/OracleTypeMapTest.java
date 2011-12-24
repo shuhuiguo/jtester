@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 @SuppressWarnings({ "serial" })
 @Test(groups = { "jtester", "database", "oracle" })
-public class OracleTypeMapTest extends JTester {
+public class OracleTypeMapTest implements IAssertion {
 
 	@Test(groups="broken-install")
 	@DbFit(then = "testGetJavaType.oracle.then.wiki")

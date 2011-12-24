@@ -9,7 +9,7 @@ import org.jtester.testng.JTester;
 import org.testng.annotations.Test;
 
 @Test(groups = { "jtester", "database" })
-public class DBOperatorTest extends JTester {
+public class DBOperatorTest implements IAssertion {
 
 	@Test
 	@DbFit(when = "data/TableOpTest/testClean.when.wiki")

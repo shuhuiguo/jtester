@@ -5,7 +5,7 @@ import org.jtester.testng.JTester;
 import org.testng.annotations.Test;
 
 @Test(groups = "jtester")
-public class MySQLTypeMapTest extends JTester {
+public class MySQLTypeMapTest implements IAssertion {
 
 	@DbFit(when = "mysqltype.when.wiki", then = "mysqltype.then.wiki")
 	public void testMySqlType() {

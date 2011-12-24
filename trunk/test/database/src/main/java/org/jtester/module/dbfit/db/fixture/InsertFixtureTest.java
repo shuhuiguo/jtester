@@ -6,7 +6,7 @@ import org.jtester.testng.JTester;
 import org.testng.annotations.Test;
 
 @Test(groups = "jtester")
-public class InsertFixtureTest extends JTester {
+public class InsertFixtureTest implements IAssertion {
 
 	@DbFit(auto = AUTO.AUTO)
 	public void testKeyGenerateFeedback() {

@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 
 @SuppressWarnings("rawtypes")
 @Test(groups = { "jtester", "tools" })
-public class IncreaseDataGeneratorTest extends JTester {
+public class IncreaseDataGeneratorTest implements IAssertion {
 
 	@Test(dataProvider = "dataIncrease")
 	public void testIncreaseDataGenerator(Number from, Number step, int index, Number expected) {

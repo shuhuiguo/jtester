@@ -1,14 +1,13 @@
 package org.jtester.database;
 
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.jtester.IAssertion;
+import org.junit.Test;
 
-@Test(groups = "debug")
-public class DatabaseModuleHelperTest extends JTester {
+public class DatabaseModuleHelperTest implements IAssertion {
 	/**
 	 * 测试数据库的disabled功能
 	 */
-
+	@Test
 	public void testDisableConstraints() {
 		// DatabaseUnitils.disableConstraints();
 	}
