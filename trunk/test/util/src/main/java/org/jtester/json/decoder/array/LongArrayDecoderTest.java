@@ -1,13 +1,12 @@
 package org.jtester.json.decoder.array;
 
+import org.jtester.IAssertion;
 import org.jtester.json.JSON;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
+public class LongArrayDecoderTest implements IAssertion {
 
-public class LongArrayDecoderTest extends JTester {
-
-	@Test(groups = { "jtester", "json" })
+	@Test
 	public void testParseFromJSONArray() {
 		String json = "['12',124L,\"456l\"]";
 		long[] ints = JSON.toObject(json, long[].class);

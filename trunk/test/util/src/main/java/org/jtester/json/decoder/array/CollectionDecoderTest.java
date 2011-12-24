@@ -3,14 +3,13 @@ package org.jtester.json.decoder.array;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.jtester.IAssertion;
 import org.jtester.json.JSON;
 import org.jtester.json.encoder.beans.test.User;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
 @SuppressWarnings({ "rawtypes" })
-@Test(groups = { "jtester", "json" })
-public class CollectionDecoderTest extends JTester {
+public class CollectionDecoderTest implements IAssertion {
 
 	@Test
 	public void testParseFromJSONArray() {

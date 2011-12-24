@@ -1,12 +1,10 @@
 package org.jtester.json.decoder.array;
 
+import org.jtester.IAssertion;
 import org.jtester.json.JSON;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
-
-@Test(groups = { "jtester", "json" })
-public class IntArrayDecoderTest extends JTester {
+public class IntArrayDecoderTest implements IAssertion {
 
 	@Test
 	public void testParseFromJSONArray() {

@@ -1,13 +1,12 @@
 package org.jtester.json.decoder.array;
 
+import org.jtester.IAssertion;
 import org.jtester.json.JSON;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
+public class FloatArrayDecoderTest implements IAssertion {
 
-public class FloatArrayDecoderTest extends JTester {
-
-	@Test(groups = { "jtester", "json" })
+	@Test
 	public void testParseFromJSONArray() {
 		String json = "['12',12.4,\"45.6f\"]";
 		float[] ints = JSON.toObject(json, float[].class);

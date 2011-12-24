@@ -1,13 +1,12 @@
 package org.jtester.json.decoder.array;
 
+import org.jtester.IAssertion;
 import org.jtester.json.JSON;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
+public class CharArrayDecoderTest implements IAssertion {
 
-public class CharArrayDecoderTest extends JTester {
-
-	@Test(groups = { "jtester", "json" })
+	@Test
 	public void testParseFromJSONArray() {
 		String json = "['a',b,\"c\"]";
 		char[] ints = JSON.toObject(json, char[].class);
