@@ -1,9 +1,10 @@
 package org.jtester.module.spring.aop;
 
+import org.jtester.IAssertion;
 import org.jtester.fortest.service.UserAnotherDaoImpl;
 import org.jtester.fortest.service.UserService;
-import org.jtester.module.core.helper.SpringModuleHelper;
-import org.jtester.testng.JTester;
+import org.jtester.module.SpringModuleHelper;
+import org.junit.Test;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.support.AbstractBeanDefinition;
@@ -14,9 +15,7 @@ import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
-import org.testng.annotations.Test;
 
-@Test(groups = "jtester")
 public class BeanFactoryTest implements IAssertion {
 	@Test
 	public void testXmlBeanDefinitionReader() {

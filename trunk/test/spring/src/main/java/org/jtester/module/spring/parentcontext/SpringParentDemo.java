@@ -1,9 +1,9 @@
 package org.jtester.module.spring.parentcontext;
 
+import org.jtester.IAssertion;
 import org.jtester.fortest.service.UserServiceImpl;
-import org.jtester.testng.JTester;
+import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.testng.annotations.Test;
 
 public class SpringParentDemo implements IAssertion {
 	@SuppressWarnings("unused")

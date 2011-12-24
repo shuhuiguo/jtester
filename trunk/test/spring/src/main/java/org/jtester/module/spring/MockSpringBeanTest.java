@@ -4,18 +4,17 @@ import java.util.ArrayList;
 
 import mockit.Mocked;
 
-import org.jtester.annotations.Transactional;
-import org.jtester.annotations.Transactional.TransactionMode;
+import org.jtester.IAssertion;
 import org.jtester.annotations.Inject;
 import org.jtester.annotations.SpringApplicationContext;
 import org.jtester.annotations.SpringBeanByName;
+import org.jtester.annotations.Transactional;
+import org.jtester.annotations.Transactional.TransactionMode;
 import org.jtester.fortest.beans.User;
 import org.jtester.fortest.service.UserDao;
 import org.jtester.fortest.service.UserService;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
-@Test(groups = "jtester")
 @SpringApplicationContext({ "org/jtester/module/spring/testedbeans/xml/beans.xml",
 		"org/jtester/module/spring/testedbeans/xml/data-source.xml" })
 public class MockSpringBeanTest implements IAssertion {
@@ -26,6 +25,7 @@ public class MockSpringBeanTest implements IAssertion {
 	@Inject(targets = "userService")
 	private UserDao userDao;
 
+	@Test
 	public void paySalary() {
 		new Expectations() {
 			{
@@ -45,7 +45,7 @@ public class MockSpringBeanTest implements IAssertion {
 		want.number(total).isEqualTo(4300d);
 	}
 
-	@Test(expectedExceptions = RuntimeException.class)
+	@Test(expected = RuntimeException.class)
 	@Transactional(TransactionMode.DISABLED)
 	public void paySalary_exception() {
 		new Expectations() {

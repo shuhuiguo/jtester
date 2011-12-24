@@ -3,6 +3,7 @@ package org.jtester.module.spring.resource;
 import mockit.Mock;
 import mockit.Mocked;
 
+import org.jtester.IAssertion;
 import org.jtester.annotations.SpringApplicationContext;
 import org.jtester.annotations.SpringBeanByName;
 import org.jtester.annotations.SpringBeanFrom;
@@ -10,10 +11,8 @@ import org.jtester.fortest.beans.User;
 import org.jtester.fortest.service.UserDao;
 import org.jtester.fortest.service.UserService;
 import org.jtester.module.spring.testedbeans.resource.UserDaoResourceImpl;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
-@Test(groups = "jtester")
 @SpringApplicationContext({ "org/jtester/module/spring/testedbeans/resource/resource-bean.xml" })
 public class ResourceBeanTest_SpringBeanFrom implements IAssertion {
 
@@ -24,6 +23,7 @@ public class ResourceBeanTest_SpringBeanFrom implements IAssertion {
 	@Mocked
 	UserDao userDao;
 
+	@Test
 	public void testResourceBean() {
 		new MockUp<UserDaoResourceImpl>() {
 			@SuppressWarnings("unused")

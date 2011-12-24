@@ -3,15 +3,13 @@ package org.jtester.module.spring.aop;
 import java.util.Arrays;
 import java.util.List;
 
+import org.jtester.IAssertion;
 import org.jtester.annotations.SpringApplicationContext;
 import org.jtester.fortest.beans.User;
 import org.jtester.fortest.service.UserDao;
-import org.jtester.fortest.service.UserService;
 import org.jtester.helper.LogHelper;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
-@Test
 @SpringApplicationContext({ "org/jtester/module/spring/testedbeans/aop/proxybeans.xml",
 		"org/jtester/module/spring/testedbeans/xml/data-source.xml" })
 public class SpringBeanFromFactoryTest implements IAssertion {
@@ -36,9 +34,11 @@ public class SpringBeanFromFactoryTest implements IAssertion {
 
 	};
 
+	@Test
 	public void test() {
-		UserService userService = spring.getBean("userService");
-		List<User> users = userService.findAllUser();
-		want.collection(users).sizeEq(2);
+		want.fail();
+		// UserService userService = spring.getBean("userService");
+		// List<User> users = userService.findAllUser();
+		// want.collection(users).sizeEq(2);
 	}
 }

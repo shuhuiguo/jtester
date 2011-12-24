@@ -1,6 +1,9 @@
 package org.jtester.module.spring;
 
 import org.jtester.IAssertion;
+import org.jtester.fortest.formock.SomeInterface.SomeInterfaceImpl1;
+import org.jtester.fortest.formock.SomeInterface.SomeInterfaceImpl2;
+import org.jtester.fortest.formock.SpringBeanService;
 import org.junit.Test;
 
 public class JTesterApplicationContextFactoryTest implements IAssertion {
@@ -39,7 +42,7 @@ public class JTesterApplicationContextFactoryTest implements IAssertion {
 		want.object(context.getBean(TO_BE_OVERRIDEN_BEAN_NAME)).clazIs(SomeInterfaceImpl1.class);
 	}
 
-	@Test(expectedExceptions = { AssertionError.class })
+	@Test(expected = AssertionError.class)
 	public void testOverride_failure() throws Throwable {
 		// MockBeanRegister.cleanRegister();
 		context = new JTesterSpringContext(

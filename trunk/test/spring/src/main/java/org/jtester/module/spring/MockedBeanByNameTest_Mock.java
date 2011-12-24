@@ -9,9 +9,8 @@ import org.jtester.annotations.SpringBeanFrom;
 import org.jtester.fortest.beans.User;
 import org.jtester.fortest.service.UserDao;
 import org.jtester.fortest.service.UserService;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
-@Test(groups = { "jtester", "mockbean" })
 public class MockedBeanByNameTest_Mock extends MockedBeanByNameTest_Base {
 	@SpringBeanByName
 	private UserService userService;
@@ -20,6 +19,7 @@ public class MockedBeanByNameTest_Mock extends MockedBeanByNameTest_Base {
 	@Mocked
 	private UserDao userDao;
 
+	@Test
 	public void paySalary() {
 		new Expectations() {
 			{

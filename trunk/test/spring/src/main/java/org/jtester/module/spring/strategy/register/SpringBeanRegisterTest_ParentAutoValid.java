@@ -2,7 +2,7 @@ package org.jtester.module.spring.strategy.register;
 
 import org.jtester.annotations.Transactional;
 import org.jtester.annotations.Transactional.TransactionMode;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
 /**
  * 验证父类的注入是否对子类有效
@@ -10,14 +10,14 @@ import org.testng.annotations.Test;
  * @author darui.wudr
  * 
  */
-@Test(groups = "jtester")
 public class SpringBeanRegisterTest_ParentAutoValid extends RegisterDynamicBeanTest {
-
+	@Test
 	public void checkUserAnotherDao() {
 		Object userDao = spring.getBean("userAnotherDao");
 		want.object(userDao).notNull();
 	}
 
+	@Test
 	public void checkUserServiceBean() {
 		want.object(userService).notNull();
 		Object o = spring.getBean("userService");
@@ -29,7 +29,8 @@ public class SpringBeanRegisterTest_ParentAutoValid extends RegisterDynamicBeanT
 	 * 注：当threadPoolSize值设的较大时，jmockit有时会抛出NullPointer错误
 	 */
 	@Transactional(TransactionMode.COMMIT)
-	@Test(invocationCount = 12, threadPoolSize = 3)
+	@Test
+	// (invocationCount = 12, threadPoolSize = 3)
 	public void getSpringBean_multiThread() {
 		want.object(userService).notNull();
 		Object o = spring.getBean("userAnotherDao");

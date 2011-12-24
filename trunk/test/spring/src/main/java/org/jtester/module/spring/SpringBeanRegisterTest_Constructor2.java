@@ -1,19 +1,19 @@
 package org.jtester.module.spring;
 
+import org.jtester.IAssertion;
 import org.jtester.annotations.AutoBeanInject;
 import org.jtester.annotations.SpringApplicationContext;
 import org.jtester.annotations.SpringBeanByName;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
 @SpringApplicationContext
 @AutoBeanInject
-@Test(groups = "jtester")
 public class SpringBeanRegisterTest_Constructor2 implements IAssertion {
 
 	@SpringBeanByName
 	OuterClass outer;
 
+	@Test
 	public void test_Claz没有默认构造函数() {
 		Object inner1 = outer.getInner();
 		want.object(inner1).isNull();

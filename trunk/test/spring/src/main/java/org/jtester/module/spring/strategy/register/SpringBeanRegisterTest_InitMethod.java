@@ -1,17 +1,16 @@
 package org.jtester.module.spring.strategy.register;
 
+import org.jtester.IAssertion;
 import org.jtester.annotations.AutoBeanInject;
 import org.jtester.annotations.AutoBeanInject.BeanMap;
 import org.jtester.annotations.SpringApplicationContext;
 import org.jtester.annotations.SpringBeanByName;
 import org.jtester.annotations.SpringBeanByType;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
 @SpringApplicationContext({ "org/jtester/module/spring/testedbeans/xml/data-source.xml" })
 @AutoBeanInject(maps = { @BeanMap(intf = "**.*Service", impl = "**.*ServiceImpl"),
 		@BeanMap(intf = "**.*Dao", impl = "**.*DaoImpl") })
-@Test(groups = "jtester")
 public class SpringBeanRegisterTest_InitMethod implements IAssertion {
 	@SpringBeanByName(claz = InitMethodBeanByName.class, init = "init")
 	InitMethodBeanByName beanByName;
@@ -19,13 +18,19 @@ public class SpringBeanRegisterTest_InitMethod implements IAssertion {
 	@SpringBeanByType(value = InitMethodBeanByType.class, init = "init")
 	InitMethodBeanByType beanByType;
 
-	@Test(description = "自动注册bean时识别init-method")
+	/**
+	 * 自动注册bean时识别init-method
+	 */
+	@Test
 	public void testBeanDefinitionByName_InitMethod() {
 		String result = beanByName.say();
 		want.string(result).isEqualTo("bean init");
 	}
 
-	@Test(description = "自动注册bean时识别init-method")
+	/**
+	 * 自动注册bean时识别init-method
+	 */
+	@Test
 	public void testBeanDefinitionByType_InitMethod() {
 		String result = beanByType.say();
 		want.string(result).isEqualTo("bean init");

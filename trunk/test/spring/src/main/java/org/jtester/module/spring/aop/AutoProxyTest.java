@@ -1,11 +1,11 @@
 package org.jtester.module.spring.aop;
 
+import org.jtester.IAssertion;
 import org.jtester.module.spring.testedbeans.aop.Bird;
 import org.jtester.module.spring.testedbeans.aop.Cat;
-import org.jtester.testng.JTester;
+import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.testng.annotations.Test;
 
 public class AutoProxyTest implements IAssertion {
 	@Test

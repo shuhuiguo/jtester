@@ -3,6 +3,7 @@ package org.jtester.module.spring.strategy.register;
 import mockit.Mocked;
 import mockit.NonStrict;
 
+import org.jtester.ISpring;
 import org.jtester.annotations.AutoBeanInject;
 import org.jtester.annotations.AutoBeanInject.BeanMap;
 import org.jtester.annotations.SpringApplicationContext;
@@ -11,13 +12,11 @@ import org.jtester.annotations.SpringBeanFrom;
 import org.jtester.fortest.service.UserAnotherDao;
 import org.jtester.fortest.service.UserDao;
 import org.jtester.fortest.service.UserService;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
 @SpringApplicationContext({ "org/jtester/module/spring/testedbeans/xml/data-source.xml" })
 @AutoBeanInject(maps = { @BeanMap(intf = "**.*Service", impl = "**.*ServiceImpl") })
-@Test(groups = "jtester")
-public class SpringBeanRegisterTest_ExcludeMockBean implements IAssertion {
+public class SpringBeanRegisterTest_ExcludeMockBean implements ISpring {
 	@SpringBeanByName
 	private UserService userService;
 
@@ -29,6 +28,7 @@ public class SpringBeanRegisterTest_ExcludeMockBean implements IAssertion {
 	@NonStrict
 	private UserDao userDao;
 
+	@Test
 	public void getSpringBean_MockedBean() {
 		want.object(userService).notNull();
 		Object o = spring.getBean("userAnotherDao");

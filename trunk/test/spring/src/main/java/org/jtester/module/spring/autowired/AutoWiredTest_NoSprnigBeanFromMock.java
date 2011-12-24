@@ -2,22 +2,22 @@ package org.jtester.module.spring.autowired;
 
 import mockit.Mock;
 
+import org.jtester.IAssertion;
 import org.jtester.annotations.SpringApplicationContext;
 import org.jtester.annotations.SpringBeanByType;
 import org.jtester.fortest.beans.User;
-import org.jtester.module.spring.testedbeans.autowired.IUserService;
-import org.jtester.module.spring.testedbeans.autowired.UserDaoImpl;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
-@Test(groups = "jtester")
 @SpringApplicationContext({ "org/jtester/module/spring/testedbeans/autowired/autowired.xml" })
 public class AutoWiredTest_NoSprnigBeanFromMock implements IAssertion {
 
 	@SpringBeanByType
 	IUserService userService;
 
-	@Test(description = "测试@AutoWired的正常加载方式")
+	/**
+	 * 测试@AutoWired的正常加载方式
+	 */
+	@Test
 	public void testAutoWired() {
 		final boolean[] checked = new boolean[] { false };
 		new MockUp<UserDaoImpl>() {

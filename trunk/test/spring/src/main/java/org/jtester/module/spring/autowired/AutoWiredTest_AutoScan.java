@@ -3,17 +3,13 @@ package org.jtester.module.spring.autowired;
 import mockit.Mock;
 import mockit.Mocked;
 
+import org.jtester.IAssertion;
 import org.jtester.annotations.SpringApplicationContext;
 import org.jtester.annotations.SpringBeanByType;
 import org.jtester.annotations.SpringBeanFrom;
 import org.jtester.fortest.beans.User;
-import org.jtester.module.spring.testedbeans.autowired.IUserDao;
-import org.jtester.module.spring.testedbeans.autowired.IUserService;
-import org.jtester.module.spring.testedbeans.autowired.UserDaoImpl;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
-@Test(groups = "jtester")
 @SpringApplicationContext({ "org/jtester/module/spring/testedbeans/autowired/autowired-scan.xml" })
 public class AutoWiredTest_AutoScan implements IAssertion {
 
@@ -24,7 +20,10 @@ public class AutoWiredTest_AutoScan implements IAssertion {
 	@Mocked
 	IUserDao userDao;
 
-	@Test(description = "@AutoWired自动包扫描情况下，使用@SpringBeanFrom来替换spring扫描到的bean")
+	/**
+	 * @AutoWired自动包扫描情况下，使用@SpringBeanFrom来替换spring扫描到的bean
+	 */
+	@Test
 	public void testAutoWired_AutoScan() {
 		new MockUp<UserDaoImpl>() {
 			@SuppressWarnings("unused")

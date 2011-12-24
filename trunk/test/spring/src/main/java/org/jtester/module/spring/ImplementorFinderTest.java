@@ -6,14 +6,13 @@ import java.util.List;
 
 import mockit.Mock;
 
+import org.jtester.IAssertion;
 import org.jtester.annotations.AutoBeanInject.BeanMap;
 import org.jtester.exception.FindBeanImplClassException;
 import org.jtester.helper.ClazzHelper;
-import org.jtester.testng.JTester;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.jtester.junit.DataFrom;
+import org.junit.Test;
 
-@Test(groups = "jtester")
 @SuppressWarnings({ "unused", "rawtypes" })
 public class ImplementorFinderTest implements IAssertion {
 
@@ -40,14 +39,14 @@ public class ImplementorFinderTest implements IAssertion {
 		want.array(packs).sizeEq(3).reflectionEq(new String[] { "org.jtester.", "service", ".UserService" });
 	}
 
-	@Test(dataProvider = "testRegMatch_dataPorvider")
+	@Test
+	@DataFrom("testRegMatch_dataPorvider")
 	public void testRegMatch(String interfaceKey, String interfaceClass, boolean match) {
 		boolean ret = ImplementorFinderEx.regMatch(interfaceKey, interfaceClass);
 		want.bool(ret).isEqualTo(match);
 	}
 
-	@DataProvider
-	public Object[][] testRegMatch_dataPorvider() {
+	public static Object[][] testRegMatch_dataPorvider() {
 		return new Object[][] { { "org.jtester.**.service.*", "org.jtester.service.UserService", true }, /** <br> */
 		{ "org.jtester.**.*", "org.jtester.service.UserService", true }, /** <br> */
 		{ "org.jtester1.**.*", "org.jtester.service.UserService", false }, /** <br> */
@@ -59,14 +58,14 @@ public class ImplementorFinderTest implements IAssertion {
 		};
 	}
 
-	@Test(dataProvider = "testReplace_dataProvider")
+	@Test
+	@DataFrom("testReplace_dataProvider")
 	public void testReplace(String intfExpress, String implExpress, String intfClazz, String implClazz) {
 		String implementClass = ImplementorFinderEx.replace(intfExpress, implExpress, intfClazz);
 		want.string(implementClass).isEqualTo(implClazz);
 	}
 
-	@DataProvider
-	public Object[][] testReplace_dataProvider() {
+	public static Object[][] testReplace_dataProvider() {
 		return new Object[][] {
 				{ "org.jtester.**.*", "org.jtester.**.*Impl", "org.jtester.service.UserService",
 						"org.jtester.service.UserServiceImpl" },
@@ -80,7 +79,11 @@ public class ImplementorFinderTest implements IAssertion {
 				{ "**.*Dao", "**.impl.*DaoImpl", "org.jtester.service.UserDao", "org.jtester.service.impl.UserDaoImpl" } };
 	}
 
-	@Test(description = "测试class名称的大小写有差异时，查找实现抛出的是错误NoClassDefFoundError，而不是异常NoClassDefFoundException的case")
+	/**
+	 * 测试class名称的大小写有差异时，查找实现抛出的是错误NoClassDefFoundError，
+	 * 而不是异常NoClassDefFoundException的case
+	 */
+	@Test
 	public void testGetImplClass() {
 		BeanMap beanMap = ICharacterDiff.class.getAnnotation(BeanMap.class);
 		try {
@@ -115,7 +118,12 @@ public class ImplementorFinderTest implements IAssertion {
 		}
 	}
 
-	@Test(description = "测试实现类只要有默认的构造函数，而不敢是否是private还是public的，都可以通过spring注册")
+	/**
+	 * 测试实现类只要有默认的构造函数，而不敢是否是private还是public的，都可以通过spring注册
+	 * 
+	 * @throws FindBeanImplClassException
+	 */
+	@Test
 	public void testFindImplClazz_() throws FindBeanImplClassException {
 		new MockUp<ImplementorFinder>() {
 
@@ -129,7 +137,12 @@ public class ImplementorFinderTest implements IAssertion {
 		want.object(clazImpl).isEqualTo(NotPublicConstruction.class);
 	}
 
-	@Test(description = "测试实现类没有默认的构造函数，无法通过spring注册")
+	/**
+	 * 测试实现类没有默认的构造函数，无法通过spring注册
+	 * 
+	 * @throws FindBeanImplClassException
+	 */
+	@Test
 	public void testFindImplClazz_NoHasDefaultConstruction() throws FindBeanImplClassException {
 		new MockUp<ImplementorFinder>() {
 

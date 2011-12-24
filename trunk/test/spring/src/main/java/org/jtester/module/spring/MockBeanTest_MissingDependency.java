@@ -2,15 +2,14 @@ package org.jtester.module.spring;
 
 import mockit.Mocked;
 
+import org.jtester.IAssertion;
 import org.jtester.annotations.SpringApplicationContext;
 import org.jtester.annotations.SpringBeanByName;
 import org.jtester.fortest.formock.SomeInterface;
 import org.jtester.fortest.formock.SpringBeanService;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
-@SpringApplicationContext( { "org/jtester/module/spring/testedbeans/xml/mockbeans-withdependency.xml" })
-@Test
+@SpringApplicationContext({ "org/jtester/module/spring/testedbeans/xml/mockbeans-withdependency.xml" })
 public class MockBeanTest_MissingDependency implements IAssertion {
 	@SpringBeanByName
 	private SpringBeanService springBeanService1;
@@ -18,6 +17,7 @@ public class MockBeanTest_MissingDependency implements IAssertion {
 	@Mocked
 	protected SomeInterface dependency2;
 
+	@Test
 	public void testDependency_MockBean() {
 		want.object(springBeanService1.getDependency1()).notNull();
 		want.object(springBeanService1.getDependency2()).notNull();

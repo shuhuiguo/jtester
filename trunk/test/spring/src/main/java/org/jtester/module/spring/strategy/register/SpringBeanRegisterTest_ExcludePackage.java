@@ -1,20 +1,19 @@
 package org.jtester.module.spring.strategy.register;
 
+import org.jtester.ISpring;
 import org.jtester.annotations.AutoBeanInject;
+import org.jtester.annotations.AutoBeanInject.BeanMap;
 import org.jtester.annotations.SpringApplicationContext;
 import org.jtester.annotations.SpringBeanByName;
-import org.jtester.annotations.AutoBeanInject.BeanMap;
 import org.jtester.fortest.service.UserAnotherDao;
 import org.jtester.fortest.service.UserService;
-import org.jtester.testng.JTester;
+import org.junit.Test;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
-import org.testng.annotations.Test;
 
 @SpringApplicationContext({ "org/jtester/module/spring/testedbeans/xml/data-source.xml" })
 @AutoBeanInject(maps = { @BeanMap(intf = "**.*Service", impl = "**.*ServiceImpl"),
 		@BeanMap(intf = "**.*Dao", impl = "**.*DaoImpl") }, excludePackages = { "org.jtester.**.UserDao" })
-@Test(groups = "jtester")
-public class SpringBeanRegisterTest_ExcludePackage implements IAssertion {
+public class SpringBeanRegisterTest_ExcludePackage implements ISpring {
 	@SpringBeanByName
 	private UserService userService;
 
@@ -27,7 +26,7 @@ public class SpringBeanRegisterTest_ExcludePackage implements IAssertion {
 		want.object(o).same(userAnotherDao);
 	}
 
-	@Test(expectedExceptions = NoSuchBeanDefinitionException.class)
+	@Test(expected = NoSuchBeanDefinitionException.class)
 	public void getSpringBean_NoSuchBean() {
 		Object userDao = spring.getBean("userDao");
 		want.object(userDao).notNull();

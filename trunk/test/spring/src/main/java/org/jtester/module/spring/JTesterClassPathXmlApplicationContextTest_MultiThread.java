@@ -3,26 +3,26 @@ package org.jtester.module.spring;
 import java.util.List;
 
 import mockit.Delegate;
+import mockit.Expectations;
 import mockit.NonStrict;
 
+import org.jtester.ISpring;
 import org.jtester.annotations.AutoBeanInject;
+import org.jtester.annotations.AutoBeanInject.BeanMap;
 import org.jtester.annotations.SpringApplicationContext;
 import org.jtester.annotations.SpringBeanByName;
 import org.jtester.annotations.SpringBeanFrom;
 import org.jtester.annotations.Tracer;
-import org.jtester.annotations.AutoBeanInject.BeanMap;
 import org.jtester.fortest.beans.User;
 import org.jtester.fortest.service.UserDao;
 import org.jtester.fortest.service.UserDaoImpl;
 import org.jtester.fortest.service.UserService;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
 @SpringApplicationContext({ "org/jtester/module/spring/testedbeans/xml/data-source.xml" })
 @AutoBeanInject(maps = @BeanMap(intf = "**.UserAnotherDao", impl = "**.UserAnotherDaoImpl"))
-@Test(groups = "jtester")
 @SuppressWarnings("unused")
-public class JTesterClassPathXmlApplicationContextTest_MultiThread implements IAssertion {
+public class JTesterClassPathXmlApplicationContextTest_MultiThread implements ISpring {
 	@SpringBeanFrom
 	@NonStrict
 	private UserService userService;

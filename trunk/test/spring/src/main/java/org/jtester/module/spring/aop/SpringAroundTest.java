@@ -3,9 +3,9 @@ package org.jtester.module.spring.aop;
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
 import org.apache.log4j.Logger;
-import org.jtester.testng.JTester;
+import org.jtester.IAssertion;
+import org.junit.Test;
 import org.springframework.aop.framework.ProxyFactory;
-import org.testng.annotations.Test;
 
 public class SpringAroundTest implements IAssertion {
 	private final static Logger log4j = Logger.getLogger(SpringAroundTest.class);
