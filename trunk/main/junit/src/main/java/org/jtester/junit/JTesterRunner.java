@@ -4,13 +4,13 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.jtester.core.TestListener;
 import org.jtester.helper.MethodHelper;
 import org.jtester.junit.internal.FrameworkMethodWithParameters;
 import org.jtester.junit.internal.MethodAroundStatement;
 import org.jtester.junit.internal.ParameterDataFromHelper;
 import org.jtester.junit.internal.TestAroundStatement;
 import org.jtester.module.CoreModule;
-import org.jtester.module.TestListener;
 import org.junit.runner.notification.RunNotifier;
 import org.junit.runners.BlockJUnit4ClassRunner;
 import org.junit.runners.model.FrameworkMethod;
