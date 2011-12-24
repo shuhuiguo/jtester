@@ -1,5 +1,6 @@
 package org.jtester.assertion.object.impl;
 
+import org.jtester.IAssertion;
 import org.jtester.assertion.object.intf.IArrayAssert;
 import org.jtester.assertion.object.intf.IBooleanAssert;
 import org.jtester.assertion.object.intf.IByteAssert;
@@ -16,12 +17,10 @@ import org.jtester.assertion.object.intf.INumberAssert;
 import org.jtester.assertion.object.intf.IObjectAssert;
 import org.jtester.assertion.object.intf.IShortAssert;
 import org.jtester.assertion.object.intf.IStringAssert;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
-@Test(groups = { "jtester", "assertion" })
-public class TheStyleAssertionTest extends JTester {
-
+public class TheStyleAssertionTest implements IAssertion {
+	@Test
 	public void theAssert() {
 		want.object(the.string()).clazIs(IStringAssert.class);
 		want.object(the.bool()).clazIs(IBooleanAssert.class);

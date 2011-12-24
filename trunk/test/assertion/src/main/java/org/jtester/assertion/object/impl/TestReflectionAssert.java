@@ -5,16 +5,15 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
-import org.jtester.fortest.beans.Address;
-import org.jtester.fortest.beans.User;
+import org.jtester.IAssertion;
+import org.jtester.beans.Address;
+import org.jtester.beans.User;
 import org.jtester.matcher.property.reflection.EqMode;
-import org.jtester.testng.JTester;
-import org.testng.Assert;
-import org.testng.annotations.Test;
+import org.junit.Assert;
+import org.junit.Test;
 
-@Test(groups = { "jtester", "assertion" })
-public class TestReflectionAssert extends JTester {
-	@Test(expectedExceptions = { AssertionError.class })
+public class TestReflectionAssert implements IAssertion {
+	@Test(expected = AssertionError.class)
 	public void test1() {
 		User user1 = new User(1, "John", "Doe");
 		User user2 = new User(1, "John", "Doe");
@@ -28,7 +27,7 @@ public class TestReflectionAssert extends JTester {
 		want.object(user1).reflectionEq(user2);
 	}
 
-	@Test(expectedExceptions = { AssertionError.class })
+	@Test(expected = AssertionError.class)
 	public void test3() {
 		User user1 = new User(1, "John", "Doe");
 		User user2 = new User(1, "John", "Doe1");
@@ -72,7 +71,7 @@ public class TestReflectionAssert extends JTester {
 		want.object("any").eqIgnoreDefault(null);
 	}
 
-	@Test(expectedExceptions = { AssertionError.class })
+	@Test(expected = AssertionError.class)
 	public void testLenientAssert2() {
 		want.object(null).eqIgnoreDefault("any");
 	}
@@ -99,13 +98,13 @@ public class TestReflectionAssert extends JTester {
 
 	}
 
-	@Test(expectedExceptions = { AssertionError.class })
+	@Test(expected = AssertionError.class)
 	public void test8() {
 		User user = new User(1, "John", "Doe");
 		want.object(user).propertyEq("id", 2);
 	}
 
-	@Test(expectedExceptions = { AssertionError.class })
+	@Test(expected = AssertionError.class)
 	public void test9() {
 		User user = new User("John", "Doe", new Address("First street", "", ""));
 		want.object(user).propertyEq("address.street", "First street1");

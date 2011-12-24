@@ -10,14 +10,13 @@ import java.util.Map;
 
 import mockit.Mocked;
 
+import org.jtester.IAssertion;
 import org.jtester.annotations.Inject;
 import org.jtester.helper.DateHelper;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
 @SuppressWarnings({ "rawtypes", "serial", "unchecked" })
-@Test(groups = { "jtester", "assertion" })
-public class DateAssertTest extends JTester {
+public class DateAssertTest implements IAssertion {
 	private static DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	private static Date date = null;
 	private static Calendar cal = null;
@@ -37,6 +36,7 @@ public class DateAssertTest extends JTester {
 	@Inject(targets = "testApp")
 	private IDateTest idate;
 
+	@Test
 	public void yearIs() {
 		want.calendar(cal).isYear(2009).isYear("2009");
 		new Expectations() {
@@ -48,12 +48,12 @@ public class DateAssertTest extends JTester {
 		testApp.setTime(date, cal);
 	}
 
-	@Test(expectedExceptions = { AssertionError.class })
+	@Test(expected = AssertionError.class)
 	public void yearIs_failure1() {
 		want.calendar(cal).isYear(2009).isYear("20091");
 	}
 
-	@Test(expectedExceptions = { AssertionError.class })
+	@Test(expected = AssertionError.class)
 	public void yearIs_failure2() {
 		new Expectations() {
 			{
@@ -64,7 +64,7 @@ public class DateAssertTest extends JTester {
 		testApp.setTime(date, cal);
 	}
 
-	@Test(expectedExceptions = { AssertionError.class })
+	@Test(expected = AssertionError.class)
 	public void yearIs_failure3() {
 		new Expectations() {
 			{
@@ -75,6 +75,7 @@ public class DateAssertTest extends JTester {
 		testApp.setTime(date, cal);
 	}
 
+	@Test
 	public void monthIs() {
 		want.calendar(cal).isMonth(4).isMonth("04");
 		new Expectations() {
@@ -86,6 +87,7 @@ public class DateAssertTest extends JTester {
 		testApp.setTime(date, cal);
 	}
 
+	@Test
 	public void dayIs() {
 		want.calendar(cal).isDay(12).isDay("12");
 		new Expectations() {
@@ -97,6 +99,7 @@ public class DateAssertTest extends JTester {
 		testApp.setTime(date, cal);
 	}
 
+	@Test
 	public void hourIs() {
 		want.calendar(cal).isHour(15).isHour("15");
 		new Expectations() {
@@ -108,6 +111,7 @@ public class DateAssertTest extends JTester {
 		testApp.setTime(date, cal);
 	}
 
+	@Test
 	public void minuteIs() {
 		want.calendar(cal).isMinute(36).isMinute("36");
 		new Expectations() {
@@ -119,6 +123,7 @@ public class DateAssertTest extends JTester {
 		testApp.setTime(date, cal);
 	}
 
+	@Test
 	public void secondIs() {
 		want.calendar(cal).isSecond(24).isSecond("24");
 		new Expectations() {
@@ -181,6 +186,7 @@ public class DateAssertTest extends JTester {
 		want.date(history).isLessThan(new Date());
 	}
 
+	@Test
 	public void testPropertyEq() {
 		final Date date = DateHelper.parse("2010-06-18 15:26:34");
 		Map map = new HashMap() {

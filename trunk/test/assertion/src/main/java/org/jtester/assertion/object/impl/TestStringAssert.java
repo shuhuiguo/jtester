@@ -1,10 +1,9 @@
 package org.jtester.assertion.object.impl;
 
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.jtester.IAssertion;
+import org.junit.Test;
 
-@Test(groups = { "jtester", "assertion" })
-public class TestStringAssert extends JTester {
+public class TestStringAssert implements IAssertion {
 	@Test
 	public void test11() {
 		want.string("ddd").contains("d").contains("d");
@@ -14,17 +13,17 @@ public class TestStringAssert extends JTester {
 		want.string("eeeed").end("ed").start("eee");
 	}
 
-	@Test(expectedExceptions = { AssertionError.class })
+	@Test(expected = AssertionError.class)
 	public void test12() {
 		want.string("ddd").contains("de").contains("d");
 	}
 
-	@Test(expectedExceptions = { AssertionError.class })
+	@Test(expected = AssertionError.class)
 	public void test13() {
 		want.string("ddd").contains("d").contains("de");
 	}
 
-	@Test(expectedExceptions = { AssertionError.class })
+	@Test(expected = AssertionError.class)
 	public void test21() {
 		want.string("abcd").any(the.string().contains("ad"), the.string().contains("de"));
 	}
@@ -39,11 +38,12 @@ public class TestStringAssert extends JTester {
 		want.string("abcd").all(the.string().contains("ab"), the.string().contains("cd"));
 	}
 
-	@Test(expectedExceptions = { AssertionError.class })
+	@Test(expected = AssertionError.class)
 	public void test32() {
 		want.string("abcd").all(the.string().contains("ad"), the.string().contains("cd"));
 	}
 
+	@Test
 	public void eqIgnorBlank() {
 		want.string(" ab ").eqIgnoreSpace("ab");
 		want.string("abC").eqIgnoreCase("aBc");

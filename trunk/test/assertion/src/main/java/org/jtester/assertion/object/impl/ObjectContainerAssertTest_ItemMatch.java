@@ -3,15 +3,14 @@ package org.jtester.assertion.object.impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.jtester.testng.JTester;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.jtester.IAssertion;
+import org.junit.Before;
+import org.junit.Test;
 
-@Test(groups = { "jtester", "assertion" })
-public class ObjectContainerAssertTest_ItemMatch extends JTester {
+public class ObjectContainerAssertTest_ItemMatch implements IAssertion {
 	private List<String> list = new ArrayList<String>();
 
-	@BeforeMethod
+	@Before
 	public void setup() {
 		list.clear();
 		list.add("test.hello.one");
@@ -19,6 +18,7 @@ public class ObjectContainerAssertTest_ItemMatch extends JTester {
 		list.add("test.hello.three");
 	}
 
+	@Test
 	public void allItemMatch() {
 		want.bool("test.hello.three".matches(".*hello.*")).is(true);
 
@@ -26,47 +26,50 @@ public class ObjectContainerAssertTest_ItemMatch extends JTester {
 				.allItemsMatchAll(the.string().regular("test.*"), the.string().regular(".*hello.*"));
 	}
 
+	@Test
 	public void allItemMatch_2() {
 		want.collection(list).sizeIs(3).allItemsMatchAll(the.string().regular(".*hello.*"));
 	}
 
-	@Test(expectedExceptions = { AssertionError.class })
+	@Test(expected = AssertionError.class)
 	public void allItemMatch_3() {
 		want.collection(list).sizeIs(3)
 				.allItemsMatchAll(the.string().regular(".*hello.*"), the.string().regular("test1.*"));
 	}
 
+	@Test
 	public void hasItemMatch() {
 		want.collection(list).sizeIs(3).anyItemsMatchAny(the.string().regular(".*one"), the.string().regular(".*two"));
 	}
 
+	@Test
 	public void hasItemMatch_2() {
 		want.collection(list).sizeIs(3).anyItemsMatchAll(the.string().regular(".*three"));
 	}
 
-	@Test(expectedExceptions = { AssertionError.class })
+	@Test(expected = AssertionError.class)
 	public void hasItemMatch_3() {
 		want.collection(list).sizeIs(3).anyItemsMatchAll(the.string().regular(".*four"));
 	}
 
-	@Test(expectedExceptions = { AssertionError.class })
+	@Test(expected = AssertionError.class)
 	public void hasItemMatch_4() {
 		want.collection(list).sizeIs(3).anyItemsMatchAll(the.string().regular("test1"), the.string().regular(".*four"));
 	}
 
-	@Test(expectedExceptions = { AssertionError.class })
+	@Test(expected = AssertionError.class)
 	public void hasItemMatch_arraytest1() {
 		want.array(new String[] { "hello.one", "hello.two" }).sizeIs(2)
 				.anyItemsMatchAll(the.string().regular(".*one"), the.string().regular(".*two"));
 	}
 
-	@Test(expectedExceptions = { AssertionError.class })
+	@Test(expected = AssertionError.class)
 	public void hasItemMatch_arraytest2() {
 		want.array(new String[] { "hello.one", "hello.two" }).sizeIs(2)
 				.anyItemsMatchAll(the.string().regular("test1"), the.string().regular(".*four"));
 	}
 
-	@Test(expectedExceptions = { AssertionError.class })
+	@Test(expected = AssertionError.class)
 	public void allItemMatch_arraytest1() {
 		want.array(new String[] { "hello.one", "heollo.two" }).sizeIs(2)
 				.allItemsMatchAll(the.string().regular("hello.*"));
@@ -78,7 +81,7 @@ public class ObjectContainerAssertTest_ItemMatch extends JTester {
 				.allItemsMatchAll(the.string().regular("hello.*"));
 	}
 
-	@Test(expectedExceptions = { AssertionError.class })
+	@Test(expected = AssertionError.class)
 	public void allItemMatch_arraytest2() {
 		want.array(new String[] { "hello.one", "hello.two" }).sizeIs(2).allItemsMatchAll(the.string().regular(".*one"));
 	}

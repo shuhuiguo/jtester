@@ -1,5 +1,8 @@
 package org.jtester.beans;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class User {
 	private Integer id;
 
@@ -14,13 +17,33 @@ public class User {
 
 	private boolean isFemale = false;
 
+	private Address address;
+
+	private List<Address> addresses;
+
 	public User() {
 
+	}
+
+	public User(String name) {
+		this.name = name;
 	}
 
 	public User(String first, String last) {
 		this.first = first;
 		this.last = last;
+	}
+
+	public User(Integer id, String first, String last) {
+		this.id = id;
+		this.first = first;
+		this.last = last;
+	}
+
+	public User(String first, String last, Address address) {
+		this.first = first;
+		this.last = last;
+		this.address = address;
 	}
 
 	public Integer getId() {
@@ -93,8 +116,37 @@ public class User {
 		this.last = last;
 	}
 
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	public List<Address> getAddresses() {
+		return addresses;
+	}
+
+	public void setAddresses(List<Address> addresses) {
+		this.addresses = addresses;
+	}
+
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", name=" + name + "]";
+	}
+
+	public static User mock() {
+		User user = new User(1, "wu", "darui");
+		user.setAddresses(new ArrayList<Address>() {
+
+			private static final long serialVersionUID = 516532764093459888L;
+			{
+				this.add(new Address(2, "stree2"));
+				this.add(new Address(3, "stree3"));
+			}
+		});
+		return user;
 	}
 }

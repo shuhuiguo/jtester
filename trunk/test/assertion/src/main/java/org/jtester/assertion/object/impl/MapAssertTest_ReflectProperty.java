@@ -5,17 +5,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.jtester.IAssertion;
 import org.jtester.matcher.property.reflection.EqMode;
-import org.jtester.testng.JTester;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.junit.Before;
+import org.junit.Test;
 
-@Test(groups = { "jtester", "assertion" })
-public class MapAssertTest_ReflectProperty extends JTester {
+public class MapAssertTest_ReflectProperty implements IAssertion {
 	Map<String, String> maps = null;
 	List<Map<String, String>> list = null;
 
-	@BeforeMethod
+	@Before
 	public void initData() {
 		maps = mockMap();
 
@@ -26,6 +25,7 @@ public class MapAssertTest_ReflectProperty extends JTester {
 		list.add(map2);
 	}
 
+	@Test
 	public void testMapReflet() {
 		Map<String, String> maps = mockMap();
 
@@ -33,20 +33,24 @@ public class MapAssertTest_ReflectProperty extends JTester {
 		want.map(maps).propertyEq("three", "my third value");
 	}
 
+	@Test
 	public void testMapReflet_matcher() {
 		Map<String, String> maps = mockMap();
 		want.map(maps).propertyMatch("one", the.string().isEqualTo("my first value"));
 	}
 
+	@Test
 	public void testMapRefletList() {
 		want.collection(list).propertyEq("one", new String[] { "my first value", "ddd" });
 	}
 
+	@Test
 	public void testMapRefletList_PropertyCollection() {
 		want.collection(list).propertyMatch("one",
 				the.collection().reflectionEq(new String[] { "ddd", "my first value" }, EqMode.IGNORE_ORDER));
 	}
 
+	@Test
 	public void testMapRefletList_PropertyCollection_order() {
 		try {
 			want.collection(list).propertyMatch("one",
@@ -58,11 +62,13 @@ public class MapAssertTest_ReflectProperty extends JTester {
 		}
 	}
 
+	@Test
 	public void testMapRefletList_lenientOrder() {
 		want.collection(list).propertyMatch("one",
 				the.collection().reflectionEq(new String[] { "my first value", "ddd" }));
 	}
 
+	@Test
 	public void propertyCollectionRefEq() {
 		String[][] expecteds = new String[][] { { "my first value", "my third value" }, { "ddd", "my third value" } };
 		want.collection(list).propertyEq(new String[] { "one", "three" }, expecteds, EqMode.IGNORE_ORDER);

@@ -1,10 +1,9 @@
 package org.jtester.assertion.object.impl;
 
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.jtester.IAssertion;
+import org.junit.Test;
 
-@Test(groups = { "jtester", "assertion" })
-public class TestBooleanAssert extends JTester {
+public class TestBooleanAssert implements IAssertion {
 
 	@Test
 	public void test1() {
@@ -12,12 +11,12 @@ public class TestBooleanAssert extends JTester {
 		want.bool(true).is(true);
 	}
 
-	@Test(expectedExceptions = { AssertionError.class })
+	@Test(expected = AssertionError.class)
 	public void test2() {
 		want.bool(true).is(false);
 	}
 
-	@Test(expectedExceptions = { AssertionError.class })
+	@Test(expected = AssertionError.class)
 	public void test3() {
 		// fail();
 		want.fail();

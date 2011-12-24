@@ -1,10 +1,9 @@
 package org.jtester.assertion.object.impl;
 
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.jtester.IAssertion;
+import org.junit.Test;
 
-@Test(groups = { "jtester", "assertion" })
-public class TestNumberAssert extends JTester {
+public class TestNumberAssert implements IAssertion {
 	@Test
 	public void test1() {
 		want.number(3).isBetween(2, 5);
@@ -15,7 +14,7 @@ public class TestNumberAssert extends JTester {
 		want.number(3).isEqualTo(3);
 	}
 
-	@Test(expectedExceptions = { AssertionError.class })
+	@Test(expected = AssertionError.class)
 	public void test2() {
 		want.number(3).isBetween(5, 2);
 	}

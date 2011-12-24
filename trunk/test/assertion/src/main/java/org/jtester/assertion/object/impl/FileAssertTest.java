@@ -3,18 +3,18 @@ package org.jtester.assertion.object.impl;
 import java.io.File;
 import java.util.UUID;
 
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.jtester.IAssertion;
+import org.junit.Test;
 
-@Test(groups = { "jtester", "assertion" })
-public class FileAssertTest extends JTester {
-	@Test(expectedExceptions = { AssertionError.class })
+public class FileAssertTest implements IAssertion {
+	@Test(expected = AssertionError.class)
 	public void isExists_AssertionError() {
 		String tmp = System.getProperty("java.io.tmpdir");
 		String file = tmp + File.separatorChar + UUID.randomUUID().toString() + ".txt";
 		want.file(new File(file)).isExists();
 	}
 
+	@Test
 	public void unExists() {
 		String tmp = System.getProperty("java.io.tmpdir");
 		String file = tmp + File.separatorChar + UUID.randomUUID().toString() + ".txt";

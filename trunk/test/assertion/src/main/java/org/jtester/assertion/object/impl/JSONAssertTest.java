@@ -2,11 +2,10 @@ package org.jtester.assertion.object.impl;
 
 import java.util.Arrays;
 
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.jtester.IAssertion;
+import org.junit.Test;
 
-@Test(groups = { "jtester", "assertion" })
-public class JSONAssertTest extends JTester {
+public class JSONAssertTest implements IAssertion {
 	String json_arr = "[{\"gmtModified\":\"2009-06-19\",\"employeeId\":\"1234\",\"loginId\":\"system\",\"phone\":null,\"gmtCreate\":\"2008-02-26\",\"status\":\"enable\",\"isDeleted\":\"n\",\"password\":\"mhmW78lxgfCu4YMhqjs7Eg==\",\"gmtLastPasswordChanged\":\"2009-06-19\",\"creator\":\"sys\",\"homepageUrl\":null,\"modifier\":\"esb\",\"mobilePhone\":null,\"email\":\"system@b2btest.com\",\"name\":\"system\",\"gender\":\"M\",\"language\":\"zh_CN\",\"signature\":null},{\"gmtModified\":\"2009-08-14\",\"employeeId\":null,\"loginId\":\"wrreer\",\"phone\":null,\"gmtCreate\":\"2009-08-14\",\"status\":\"enable\",\"isDeleted\":\"n\",\"password\":\"reerer\",\"gmtLastPasswordChanged\":null,\"creator\":\"demo\",\"homepageUrl\":null,\"modifier\":\"demo\",\"mobilePhone\":null,\"email\":null,\"name\":\"asdsda\",\"gender\":\"m\",\"language\":null,\"signature\":null},{\"gmtModified\":\"2009-08-14\",\"employeeId\":null,\"loginId\":\"wrreer\",\"phone\":null,\"gmtCreate\":\"2009-08-14\",\"status\":\"enable\",\"isDeleted\":\"n\",\"password\":\"reerer\",\"gmtLastPasswordChanged\":null,\"creator\":\"demo\",\"homepageUrl\":null,\"modifier\":\"demo\",\"mobilePhone\":null,\"email\":null,\"name\":\"asdsda\",\"gender\":\"m\",\"language\":null,\"signature\":null},{\"gmtModified\":\"2009-08-14\",\"employeeId\":null,\"loginId\":\"wrreer\",\"phone\":null,\"gmtCreate\":\"2009-08-14\",\"status\":\"enable\",\"isDeleted\":\"n\",\"password\":\"reerer\",\"gmtLastPasswordChanged\":null,\"creator\":\"demo\",\"homepageUrl\":null,\"modifier\":\"demo\",\"mobilePhone\":null,\"email\":null,\"name\":\"asdsda\",\"gender\":\"m\",\"language\":null,\"signature\":null},{\"gmtModified\":\"2009-08-14\",\"employeeId\":null,\"loginId\":\"wrreer\",\"phone\":null,\"gmtCreate\":\"2009-08-14\",\"status\":\"enable\",\"isDeleted\":\"n\",\"password\":\"reerer\",\"gmtLastPasswordChanged\":null,\"creator\":\"demo\",\"homepageUrl\":null,\"modifier\":\"demo\",\"mobilePhone\":null,\"email\":null,\"name\":\"asdsda\",\"gender\":\"m\",\"language\":null,\"signature\":null},{\"gmtModified\":\"2009-08-14\",\"employeeId\":null,\"loginId\":\"wrreer\",\"phone\":null,\"gmtCreate\":\"2009-08-14\",\"status\":\"enable\",\"isDeleted\":\"n\",\"password\":\"reerer\",\"gmtLastPasswordChanged\":null,\"creator\":\"demo\",\"homepageUrl\":null,\"modifier\":\"demo\",\"mobilePhone\":null,\"email\":null,\"name\":\"asdsda\",\"gender\":\"m\",\"language\":null,\"signature\":null},{\"gmtModified\":\"2009-08-14\",\"employeeId\":null,\"loginId\":\"mooon\",\"phone\":null,\"gmtCreate\":\"2009-08-14\",\"status\":\"enbale\",\"isDeleted\":\"n\",\"password\":\"11222132\",\"gmtLastPasswordChanged\":null,\"creator\":\"demo\",\"homepageUrl\":null,\"modifier\":\"demo\",\"mobilePhone\":null,\"email\":null,\"name\":\"light\",\"gender\":\"m\",\"language\":null,\"signature\":null},{\"gmtModified\":\"2009-08-14\",\"employeeId\":null,\"loginId\":\"mooon\",\"phone\":null,\"gmtCreate\":\"2009-08-14\",\"status\":\"enbale\",\"isDeleted\":\"n\",\"password\":\"11222132\",\"gmtLastPasswordChanged\":null,\"creator\":\"demo\",\"homepageUrl\":null,\"modifier\":\"demo\",\"mobilePhone\":null,\"email\":null,\"name\":\"light\",\"gender\":\"m\",\"language\":null,\"signature\":null},{\"gmtModified\":\"2009-08-14\",\"employeeId\":null,\"loginId\":\"mooon\",\"phone\":null,\"gmtCreate\":\"2009-08-14\",\"status\":\"enbale\",\"isDeleted\":\"n\",\"password\":\"11222132\",\"gmtLastPasswordChanged\":null,\"creator\":\"demo\",\"homepageUrl\":null,\"modifier\":\"demo\",\"mobilePhone\":null,\"email\":null,\"name\":\"light\",\"gender\":\"m\",\"language\":null,\"signature\":null},{\"gmtModified\":\"2009-08-14\",\"employeeId\":null,\"loginId\":\"mooon\",\"phone\":null,\"gmtCreate\":\"2009-08-14\",\"status\":\"enbale\",\"isDeleted\":\"n\",\"password\":\"11222132\",\"gmtLastPasswordChanged\":null,\"creator\":\"demo\",\"homepageUrl\":null,\"modifier\":\"demo\",\"mobilePhone\":null,\"email\":null,\"name\":\"light\",\"gender\":\"m\",\"language\":null,\"signature\":null}]";
 
 	@Test
@@ -14,7 +13,7 @@ public class JSONAssertTest extends JTester {
 		want.json(json_arr).isJSONArray();
 	}
 
-	@Test(expectedExceptions = AssertionError.class)
+	@Test(expected = AssertionError.class)
 	public void testIsJSONMap_failure() {
 		want.json(json_arr).isJSONMap();
 	}

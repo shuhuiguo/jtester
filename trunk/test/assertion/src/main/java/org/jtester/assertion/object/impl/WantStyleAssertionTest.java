@@ -4,6 +4,7 @@ import java.io.File;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
+import org.jtester.IAssertion;
 import org.jtester.assertion.object.intf.IArrayAssert;
 import org.jtester.assertion.object.intf.IBooleanAssert;
 import org.jtester.assertion.object.intf.IByteAssert;
@@ -15,12 +16,10 @@ import org.jtester.assertion.object.intf.IIntegerAssert;
 import org.jtester.assertion.object.intf.ILongAssert;
 import org.jtester.assertion.object.intf.IShortAssert;
 import org.jtester.assertion.object.intf.IStringAssert;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
-@Test(groups = { "jtester", "assertion" })
-public class WantStyleAssertionTest extends JTester {
-
+public class WantStyleAssertionTest implements IAssertion {
+	@Test
 	public void wantAssert() {
 		want.object(want.string(new String())).clazIs(IStringAssert.class);
 		want.object(want.bool(true)).clazIs(IBooleanAssert.class);
@@ -38,24 +37,27 @@ public class WantStyleAssertionTest extends JTester {
 		want.object(want.file(new File(""))).clazIs(IFileAssert.class);
 	}
 
-	@Test(expectedExceptions = { AssertionError.class })
+	@Test(expected = AssertionError.class)
 	public void wantAssert_Failure() {
 		want.fail("error message");
 	}
 
-	@Test(expectedExceptions = { AssertionError.class })
+	@Test(expected = AssertionError.class)
 	public void wantAssert_Failure2() {
 		want.bool(true).isEqualTo(false);
 	}
 
+	@Test
 	public void wantNumber_BigDecimal() {
 		want.number(new BigDecimal("100.256")).isEqualTo(new BigDecimal("100.256"));
 	}
 
+	@Test
 	public void wantNumber_BigInteger() {
 		want.number(new BigInteger("10111111111111")).isEqualTo(new BigInteger("10111111111111"));
 	}
 
+	@Test
 	public void wantNumber_Byte() {
 		want.number(new Byte("127")).isEqualTo(new Byte("127"));
 	}

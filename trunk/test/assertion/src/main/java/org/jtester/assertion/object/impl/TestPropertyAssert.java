@@ -1,12 +1,12 @@
 package org.jtester.assertion.object.impl;
 
-import org.jtester.fortest.beans.Address;
-import org.jtester.fortest.beans.User;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.jtester.IAssertion;
+import org.jtester.beans.Address;
+import org.jtester.beans.User;
+import org.junit.Test;
 
-@Test(groups = { "jtester", "assertion" })
-public class TestPropertyAssert extends JTester {
+public class TestPropertyAssert implements IAssertion {
+	@Test
 	public void assertObject() {
 		User user = new User(1, "wu", "darui");
 		user.setAddress(new Address("网商路699号", "310012", "alibaba滨江大楼"));
@@ -20,6 +20,7 @@ public class TestPropertyAssert extends JTester {
 				new String[] { "wu", "darui", "310012" });
 	}
 
+	@Test
 	public static User yourApi() {
 		User user = new User(1, "wu", "darui");
 		user.setAddress(new Address("网商路699号", "310012", "alibaba滨江大楼"));

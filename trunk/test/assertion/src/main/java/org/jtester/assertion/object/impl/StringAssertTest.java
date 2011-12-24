@@ -1,11 +1,10 @@
 package org.jtester.assertion.object.impl;
 
+import org.jtester.IAssertion;
 import org.jtester.matcher.string.StringMode;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
-@Test(groups = { "jtester", "assertion" })
-public class StringAssertTest extends JTester {
+public class StringAssertTest implements IAssertion {
 
 	@Test
 	public void testNotContain() {
@@ -13,14 +12,14 @@ public class StringAssertTest extends JTester {
 		want.string(tested).notContain("is");
 	}
 
-	@Test(expectedExceptions = AssertionError.class)
+	@Test(expected = AssertionError.class)
 	public void testNotContain_fail() {
 		String tested = "i am tested string";
 		want.string(tested).contains("tested");
 		want.string(tested).notContain("tested");
 	}
 
-	@Test(expectedExceptions = AssertionError.class)
+	@Test(expected = AssertionError.class)
 	public void testNotContain_fail2() {
 		String tested = "i am tested string";
 		want.string(tested).not(the.string().contains("tested"));
@@ -32,7 +31,7 @@ public class StringAssertTest extends JTester {
 		want.string(tested).notBlank();
 	}
 
-	@Test(expectedExceptions = AssertionError.class)
+	@Test(expected = AssertionError.class)
 	public void testNotBlank_fail() {
 		String tested = "	\t \n";
 		want.string(tested).notBlank();
@@ -53,10 +52,11 @@ public class StringAssertTest extends JTester {
 		want.string("===A\tb\nC====").contains("a b c", StringMode.IgnoreCase, StringMode.SameAsSpace);
 	}
 
-	@Test(expectedExceptions = AssertionError.class)
+	@Test(expected = AssertionError.class)
 	public void testContains_failure() {
 		want.string("===A\tb\nC====").contains("a b c", StringMode.IgnoreCase);
 	}
+
 	/**
 	 * 在忽略空格和大小写的情况下，实际字符串以abc结尾
 	 */
@@ -89,15 +89,17 @@ public class StringAssertTest extends JTester {
 		want.string("abc cde 123, 456").containsInOrder("abc", "123", "456");
 	}
 
-	@Test(expectedExceptions = AssertionError.class)
+	@Test(expected = AssertionError.class)
 	public void testContainsInOrder_Failure() {
 		want.string("abc cde 123, 456").containsInOrder("abc", "456", "123");
 	}
 
+	@Test
 	public void testStringIgnoreSpace_ChineseChar() {
 		want.string("我是        中文 ").isEqualTo("我是中文 ", StringMode.IgnoreSpace);
 	}
 
+	@Test
 	public void testStringSameSpace_ChineseChar() {
 		want.string("我是        中文").isEqualTo("我是     中文", StringMode.SameAsSpace);
 	}
@@ -105,7 +107,7 @@ public class StringAssertTest extends JTester {
 	/**
 	 * 希望字符串不包含子串"abc"和"efg"，但实际上包含了"abc"，断言会抛出错误
 	 */
-	@Test(expectedExceptions = AssertionError.class)
+	@Test(expected = AssertionError.class)
 	public void testNotContains_Failure() {
 		want.string("abc cba").notContain(new String[] { "abc", "efg" });
 	}
@@ -113,6 +115,7 @@ public class StringAssertTest extends JTester {
 	/**
 	 * 希望字符串不包含子串"acb"和"efg"，实际上也不包含，断言通过
 	 */
+	@Test
 	public void testNotContains() {
 		want.string("abc cba").notContain(new String[] { "acb", "efg" });
 	}
