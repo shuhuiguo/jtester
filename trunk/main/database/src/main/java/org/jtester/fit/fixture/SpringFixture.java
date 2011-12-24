@@ -11,7 +11,7 @@ import org.jtester.fit.spring.FixtureSpringApplicationContext;
 import org.jtester.helper.AnnotationHelper;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class SpringFixture extends JTesterFixture implements IJTester {
+public class SpringFixture extends JTesterFixture implements IDatabase {
 	private ClassPathXmlApplicationContext ctx;
 
 	/**
