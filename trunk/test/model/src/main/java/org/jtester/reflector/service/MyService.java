@@ -1,4 +1,4 @@
-package org.jtester.bytecode.reflector.service;
+package org.jtester.reflector.service;
 
 public interface MyService {
 	public void mySay();

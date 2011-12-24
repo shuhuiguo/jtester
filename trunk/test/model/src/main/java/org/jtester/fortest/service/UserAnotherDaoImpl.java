@@ -3,7 +3,6 @@ package org.jtester.fortest.service;
 import java.sql.SQLException;
 import java.util.List;
 
-import org.jtester.annotations.SpringInitMethod;
 import org.jtester.fortest.beans.User;
 import org.springframework.orm.ibatis.support.SqlMapClientDaoSupport;
 
@@ -52,7 +51,7 @@ public class UserAnotherDaoImpl extends SqlMapClientDaoSupport implements UserAn
 
 	int springinit = 0;
 
-	@SpringInitMethod
+	// @SpringInitMethod
 	public void springinit() {
 		springinit = 100;
 	}
