@@ -7,7 +7,6 @@
 		<version>1.2.0</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
-	<groupId>org.jtester</groupId>
 	<artifactId>jtester.spring</artifactId>
 	<packaging>jar</packaging>
 	<name>jtester junit module</name>
@@ -22,6 +21,25 @@
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aspects</artifactId>
+			<version>2.5.4</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>2.5.4</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.annotation</groupId>
+			<artifactId>jsr250-api</artifactId>
+			<version>1.0</version>
+			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 </project>
