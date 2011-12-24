@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 @AutoBeanInject(maps = { @BeanMap(intf = "**.*Service", impl = "**.*ServiceImpl"),
 		@BeanMap(intf = "**.*Dao", impl = "**.*DaoImpl") })
 @Test(groups = "jtester")
-public class RegisterDynamicBeanTest extends JTester {
+public class RegisterDynamicBeanTest implements IAssertion {
 	@SpringBeanByName
 	protected UserService userService;
 

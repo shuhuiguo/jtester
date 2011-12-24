@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 @AutoBeanInject(maps = { @BeanMap(intf = "**.*Service", impl = "**.*ServiceImpl"),
 		@BeanMap(intf = "**.*Dao", impl = "**.*DaoImpl") })
 @Test(groups = "jtester")
-public class SpringBeanRegisterTest_SpringBeanForValue extends JTester {
+public class SpringBeanRegisterTest_SpringBeanForValue implements IAssertion {
 
 	@SpringBeanByName(claz = BeanClazzUserServiceImpl.class)
 	private UserService userService1;

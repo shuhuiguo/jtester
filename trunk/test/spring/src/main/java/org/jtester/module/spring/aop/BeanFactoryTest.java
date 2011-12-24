@@ -17,7 +17,7 @@ import org.springframework.core.io.Resource;
 import org.testng.annotations.Test;
 
 @Test(groups = "jtester")
-public class BeanFactoryTest extends JTester {
+public class BeanFactoryTest implements IAssertion {
 	@Test
 	public void testXmlBeanDefinitionReader() {
 		Resource beanRes = new ClassPathResource("org/jtester/module/spring/testedbeans/xml/beans.xml");

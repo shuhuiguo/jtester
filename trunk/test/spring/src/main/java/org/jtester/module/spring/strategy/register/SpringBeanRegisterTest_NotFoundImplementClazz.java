@@ -22,7 +22,7 @@ import org.testng.annotations.Test;
 @SpringApplicationContext({ "org/jtester/module/spring/testedbeans/xml/data-source.xml" })
 @AutoBeanInject(maps = { @BeanMap(intf = "**.*Service", impl = "**.*ServiceImpl") })
 @Test(groups = "jtester")
-public class SpringBeanRegisterTest_NotFoundImplementClazz extends JTester {
+public class SpringBeanRegisterTest_NotFoundImplementClazz implements IAssertion {
 	@SpringBeanByName
 	UserService userService;
 

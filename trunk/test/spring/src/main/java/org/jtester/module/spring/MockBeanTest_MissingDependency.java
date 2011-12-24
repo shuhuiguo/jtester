@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 
 @SpringApplicationContext( { "org/jtester/module/spring/testedbeans/xml/mockbeans-withdependency.xml" })
 @Test
-public class MockBeanTest_MissingDependency extends JTester {
+public class MockBeanTest_MissingDependency implements IAssertion {
 	@SpringBeanByName
 	private SpringBeanService springBeanService1;
 

@@ -1,12 +1,9 @@
 package org.jtester.module.spring;
 
-import org.jtester.fortest.formock.SomeInterface.SomeInterfaceImpl1;
-import org.jtester.fortest.formock.SomeInterface.SomeInterfaceImpl2;
-import org.jtester.fortest.formock.SpringBeanService;
-import org.testng.annotations.Test;
+import org.jtester.IAssertion;
+import org.junit.Test;
 
-@Test(groups = { "JTester" })
-public class JTesterApplicationContextFactoryTest extends org.jtester.testng.JTester {
+public class JTesterApplicationContextFactoryTest implements IAssertion {
 	private static final String TO_BE_OVERRIDEN_BEAN_NAME = "toBeOverriden";
 	private static final String ANOTHER_BEAN_NAME = "springBeanService";
 

@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 @AutoBeanInject(maps = { @BeanMap(intf = "**.*Service", impl = "**.*ServiceImpl"),
 		@BeanMap(intf = "**.*Dao", impl = "**.*DaoImpl") })
 @Test(groups = "jtester")
-public class SpringBeanRegisterTest_InitMethod extends JTester {
+public class SpringBeanRegisterTest_InitMethod implements IAssertion {
 	@SpringBeanByName(claz = InitMethodBeanByName.class, init = "init")
 	InitMethodBeanByName beanByName;
 

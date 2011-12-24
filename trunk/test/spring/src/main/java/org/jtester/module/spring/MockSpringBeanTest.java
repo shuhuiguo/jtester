@@ -18,7 +18,7 @@ import org.testng.annotations.Test;
 @Test(groups = "jtester")
 @SpringApplicationContext({ "org/jtester/module/spring/testedbeans/xml/beans.xml",
 		"org/jtester/module/spring/testedbeans/xml/data-source.xml" })
-public class MockSpringBeanTest extends JTester {
+public class MockSpringBeanTest implements IAssertion {
 	@SpringBeanByName
 	private UserService userService;
 

@@ -19,7 +19,7 @@ import org.testng.annotations.Test;
 		@BeanMap(intf = "**.*Dao", impl = "**.impl.*DaoImpl"), /** <br> */
 		@BeanMap(intf = "**.*Dao", impl = "**.*DaoImpl") })
 @Test(groups = "jtester")
-public class SpringBeanRegisterTest_MultiPattern extends JTester {
+public class SpringBeanRegisterTest_MultiPattern implements IAssertion {
 	@SpringBeanByName
 	private UserService userService;
 

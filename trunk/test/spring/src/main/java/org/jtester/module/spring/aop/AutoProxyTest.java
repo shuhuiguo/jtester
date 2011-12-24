@@ -7,7 +7,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.testng.annotations.Test;
 
-public class AutoProxyTest extends JTester {
+public class AutoProxyTest implements IAssertion {
 	@Test
 	public void testAutoProxyTest() {
 		String[] paths = { "org/jtester/module/spring/testedbeans/aop/animal-aop.xml" };

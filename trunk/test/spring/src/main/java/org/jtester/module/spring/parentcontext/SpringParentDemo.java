@@ -5,7 +5,7 @@ import org.jtester.testng.JTester;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.testng.annotations.Test;
 
-public class SpringParentDemo extends JTester {
+public class SpringParentDemo implements IAssertion {
 	@SuppressWarnings("unused")
 	@Test
 	public void demoSpringParent() {

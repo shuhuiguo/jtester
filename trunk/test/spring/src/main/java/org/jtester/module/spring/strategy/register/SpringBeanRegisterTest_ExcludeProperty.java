@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
 @AutoBeanInject(maps = { @BeanMap(intf = "**.*Service", impl = "**.*ServiceImpl"),
 		@BeanMap(intf = "**.*Dao", impl = "**.*DaoImpl") }, excludeProperties = { "userDao" })
 @Test(groups = "jtester")
-public class SpringBeanRegisterTest_ExcludeProperty extends JTester {
+public class SpringBeanRegisterTest_ExcludeProperty implements IAssertion {
 	@SpringBeanByName
 	private UserService userService;
 

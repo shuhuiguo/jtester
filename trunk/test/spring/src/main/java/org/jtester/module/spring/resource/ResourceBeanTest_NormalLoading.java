@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 
 @Test(groups = "jtester")
 @SpringApplicationContext({ "org/jtester/module/spring/testedbeans/resource/resource-bean.xml" })
-public class ResourceBeanTest_NormalLoading extends JTester {
+public class ResourceBeanTest_NormalLoading implements IAssertion {
 
 	@SpringBeanByName
 	UserService userService;

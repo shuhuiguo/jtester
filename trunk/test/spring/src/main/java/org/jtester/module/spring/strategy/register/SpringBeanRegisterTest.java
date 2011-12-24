@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
 @SpringApplicationContext({ "org/jtester/module/spring/testedbeans/xml/data-source.xml" })
 @AutoBeanInject(maps = { @BeanMap(intf = "**.*Service", impl = "**.*ServiceImpl"),
 		@BeanMap(intf = "**.*Dao", impl = "**.*DaoImpl") })
-public class SpringBeanRegisterTest extends JTester {
+public class SpringBeanRegisterTest implements IAssertion {
 	@SpringBeanByName(properties = {
 			@Property(name = "userAnotherDao", ref = "userRefDao", clazz = UserAnotherDaoImpl.class),
 			@Property(name = "myName", value = "I am test") })

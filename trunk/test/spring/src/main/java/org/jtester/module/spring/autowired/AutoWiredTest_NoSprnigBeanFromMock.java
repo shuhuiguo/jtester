@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 
 @Test(groups = "jtester")
 @SpringApplicationContext({ "org/jtester/module/spring/testedbeans/autowired/autowired.xml" })
-public class AutoWiredTest_NoSprnigBeanFromMock extends JTester {
+public class AutoWiredTest_NoSprnigBeanFromMock implements IAssertion {
 
 	@SpringBeanByType
 	IUserService userService;

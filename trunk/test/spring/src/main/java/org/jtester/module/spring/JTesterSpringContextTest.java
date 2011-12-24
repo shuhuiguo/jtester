@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 		"org/jtester/module/spring/testedbeans/xml/data-source.xml" })
 @AutoBeanInject(maps = @BeanMap(intf = "**.UserAnotherDao", impl = "**.UserAnotherDaoImpl"))
 @Test(groups = "jtester")
-public class JTesterSpringContextTest extends JTester {
+public class JTesterSpringContextTest implements IAssertion {
 	@SpringBeanByName
 	private UserService userService;
 

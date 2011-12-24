@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 @SpringApplicationContext
 @AutoBeanInject
 @Test(groups = "jtester")
-public class SpringBeanRegisterTest_Constructor2 extends JTester {
+public class SpringBeanRegisterTest_Constructor2 implements IAssertion {
 
 	@SpringBeanByName
 	OuterClass outer;

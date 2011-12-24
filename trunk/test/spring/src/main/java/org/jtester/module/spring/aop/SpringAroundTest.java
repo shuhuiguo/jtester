@@ -7,7 +7,7 @@ import org.jtester.testng.JTester;
 import org.springframework.aop.framework.ProxyFactory;
 import org.testng.annotations.Test;
 
-public class SpringAroundTest extends JTester {
+public class SpringAroundTest implements IAssertion {
 	private final static Logger log4j = Logger.getLogger(SpringAroundTest.class);
 
 	@Test

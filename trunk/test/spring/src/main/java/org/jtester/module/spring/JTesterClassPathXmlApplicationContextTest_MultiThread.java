@@ -22,7 +22,7 @@ import org.testng.annotations.Test;
 @AutoBeanInject(maps = @BeanMap(intf = "**.UserAnotherDao", impl = "**.UserAnotherDaoImpl"))
 @Test(groups = "jtester")
 @SuppressWarnings("unused")
-public class JTesterClassPathXmlApplicationContextTest_MultiThread extends JTester {
+public class JTesterClassPathXmlApplicationContextTest_MultiThread implements IAssertion {
 	@SpringBeanFrom
 	@NonStrict
 	private UserService userService;

@@ -15,7 +15,7 @@ import org.testng.annotations.Test;
 
 @Test(groups = "jtester")
 @SpringApplicationContext({ "org/jtester/module/spring/testedbeans/autowired/autowired-scan.xml" })
-public class AutoWiredTest_AutoScan extends JTester {
+public class AutoWiredTest_AutoScan implements IAssertion {
 
 	@SpringBeanByType
 	IUserService userService;

@@ -15,7 +15,7 @@ import org.testng.annotations.Test;
 @AutoBeanInject(maps = { @BeanMap(intf = "**.*Service", impl = "**.*222Service") })
 // @org.testng.annotations.Test(groups = "test illegal @BeanMap")
 @Tracer(spring = false)
-public class SpringBeanRegisterTest_InvalidIntfRegex extends JTester {
+public class SpringBeanRegisterTest_InvalidIntfRegex implements IAssertion {
 	@SpringBeanByName
 	private UserService userService;
 

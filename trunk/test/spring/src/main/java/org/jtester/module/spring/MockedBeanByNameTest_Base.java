@@ -7,6 +7,6 @@ import org.testng.annotations.Test;
 @Test(groups = { "jtester", "mockbean" })
 @SpringApplicationContext( { "org/jtester/module/spring/testedbeans/xml/beans.xml",
 		"org/jtester/module/spring/testedbeans/xml/data-source.xml" })
-public class MockedBeanByNameTest_Base extends JTester {
+public class MockedBeanByNameTest_Base implements IAssertion {
 
 }

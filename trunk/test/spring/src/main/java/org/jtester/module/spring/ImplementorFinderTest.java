@@ -15,7 +15,7 @@ import org.testng.annotations.Test;
 
 @Test(groups = "jtester")
 @SuppressWarnings({ "unused", "rawtypes" })
-public class ImplementorFinderTest extends JTester {
+public class ImplementorFinderTest implements IAssertion {
 
 	public static class ImplementorFinderEx extends ImplementorFinder {
 

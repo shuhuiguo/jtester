@@ -17,7 +17,7 @@ import org.testng.annotations.Test;
 @SpringApplicationContext({ "org/jtester/module/spring/testedbeans/xml/data-source.xml" })
 @AutoBeanInject(maps = { @BeanMap(intf = "**.*Service", impl = "**.*ServiceImpl") }, ignoreNotFound = false)
 @Test(groups = { "jtester" })
-public class SpringBeanRegisterTest_NotFoundImplementClazz_ThrowNotFoundException extends JTester {
+public class SpringBeanRegisterTest_NotFoundImplementClazz_ThrowNotFoundException implements IAssertion {
 	@SpringBeanByName
 	UserService userService;
 

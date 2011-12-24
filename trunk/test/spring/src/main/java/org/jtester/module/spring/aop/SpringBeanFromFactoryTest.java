@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
 @Test
 @SpringApplicationContext({ "org/jtester/module/spring/testedbeans/aop/proxybeans.xml",
 		"org/jtester/module/spring/testedbeans/xml/data-source.xml" })
-public class SpringBeanFromFactoryTest extends JTester {
+public class SpringBeanFromFactoryTest implements IAssertion {
 
 	UserDao userDao = new UserDao() {
 		public List<User> findUserByPostcode(String postcode) {

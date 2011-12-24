@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 @SpringApplicationContext({ "org/jtester/module/spring/testedbeans/xml/data-source.xml",
 		"org/jtester/module/spring/testedbeans/xml/annotation-config.xml" })
 @AutoBeanInject(maps = { @BeanMap(intf = "**.*", impl = "**.*Impl") })
-public class ResourcePropertiesRegisterTest extends JTester {
+public class ResourcePropertiesRegisterTest implements IAssertion {
 
 	@SpringBeanByName(claz = UserServiceResourceImpl.class)
 	UserService userService;
