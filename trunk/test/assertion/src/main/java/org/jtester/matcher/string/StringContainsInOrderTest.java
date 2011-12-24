@@ -1,11 +1,9 @@
 package org.jtester.matcher.string;
 
-import org.jtester.matcher.string.StringMode;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.jtester.IAssertion;
+import org.junit.Test;
 
-@Test(groups = "assertion")
-public class StringContainsInOrderTest extends JTester {
+public class StringContainsInOrderTest implements IAssertion {
 
 	@Test
 	public void testMatchesSafely() {
@@ -13,7 +11,7 @@ public class StringContainsInOrderTest extends JTester {
 		want.string(actual).containsInOrder("abc", "efg");
 	}
 
-	@Test(expectedExceptions = AssertionError.class)
+	@Test(expected = AssertionError.class)
 	public void testMatchesSafely_failure() {
 		String actual = "abcefg";
 		want.string(actual).containsInOrder("abc", "bce");
@@ -22,7 +20,7 @@ public class StringContainsInOrderTest extends JTester {
 	/**
 	 * 在不忽略大小写的情况下,字符串"Abc Efg"并包含子串"abc","efg"
 	 */
-	@Test(expectedExceptions = AssertionError.class)
+	@Test(expected = AssertionError.class)
 	public void testContainsInOrder_NoModes() {
 		String actual = "Abc Efg";
 		want.string(actual).containsInOrder(new String[] { "abc", "efg" });
@@ -37,11 +35,12 @@ public class StringContainsInOrderTest extends JTester {
 		want.string(actual).containsInOrder(new String[] { "abc", "efg" }, StringMode.IgnoreCase);
 	}
 
-	@Test(expectedExceptions = AssertionError.class)
+	@Test(expected = AssertionError.class)
 	public void testContainInOrder_ActualStringCanNotBeNull() {
 		want.string(null).contains("");
 	}
 
+	@Test
 	public void testContainInOrder_SubStringCanNotBeNull() {
 		try {
 			want.string("").contains((String) null);

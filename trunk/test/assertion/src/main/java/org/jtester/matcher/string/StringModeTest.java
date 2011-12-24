@@ -1,78 +1,76 @@
 package org.jtester.matcher.string;
 
-import org.jtester.matcher.string.StringMode;
-import org.jtester.testng.JTester;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.jtester.IAssertion;
+import org.jtester.junit.DataFrom;
+import org.junit.Test;
 
-@Test(groups = { "jtester", "assertion" })
-public class StringModeTest extends JTester {
+public class StringModeTest implements IAssertion {
 
-	@Test(dataProvider = "data_IgnoreCase")
+	@Test
+	@DataFrom("data_IgnoreCase")
 	public void testProcess_IgnoreCase(String input, String output) {
 		StringMode mode = StringMode.IgnoreCase;
 		String result = mode.process(input);
 		want.string(result).isEqualTo(output);
 	}
 
-	@DataProvider
-	public Object[][] data_IgnoreCase() {
+	public static Object[][] data_IgnoreCase() {
 		return new Object[][] { { null, null }, // <br>
 				{ "ab\tc", "ab\tc" }, // <br>
 				{ "Ab C", "ab c" } };
 	}
 
-	@Test(dataProvider = "data_IgnoreSpace")
+	@Test
+	@DataFrom("data_IgnoreSpace")
 	public void testProcess_IgnoreSpace(String input, String output) {
 		StringMode mode = StringMode.IgnoreSpace;
 		String result = mode.process(input);
 		want.string(result).isEqualTo(output);
 	}
 
-	@DataProvider
-	public Object[][] data_IgnoreSpace() {
+	public static Object[][] data_IgnoreSpace() {
 		return new Object[][] { { null, null }, // <br>
 				{ " ab\tc\n", "abc" }, // <br>
 				{ "Abc", "Abc" } };
 	}
 
-	@Test(dataProvider = "data_IgnoreQuato")
+	@Test
+	@DataFrom("data_IgnoreQuato")
 	public void testProcess_IgnoreQuato(String input, String output) {
 		StringMode mode = StringMode.IgnoreQuato;
 		String result = mode.process(input);
 		want.string(result).isEqualTo(output);
 	}
 
-	@DataProvider
-	public Object[][] data_IgnoreQuato() {
+	public static Object[][] data_IgnoreQuato() {
 		return new Object[][] { { null, null }, // <br>
 				{ "\"abc\"", "abc" }, // <br>
 				{ "'abc'", "abc" } };
 	}
 
-	@Test(dataProvider = "data_SameAsSpace")
+	@Test
+	@DataFrom("data_SameAsSpace")
 	public void testProcess_SameAsSpace(String input, String output) {
 		StringMode mode = StringMode.SameAsSpace;
 		String result = mode.process(input);
 		want.string(result).isEqualTo(output);
 	}
 
-	@DataProvider
-	public Object[][] data_SameAsSpace() {
+	public static Object[][] data_SameAsSpace() {
 		return new Object[][] { { null, null }, // <br>
 				{ "\n\ra b\tc    ", " a b c " }, // <br>
 				{ "abc", "abc" } };
 	}
 
-	@Test(dataProvider = "data_SameAsQuato")
+	@Test
+	@DataFrom("data_SameAsQuato")
 	public void testProcess_SameAsQuato(String input, String output) {
 		StringMode mode = StringMode.SameAsQuato;
 		String result = mode.process(input);
 		want.string(result).isEqualTo(output);
 	}
 
-	@DataProvider
-	public Object[][] data_SameAsQuato() {
+	public static Object[][] data_SameAsQuato() {
 		return new Object[][] { { null, null }, // <br>
 				{ "\"abc\"", "'abc'" }, // <br>
 				{ "'abc'", "'abc'" } };
@@ -86,6 +84,7 @@ public class StringModeTest extends JTester {
 		want.string(actual).isEqualTo("abc abc abc ");
 	}
 
+	@Test
 	public void testGetStringByMode_StringIsNull() {
 		String result = StringMode.getStringByMode(null, StringMode.IgnoreQuato);
 		want.string(result).isNull();
@@ -97,7 +96,7 @@ public class StringModeTest extends JTester {
 		String actual = StringMode.getStringByMode(input);
 		want.string(actual).isEqualTo(input);
 	}
-	
+
 	@Test
 	public void testSameAsSlash() {
 		String actual = "d:/abc\\e/1.txt";

@@ -1,17 +1,15 @@
 package org.jtester.matcher.string;
 
-import org.jtester.matcher.string.StringContainMatcher;
-import org.jtester.matcher.string.StringMode;
-import org.jtester.testng.JTester;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.jtester.IAssertion;
+import org.jtester.junit.DataFrom;
+import org.junit.Test;
 
 import ext.jtester.hamcrest.MatcherAssert;
 
-@Test(groups = { "jtester", "assertion" })
-public class StringContainMatcherTest extends JTester {
+public class StringContainMatcherTest implements IAssertion {
 
-	@Test(dataProvider = "dataForStringContains")
+	@Test
+	@DataFrom("dataForStringContains")
 	public void testMatches(String actual, String expected, boolean doesMatch, StringMode[] modes) {
 		StringContainMatcher matcher = new StringContainMatcher(new String[] { expected }, modes);
 
@@ -19,8 +17,7 @@ public class StringContainMatcherTest extends JTester {
 		want.bool(match).is(doesMatch);
 	}
 
-	@DataProvider
-	public Object[][] dataForStringContains() {
+	public static Object[][] dataForStringContains() {
 		return new Object[][] {
 				{ "", null, false, null },// <br>
 				{ "'abc' \"ABCD\"", "'abcd'", true, new StringMode[] { StringMode.IgnoreCase, StringMode.SameAsQuato } },// <br>
@@ -30,7 +27,7 @@ public class StringContainMatcherTest extends JTester {
 		};
 	}
 
-	@Test(expectedExceptions = AssertionError.class)
+	@Test(expected = AssertionError.class)
 	public void testMatches_ActualIsNull() {
 		MatcherAssert.assertThat(null, new StringContainMatcher(new String[] { "" }, null));
 	}

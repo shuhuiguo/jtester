@@ -1,31 +1,29 @@
 package org.jtester.matcher.string;
 
-import org.jtester.matcher.string.StringBlankMatcher;
-import org.jtester.matcher.string.StringMode;
-import org.jtester.testng.JTester;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.jtester.IAssertion;
+import org.jtester.junit.DataFrom;
+import org.junit.Test;
 
 import ext.jtester.hamcrest.MatcherAssert;
 
-@Test(groups = { "jtester", "assertion" })
-public class StringBlankMatcherTest extends JTester {
+public class StringBlankMatcherTest implements IAssertion {
 
-	@Test(dataProvider = "blankString_true")
+	@Test
+	@DataFrom("blankString_true")
 	public void testMatches_True(String input) {
 		StringBlankMatcher matcher = new StringBlankMatcher();
 		MatcherAssert.assertThat(input, matcher);
 	}
 
-	@DataProvider
-	public Object[][] blankString_true() {
+	public static Object[][] blankString_true() {
 		return new Object[][] { { "" },// <br>
 				{ "   " }, /** <br> */
 				{ "\n\t\b\f" } /** <br> */
 		};
 	}
 
-	@Test(dataProvider = "blankString_false")
+	@Test
+	@DataFrom("blankString_false")
 	public void testMatches_False(String input) {
 		StringBlankMatcher matcher = new StringBlankMatcher();
 		try {
@@ -36,8 +34,7 @@ public class StringBlankMatcherTest extends JTester {
 		}
 	}
 
-	@DataProvider
-	public Object[][] blankString_false() {
+	public static Object[][] blankString_false() {
 		return new Object[][] { { null }, // <br>
 				{ " d " } /** <br> */
 		};

@@ -1,17 +1,15 @@
 package org.jtester.matcher.string;
 
-import org.jtester.matcher.string.StringEqualMatcher;
-import org.jtester.matcher.string.StringMode;
-import org.jtester.testng.JTester;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.jtester.IAssertion;
+import org.jtester.junit.DataFrom;
+import org.junit.Test;
 
 import ext.jtester.hamcrest.MatcherAssert;
 
-@Test(groups = { "jtester", "assertion" })
-public class StringEqualMatcherTest extends JTester {
+public class StringEqualMatcherTest implements IAssertion {
 
-	@Test(dataProvider = "data_StringEqualMatcher_Equals")
+	@Test
+	@DataFrom("data_StringEqualMatcher_Equals")
 	public void testMatches_Equals(String expected, Object actual, boolean doesMatch, StringMode[] modes) {
 		StringEqualMatcher matcher = new StringEqualMatcher(expected);
 
@@ -20,8 +18,7 @@ public class StringEqualMatcherTest extends JTester {
 		want.bool(match).isEqualTo(doesMatch);
 	}
 
-	@DataProvider
-	public Object[][] data_StringEqualMatcher_Equals() {
+	public static Object[][] data_StringEqualMatcher_Equals() {
 		return new Object[][] {
 				{ null, "", false, null },
 				{ "a b c", "a\f\rb\tc", true, new StringMode[] { StringMode.IgnoreSpace } },// <br>
@@ -34,7 +31,7 @@ public class StringEqualMatcherTest extends JTester {
 		};
 	}
 
-	@Test(expectedExceptions = AssertionError.class)
+	@Test(expected = AssertionError.class)
 	public void testMatches_ActualIsNull() {
 		MatcherAssert.assertThat(null, new StringEqualMatcher(""));
 	}

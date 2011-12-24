@@ -2,22 +2,21 @@ package org.jtester.matcher.string;
 
 import java.util.Iterator;
 
+import org.jtester.IAssertion;
 import org.jtester.beans.DataIterator;
-import org.jtester.testng.JTester;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.jtester.junit.DataFrom;
+import org.junit.Test;
 
-@Test(groups = "assertion")
-public class StringNotBlankMatcherTest extends JTester {
+@SuppressWarnings("rawtypes")
+public class StringNotBlankMatcherTest implements IAssertion {
 
-	@Test(expectedExceptions = AssertionError.class, dataProvider = "dataForNotBlank")
+	@Test(expected = AssertionError.class)
+	@DataFrom("dataForNotBlank")
 	public void testNotBlank(String actual) {
 		want.string(actual).notBlank();
 	}
 
-	@SuppressWarnings("rawtypes")
-	@DataProvider
-	public Iterator dataForNotBlank() {
+	public static Iterator dataForNotBlank() {
 		return new DataIterator() {
 			{
 				data((String) null);
@@ -28,6 +27,7 @@ public class StringNotBlankMatcherTest extends JTester {
 		};
 	}
 
+	@Test
 	public void testNotBlank_Success() {
 		want.string("tt").notBlank();
 	}
