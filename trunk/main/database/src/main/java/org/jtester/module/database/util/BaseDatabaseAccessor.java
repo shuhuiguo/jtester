@@ -23,7 +23,7 @@ import java.util.Properties;
 
 import javax.sql.DataSource;
 
-import org.jtester.core.helper.ConfigurationHelper;
+import org.jtester.helper.ConfigurationHelper;
 import org.jtester.module.database.support.DbSupport;
 import org.jtester.module.database.support.DbSupportFactory;
 import org.jtester.module.database.support.SQLHandler;

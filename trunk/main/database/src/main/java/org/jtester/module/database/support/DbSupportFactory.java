@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
-import org.jtester.core.helper.ConfigurationHelper;
+import org.jtester.helper.ConfigurationHelper;
 
 /**
  * todo javadoc
