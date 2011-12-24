@@ -3,7 +3,7 @@ package org.jtester.beans;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.jtester.beans.dataset.AbastractDataGenerator;
+import org.jtester.beans.dataset.DataGenerator;
 import org.jtester.helper.ArrayHelper;
 import org.jtester.json.JSON;
 
@@ -55,8 +55,8 @@ public abstract class AbstractDataSet {
 			int count = oa.length;
 			Object value = index < count ? oa[index] : oa[count - 1];
 			return value;
-		} else if (dataGenerator instanceof AbastractDataGenerator) {
-			AbastractDataGenerator generator = (AbastractDataGenerator) dataGenerator;
+		} else if (dataGenerator instanceof DataGenerator) {
+			DataGenerator generator = (DataGenerator) dataGenerator;
 			generator.setDataMap(dataMap);
 			return generator.generate(index);
 		} else {

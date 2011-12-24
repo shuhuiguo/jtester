@@ -3,7 +3,7 @@ package org.jtester.beans.dataset;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
-public class IncreaseDataGenerator extends AbastractDataGenerator {
+public class IncreaseDataGenerator extends DataGenerator {
 	private Number from;
 	private Number step;
 

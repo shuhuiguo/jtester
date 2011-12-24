@@ -2,7 +2,7 @@ package org.jtester.beans.dataset;
 
 import java.util.Map;
 
-public abstract class AbastractDataGenerator {
+public abstract class DataGenerator {
 	private Map<String, Object> dataMap;
 
 	/**
@@ -40,7 +40,7 @@ public abstract class AbastractDataGenerator {
 	 * @param objects
 	 * @return
 	 */
-	public static AbastractDataGenerator repeat(Object... objects) {
+	public static DataGenerator repeat(Object... objects) {
 		return new RepeatDataGenerator(objects);
 	}
 
@@ -51,7 +51,7 @@ public abstract class AbastractDataGenerator {
 	 * @return
 	 */
 	@SuppressWarnings("rawtypes")
-	public static AbastractDataGenerator random(Class type) {
+	public static DataGenerator random(Class type) {
 		return new RandomDataGenerator(type);
 	}
 
@@ -62,7 +62,7 @@ public abstract class AbastractDataGenerator {
 	 * @param step
 	 * @return
 	 */
-	public static AbastractDataGenerator increase(Number from, Number step) {
+	public static DataGenerator increase(Number from, Number step) {
 		return new IncreaseDataGenerator(from, step);
 	}
 }

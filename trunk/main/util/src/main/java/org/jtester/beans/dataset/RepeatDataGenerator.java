@@ -1,6 +1,6 @@
 package org.jtester.beans.dataset;
 
-public class RepeatDataGenerator extends AbastractDataGenerator {
+public class RepeatDataGenerator extends DataGenerator {
 	private final Object[] datas;
 
 	private final int size;

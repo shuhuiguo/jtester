@@ -6,7 +6,7 @@ import java.util.Random;
 import java.util.UUID;
 
 @SuppressWarnings("rawtypes")
-public class RandomDataGenerator extends AbastractDataGenerator {
+public class RandomDataGenerator extends DataGenerator {
 	private static Random random = new Random(System.currentTimeMillis());
 
 	private final Class type;
