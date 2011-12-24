@@ -2,11 +2,10 @@ package org.jtester.matcher.clazz;
 
 import mockit.Mocked;
 
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.jtester.IAssertion;
+import org.junit.Test;
 
-@Test(groups = { "jtester", "assertion" })
-public class ClassAssignFromMatcherTest extends JTester {
+public class ClassAssignFromMatcherTest implements IAssertion {
 
 	public void testClassAssignFromMatcher() {
 		want.object(new B()).clazIsSubFrom(A.class);
@@ -15,7 +14,10 @@ public class ClassAssignFromMatcherTest extends JTester {
 	@Mocked
 	A a;
 
-	@Test(description = "测试wanted(Class)中传入的参数是null时，断言是正确的。")
+	/**
+	 * 测试wanted(Class)中传入的参数是null时，断言是正确的。
+	 */
+	@Test
 	public void testClassAssignFromMatcher_wanted() {
 		new Expectations() {
 			{
