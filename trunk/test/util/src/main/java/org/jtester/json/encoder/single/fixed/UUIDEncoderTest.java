@@ -5,9 +5,8 @@ import java.util.UUID;
 
 import org.jtester.json.encoder.EncoderTest;
 import org.jtester.json.helper.JSONFeature;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
-@Test(groups = { "jtester", "json" })
 public class UUIDEncoderTest extends EncoderTest {
 
 	@Test

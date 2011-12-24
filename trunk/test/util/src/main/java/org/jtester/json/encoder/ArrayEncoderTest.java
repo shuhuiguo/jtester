@@ -1,8 +1,8 @@
 package org.jtester.json.encoder;
 
 import org.jtester.IAssertion;
+import org.jtester.beans.User;
 import org.jtester.json.JSON;
-import org.jtester.json.encoder.beans.test.User;
 import org.jtester.json.helper.JSONFeature;
 import org.jtester.testng.JTester;
 import org.testng.annotations.Test;

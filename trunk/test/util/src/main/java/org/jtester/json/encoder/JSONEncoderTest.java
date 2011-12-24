@@ -7,10 +7,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.jtester.IAssertion;
+import org.jtester.beans.GenicBean;
+import org.jtester.beans.TestedIntf;
+import org.jtester.beans.User;
 import org.jtester.json.JSON;
-import org.jtester.json.encoder.beans.test.GenicBean;
-import org.jtester.json.encoder.beans.test.TestedIntf;
-import org.jtester.json.encoder.beans.test.User;
 import org.jtester.json.helper.JSONFeature;
 import org.jtester.testng.JTester;
 import org.testng.annotations.DataProvider;

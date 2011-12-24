@@ -4,13 +4,13 @@ import java.io.StringWriter;
 import java.util.ArrayList;
 
 import org.jtester.json.encoder.EncoderTest;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.jtester.junit.DataFrom;
+import org.junit.Test;
 
-@Test(groups = { "jtester", "json" })
 public class ShortEncoderTest extends EncoderTest {
 
-	@Test(dataProvider = "short_data")
+	@Test
+	@DataFrom("short_data")
 	public void testEncodeSingleValue(Short number, String expected) throws Exception {
 		ShortEncoder encoder = ShortEncoder.instance;
 		this.setUnmarkFeature(encoder);
@@ -21,8 +21,7 @@ public class ShortEncoderTest extends EncoderTest {
 		want.string(result).isEqualTo(expected);
 	}
 
-	@DataProvider
-	public Object[][] short_data() {
+	public static Object[][] short_data() {
 		return new Object[][] { { Short.valueOf("45"), "45" },// <br>
 				{ null, "null" } // <br>
 		};

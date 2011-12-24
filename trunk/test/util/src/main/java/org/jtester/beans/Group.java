@@ -1,4 +1,4 @@
-package org.jtester.json.encoder.beans.test;
+package org.jtester.beans;
 
 import java.util.ArrayList;
 import java.util.List;

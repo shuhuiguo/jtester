@@ -4,13 +4,13 @@ import java.io.StringWriter;
 import java.util.ArrayList;
 
 import org.jtester.json.encoder.EncoderTest;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.jtester.junit.DataFrom;
+import org.junit.Test;
 
-@Test(groups = { "jtester", "json" })
 public class StringEncoderTest extends EncoderTest {
 
-	@Test(dataProvider = "stringJsonData")
+	@Test
+	@DataFrom("stringJsonData")
 	public void testEncode(String value, String json) throws Exception {
 		StringEncoder encoder = StringEncoder.instance;
 		this.setUnmarkFeature(encoder);
@@ -21,8 +21,7 @@ public class StringEncoderTest extends EncoderTest {
 		want.string(result).isEqualTo(json);
 	}
 
-	@DataProvider
-	public Object[][] stringJsonData() {
+	public static Object[][] stringJsonData() {
 		return new Object[][] { { "value", "'value'" },// <br>
 				{ null, "null" }, // <br>
 				{ "\n\t", "'\\n\\t'" }, // <br>

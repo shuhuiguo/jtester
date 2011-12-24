@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.jtester.IAssertion;
+import org.jtester.beans.User;
 import org.jtester.json.JSON;
-import org.jtester.json.encoder.beans.test.User;
 import org.junit.Test;
 
 @SuppressWarnings({ "rawtypes" })

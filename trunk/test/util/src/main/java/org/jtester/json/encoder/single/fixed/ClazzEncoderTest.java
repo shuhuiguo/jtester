@@ -4,16 +4,17 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
+import org.jtester.beans.TestedClazz;
+import org.jtester.beans.TestedIntf;
 import org.jtester.json.encoder.EncoderTest;
-import org.jtester.json.encoder.beans.test.TestedClazz;
-import org.jtester.json.encoder.beans.test.TestedIntf;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.jtester.junit.DataFrom;
+import org.junit.Test;
 
 @SuppressWarnings("rawtypes")
 public class ClazzEncoderTest extends EncoderTest {
 
-	@Test(dataProvider = "clazz_data")
+	@Test
+	@DataFrom("clazz_data")
 	public void testClazzEncoder(Class type, String name) {
 		ClazzEncoder encoder = ClazzEncoder.instance;
 		this.setUnmarkFeature(encoder);
@@ -23,10 +24,9 @@ public class ClazzEncoderTest extends EncoderTest {
 		want.string(json).isEqualTo("'" + name + "'");
 	}
 
-	@DataProvider
-	public Object[][] clazz_data() {
-		Object proxy = Proxy.newProxyInstance(this.getClass().getClassLoader(), new Class[] { TestedIntf.class },
-				new InvocationHandler() {
+	public static Object[][] clazz_data() {
+		Object proxy = Proxy.newProxyInstance(ClazzEncoderTest.class.getClassLoader(),
+				new Class[] { TestedIntf.class }, new InvocationHandler() {
 					public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 						return null;
 					}

@@ -4,9 +4,8 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 
 import org.jtester.json.encoder.EncoderTest;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
-@Test
 public class BigDecimalEncoderTest extends EncoderTest {
 
 	@Test

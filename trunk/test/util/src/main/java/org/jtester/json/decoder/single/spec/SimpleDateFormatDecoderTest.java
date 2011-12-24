@@ -3,13 +3,12 @@ package org.jtester.json.decoder.single.spec;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.jtester.IAssertion;
 import org.jtester.json.JSON;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
-@Test(groups = { "jtester", "json" })
-public class SimpleDateFormatDecoderTest extends JTester {
-
+public class SimpleDateFormatDecoderTest implements IAssertion {
+	@Test
 	public void testDecode() throws Exception {
 
 		SimpleDateFormat df = JSON.toObject("'yyyy-MM-dd'", SimpleDateFormat.class);

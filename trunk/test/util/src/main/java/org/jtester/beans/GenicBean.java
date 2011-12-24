@@ -1,4 +1,4 @@
-package org.jtester.json.encoder.beans.test;
+package org.jtester.beans;
 
 public class GenicBean<T> {
 	String name;

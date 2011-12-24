@@ -2,13 +2,11 @@ package org.jtester.json.decoder.single.spec;
 
 import java.io.File;
 
+import org.jtester.IAssertion;
 import org.jtester.json.JSON;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
-
-@Test(groups = { "jtester", "json" })
-public class FileDecoderTest extends JTester {
+public class FileDecoderTest implements IAssertion {
 
 	@Test
 	public void testDecodeSimpleValue() {
@@ -16,5 +14,4 @@ public class FileDecoderTest extends JTester {
 		File[] files = JSON.toObject(json, File[].class);
 		want.array(files).sizeEq(2);
 	}
-
 }

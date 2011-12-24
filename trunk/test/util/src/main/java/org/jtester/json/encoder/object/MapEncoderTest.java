@@ -5,13 +5,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.jtester.IAssertion;
 import org.jtester.json.encoder.JSONEncoder;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
-@Test(groups = { "jtester", "json" })
 @SuppressWarnings({ "rawtypes", "unchecked" })
-public class MapEncoderTest extends JTester {
+public class MapEncoderTest implements IAssertion {
 
 	@Test
 	public void testGetPropertyEncoders() throws Exception {

@@ -4,7 +4,7 @@ import java.io.File;
 import java.net.URL;
 
 import org.jtester.json.encoder.EncoderTest;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
 public class URLEncoderTest extends EncoderTest {
 

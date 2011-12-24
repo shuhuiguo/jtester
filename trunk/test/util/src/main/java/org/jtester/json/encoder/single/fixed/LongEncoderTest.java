@@ -4,13 +4,13 @@ import java.io.StringWriter;
 import java.util.ArrayList;
 
 import org.jtester.json.encoder.EncoderTest;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.jtester.junit.DataFrom;
+import org.junit.Test;
 
-@Test(groups = { "jtester", "json" })
 public class LongEncoderTest extends EncoderTest {
 
-	@Test(dataProvider = "long_data")
+	@Test
+	@DataFrom("long_data")
 	public void testEncodeSingleValue(Long number, String expected) throws Exception {
 		LongEncoder encoder = LongEncoder.instance;
 		this.setUnmarkFeature(encoder);
@@ -21,8 +21,7 @@ public class LongEncoderTest extends EncoderTest {
 		want.string(result).isEqualTo(expected);
 	}
 
-	@DataProvider
-	public Object[][] long_data() {
+	public static Object[][] long_data() {
 		return new Object[][] { { 1212L, "1212" },// <br>
 				{ 1000l, "1000" },// <br>
 				{ null, "null" } // <br>

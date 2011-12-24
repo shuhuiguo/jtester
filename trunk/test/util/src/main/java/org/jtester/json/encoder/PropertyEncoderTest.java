@@ -1,7 +1,7 @@
 package org.jtester.json.encoder;
 
+import org.jtester.beans.User;
 import org.jtester.json.JSON;
-import org.jtester.json.encoder.beans.test.User;
 import org.jtester.json.encoder.object.PoJoEncoder;
 import org.jtester.json.helper.JSONFeature;
 import org.junit.Test;

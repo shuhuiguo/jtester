@@ -3,14 +3,13 @@ package org.jtester.json.encoder.array;
 import java.io.StringWriter;
 import java.util.ArrayList;
 
+import org.jtester.IAssertion;
+import org.jtester.beans.User;
 import org.jtester.json.encoder.JSONEncoder;
-import org.jtester.json.encoder.beans.test.User;
 import org.jtester.json.helper.JSONFeature;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
 @SuppressWarnings({ "unchecked", "rawtypes" })
-@Test(groups = { "jtester", "json" })
 public class ObjectArrayEncoderTest implements IAssertion {
 	@Test
 	public void testEncode() throws Exception {

@@ -5,12 +5,11 @@ import java.util.ArrayList;
 import org.jtester.json.encoder.EncoderTest;
 import org.jtester.json.helper.ClazzMap;
 import org.jtester.json.helper.JSONFeature;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
 @SuppressWarnings({ "rawtypes", "unchecked" })
-@Test(groups = { "jtester", "json" })
 public class EnumEncoderTest extends EncoderTest {
-
+	@Test
 	public void testEncode() throws Exception {
 		Enum value = JSONFeature.UnMarkClassFlag;
 		EnumEncoder encoder = EnumEncoder.instance;

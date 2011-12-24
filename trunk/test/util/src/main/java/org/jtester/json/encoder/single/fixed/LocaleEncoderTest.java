@@ -3,7 +3,7 @@ package org.jtester.json.encoder.single.fixed;
 import java.util.Locale;
 
 import org.jtester.json.encoder.EncoderTest;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
 public class LocaleEncoderTest extends EncoderTest {
 

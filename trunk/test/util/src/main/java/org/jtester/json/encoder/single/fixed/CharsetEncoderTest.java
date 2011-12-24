@@ -3,12 +3,13 @@ package org.jtester.json.encoder.single.fixed;
 import java.nio.charset.Charset;
 
 import org.jtester.json.encoder.EncoderTest;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.jtester.junit.DataFrom;
+import org.junit.Test;
 
 public class CharsetEncoderTest extends EncoderTest {
 
-	@Test(dataProvider = "charset_data")
+	@Test
+	@DataFrom("charset_data")
 	public void testCharsetEncoder(String name, String expected) {
 		Charset cs = Charset.forName(name);
 
@@ -20,8 +21,7 @@ public class CharsetEncoderTest extends EncoderTest {
 		want.string(json).isEqualTo(expected);
 	}
 
-	@DataProvider
-	public Object[][] charset_data() {
+	public static Object[][] charset_data() {
 		return new Object[][] { { "utf8", "'UTF-8'" },// <br>
 				{ "UTF-8", "'UTF-8'" },// <br>
 				{ "gbk", "'GBK'" } // <br>

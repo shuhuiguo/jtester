@@ -3,18 +3,17 @@ package org.jtester.json.decoder;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.jtester.IAssertion;
+import org.jtester.beans.User;
 import org.jtester.json.JSON;
 import org.jtester.json.decoder.object.PoJoDecoder;
-import org.jtester.json.encoder.beans.test.User;
 import org.jtester.json.helper.JSONArray;
 import org.jtester.json.helper.JSONFeature;
 import org.jtester.json.helper.JSONMap;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
 @SuppressWarnings({ "unchecked", "rawtypes", "serial" })
-@Test(groups = { "jtester", "json" })
-public class ObjectDecoderTest extends JTester {
+public class ObjectDecoderTest implements IAssertion {
 
 	@Test
 	public void testDecode() {
@@ -32,7 +31,10 @@ public class ObjectDecoderTest extends JTester {
 		want.map(references).hasEntry("@a123b", user);
 	}
 
-	@Test(description = "json数组，数组的值指向同一个对象")
+	/**
+	 * json数组，数组的值指向同一个对象
+	 */
+	@Test
 	public void testDecode_withRefObj() {
 		User[] t = new User[2];
 		System.out.println(t.getClass().getName());

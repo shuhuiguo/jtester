@@ -1,13 +1,11 @@
 package org.jtester.json.encoder.array;
 
 import org.jtester.IAssertion;
+import org.jtester.beans.User;
 import org.jtester.json.JSON;
-import org.jtester.json.encoder.beans.test.User;
 import org.jtester.json.helper.JSONFeature;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
-@Test(groups = { "jtester", "json" })
 public class ArraysEncoderTest implements IAssertion {
 
 	@Test
@@ -21,6 +19,7 @@ public class ArraysEncoderTest implements IAssertion {
 						"[{'#class':'Integer','#value':1},{'#class':'Integer','#value':2},{'#class':'Integer','#value':3},{'#class':'Integer','#value':4}]");
 	}
 
+	@Test
 	public void testArrayReference() {
 		User[] users = new User[2];
 		users[0] = User.newInstance(1, "darui.wu");

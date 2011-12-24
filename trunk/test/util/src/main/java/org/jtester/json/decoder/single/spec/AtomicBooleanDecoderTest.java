@@ -3,14 +3,14 @@ package org.jtester.json.decoder.single.spec;
 import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+import org.jtester.IAssertion;
 import org.jtester.json.JSON;
 import org.jtester.json.helper.JSONFeature;
 import org.jtester.json.helper.JSONMap;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
-@Test(groups = { "jtester", "json" })
-public class AtomicBooleanDecoderTest extends JTester {
+public class AtomicBooleanDecoderTest implements IAssertion {
+	@Test
 	public void testAtomicBool() {
 		AtomicBoolean expected = new AtomicBoolean(true);
 		JSONMap json = new JSONMap() {
@@ -25,6 +25,7 @@ public class AtomicBooleanDecoderTest extends JTester {
 		want.object(bool).reflectionEq(expected);
 	}
 
+	@Test
 	public void testAtomicBool_JSONString() {
 		AtomicBoolean expected = new AtomicBoolean(true);
 
