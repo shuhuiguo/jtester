@@ -1,21 +1,20 @@
 package org.jtester.json.helper;
 
+import org.jtester.IAssertion;
 import org.jtester.beans.User;
-import org.jtester.testng.JTester;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.jtester.junit.DataFrom;
+import org.junit.Test;
 
-@Test(groups = { "jtester", "json" })
-public class ClazzMapTest extends JTester {
+public class ClazzMapTest implements IAssertion {
 
-	@Test(dataProvider = "type_data")
+	@Test
+	@DataFrom("type_data")
 	public void testGetClazzName(Object obj, String expected) {
 		String clazzname = ClazzMap.getClazzName(obj);
 		want.string(clazzname).start(expected);
 	}
 
-	@DataProvider
-	public Object[][] type_data() {
+	public static Object[][] type_data() {
 		return new Object[][] { { Integer.valueOf(1), "Integer" }, // <br>
 				{ new int[1], "int[]@" }, // <br>
 				{ new Integer[0], "Integer[]@" }, // <br>
@@ -26,6 +25,7 @@ public class ClazzMapTest extends JTester {
 		};
 	}
 
+	@Test
 	public void testGetClazzName_Primitive() {
 		String clazzname = ClazzMap.getClazzName(1);
 		want.string(clazzname).isEqualTo("Integer");

@@ -4,15 +4,13 @@ import java.io.StringWriter;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
-import org.jtester.json.encoder.single.spec.SimpleDateFormatEncoder;
+import org.jtester.IAssertion;
 import org.jtester.json.helper.JSONFeature;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
 @SuppressWarnings({ "rawtypes", "unchecked" })
-@Test(groups = { "jtester", "json" })
-public class SimpleDateFormatEncoderTest extends JTester {
-
+public class SimpleDateFormatEncoderTest implements IAssertion {
+	@Test
 	public void testEncode() throws Exception {
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 

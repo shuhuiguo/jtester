@@ -4,14 +4,15 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.jtester.IAssertion;
+import org.junit.Test;
 
 @SuppressWarnings("rawtypes")
-@Test(groups = { "jtester", "json" })
-public class InnerJSONMapTest extends JTester {
-
-	@Test(description = "验证JSONMap数据的有序性,JSONMap必须是LinkedHashMap而不能是HashMap")
+public class InnerJSONMapTest implements IAssertion {
+	/**
+	 * 验证JSONMap数据的有序性,JSONMap必须是LinkedHashMap而不能是HashMap
+	 */
+	@Test
 	public void testLinkedHashMap() {
 		JSONMap map = new JSONMap();
 		map.putJSON("a3", "aa");
@@ -26,6 +27,7 @@ public class InnerJSONMapTest extends JTester {
 		want.string(result).isEqualTo("aabbcc");
 	}
 
+	@Test
 	public void testHashMap() {
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("a3", "aa");

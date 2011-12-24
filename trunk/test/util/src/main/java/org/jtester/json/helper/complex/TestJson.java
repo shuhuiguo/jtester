@@ -2,15 +2,16 @@ package org.jtester.json.helper.complex;
 
 import java.util.ArrayList;
 
+import org.jtester.IAssertion;
+import org.jtester.beans.ComplexPoJo;
 import org.jtester.helper.DateHelper;
 import org.jtester.json.JSON;
 import org.jtester.json.helper.JSONFeature;
 import org.jtester.matcher.modes.ItemsMode;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
 @SuppressWarnings({ "rawtypes", "unchecked" })
-public class TestJson extends JTester {
+public class TestJson implements IAssertion {
 	@Test
 	public void testList() {
 		ComplexPoJo dbpojo = new ComplexPoJo();

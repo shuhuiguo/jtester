@@ -1,4 +1,4 @@
-package org.jtester.json.helper.complex;
+package org.jtester.beans;
 
 import java.io.Serializable;
 import java.util.Date;

@@ -1,18 +1,13 @@
 package org.jtester.json.helper;
 
-import org.jtester.json.helper.JSONArray;
-import org.jtester.json.helper.JSONMap;
-import org.jtester.json.helper.JSONObject;
-import org.jtester.json.helper.JSONScanner;
-import org.jtester.json.helper.JSONSingle;
-import org.jtester.testng.JTester;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.jtester.IAssertion;
+import org.jtester.junit.DataFrom;
+import org.junit.Test;
 
-@Test(groups = { "jtester", "json" })
-public class JSONScannerTest extends JTester {
+public class JSONScannerTest implements IAssertion {
 
-	@Test(dataProvider = "jsonKeysData")
+	@Test
+	@DataFrom("jsonKeysData")
 	public void testScanMapKey(String json, String key, boolean quotationMark) {
 		JSONScanner scanner = new JSONScanner(json.toCharArray());
 
@@ -24,8 +19,7 @@ public class JSONScannerTest extends JTester {
 		want.character(ch).is(':');
 	}
 
-	@DataProvider
-	public Object[][] jsonKeysData() {
+	public static Object[][] jsonKeysData() {
 		return new Object[][] { { "\"key1\":\"value1\"", "key1", true },// <br>
 				{ "key 1:'value1'", "key 1", false }, /** <br> */
 				{ "'key 1':'value1'", "key 1", true }, /** <br> */
@@ -36,7 +30,8 @@ public class JSONScannerTest extends JTester {
 		};
 	}
 
-	@Test(dataProvider = "jsonValuesData")
+	@Test
+	@DataFrom("jsonValuesData")
 	public void testScanMapValue(String json, String key, boolean quotationMark) {
 		JSONScanner scanner = new JSONScanner(json.toCharArray());
 
@@ -47,8 +42,7 @@ public class JSONScannerTest extends JTester {
 				.propertyEq(new String[] { "value", "quotationMark" }, new Object[] { key, quotationMark });
 	}
 
-	@DataProvider
-	public Object[][] jsonValuesData() {
+	public static Object[][] jsonValuesData() {
 		return new Object[][] { { "\"key1\":\"value1\"}", "value1", true },// <br>
 				{ "key 1:value 1}", "value 1", false }, /** <br> */
 				{ "'key 1':'value1'}", "value1", true }, /** <br> */
@@ -77,7 +71,8 @@ public class JSONScannerTest extends JTester {
 		char ch = scanner.nextToken();
 		want.character(ch).is('[');
 		JSONArray array = scanner.scanJSONArray();
-		want.collection(array).notNull().hasAllItems(JSONSingle.newInstance("value1"), JSONSingle.newInstance("value2"));
+		want.collection(array).notNull()
+				.hasAllItems(JSONSingle.newInstance("value1"), JSONSingle.newInstance("value2"));
 	}
 
 	@Test
@@ -110,11 +105,11 @@ public class JSONScannerTest extends JTester {
 		JSONScanner scanner = new JSONScanner(json.toCharArray());
 
 		JSONSingle value = scanner.scanJSONValue();
-		want.object(value).propertyEq(new String[] { "value", "quotationMark" },
-				new Object[] { "-0.3e1234", false });
+		want.object(value).propertyEq(new String[] { "value", "quotationMark" }, new Object[] { "-0.3e1234", false });
 	}
 
-	@Test(dataProvider = "errorJson")
+	@Test
+	@DataFrom("errorJson")
 	public void testScan_error(String json) {
 		JSONScanner scanner = new JSONScanner(json.toCharArray());
 		try {
@@ -126,8 +121,7 @@ public class JSONScannerTest extends JTester {
 		}
 	}
 
-	@DataProvider
-	public Object[][] errorJson() {
+	public static Object[][] errorJson() {
 		return new Object[][] { { "'-0.3e1234' }" },// <br>
 				{ "['key1','key2'] 1" },// <br>
 				{ "{key1:'value1'} 1" },// <br>

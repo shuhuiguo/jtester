@@ -4,16 +4,14 @@ import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.Date;
 
+import org.jtester.IAssertion;
 import org.jtester.helper.DateHelper;
-import org.jtester.json.encoder.single.spec.DateEncoder;
 import org.jtester.json.helper.JSONFeature;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
 @SuppressWarnings({ "rawtypes", "unchecked" })
-@Test(groups = { "jtester", "json" })
-public class DateEncoderTest extends JTester {
-
+public class DateEncoderTest implements IAssertion {
+	@Test
 	public void testEncode() throws Exception {
 		Date date = DateHelper.parse("2011-08-01 08:11:41");
 
@@ -25,6 +23,7 @@ public class DateEncoderTest extends JTester {
 		want.string(json).eqIgnoreSpace("{#class:'Date',#value:'2011-08-01 08:11:41'}");
 	}
 
+	@Test
 	public void testEncode_NotFlagClazz() throws Exception {
 		Date date = DateHelper.parse("2011-08-01 08:11:41");
 
@@ -37,6 +36,7 @@ public class DateEncoderTest extends JTester {
 		want.string(json).eqIgnoreSpace("'2011-08-01 08:11:41'");
 	}
 
+	@Test
 	public void testEncode_SQLDate() throws Exception {
 		Date time = DateHelper.parse("2011-08-01 08:11:41");
 		java.sql.Date date = new java.sql.Date(time.getTime());
@@ -49,6 +49,7 @@ public class DateEncoderTest extends JTester {
 		want.string(json).eqIgnoreSpace("{#class:'java.sql.Date@82ae8779',#value:'2011-08-01 08:11:41'}");
 	}
 
+	@Test
 	public void testEncode_SQLDate_NotFlagClazz() throws Exception {
 		Date time = DateHelper.parse("2011-08-01 08:11:41");
 		java.sql.Date date = new java.sql.Date(time.getTime());

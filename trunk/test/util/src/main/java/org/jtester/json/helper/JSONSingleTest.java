@@ -1,10 +1,9 @@
 package org.jtester.json.helper;
 
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.jtester.IAssertion;
+import org.junit.Test;
 
-@Test(groups = { "jtester", "json" })
-public class JSONSingleTest extends JTester {
+public class JSONSingleTest implements IAssertion {
 
 	@Test
 	public void testToClazzName() {

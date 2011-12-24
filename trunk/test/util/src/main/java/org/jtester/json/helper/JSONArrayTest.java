@@ -1,10 +1,9 @@
 package org.jtester.json.helper;
 
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.jtester.IAssertion;
+import org.junit.Test;
 
-@Test(groups = { "jtester", "json" })
-public class JSONArrayTest extends JTester {
+public class JSONArrayTest implements IAssertion {
 
 	@Test
 	public void testDescription() {

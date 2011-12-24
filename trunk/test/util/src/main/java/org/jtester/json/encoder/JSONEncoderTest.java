@@ -12,22 +12,20 @@ import org.jtester.beans.TestedIntf;
 import org.jtester.beans.User;
 import org.jtester.json.JSON;
 import org.jtester.json.helper.JSONFeature;
-import org.jtester.testng.JTester;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.jtester.junit.DataFrom;
+import org.junit.Test;
 
 @SuppressWarnings({ "rawtypes", "unchecked" })
-@Test(groups = { "jtester", "json" })
 public class JSONEncoderTest implements IAssertion {
 
-	@Test(dataProvider = "objects")
+	@Test
+	@DataFrom("objects")
 	public void testEncode(Object obj, String expected) {
 		String json = JSON.toJSON(obj, JSONFeature.UseSingleQuote);
 		want.string(json).contains(expected);
 	}
 
-	@DataProvider
-	public Object[][] objects() {
+	public static Object[][] objects() {
 		return new Object[][] {
 				{ User.newInstance(12, "darui.wu"), "#class:'org.jtester.json.encoder.beans.test.User@" },// <br>
 				{ new int[] { 1, 2, 3 }, "#class:'int[]@" },// <br>
@@ -36,7 +34,10 @@ public class JSONEncoderTest implements IAssertion {
 		};
 	}
 
-	@Test(description = "对象循环引用，并且不输出class的情况")
+	/**
+	 * 对象循环引用，并且不输出class的情况
+	 */
+	@Test
 	public void testRefObject() {
 		GenicBean bean = new GenicBean();
 		bean.setName("genicBean");
@@ -45,7 +46,10 @@ public class JSONEncoderTest implements IAssertion {
 		want.string(json).eqIgnoreSpace("{name:'genicBean',refObject:null}");
 	}
 
-	@Test(description = "对象循环引用，且输出class的情况")
+	/**
+	 * 对象循环引用，且输出class的情况
+	 */
+	@Test
 	public void testRefObject_MarkClazz() {
 		GenicBean bean = new GenicBean();
 		bean.setName("genicBean");
@@ -55,7 +59,10 @@ public class JSONEncoderTest implements IAssertion {
 				.contains("refObject:{#refer:@");
 	}
 
-	@Test(description = "对象是匿名类")
+	/**
+	 * 对象是匿名类
+	 */
+	@Test
 	public void testEncode_ProxyClazz() {
 		User user = new User() {
 			{
@@ -68,6 +75,7 @@ public class JSONEncoderTest implements IAssertion {
 		want.string(json).contains("#class:'org.jtester.json.encoder.beans.test.User@");
 	}
 
+	@Test
 	public void testFilterClass() {
 		Object proxy = Proxy.newProxyInstance(this.getClass().getClassLoader(), new Class[] { TestedIntf.class },
 				new InvocationHandler() {
