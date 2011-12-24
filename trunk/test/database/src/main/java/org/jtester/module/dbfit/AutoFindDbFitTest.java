@@ -2,11 +2,9 @@ package org.jtester.module.dbfit;
 
 import java.lang.reflect.Method;
 
-import org.jtester.module.dbfit.AutoFindDbFit;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.jtester.IAssertion;
+import org.junit.Test;
 
-@Test(groups = "jtester")
 public class AutoFindDbFitTest implements IAssertion {
 
 	@Test

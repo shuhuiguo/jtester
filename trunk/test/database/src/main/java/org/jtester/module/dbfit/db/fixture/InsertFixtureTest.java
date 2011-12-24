@@ -1,18 +1,18 @@
 package org.jtester.module.dbfit.db.fixture;
 
+import org.jtester.IAssertion;
 import org.jtester.annotations.DbFit;
 import org.jtester.annotations.DbFit.AUTO;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
-@Test(groups = "jtester")
 public class InsertFixtureTest implements IAssertion {
-
+	@Test
 	@DbFit(auto = AUTO.AUTO)
 	public void testKeyGenerateFeedback() {
 
 	}
 
+	@Test
 	@DbFit(auto = AUTO.AUTO)
 	public void testKeyGenerateFeedback_oracle() {
 

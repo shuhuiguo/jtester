@@ -1,20 +1,20 @@
 package org.jtester.module.dbfit;
 
+import org.jtester.IAssertion;
 import org.jtester.annotations.DbFit;
 import org.jtester.annotations.SpringApplicationContext;
 import org.jtester.annotations.SpringBeanByName;
 import org.jtester.fortest.beans.User;
 import org.jtester.fortest.service.UserService;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
-@Test(groups = { "JTester" })
 @SpringApplicationContext({ "classpath:org/jtester/module/spring/testedbeans/xml/beans.xml",
 		"classpath:org/jtester/module/spring/testedbeans/xml/data-source.xml" })
 public class DbFitTest implements IAssertion {
 	@SpringBeanByName
 	private UserService userService;
 
+	@Test
 	@DbFit(when = { "DbFit.paySalary_insert.when.wiki" }, then = "DbFit.paySalary_insert.then.wiki")
 	public void paySalary_insert() {
 		User user = newUser();

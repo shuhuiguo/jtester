@@ -1,10 +1,10 @@
 package org.jtester.module.dbfit.db.model;
 
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.jtester.IAssertion;
+import org.jtester.IDatabase;
+import org.junit.Test;
 
-@Test(groups = "jtester")
-public class SymbolAccessQueryBindingTest implements IAssertion {
+public class SymbolAccessQueryBindingTest implements IAssertion, IDatabase {
 	SymbolAccessQueryBinding binding = new SymbolAccessQueryBinding();
 
 	@Test
@@ -28,7 +28,7 @@ public class SymbolAccessQueryBindingTest implements IAssertion {
 		want.object(symbol2).isNull();
 	}
 
-	@Test(expectedExceptions = StringIndexOutOfBoundsException.class)
+	@Test(expected = StringIndexOutOfBoundsException.class)
 	public void testSetSymbols3() {
 		fit.cleanSymbols();
 

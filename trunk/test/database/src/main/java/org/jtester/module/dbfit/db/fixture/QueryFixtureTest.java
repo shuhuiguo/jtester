@@ -1,14 +1,14 @@
 package org.jtester.module.dbfit.db.fixture;
 
+import org.jtester.IAssertion;
+import org.jtester.IDatabase;
 import org.jtester.annotations.DbFit;
 import org.jtester.beans.DataMap;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
 @SuppressWarnings("serial")
-@Test(groups = { "jtester", "dbfit" })
-public class QueryFixtureTest implements IAssertion {
-
+public class QueryFixtureTest implements IAssertion, IDatabase {
+	@Test
 	@DbFit(then = "testQueryFixture.then.wiki")
 	public void testQueryFixture() {
 		db.table("demo_big_int_id").clean().insert(new DataMap() {
