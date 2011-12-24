@@ -124,6 +124,7 @@ public abstract class RowSetFixture extends ColumnFixture {
 	 * 覆盖父方法,是因为数据中含有变量的话，需要回显<br>
 	 * 例如: @{name} = your value
 	 */
+	@SuppressWarnings("unused")
 	@Override
 	public void wrong(Parse row) {
 		if (row != null && row.parts != null) {

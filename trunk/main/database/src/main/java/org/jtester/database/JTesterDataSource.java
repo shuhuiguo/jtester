@@ -1,4 +1,4 @@
-package org.jtester.module.database;
+package org.jtester.database;
 
 import java.io.PrintWriter;
 import java.sql.Connection;

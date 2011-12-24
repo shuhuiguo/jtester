@@ -1,6 +1,6 @@
-package org.jtester.module.database.dbop;
+package org.jtester.database.operator;
 
-import static org.jtester.module.database.dbop.DBOperator.IN_DB_OPERATOR;
+import static org.jtester.database.operator.DBOperator.IN_DB_OPERATOR;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ import org.jtester.assertion.object.intf.ICollectionAssert;
 import org.jtester.assertion.object.intf.INumberAssert;
 import org.jtester.assertion.object.intf.IObjectAssert;
 import org.jtester.beans.DataMap;
-import org.jtester.core.context.IJTester.DataSet;
+import org.jtester.database.DataSet;
 import org.jtester.helper.StringHelper;
 import org.jtester.json.JSON;
 import org.jtester.module.database.util.DBHelper;
@@ -19,7 +19,6 @@ import org.jtester.module.database.util.SqlRunner;
 
 @SuppressWarnings({ "unchecked", "rawtypes" })
 public class TableOp implements ITableOp {
-	private static final long serialVersionUID = -5859213164627788602L;
 
 	private String table;
 

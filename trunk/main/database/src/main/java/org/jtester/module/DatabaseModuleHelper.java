@@ -1,6 +1,6 @@
 package org.jtester.module;
 
-import org.jtester.core.helper.ModulesManager;
+import org.jtester.module.helper.ModulesManager;
 
 /**
  * Class providing access to the functionality of the database module using

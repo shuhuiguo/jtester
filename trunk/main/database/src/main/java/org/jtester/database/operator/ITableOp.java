@@ -1,10 +1,10 @@
-package org.jtester.module.database.dbop;
+package org.jtester.database.operator;
 
 import org.jtester.assertion.object.intf.ICollectionAssert;
 import org.jtester.assertion.object.intf.INumberAssert;
 import org.jtester.assertion.object.intf.IObjectAssert;
 import org.jtester.beans.DataMap;
-import org.jtester.core.context.IJTester.DataSet;
+import org.jtester.database.DataSet;
 
 @SuppressWarnings("rawtypes")
 public interface ITableOp {

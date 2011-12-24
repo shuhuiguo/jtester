@@ -1,4 +1,4 @@
-package org.jtester.module.database.dbop;
+package org.jtester.database.operator;
 
 import java.io.File;
 

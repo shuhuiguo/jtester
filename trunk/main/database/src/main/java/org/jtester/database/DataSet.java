@@ -1,7 +1,7 @@
 package org.jtester.database;
 
 import org.jtester.beans.AbstractDataSet;
-import org.jtester.module.database.dbop.InsertOp;
+import org.jtester.database.operator.InsertOp;
 
 public class DataSet extends AbstractDataSet {
 	/**

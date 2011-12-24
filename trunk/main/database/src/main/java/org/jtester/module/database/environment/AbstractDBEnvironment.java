@@ -14,6 +14,7 @@ import java.util.regex.Pattern;
 import javax.sql.DataSource;
 
 import org.jtester.database.DbFitContext;
+import org.jtester.database.JTesterDataSource;
 import org.jtester.database.TransactionHelper;
 import org.jtester.database.DbFitContext.RunIn;
 import org.jtester.exception.ExceptionWrapper;
@@ -21,7 +22,6 @@ import org.jtester.fit.util.SymbolUtil;
 import org.jtester.helper.ClazzConst;
 import org.jtester.helper.ClazzHelper;
 import org.jtester.helper.LogHelper;
-import org.jtester.module.database.JTesterDataSource;
 import org.jtester.module.database.environment.typesmap.AbstractTypeMap;
 import org.jtester.module.database.util.DataSourceType;
 import org.jtester.module.dbfit.db.model.BigDecimalParseDelegate;

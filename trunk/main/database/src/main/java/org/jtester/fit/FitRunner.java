@@ -4,9 +4,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Map;
 
-import org.jtester.core.helper.ConfigurationHelper;
 import org.jtester.exception.FitRunException;
 import org.jtester.fit.util.SymbolUtil;
+import org.jtester.helper.ConfigurationHelper;
 import org.jtester.helper.ResourceHelper;
 import org.jtester.helper.StringHelper;
 import org.jtester.module.dbfit.DbFitWikiPage;
