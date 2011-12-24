@@ -13,6 +13,7 @@ import org.jtester.exception.ExceptionWrapper;
 import org.jtester.helper.ArrayHelper;
 import org.jtester.helper.ListHelper;
 import org.jtester.module.CoreModule;
+import org.jtester.spring.JTesterHelper;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
@@ -33,7 +34,7 @@ public abstract class JTester extends JTesterHookable {
 	@BeforeClass(alwaysRun = true)
 	public void aBeforeClass(ITestContext context) {
 		TestedContext.setContext(this, null);
-		// JTesterHelper.invokeSpringInitMethod(this);
+		JTesterHelper.invokeSpringInitMethod(this);
 		this.dealJMockitTestDecorator(context);
 		this.error_setup_class = ListenerExecutor.executeBeforeClassEvents(this.getClass());
 	}
