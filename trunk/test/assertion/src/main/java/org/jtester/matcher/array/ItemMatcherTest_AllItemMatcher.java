@@ -4,17 +4,15 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.jtester.matcher.array.ListEveryItemMatcher;
+import org.jtester.IAssertion;
 import org.jtester.matcher.modes.ItemsMode;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
 import ext.jtester.hamcrest.Matcher;
 import ext.jtester.hamcrest.MatcherAssert;
 
 @SuppressWarnings({ "unchecked", "rawtypes" })
-@Test(groups = { "jtester", "assertion" })
-public class ItemMatcherTest_AllItemMatcher extends JTester {
+public class ItemMatcherTest_AllItemMatcher implements IAssertion {
 	Matcher m1 = the.string().contains("abc");
 
 	ListEveryItemMatcher matcher = new ListEveryItemMatcher(m1, ItemsMode.AllItems);
@@ -24,7 +22,7 @@ public class ItemMatcherTest_AllItemMatcher extends JTester {
 		MatcherAssert.assertThat(Arrays.asList("ddd abc ddd", "ddddabcd"), matcher);
 	}
 
-	@Test(expectedExceptions = AssertionError.class)
+	@Test(expected = AssertionError.class)
 	public void testMatcher_Regular() {
 		Matcher m2 = the.string().regular("\\w+\\d+\\w+");
 
@@ -32,7 +30,7 @@ public class ItemMatcherTest_AllItemMatcher extends JTester {
 		MatcherAssert.assertThat(new String[] { "ab345c", "abcd" }, arrayMatcher);
 	}
 
-	@Test(expectedExceptions = AssertionError.class)
+	@Test(expected = AssertionError.class)
 	public void testMatches_Collection_Failure() {
 		MatcherAssert.assertThat(Arrays.asList("ddd abc ddd", "ddddd"), matcher);
 	}
@@ -42,7 +40,7 @@ public class ItemMatcherTest_AllItemMatcher extends JTester {
 		MatcherAssert.assertThat(new String[] { "ddd abc ddd", "ddabcddd" }, matcher);
 	}
 
-	@Test(expectedExceptions = AssertionError.class)
+	@Test(expected = AssertionError.class)
 	public void testMatches_Array_Failure() {
 		MatcherAssert.assertThat(new String[] { "ddd abc ddd", "ddddd" }, matcher);
 	}
@@ -60,7 +58,7 @@ public class ItemMatcherTest_AllItemMatcher extends JTester {
 
 	}
 
-	@Test(expectedExceptions = AssertionError.class)
+	@Test(expected = AssertionError.class)
 	public void testMatches_Failure_Map() {
 		Map map = new HashMap() {
 			private static final long serialVersionUID = 1L;
@@ -77,12 +75,12 @@ public class ItemMatcherTest_AllItemMatcher extends JTester {
 		MatcherAssert.assertThat("ddd abc ddd", matcher);
 	}
 
-	@Test(expectedExceptions = AssertionError.class)
+	@Test(expected = AssertionError.class)
 	public void testMatches_SingleValue_Failure() {
 		MatcherAssert.assertThat("ddd ddd ddd", matcher);
 	}
 
-	@Test(expectedExceptions = AssertionError.class)
+	@Test(expected = AssertionError.class)
 	public void testMatches_SingleValueIsNull_Failure() {
 		MatcherAssert.assertThat(null, matcher);
 	}

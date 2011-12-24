@@ -1,17 +1,15 @@
 package org.jtester.matcher.array;
 
+import org.jtester.IAssertion;
+import org.jtester.matcher.array.SizeOrLengthMatcher.SizeOrLengthMatcherType;
+import org.junit.Test;
+
 import ext.jtester.hamcrest.Matcher;
 import ext.jtester.hamcrest.MatcherAssert;
 
-import org.jtester.matcher.array.SizeOrLengthMatcher;
-import org.jtester.matcher.array.SizeOrLengthMatcher.SizeOrLengthMatcherType;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
-
-@Test(groups = { "jtester", "assertion" })
 @SuppressWarnings({ "unchecked", "rawtypes" })
-public class SizeOrLengthMatcherTest extends JTester {
-
+public class SizeOrLengthMatcherTest implements IAssertion {
+	@Test
 	public void test_断言信息() {
 		Matcher matcher = new SizeOrLengthMatcher(2, SizeOrLengthMatcherType.EQ);
 		Object actuals = new int[] { 1, 2, 3 };

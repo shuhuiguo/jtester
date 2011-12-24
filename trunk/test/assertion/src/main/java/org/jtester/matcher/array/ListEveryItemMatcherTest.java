@@ -4,18 +4,16 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.jtester.matcher.array.ListEveryItemMatcher;
+import org.jtester.IAssertion;
 import org.jtester.matcher.mockito.Matches;
 import org.jtester.matcher.modes.ItemsMode;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
 import ext.jtester.hamcrest.Matcher;
 import ext.jtester.hamcrest.MatcherAssert;
 
 @SuppressWarnings({ "unchecked", "rawtypes" })
-@Test(groups = { "jtester", "assertion" })
-public class ListEveryItemMatcherTest extends JTester {
+public class ListEveryItemMatcherTest implements IAssertion {
 	Matcher m1 = the.string().contains("abc");
 	ListEveryItemMatcher matcher = new ListEveryItemMatcher(m1, ItemsMode.AnyItems);
 
@@ -31,7 +29,7 @@ public class ListEveryItemMatcherTest extends JTester {
 		MatcherAssert.assertThat(Arrays.asList("abc234abc", "ddddd"), matcher);
 	}
 
-	@Test(expectedExceptions = AssertionError.class)
+	@Test(expected = AssertionError.class)
 	public void testMatches_Collection_Failure() {
 		MatcherAssert.assertThat(Arrays.asList("ddd ddd ddd", "ddddd"), matcher);
 	}
@@ -41,7 +39,7 @@ public class ListEveryItemMatcherTest extends JTester {
 		MatcherAssert.assertThat(new String[] { "ddd abc ddd", "ddddd" }, matcher);
 	}
 
-	@Test(expectedExceptions = AssertionError.class)
+	@Test(expected = AssertionError.class)
 	public void testMatches_Array_Failure() {
 		MatcherAssert.assertThat(new String[] { "ddd ddd ddd", "ddddd" }, matcher);
 	}
@@ -61,7 +59,7 @@ public class ListEveryItemMatcherTest extends JTester {
 
 	}
 
-	@Test(expectedExceptions = AssertionError.class)
+	@Test(expected = AssertionError.class)
 	public void testMatches_Map_Failure() {
 		Map map = new HashMap() {
 			private static final long serialVersionUID = 1L;
@@ -78,12 +76,12 @@ public class ListEveryItemMatcherTest extends JTester {
 		MatcherAssert.assertThat("ddd abc ddd", matcher);
 	}
 
-	@Test(expectedExceptions = AssertionError.class)
+	@Test(expected = AssertionError.class)
 	public void testMatches_SingleValue_Failure() {
 		MatcherAssert.assertThat("ddd ddd ddd", matcher);
 	}
 
-	@Test(expectedExceptions = AssertionError.class)
+	@Test(expected = AssertionError.class)
 	public void testMatches_SingleValueIsNull_Failure() {
 		MatcherAssert.assertThat(null, matcher);
 	}
