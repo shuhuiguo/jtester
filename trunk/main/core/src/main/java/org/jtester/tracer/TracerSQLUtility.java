@@ -1,4 +1,4 @@
-package org.jtester.module.tracer.jdbc;
+package org.jtester.tracer;
 
 import java.util.ArrayList;
 import java.util.Collection;

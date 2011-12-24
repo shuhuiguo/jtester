@@ -17,7 +17,7 @@ package org.jtester.module.spring;
 
 import java.util.List;
 
-import org.jtester.module.tracer.TracerBeanManager;
+import org.jtester.tracer.TracerBeanManager;
 
 public class ClassPathXmlApplicationContextFactory implements ApplicationContextFactory {
 

@@ -1,9 +1,7 @@
-package org.jtester.module.tracer.jdbc;
+package org.jtester.tracer;
 
 import java.util.LinkedList;
 import java.util.Queue;
-
-import org.jtester.module.tracer.spring.BeanTracerManager;
 
 /**
  * Jdbc跟踪器管理

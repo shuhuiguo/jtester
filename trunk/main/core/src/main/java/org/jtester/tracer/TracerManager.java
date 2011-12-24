@@ -1,4 +1,4 @@
-package org.jtester.module.tracer;
+package org.jtester.tracer;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -7,10 +7,6 @@ import java.lang.reflect.Method;
 import org.jtester.annotations.Tracer;
 import org.jtester.helper.ResourceHelper;
 import org.jtester.helper.StringHelper;
-import org.jtester.module.TracerModuleHelper;
-import org.jtester.module.tracer.jdbc.JdbcTracerManager;
-import org.jtester.module.tracer.spring.BeanTracerManager;
-import org.jtester.module.tracer.spring.MethodTracerEvent;
 
 @SuppressWarnings({ "rawtypes" })
 public class TracerManager {

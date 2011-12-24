@@ -6,7 +6,7 @@ import org.jtester.annotations.Tracer;
 import org.jtester.core.TestListener;
 import org.jtester.helper.AnnotationHelper;
 import org.jtester.module.Module;
-import org.jtester.module.tracer.TracerManager;
+import org.jtester.tracer.TracerManager;
 
 public class TracerModule implements Module {
 	public void init() {

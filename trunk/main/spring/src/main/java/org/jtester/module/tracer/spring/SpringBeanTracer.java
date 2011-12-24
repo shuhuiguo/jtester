@@ -4,7 +4,9 @@ import java.util.Stack;
 
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
-import org.jtester.module.tracer.TracerManager;
+import org.jtester.tracer.BeanTracerManager;
+import org.jtester.tracer.MethodTracerEvent;
+import org.jtester.tracer.TracerManager;
 
 @SuppressWarnings("rawtypes")
 public class SpringBeanTracer implements MethodInterceptor {// MethodInterceptor

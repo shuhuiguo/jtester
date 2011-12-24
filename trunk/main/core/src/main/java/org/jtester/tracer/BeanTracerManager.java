@@ -1,4 +1,4 @@
-package org.jtester.module.tracer.spring;
+package org.jtester.tracer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,7 +6,6 @@ import java.util.Stack;
 
 import org.jtester.annotations.Tracer;
 import org.jtester.annotations.Tracer.Info;
-import org.jtester.module.tracer.TracerSequece;
 
 @SuppressWarnings({ "rawtypes" })
 public class BeanTracerManager {

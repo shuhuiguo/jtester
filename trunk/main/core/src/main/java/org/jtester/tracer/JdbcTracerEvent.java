@@ -1,6 +1,4 @@
-package org.jtester.module.tracer.jdbc;
-
-import org.jtester.module.tracer.TracerBeanManager;
+package org.jtester.tracer;
 
 /**
  * jdbc的跟踪信息

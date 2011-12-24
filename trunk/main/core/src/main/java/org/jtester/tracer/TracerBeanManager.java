@@ -1,4 +1,4 @@
-package org.jtester.module.tracer;
+package org.jtester.tracer;
 
 import java.util.HashMap;
 import java.util.Map;

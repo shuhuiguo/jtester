@@ -20,7 +20,7 @@ import org.jtester.module.database.environment.DBEnvironmentFactory;
 import org.jtester.module.database.util.SqlRunner;
 import org.jtester.module.dbfit.AutoFindDbFit;
 import org.jtester.module.dbfit.DbFitRunner;
-import org.jtester.module.tracer.jdbc.JdbcTracerManager;
+import org.jtester.tracer.JdbcTracerManager;
 
 @SuppressWarnings("rawtypes")
 public class DbFitModule implements Module {

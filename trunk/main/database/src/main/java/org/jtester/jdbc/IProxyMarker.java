@@ -1,4 +1,4 @@
-package org.jtester.module.tracer.jdbc;
+package org.jtester.jdbc;
 
 /**
  * do nothing, only proxy flag

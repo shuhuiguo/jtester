@@ -1,4 +1,4 @@
-package org.jtester.module.tracer.jdbc;
+package org.jtester.jdbc;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -10,7 +10,7 @@ import java.sql.Statement;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.jtester.module.tracer.TracerManager;
+import org.jtester.tracer.TracerManager;
 
 @SuppressWarnings("rawtypes")
 public class ConnectionProxy implements InvocationHandler {
