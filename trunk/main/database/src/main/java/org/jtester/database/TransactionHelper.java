@@ -1,26 +1,20 @@
 package org.jtester.database;
 
-import static org.jtester.helper.AnnotationHelper.getMethodOrClassLevelAnnotationProperty;
-import static org.jtester.annotations.Transactional.TransactionMode.DISABLED;
 import static org.jtester.annotations.Transactional.TransactionMode.COMMIT;
-import static org.jtester.annotations.Transactional.TransactionMode.ROLLBACK;
 import static org.jtester.annotations.Transactional.TransactionMode.DEFAULT;
+import static org.jtester.annotations.Transactional.TransactionMode.ROLLBACK;
 import static org.jtester.core.ConfigurationConst.TRANSACTIONAL_MODE_DEFAULT;
+import static org.jtester.helper.AnnotationHelper.getMethodOrClassLevelAnnotationProperty;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 import org.jtester.annotations.Transactional;
 import org.jtester.annotations.Transactional.TransactionMode;
 import org.jtester.core.TestedContext;
-import org.jtester.core.helper.ConfigurationHelper;
-import org.jtester.helper.LogHelper;
-import org.jtester.module.SpringModuleHelper;
-import org.jtester.module.spring.JTesterBeanFactory;
-import org.jtester.module.spring.JTesterSpringContext;
-import org.jtester.module.spring.strategy.cleaner.SpringBeanCleaner;
+import org.jtester.helper.ConfigurationHelper;
 
+@SuppressWarnings("rawtypes")
 public class TransactionHelper {
 	private static Map<Class, ThreadLocal<TransactionManager>> localTransactionManager = new ConcurrentHashMap<Class, ThreadLocal<TransactionManager>>();
 
@@ -71,70 +65,6 @@ public class TransactionHelper {
 			// do nothing
 		}
 		clazzLocal.remove();
-	}
-
-	/**
-	 * AbstractApplicationContext类<br>
-	 * <br>
-	 * <br>
-	 * 第一个Object是测试类实例<br>
-	 * 第二个Object是AbstractApplicationContext实例，这里定义为Object类型是为了兼容没有使用spring容器的测试
-	 */
-	private static Map<Class, JTesterSpringContext> springBeanFactories = new HashMap<Class, JTesterSpringContext>();
-
-	/**
-	 * 存放当前测试实例下的spring application context实例
-	 * 
-	 * @param springContext
-	 */
-	public static void setSpringContext(JTesterSpringContext springContext) {
-		if (springContext == null) {
-			LogHelper.info("no spring application context for test:" + TestedContext.currTestedClazzName());
-			return;
-		}
-		if (TestedContext.currTestedClazz() == null) {
-			throw new RuntimeException("the tested object can't be null.");
-		} else {
-			springBeanFactories.put(TestedContext.currTestedClazz(), springContext);
-		}
-	}
-
-	/**
-	 * 获取当前测试实例的spring application context实例
-	 * 
-	 * @return
-	 */
-	public static JTesterBeanFactory getSpringBeanFactory() {
-		if (TestedContext.currTestedClazz() == null) {
-			throw new RuntimeException("the tested object can't be null.");
-		} else {
-			JTesterSpringContext springContext = springBeanFactories.get(TestedContext.currTestedClazz());
-			return springContext == null ? null : springContext.getJTesterBeanFactory();
-		}
-	}
-
-	public static JTesterSpringContext getSpringContext() {
-		if (TestedContext.currTestedClazz() == null) {
-			throw new RuntimeException("the tested object can't be null.");
-		} else {
-			JTesterSpringContext springContext = springBeanFactories.get(TestedContext.currTestedClazz());
-			return springContext;
-		}
-	}
-
-	/**
-	 * 释放spring context，清空测试类中的spring bean实例
-	 */
-	public static void removeSpringContext() {
-		if (TestedContext.currTestedClazz() == null) {
-			throw new RuntimeException("the tested object can't be null.");
-		} else {
-			SpringBeanCleaner.cleanSpringBeans(TestedContext.currTestedObject());
-			Object springContext = springBeanFactories.remove(TestedContext.currTestedClazz());
-			if (springContext != null) {
-				SpringModuleHelper.closeSpringContext(springContext);
-			}
-		}
 	}
 
 	/**
