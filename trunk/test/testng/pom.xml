@@ -13,6 +13,11 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.jtester</groupId>
+			<artifactId>jtester.model.test</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jtester</groupId>
 			<artifactId>jtester.assertion</artifactId>
 			<version>${jtester.version}</version>
 		</dependency>

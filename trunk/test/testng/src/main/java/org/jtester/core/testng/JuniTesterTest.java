@@ -46,7 +46,7 @@ public class JuniTesterTest extends JTester {
 		@SpringInitMethod
 		public void init() throws Exception {
 			log4j.info("readyDb");
-			fit.runDbFit(JuniTesterTest.class, "JTesterTest.readyDb.wiki");
+			// fit.runDbFit(JuniTesterTest.class, "JTesterTest.readyDb.wiki");
 			super.init();
 		}
 	}

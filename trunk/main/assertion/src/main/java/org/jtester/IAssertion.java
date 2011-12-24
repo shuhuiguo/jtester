@@ -4,7 +4,7 @@ import org.jtester.assertion.TheStyleAssertion;
 import org.jtester.assertion.WantStyleAssertion;
 
 @SuppressWarnings("rawtypes")
-public interface IAssertion {
+public interface IAssertion extends IReflector {
 	final WantStyleAssertion want = new WantStyleAssertion();
 
 	final TheStyleAssertion the = new TheStyleAssertion();
