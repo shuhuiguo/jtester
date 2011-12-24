@@ -18,8 +18,9 @@
 	</modules>
 	<properties>
 		<junit.version>4.10</junit.version>
+		<testng.version>6.3.1</testng.version>
 		<spring.version>2.5.4</spring.version>
-		<jmockit.version>0.999.11</jmockit.version>
+		<jmockit.version>0.999.11.patch1</jmockit.version>
 	</properties>
 	<dependencyManagement>
 		<dependencies>
@@ -29,9 +30,29 @@
 				<version>${junit.version}</version>
 			</dependency>
 			<dependency>
+				<groupId>org.testng</groupId>
+				<artifactId>testng</artifactId>
+				<version>${testng.version}</version>
+			</dependency>
+			<dependency>
 				<groupId>cglib</groupId>
 				<artifactId>cglib-nodep</artifactId>
 				<version>2.1_3</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-dbcp</groupId>
+				<artifactId>commons-dbcp</artifactId>
+				<version>1.2.2</version>
+			</dependency>
+			<dependency>
+				<groupId>ognl</groupId>
+				<artifactId>ognl</artifactId>
+				<version>2.7.2</version>
+			</dependency>
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>servlet-api</artifactId>
+				<version>2.4</version>
 			</dependency>
 			<dependency>
 				<groupId>com.googlecode.jmockit</groupId>
@@ -46,8 +67,56 @@
 			</dependency>
 			<dependency>
 				<groupId>org.springframework</groupId>
+				<artifactId>spring-aspects</artifactId>
+				<version>${spring.version}</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
 				<artifactId>spring-jdbc</artifactId>
 				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-aop</artifactId>
+				<version>${spring.version}</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>javax.annotation</groupId>
+				<artifactId>jsr250-api</artifactId>
+				<version>1.0</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.ibatis</groupId>
+				<artifactId>ibatis-sqlmap</artifactId>
+				<version>2.3.4.726</version>
+			</dependency>
+			<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>5.1.6</version>
+			</dependency>
+			<dependency>
+				<groupId>com.h2database</groupId>
+				<artifactId>h2</artifactId>
+				<version>1.1.107</version>
+			</dependency>
+			<dependency>
+				<groupId>com.oracle</groupId>
+				<artifactId>ojdbc14</artifactId>
+				<version>10.2.0.3.0</version>
+			</dependency>
+			<dependency>
+				<groupId>org.fitnesse</groupId>
+				<artifactId>fitnesse</artifactId>
+				<version>20100211</version>
+			</dependency>
+			<dependency>
+				<groupId>javax.transaction</groupId>
+				<artifactId>jta</artifactId>
+				<version>1.1</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
