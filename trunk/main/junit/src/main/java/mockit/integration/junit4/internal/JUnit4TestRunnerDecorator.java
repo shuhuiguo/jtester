@@ -17,6 +17,7 @@ import mockit.internal.state.SavePoint;
 import mockit.internal.state.TestRun;
 import mockit.internal.util.Utilities;
 
+import org.jtester.junit.DataFrom;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -75,7 +76,11 @@ public final class JUnit4TestRunnerDecorator extends TestRunnerDecorator {
 		TestRun.setRunningTestMethod(method);
 
 		try {
-			executeTestMethod(target, params);
+			if (method.isAnnotationPresent(DataFrom.class)) {
+				executeParameterTestMethod(target, params);
+			} else {
+				executeTestMethod(target, params);
+			}
 			return null; // it's a test method, therefore has void return type
 		} catch (Throwable t) {
 			Utilities.filterStackTrace(t);
@@ -96,6 +101,21 @@ public final class JUnit4TestRunnerDecorator extends TestRunnerDecorator {
 			}
 		} finally {
 			TestRun.exitNoMockingZone();
+		}
+	}
+
+	private void executeParameterTestMethod(Object target, Object... parameters) throws Throwable {
+		SavePoint savePoint = new SavePoint();
+		Throwable testFailure = null;
+
+		try {
+			createInstancesForTestedFields(target);
+			TestRun.setRunningIndividualTest(target);
+			it.invokeExplosively(target, parameters);
+		} catch (Throwable thrownByTest) {
+			testFailure = thrownByTest;
+		} finally {
+			concludeTestMethodExecution(savePoint, testFailure);
 		}
 	}
 
