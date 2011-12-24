@@ -4,18 +4,16 @@ import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.jtester.IAssertion;
 import org.jtester.json.helper.JSONFeature;
-import org.jtester.testng.JTester;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.junit.Before;
 
 @SuppressWarnings("rawtypes")
-@Test(groups = { "jtester", "json" })
-public abstract class EncoderTest extends JTester {
+public abstract class EncoderTest implements IAssertion {
 	protected StringWriter writer = null;
 	protected List<String> references = null;
 
-	@BeforeMethod
+	@Before
 	public void initStringWriter() {
 		writer = new StringWriter();
 		this.references = new ArrayList<String>();

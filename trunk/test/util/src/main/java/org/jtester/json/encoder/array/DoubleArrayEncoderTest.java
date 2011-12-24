@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 @SuppressWarnings({ "unchecked", "rawtypes" })
 @Test(groups = { "jtester", "json" })
-public class DoubleArrayEncoderTest extends JTester {
+public class DoubleArrayEncoderTest implements IAssertion {
 	@Test
 	public void testEncode() throws Exception {
 		double[] values = new double[] { 12.34d, 45.56D };

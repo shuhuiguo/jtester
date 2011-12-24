@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 @SuppressWarnings({ "unchecked", "rawtypes" })
 @Test(groups = { "jtester", "json" })
-public class FloatArrayEncoderTest extends JTester {
+public class FloatArrayEncoderTest implements IAssertion {
 	@Test
 	public void testEncode() throws Exception {
 		float[] values = new float[] { 12.34f, 45.56F };

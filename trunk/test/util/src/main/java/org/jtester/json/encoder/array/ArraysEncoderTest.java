@@ -1,5 +1,6 @@
 package org.jtester.json.encoder.array;
 
+import org.jtester.IAssertion;
 import org.jtester.json.JSON;
 import org.jtester.json.encoder.beans.test.User;
 import org.jtester.json.helper.JSONFeature;
@@ -7,7 +8,7 @@ import org.jtester.testng.JTester;
 import org.testng.annotations.Test;
 
 @Test(groups = { "jtester", "json" })
-public class ArraysEncoderTest extends JTester {
+public class ArraysEncoderTest implements IAssertion {
 
 	@Test
 	public void testNewInstance() {

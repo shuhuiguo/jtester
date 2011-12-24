@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 @SuppressWarnings({ "unchecked", "rawtypes" })
 @Test(groups = { "jtester", "json" })
-public class IntegerArrayEncoderTest extends JTester {
+public class IntegerArrayEncoderTest implements IAssertion {
 	@Test
 	public void testEncode() throws Exception {
 		int[] ints = new int[] { 1, 2, 3 };

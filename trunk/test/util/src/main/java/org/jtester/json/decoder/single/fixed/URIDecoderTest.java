@@ -3,12 +3,11 @@ package org.jtester.json.decoder.single.fixed;
 import java.io.File;
 import java.net.URI;
 
+import org.jtester.IAssertion;
 import org.jtester.json.JSON;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
-@Test(groups = { "jtester", "json" })
-public class URIDecoderTest extends JTester {
+public class URIDecoderTest implements IAssertion {
 
 	@Test
 	public void testDecodeSimpleValue() {

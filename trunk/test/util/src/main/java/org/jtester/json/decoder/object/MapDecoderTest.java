@@ -3,14 +3,13 @@ package org.jtester.json.decoder.object;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.jtester.IAssertion;
 import org.jtester.json.JSON;
 import org.jtester.matcher.property.reflection.EqMode;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
 @SuppressWarnings({ "rawtypes", "serial" })
-@Test(groups = { "jtester", "json" })
-public class MapDecoderTest extends JTester {
+public class MapDecoderTest implements IAssertion {
 
 	@Test
 	public void testParseFromJSONMap() {
@@ -19,6 +18,7 @@ public class MapDecoderTest extends JTester {
 		want.map(map).hasEntry("key1", "value1", "key2", "value2");
 	}
 
+	@Test
 	public void testToJson() {
 		String json = "{{id:1,name:'user1'}:'value1', {id:2,name:'user2'}:'value2'}";
 

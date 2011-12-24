@@ -3,17 +3,15 @@ package org.jtester.json.decoder.single.fixed;
 import java.math.BigDecimal;
 import java.util.HashMap;
 
+import org.jtester.IAssertion;
 import org.jtester.json.JSON;
-import org.jtester.json.decoder.single.fixed.BigDecimalDecoder;
 import org.jtester.json.helper.JSONFeature;
 import org.jtester.json.helper.JSONMap;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
-@Test(groups = { "jtester", "json" })
-public class BigDecimalDecoderTest extends JTester {
+@SuppressWarnings("serial")
+public class BigDecimalDecoderTest implements IAssertion {
 
-	@SuppressWarnings("serial")
 	@Test
 	public void testDecodeSimpleValue() {
 		JSONMap json = new JSONMap() {
@@ -26,6 +24,7 @@ public class BigDecimalDecoderTest extends JTester {
 		want.number(decimal).isEqualTo(new BigDecimal("1213435"));
 	}
 
+	@Test
 	public void testSimpleValue() {
 		BigDecimal decimal = JSON.toObject("1213435", BigDecimal.class);
 		want.number(decimal).isEqualTo(new BigDecimal("1213435"));

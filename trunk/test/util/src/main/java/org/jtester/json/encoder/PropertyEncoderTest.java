@@ -4,10 +4,9 @@ import org.jtester.json.JSON;
 import org.jtester.json.encoder.beans.test.User;
 import org.jtester.json.encoder.object.PoJoEncoder;
 import org.jtester.json.helper.JSONFeature;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
 @SuppressWarnings({ "rawtypes", "unchecked" })
-@Test(groups = { "jtester", "json" })
 public class PropertyEncoderTest extends EncoderTest {
 	String json = "";
 	User user = new User() {
@@ -31,7 +30,8 @@ public class PropertyEncoderTest extends EncoderTest {
 				.contains("name:'darui.wu'").contains("age:45").contains("salary:234.56").contains("isFemale:false");
 	}
 
-	@Test(dependsOnMethods = "testEncodeValue")
+	@Test
+	// (dependsOnMethods = "testEncodeValue")
 	public void testDecodeValue() {
 		User result = JSON.toObject(json);
 		want.object(user).reflectionEq(result);

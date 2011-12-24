@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 @SuppressWarnings({ "unchecked", "rawtypes" })
 @Test(groups = { "jtester", "json" })
-public class ShortArrayEncoderTest extends JTester {
+public class ShortArrayEncoderTest implements IAssertion {
 	@Test
 	public void testEncode() throws Exception {
 		short[] values = new short[] { 1234, Short.valueOf("4567") };

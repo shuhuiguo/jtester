@@ -1,12 +1,10 @@
 package org.jtester.json.decoder.single.fixed;
 
+import org.jtester.IAssertion;
 import org.jtester.json.JSON;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
-
-@Test(groups = { "jtester", "json" })
-public class CharDecoderTest extends JTester {
+public class CharDecoderTest implements IAssertion {
 
 	@Test
 	public void testDecodeSimpleValue() {

@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 
 @SuppressWarnings({ "unchecked", "rawtypes" })
 @Test(groups = { "jtester", "json" })
-public class CollectionEncoderTest extends JTester {
+public class CollectionEncoderTest implements IAssertion {
 	@Test
 	public void testEncode() throws Exception {
 		List<User> users = new ArrayList<User>();

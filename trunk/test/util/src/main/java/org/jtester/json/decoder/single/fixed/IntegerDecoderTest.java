@@ -2,16 +2,14 @@ package org.jtester.json.decoder.single.fixed;
 
 import java.util.HashMap;
 
+import org.jtester.IAssertion;
 import org.jtester.json.JSON;
-import org.jtester.json.decoder.single.fixed.IntegerDecoder;
 import org.jtester.json.helper.JSONFeature;
 import org.jtester.json.helper.JSONMap;
-import org.jtester.testng.JTester;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.jtester.junit.DataFrom;
+import org.junit.Test;
 
-@Test(groups = { "jtester", "json" })
-public class IntegerDecoderTest extends JTester {
+public class IntegerDecoderTest implements IAssertion {
 
 	@Test
 	public void testDecodeSimpleValue() {
@@ -26,14 +24,14 @@ public class IntegerDecoderTest extends JTester {
 		want.number(d).isEqualTo(3434);
 	}
 
-	@Test(dataProvider = "simple_value")
+	@Test
+	@DataFrom("simple_value")
 	public void testSimpleValue(String json, int expected) {
 		Integer actual = JSON.toObject(json, Integer.class);
 		want.number(actual).isEqualTo(expected);
 	}
 
-	@DataProvider
-	public Object[][] simple_value() {
+	public static Object[][] simple_value() {
 		return new Object[][] { { "34234", 34234 },// <br>
 				{ "\"34234\"", 34234 } /** <br> */
 		};

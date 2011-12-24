@@ -6,6 +6,7 @@ import java.lang.reflect.Proxy;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import org.jtester.IAssertion;
 import org.jtester.json.JSON;
 import org.jtester.json.encoder.beans.test.GenicBean;
 import org.jtester.json.encoder.beans.test.TestedIntf;
@@ -17,7 +18,7 @@ import org.testng.annotations.Test;
 
 @SuppressWarnings({ "rawtypes", "unchecked" })
 @Test(groups = { "jtester", "json" })
-public class JSONEncoderTest extends JTester {
+public class JSONEncoderTest implements IAssertion {
 
 	@Test(dataProvider = "objects")
 	public void testEncode(Object obj, String expected) {

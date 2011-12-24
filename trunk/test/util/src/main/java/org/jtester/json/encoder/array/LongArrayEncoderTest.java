@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 @SuppressWarnings({ "unchecked", "rawtypes" })
 @Test(groups = { "jtester", "json" })
-public class LongArrayEncoderTest extends JTester {
+public class LongArrayEncoderTest implements IAssertion {
 	@Test
 	public void testEncode() throws Exception {
 		long[] values = new long[] { 1234, 4556L };

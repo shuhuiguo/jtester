@@ -1,12 +1,11 @@
 package org.jtester.json.decoder.single.fixed;
 
+import org.jtester.IAssertion;
 import org.jtester.json.JSON;
 import org.jtester.json.helper.JSONFeature;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
-@Test(groups = { "jtester", "json" })
-public class EnumDecoderTest extends JTester {
+public class EnumDecoderTest implements IAssertion {
 
 	@Test
 	public void testDecode() {

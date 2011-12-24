@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 
 @SuppressWarnings({ "unchecked", "rawtypes" })
 @Test(groups = { "jtester", "json" })
-public class ObjectArrayEncoderTest extends JTester {
+public class ObjectArrayEncoderTest implements IAssertion {
 	@Test
 	public void testEncode() throws Exception {
 		User[] users = new User[] { User.newInstance(12, "darui.wu"), null };

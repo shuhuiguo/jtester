@@ -2,16 +2,14 @@ package org.jtester.json.decoder.single.fixed;
 
 import java.util.HashMap;
 
+import org.jtester.IAssertion;
 import org.jtester.json.JSON;
-import org.jtester.json.decoder.single.fixed.BooleanDecoder;
 import org.jtester.json.helper.JSONFeature;
 import org.jtester.json.helper.JSONMap;
-import org.jtester.testng.JTester;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.jtester.junit.DataFrom;
+import org.junit.Test;
 
-@Test(groups = { "jtester", "json" })
-public class BooleanDecoderTest extends JTester {
+public class BooleanDecoderTest implements IAssertion {
 
 	@Test
 	public void testDecodeSimpleValue() {
@@ -26,14 +24,14 @@ public class BooleanDecoderTest extends JTester {
 		want.bool(bl).is(true);
 	}
 
-	@Test(dataProvider = "simple_value")
+	@Test
+	@DataFrom("simple_value")
 	public void testSimpleValue(String json, boolean expected) {
 		Boolean bool = JSON.toObject(json, Boolean.class);
 		want.bool(bool).is(expected);
 	}
 
-	@DataProvider
-	public Object[][] simple_value() {
+	public static Object[][] simple_value() {
 		return new Object[][] { { "0", false },// <br>
 				{ "'1'", true }, /** <br> */
 				{ "'tRue'", true }, /** <br> */

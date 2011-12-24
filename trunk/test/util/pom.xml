@@ -10,4 +10,16 @@
 	<artifactId>jtester.util.test</artifactId>
 	<packaging>jar</packaging>
 	<name>test jtester testng module</name>
+	<dependencies>
+		<dependency>
+			<groupId>org.jtester</groupId>
+			<artifactId>jtester.assertion</artifactId>
+			<version>${jtester.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jtester</groupId>
+			<artifactId>jtester.junit</artifactId>
+			<version>${jtester.version}</version>
+		</dependency>
+	</dependencies>
 </project>
