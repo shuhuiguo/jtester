@@ -2,22 +2,22 @@ package org.jtester.exception;
 
 import java.util.Iterator;
 
+import org.jtester.IAssertion;
 import org.jtester.beans.DataIterator;
-import org.jtester.testng.JTester;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.jtester.junit.DataFrom;
+import org.junit.Test;
 
 @SuppressWarnings("rawtypes")
-public class MultipleExceptionTest extends JTester {
+public class MultipleExceptionTest implements IAssertion {
 
-	@Test(dataProvider = "dataGetMultipleException")
+	@Test
+	@DataFrom("dataGetMultipleException")
 	public void testGetMultipleException(Throwable[] errors, boolean isNull) {
 		MultipleException exception = MultipleException.getMultipleException(errors);
 		want.bool(exception == null).is(isNull);
 	}
 
-	@DataProvider
-	public Iterator dataGetMultipleException() {
+	public static Iterator dataGetMultipleException() {
 		final Exception caused = new RuntimeException();
 		return new DataIterator() {
 			{
@@ -32,6 +32,7 @@ public class MultipleExceptionTest extends JTester {
 		};
 	}
 
+	@Test
 	public void testGetMultipleException() {
 		final Exception err1 = new RuntimeException("my error1");
 		final Exception err2 = new RuntimeException("my error2");
