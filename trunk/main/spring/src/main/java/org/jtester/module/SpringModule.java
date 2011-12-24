@@ -34,9 +34,9 @@ public class SpringModule implements Module {
 	 */
 	public void invalidateApplicationContext() {
 		Class testClazz = TestedContext.currTestedClazz();
-		TransactionHelper.removeSpringContext();
+		SpringModuleHelper.removeSpringContext();
 		JTesterSpringContext springContext = SpringModuleHelper.initSpringContext(testClazz, this.contextFactory);
-		TransactionHelper.setSpringContext(springContext);
+		SpringModuleHelper.setSpringContext(springContext);
 	}
 
 	public TestListener getTestListener() {
@@ -52,7 +52,7 @@ public class SpringModule implements Module {
 			SpringModuleHelper.resetDumpReference();
 
 			JTesterSpringContext springContext = SpringModuleHelper.initSpringContext(testClazz, contextFactory);
-			TransactionHelper.setSpringContext(springContext);
+			SpringModuleHelper.setSpringContext(springContext);
 		}
 
 		/**
@@ -62,7 +62,7 @@ public class SpringModule implements Module {
 		 */
 		@Override
 		public void beforeMethod(Object testObject, Method testMethod) {
-			JTesterBeanFactory beanFactory = (JTesterBeanFactory) TransactionHelper.getSpringBeanFactory();
+			JTesterBeanFactory beanFactory = (JTesterBeanFactory) SpringModuleHelper.getSpringBeanFactory();
 			if (beanFactory != null) {
 				SpringBeanInjector.injectSpringBeans(beanFactory, testObject);
 			}
@@ -70,7 +70,7 @@ public class SpringModule implements Module {
 
 		@Override
 		public void afterClass(Object testedObject) {
-			TransactionHelper.removeSpringContext();
+			SpringModuleHelper.removeSpringContext();
 		}
 
 		@Override

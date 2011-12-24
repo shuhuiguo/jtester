@@ -183,6 +183,7 @@ public class SpringModuleHelper {
 	 * 第一个Object是测试类实例<br>
 	 * 第二个Object是AbstractApplicationContext实例，这里定义为Object类型是为了兼容没有使用spring容器的测试
 	 */
+	@SuppressWarnings("rawtypes")
 	private static Map<Class, JTesterSpringContext> springBeanFactories = new HashMap<Class, JTesterSpringContext>();
 
 	/**

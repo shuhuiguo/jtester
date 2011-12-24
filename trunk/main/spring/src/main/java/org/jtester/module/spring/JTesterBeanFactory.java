@@ -4,6 +4,7 @@ import javax.sql.DataSource;
 
 import org.jtester.helper.ConfigurationHelper;
 import org.jtester.helper.LogHelper;
+import org.jtester.module.database.environment.DBEnvironmentFactory;
 import org.jtester.tracer.TracerBeanManager;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;
