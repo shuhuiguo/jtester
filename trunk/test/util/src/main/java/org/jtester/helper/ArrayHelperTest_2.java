@@ -1,4 +1,4 @@
-package org.jtester.utility;
+package org.jtester.helper;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -6,59 +6,63 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 
-import org.jtester.fortest.beans.User;
-import org.jtester.helper.ArrayHelper;
-import org.jtester.helper.ListHelper;
-import org.jtester.testng.JTester;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.jtester.IAssertion;
+import org.jtester.beans.User;
+import org.jtester.junit.DataFrom;
+import org.junit.Test;
 
 @SuppressWarnings({ "rawtypes" })
-@Test(groups = { "JTester" })
-public class ArrayHelperTest_2 extends JTester {
-	@Test(dataProvider = "array-provider")
+public class ArrayHelperTest_2 implements IAssertion {
+	@Test
+	@DataFrom("array-provider")
 	public void isArray(Object array) {
 		want.bool(ArrayHelper.isArray(array)).is(true);
 
 	}
 
+	@Test
 	public void isArray_False() {
 		want.bool(ArrayHelper.isArray(null)).is(false);
 		want.bool(ArrayHelper.isArray(1)).is(false);
 	}
 
-	@Test(dataProvider = "coll-provider")
+	@Test
+	@DataFrom("coll-provider")
 	public void convert(Collection<?> coll) {
 		want.bool(ArrayHelper.isArray(ArrayHelper.toArray(coll))).is(true);
 	}
 
-	@Test(dataProvider = "coll-provider")
+	@Test
+	@DataFrom("coll-provider")
 	public void isCollection(Collection<?> coll) {
 		want.bool(ListHelper.isCollection(coll)).is(true);
 	}
 
+	@Test
 	public void isCollection_False() {
 		want.bool(ListHelper.isCollection(null)).is(false);
 		want.bool(ListHelper.isCollection(true)).is(false);
 		want.bool(ListHelper.isCollection(Integer.valueOf(1))).is(false);
 	}
 
-	@Test(dataProvider = "coll-provider")
+	@Test
+	@DataFrom("coll-provider")
 	public void sizeOf_collection(Object coll) {
 		want.number(ArrayHelper.sizeOf(coll)).isEqualTo(2);
 	}
 
-	@Test(dataProvider = "array-provider")
+	@Test
+	@DataFrom("array-provider")
 	public void sizeOf_array(Object array) {
 		want.number(ArrayHelper.sizeOf(array)).isEqualTo(2);
 	}
 
+	@Test
 	public void sizeOf_One() {
 		want.number(ArrayHelper.sizeOf(null)).isEqualTo(0);
 		want.number(ArrayHelper.sizeOf(1)).isEqualTo(1);
 	}
 
-	@DataProvider(name = "coll-provider")
 	public Object[][] collProvider() {
 		return new Object[][] { { Arrays.asList('a', 'b') }, /** <br> */
 		{ Arrays.asList(true, false) }, /** <br> */
@@ -68,7 +72,6 @@ public class ArrayHelperTest_2 extends JTester {
 		{ Arrays.asList(1f, 2f) } };
 	}
 
-	@DataProvider(name = "array-provider")
 	public Object[][] arrayProvider() {
 		return new Object[][] { { new char[] { 'a', 'b' } }, /** <br> */
 		{ new boolean[] { true, false } }, /** <br> */
@@ -81,13 +84,11 @@ public class ArrayHelperTest_2 extends JTester {
 		{ new Object[] { null, null } } };
 	}
 
-	@Test(dataProvider = "testIsCollOrArray_data")
 	public void testIsCollOrArray(Object o, boolean isSet) {
 		boolean actual = ArrayHelper.isCollOrArray(o);
 		want.bool(actual).isEqualTo(isSet);
 	}
 
-	@DataProvider
 	public Object[][] testIsCollOrArray_data() {
 		return new Object[][] { { new int[] {}, true },// <br>
 				{ new boolean[] { true }, true },// <br>

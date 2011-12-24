@@ -1,25 +1,23 @@
-package org.jtester.utility;
+package org.jtester.helper;
 
 import java.util.Iterator;
 
+import org.jtester.IAssertion;
 import org.jtester.beans.DataIterator;
-import org.jtester.helper.PrimitiveHelper;
-import org.jtester.testng.JTester;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.jtester.junit.DataFrom;
+import org.junit.Test;
 
 @SuppressWarnings("rawtypes")
-@Test(groups = { "jtester", "utility" })
-public class PrimitiveHelperTest extends JTester {
+public class PrimitiveHelperTest2 implements IAssertion {
 
-	@Test(dataProvider = "testDoesEqualData")
+	@Test
+	@DataFrom("testDoesEqualData")
 	public void testDoesEqual(Number num1, Number num2, boolean result) {
 		boolean actual = PrimitiveHelper.doesEqual(num1, num2);
 		want.bool(actual).is(result);
 	}
 
-	@DataProvider
-	public Iterator testDoesEqualData() {
+	public static Iterator testDoesEqualData() {
 		return new DataIterator() {
 			{
 				data(1, 1L, true);

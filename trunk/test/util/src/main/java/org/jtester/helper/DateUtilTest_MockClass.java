@@ -1,4 +1,4 @@
-package org.jtester.utility;
+package org.jtester.helper;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -9,15 +9,12 @@ import mockit.Mock;
 import mockit.MockClass;
 import mockit.UsingMocksAndStubs;
 
-import org.testng.annotations.Test;
+import org.jtester.IAssertion;
+import org.jtester.helper.DateUtilTest_MockClass.MockDateUtil;
+import org.junit.Test;
 
-import org.jtester.helper.DateHelper;
-import org.jtester.testng.JTester;
-import org.jtester.utility.DateUtilTest_MockClass.MockDateUtil;
-
-@Test(groups = "jtester")
-@UsingMocksAndStubs( { MockDateUtil.class })
-public class DateUtilTest_MockClass extends JTester {
+@UsingMocksAndStubs({ MockDateUtil.class })
+public class DateUtilTest_MockClass implements IAssertion {
 	@MockClass(realClass = DateHelper.class)
 	public static class MockDateUtil {
 		@Mock

@@ -10,8 +10,8 @@ import org.jtester.annotations.AutoBeanInject;
 import org.jtester.annotations.SpringApplicationContext;
 import org.jtester.annotations.SpringBeanByName;
 import org.jtester.helper.DateHelper;
+import org.jtester.helper.DateUtilTest;
 import org.jtester.testng.JTester;
-import org.jtester.utility.DateUtilTest;
 import org.testng.annotations.Test;
 
 /**

@@ -1,17 +1,16 @@
-package org.jtester.utility;
+package org.jtester.helper;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import org.jtester.fortest.beans.Manager;
+import org.jtester.IAssertion;
+import org.jtester.beans.Manager;
 import org.jtester.json.JSON;
 import org.jtester.json.JSONHelper;
 import org.jtester.json.helper.JSONFeature;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
-@Test(groups = { "jtester", "json" })
-public class JsonHelperTest_JsonString extends JTester {
+public class JsonHelperTest_JsonString implements IAssertion {
 	@Test
 	public void fromJson() {
 		String filename = "classpath:org/jtester/utility/manager.json";

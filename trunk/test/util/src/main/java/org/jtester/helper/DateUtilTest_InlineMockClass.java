@@ -1,4 +1,4 @@
-package org.jtester.utility;
+package org.jtester.helper;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -7,13 +7,11 @@ import mockit.Mock;
 import mockit.MockUp;
 import mockit.Mockit;
 
-import org.jtester.helper.DateHelper;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.jtester.IAssertion;
+import org.junit.Test;
 
 @SuppressWarnings("unused")
-@Test(groups = "jtester")
-public class DateUtilTest_InlineMockClass extends JTester {
+public class DateUtilTest_InlineMockClass implements IAssertion {
 	@Test
 	public void testCurrDateTimeStr_MockUp() throws Exception {
 		new MockUp<DateHelper>() {
@@ -40,7 +38,7 @@ public class DateUtilTest_InlineMockClass extends JTester {
 		want.string(str).isEqualTo("01/28/12 07:58:55");
 	}
 
-	@Test(expectedExceptions = AssertionError.class)
+	@Test(expected = AssertionError.class)
 	public void testCurrDateTimeStr_format_Exception() {
 		String str = DateHelper.currDateTimeStr("MM/dd/yy hh:mm:ss");
 		want.string(str).isEqualTo("01/28/12 07:58:55");

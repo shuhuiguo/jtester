@@ -1,20 +1,20 @@
-package org.jtester.utility;
+package org.jtester.helper;
 
 import java.util.Calendar;
 import java.util.Date;
 
+import mockit.Expectations;
 import mockit.Mock;
 import mockit.Mocked;
+import mockit.NonStrictExpectations;
 
+import org.jtester.IAssertion;
 import org.jtester.beans.DataIterator;
-import org.jtester.helper.DateHelper;
-import org.jtester.testng.JTester;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.jtester.junit.DataFrom;
+import org.junit.Test;
 
-@Test(groups = { "jtester", "assertion" })
 @SuppressWarnings("unused")
-public class DateUtilTest extends JTester {
+public class DateUtilTest implements IAssertion {
 
 	@Test
 	public void testToDateTimeStr() {
@@ -22,6 +22,7 @@ public class DateUtilTest extends JTester {
 		want.string(dateStr).isEqualTo("2010-02-12 19:58:55");
 	}
 
+	@Test
 	public void testToDateTimeStr_MockitExpectation() {
 		new NonStrictExpectations() {
 			@Mocked(methods = "now")
@@ -35,6 +36,7 @@ public class DateUtilTest extends JTester {
 		want.string(str).isEqualTo("2010-02-12 19:58:55");
 	}
 
+	@Test
 	public void testToDateTimeStr_MockitExpectation_returnSequence() {
 		new NonStrictExpectations() {
 			@Mocked(methods = "now")
@@ -50,6 +52,7 @@ public class DateUtilTest extends JTester {
 		want.string(str).isEqualTo("2013-02-12 19:58:55");
 	}
 
+	@Test
 	public void testToDateTimeStr_MockitExpectation2() {
 		new NonStrictExpectations() {
 			@Mocked(methods = "now")
@@ -63,6 +66,7 @@ public class DateUtilTest extends JTester {
 		want.string(str).isEqualTo("2015-06-25 19:58:55");
 	}
 
+	@Test
 	public void testToDateTimeStr_dynamicPartialMock() {
 		new Expectations(DateHelper.class) {
 			{
@@ -100,14 +104,14 @@ public class DateUtilTest extends JTester {
 		return cal;
 	}
 
-	@Test(dataProvider = "dataParse_Format")
+	@Test
+	@DataFrom("dataParse_Format")
 	public void testParse_Format(String input, String output) {
 		Date date = DateHelper.parse(input);
 		want.date(date).eqByFormat(output);
 	}
 
-	@DataProvider
-	public DataIterator dataParse_Format() {
+	public static DataIterator dataParse_Format() {
 		return new DataIterator() {
 			{
 				data("2011-09-12 12:23:34", "2011-09-12 12:23:34");
@@ -133,7 +137,7 @@ public class DateUtilTest extends JTester {
 		want.date(date).eqByFormat("2010/10/20 06:20:36.231", "yyyy/MM/dd hh:mm:ss.SSS");
 	}
 
-	@Test(expectedExceptions = RuntimeException.class)
+	@Test(expected = RuntimeException.class)
 	public void testParse_格式异常() {
 		DateHelper.parse("2010-10/20 18:20:36.231");
 	}

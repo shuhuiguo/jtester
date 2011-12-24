@@ -1,17 +1,16 @@
-package org.jtester.utility;
+package org.jtester.helper;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.jtester.IAssertion;
+import org.jtester.beans.Manager;
 import org.jtester.exception.JTesterException;
-import org.jtester.fortest.beans.Manager;
 import org.jtester.json.JSONHelper;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
-@Test(groups = { "JTester" })
-public class JsonHelperTest extends JTester {
+public class JsonHelperTest implements IAssertion {
 	private static String tempDir = System.getProperty("java.io.tmpdir");
 
 	@Test
@@ -21,7 +20,8 @@ public class JsonHelperTest extends JTester {
 		want.file(filename).isExists();
 	}
 
-	@Test(dependsOnMethods = { "toDat" })
+	@Test
+	// (dependsOnMethods = { "toDat" })
 	public void fromDat() {
 		String filename = "file:" + tempDir + "/manager.dat";
 		want.file(filename).isExists();
@@ -46,7 +46,7 @@ public class JsonHelperTest extends JTester {
 		want.file(filename).isExists();
 	}
 
-	@Test(expectedExceptions = { JTesterException.class })
+	@Test(expected = JTesterException.class)
 	public void fromDat_List() {
 		String filename = "classpath:org/jtester/utility/manager_classnotfound.dat";
 		List<?> managers = JSONHelper.fromDatFile(List.class, filename);
@@ -61,7 +61,8 @@ public class JsonHelperTest extends JTester {
 		want.file(filename).isExists();
 	}
 
-	@Test(dependsOnMethods = { "toJSON" })
+	@Test
+	// (dependsOnMethods = { "toJSON" })
 	public void fromJSON() {
 		String filename = "file:" + tempDir + "/manager.json";
 		want.file(filename).isExists();

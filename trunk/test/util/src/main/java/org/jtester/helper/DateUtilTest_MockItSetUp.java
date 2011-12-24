@@ -1,4 +1,4 @@
-package org.jtester.utility;
+package org.jtester.helper;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -6,12 +6,10 @@ import java.util.Date;
 import mockit.Mock;
 import mockit.Mockit;
 
-import org.jtester.helper.DateHelper;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.jtester.IAssertion;
+import org.junit.Test;
 
-@Test(groups = "jtester")
-public class DateUtilTest_MockItSetUp extends JTester {
+public class DateUtilTest_MockItSetUp implements IAssertion {
 	public static class MockDateUtil {
 		@Mock
 		public static Date now() {
@@ -27,7 +25,7 @@ public class DateUtilTest_MockItSetUp extends JTester {
 		want.string(str).isEqualTo("01/28/12 07:58:55");
 	}
 
-	@Test(expectedExceptions = AssertionError.class)
+	@Test(expected = AssertionError.class)
 	public void testCurrDateTimeStr_format_Exception() {
 		String str = DateHelper.currDateTimeStr("MM/dd/yy hh:mm:ss");
 		want.string(str).isEqualTo("01/28/12 07:58:55");

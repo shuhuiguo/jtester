@@ -1,6 +1,6 @@
-package org.jtester.utility;
+package org.jtester.helper;
 
-import static org.jtester.utility.DateUtilTest.mockCalendar;
+import static org.jtester.helper.DateUtilTest.mockCalendar;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -12,14 +12,12 @@ import mockit.MockUp;
 import mockit.Mocked;
 import mockit.Mockit;
 
-import org.jtester.helper.DateHelper;
-import org.jtester.testng.JTester;
-import org.jtester.utility.DateUtilTest.MockDateUtil;
-import org.testng.annotations.Test;
+import org.jtester.IAssertion;
+import org.jtester.helper.DateUtilTest.MockDateUtil;
+import org.junit.Test;
 
-@Test(groups = "jtester")
 @SuppressWarnings("unused")
-public class DateUtilTest_jmockit extends JTester {
+public class DateUtilTest_jmockit implements IAssertion {
 
 	@Test
 	public void testCurrDateStr_mockExpectations() {
@@ -35,6 +33,7 @@ public class DateUtilTest_jmockit extends JTester {
 		want.string(str).isEqualTo("2010-02-12");
 	}
 
+	@Test
 	public void testCurrDateTimeStr_Delegate() {
 		new Expectations() {
 			@Mocked("now")
@@ -90,6 +89,7 @@ public class DateUtilTest_jmockit extends JTester {
 		Mockit.tearDownMocks();
 	}
 
+	@Test
 	public void testCurrDateTimeStr_Delegate2() {
 		new Expectations() {
 			@Mocked("now")

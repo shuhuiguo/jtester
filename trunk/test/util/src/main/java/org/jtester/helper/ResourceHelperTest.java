@@ -1,18 +1,14 @@
-package org.jtester.utility;
+package org.jtester.helper;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.net.URL;
 
-import org.jtester.annotations.DbFit;
-import org.jtester.annotations.DbFit.AUTO;
-import org.jtester.helper.ResourceHelper;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.jtester.IAssertion;
+import org.junit.Test;
 
-@Test(groups = { "jtester" })
-public class ResourceHelperTest extends JTester {
+public class ResourceHelperTest implements IAssertion {
 	private final static String codedir = System.getProperty("user.dir") + "/../core/src/main/java";
 
 	@Test
@@ -108,11 +104,11 @@ public class ResourceHelperTest extends JTester {
 		want.string(wiki).contains("|connect|");
 	}
 
-	@Test
-	@DbFit(when = { "dbfit/jar/file/test.wiki" }, auto = AUTO.AUTO)
-	public void testUseJarWiki() {
-
-	}
+	// @Test
+	// @DbFit(when = { "dbfit/jar/file/test.wiki" }, auto = AUTO.AUTO)
+	// public void testUseJarWiki() {
+	//
+	// }
 
 	@Test
 	public void testCopyClassPathResource() {

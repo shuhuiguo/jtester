@@ -1,11 +1,10 @@
-package org.jtester.utility;
+package org.jtester.helper;
 
-import org.jtester.helper.StringHelper;
-import org.jtester.testng.JTester;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.jtester.IAssertion;
+import org.jtester.junit.DataFrom;
+import org.junit.Test;
 
-public class StringHelperTest extends JTester {
+public class StringHelperTest implements IAssertion {
 
 	@Test
 	public void testJoin_Null() {
@@ -31,14 +30,14 @@ public class StringHelperTest extends JTester {
 		want.string(str).isEqualTo("one,null");
 	}
 
-	@Test(dataProvider = "testCamel_Data")
+	@Test
+	@DataFrom("testCamel_Data")
 	public void testCamel(String name, String camel) {
 		String value = StringHelper.camel(name);
 		want.string(value).isEqualTo(camel);
 	}
 
-	@DataProvider
-	public Object[][] testCamel_Data() {
+	public static Object[][] testCamel_Data() {
 		return new String[][] { { "is a word", "isAWord" },// <br>
 				{ "get an Word", "getAnWord" },// <br>
 				{ "get\t an wWOd", "getAnWWOd" },// <br>
@@ -67,13 +66,14 @@ public class StringHelperTest extends JTester {
 		want.string(zh).isEqualTo("我是中文");
 	}
 
-	@Test(dataProvider = "dataOfWhiteSpace")
+	@Test
+	@DataFrom("dataOfWhiteSpace")
 	public void testIgnoreWhiteSpace(String input, String expected) {
 		String output = StringHelper.ignoreWhiteSpace(input);
 		want.string(output).isEqualTo(expected);
 	}
 
-	public Object[][] dataOfWhiteSpace() {
+	public static Object[][] dataOfWhiteSpace() {
 		return new Object[][] { { " ", "" },// <br>
 				{ "", "" }, /** <br> */
 				{ null, null }, /** <br> */

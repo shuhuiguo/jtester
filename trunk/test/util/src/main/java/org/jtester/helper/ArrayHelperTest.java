@@ -1,15 +1,14 @@
-package org.jtester.utility;
+package org.jtester.helper;
 
 import java.util.Arrays;
 import java.util.HashMap;
 
-import org.jtester.helper.ArrayHelper;
-import org.jtester.testng.JTester;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.jtester.IAssertion;
+import org.jtester.junit.DataFrom;
+import org.junit.Test;
 
-@Test(groups = { "JTester" })
-public class ArrayHelperTest extends JTester {
+public class ArrayHelperTest implements IAssertion {
+	@Test
 	public void convert_charArr() {
 		char[] chs = { 'a', 'b' };
 		want.array(chs).sizeIs(2);
@@ -18,6 +17,7 @@ public class ArrayHelperTest extends JTester {
 		want.array(os).hasAllItems('a', 'b');
 	}
 
+	@Test
 	public void convert_booleanArr() {
 		boolean[] bls = { true, false, true };
 		want.array(bls).sizeIs(3);
@@ -26,6 +26,7 @@ public class ArrayHelperTest extends JTester {
 		want.array(os).hasItems(true);
 	}
 
+	@Test
 	public void convert_byteArr() {
 		byte[] bytes = { Byte.MAX_VALUE, Byte.MIN_VALUE };
 		want.array(bytes).sizeIs(2);
@@ -34,6 +35,7 @@ public class ArrayHelperTest extends JTester {
 		want.array(os).hasAllItems(Byte.MAX_VALUE, Byte.MIN_VALUE);
 	}
 
+	@Test
 	public void convert_shortArr() {
 		short[] shorts = { 2, 4, 5 };
 		want.array(shorts).sizeIs(3);
@@ -44,6 +46,7 @@ public class ArrayHelperTest extends JTester {
 		// want.number((short)5).isEqualTo(5);
 	}
 
+	@Test
 	public void convert_intArr() {
 		int[] ints = { 2, 4, 5 };
 		want.array(ints).sizeIs(3);
@@ -52,6 +55,7 @@ public class ArrayHelperTest extends JTester {
 		want.array(os).hasItems(4);
 	}
 
+	@Test
 	public void convert_longArr() {
 		long[] longs = { 2L, 421355L, 51255L };
 		want.array(longs).sizeIs(3);
@@ -60,6 +64,7 @@ public class ArrayHelperTest extends JTester {
 		want.array(os).hasItems(51255L);
 	}
 
+	@Test
 	public void convert_floatArr() {
 		float[] fs = { 2.0f, 4.0f, 5.1f };
 		want.array(fs).sizeIs(3);
@@ -68,6 +73,7 @@ public class ArrayHelperTest extends JTester {
 		want.array(os).hasItems(5.1f);
 	}
 
+	@Test
 	public void convert_doubleArr() {
 		double[] ds = { 2.0d, 4.0d, 5.1d };
 		want.array(ds).sizeIs(3);
@@ -76,15 +82,15 @@ public class ArrayHelperTest extends JTester {
 		want.array(os).hasItems(5.1d);
 	}
 
-	@Test(dataProvider = "dataOfSized")
+	@Test
+	@DataFrom("dataOfSized")
 	public void testSizeOf(Object o, int size) {
 		int actual = ArrayHelper.sizeOf(o);
 		want.number(actual).isEqualTo(size);
 	}
 
 	@SuppressWarnings("rawtypes")
-	@DataProvider
-	public Object[][] dataOfSized() {
+	public static Object[][] dataOfSized() {
 		return new Object[][] { { new HashMap(), 0 },// <br>
 				{ new int[] { 1 }, 1 }, /** <br> */
 				{ Arrays.asList("", ""), 2 } /** <br> */

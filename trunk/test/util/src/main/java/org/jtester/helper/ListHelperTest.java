@@ -1,18 +1,16 @@
-package org.jtester.utility;
+package org.jtester.helper;
 
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
-import org.jtester.helper.ListHelper;
+import org.jtester.IAssertion;
+import org.jtester.junit.DataFrom;
 import org.jtester.matcher.property.reflection.EqMode;
-import org.jtester.testng.JTester;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
 @SuppressWarnings({ "rawtypes", "unchecked", "serial" })
-@Test(groups = "jtester")
-public class ListHelperTest extends JTester {
+public class ListHelperTest implements IAssertion {
 
 	@Test
 	public void testToList() {
@@ -20,14 +18,14 @@ public class ListHelperTest extends JTester {
 		want.collection(list).reflectionEq(new Integer[] { 1, 2, 3 });
 	}
 
-	@Test(dataProvider = "testToList_data")
+	@Test
+	@DataFrom("testToList_data")
 	public void testToList_Object(Object input, List output) {
 		List list = ListHelper.toList(input);
 		want.collection(list).reflectionEq(output);
 	}
 
-	@DataProvider
-	public Object[][] testToList_data() {
+	public static Object[][] testToList_data() {
 		return new Object[][] { { Arrays.asList(1, 2, 3), Arrays.asList(1, 2, 3) },// <br>
 				{ new Integer[] { 1, 2, 3 }, Arrays.asList(1, 2, 3) }, // <br>
 				{ 1, Arrays.asList(1) }, // <br>
@@ -36,6 +34,7 @@ public class ListHelperTest extends JTester {
 		};
 	}
 
+	@Test
 	public void testToListMulti() {
 		List list = ListHelper.toList(1, 2, 3);
 		want.collection(list).sizeEq(3).hasAllItems(1, 2, 3);
@@ -44,6 +43,7 @@ public class ListHelperTest extends JTester {
 		want.collection(list).sizeEq(0);
 	}
 
+	@Test
 	public void testToList_WithMap() {
 		List list = ListHelper.toList(new HashMap() {
 			{
@@ -52,6 +52,6 @@ public class ListHelperTest extends JTester {
 				this.put(3, 3);
 			}
 		}, true);
-		want.collection(list).sizeEq(3).reflectionEq(toArray(1, 2, 3), EqMode.IGNORE_ORDER);
+		want.collection(list).sizeEq(3).reflectionEq(ArrayHelper.toArray(1, 2, 3), EqMode.IGNORE_ORDER);
 	}
 }
