@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.jtester.annotations.DbFit;
-import org.jtester.module.core.DbFitModuleTest;
+import org.jtester.database.DbFitModuleTest;
 import org.jtester.module.dbfit.DbFitRunner;
 import org.jtester.testng.JTester;
 import org.testng.annotations.Test;

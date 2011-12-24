@@ -1,4 +1,4 @@
-package org.jtester.module.core;
+package org.jtester.database;
 
 import org.jtester.annotations.DbFit;
 import org.jtester.annotations.DbFit.AUTO;

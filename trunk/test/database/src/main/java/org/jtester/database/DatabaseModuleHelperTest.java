@@ -1,4 +1,4 @@
-package org.jtester.module.core.helper;
+package org.jtester.database;
 
 import org.jtester.testng.JTester;
 import org.testng.annotations.Test;
