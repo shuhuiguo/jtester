@@ -9,10 +9,10 @@ import java.util.Set;
 import org.jtester.annotations.Inject;
 import org.jtester.core.TestListener;
 import org.jtester.helper.ClazzHelper;
+import org.jtester.helper.JTesterProxy;
 import org.jtester.helper.StringHelper;
 import org.jtester.module.helper.InjectionModuleHelper;
 import org.jtester.reflector.PropertyAccessor;
-import org.jtester.utility.JTesterProxy;
 
 @SuppressWarnings("rawtypes")
 public class InjectModule implements Module {

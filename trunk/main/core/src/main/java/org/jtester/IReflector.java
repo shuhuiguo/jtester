@@ -1,7 +1,7 @@
 package org.jtester;
 
-import org.jtester.module.JTesterReflector;
+import org.jtester.helper.ReflectorHelper;
 
 public interface IReflector {
-	final JTesterReflector reflector = new JTesterReflector();
+	final ReflectorHelper reflector = new ReflectorHelper();
 }
