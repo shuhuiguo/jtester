@@ -8,7 +8,7 @@
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 	<groupId>org.jtester</groupId>
-	<artifactId>jtester.assert.test</artifactId>
+	<artifactId>jtester.assertion.test</artifactId>
 	<packaging>jar</packaging>
 	<name>test jtester assertion module</name>
 </project>
