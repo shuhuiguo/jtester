@@ -1,7 +1,9 @@
-package org.jtester.beans.dataset;
+package org.jtester.beans.generator;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
+
+import org.jtester.beans.DataGenerator;
 
 public class IncreaseDataGenerator extends DataGenerator {
 	private Number from;

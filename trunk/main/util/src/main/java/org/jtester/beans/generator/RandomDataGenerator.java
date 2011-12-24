@@ -1,9 +1,11 @@
-package org.jtester.beans.dataset;
+package org.jtester.beans.generator;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Random;
 import java.util.UUID;
+
+import org.jtester.beans.DataGenerator;
 
 @SuppressWarnings("rawtypes")
 public class RandomDataGenerator extends DataGenerator {

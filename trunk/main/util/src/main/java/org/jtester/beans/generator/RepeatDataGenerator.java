@@ -1,4 +1,6 @@
-package org.jtester.beans.dataset;
+package org.jtester.beans.generator;
+
+import org.jtester.beans.DataGenerator;
 
 public class RepeatDataGenerator extends DataGenerator {
 	private final Object[] datas;

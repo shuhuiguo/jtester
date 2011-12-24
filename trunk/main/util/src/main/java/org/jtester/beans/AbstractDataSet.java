@@ -3,7 +3,6 @@ package org.jtester.beans;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.jtester.beans.dataset.DataGenerator;
 import org.jtester.helper.ArrayHelper;
 import org.jtester.json.JSON;
 

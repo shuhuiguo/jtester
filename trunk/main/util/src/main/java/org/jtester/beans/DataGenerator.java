@@ -1,6 +1,10 @@
-package org.jtester.beans.dataset;
+package org.jtester.beans;
 
 import java.util.Map;
+
+import org.jtester.beans.generator.IncreaseDataGenerator;
+import org.jtester.beans.generator.RandomDataGenerator;
+import org.jtester.beans.generator.RepeatDataGenerator;
 
 public abstract class DataGenerator {
 	private Map<String, Object> dataMap;
