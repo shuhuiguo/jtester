@@ -3,12 +3,12 @@ package org.jtester.core;
 import org.jtester.IAssertion;
 import org.jtester.beans.AbstractDataSet;
 import org.jtester.beans.dataset.AbastractDataGenerator;
-import org.jtester.core.context.JTesterFitnesse;
 import org.jtester.core.context.JTesterReflector;
-import org.jtester.core.context.TestedSpringContext;
+import org.jtester.database.JTesterFitnesse;
 import org.jtester.module.database.dbop.DBOperator;
 import org.jtester.module.database.dbop.IDBOperator;
 import org.jtester.module.database.dbop.InsertOp;
+import org.jtester.spring.TestedSpringContext;
 
 @SuppressWarnings("rawtypes")
 public interface IJTester extends IAssertion {

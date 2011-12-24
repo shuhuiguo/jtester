@@ -13,9 +13,9 @@ import java.util.regex.Pattern;
 
 import javax.sql.DataSource;
 
-import org.jtester.core.TransactionHelper;
-import org.jtester.core.context.DbFitContext;
-import org.jtester.core.context.DbFitContext.RunIn;
+import org.jtester.database.DbFitContext;
+import org.jtester.database.TransactionHelper;
+import org.jtester.database.DbFitContext.RunIn;
 import org.jtester.exception.ExceptionWrapper;
 import org.jtester.fit.util.SymbolUtil;
 import org.jtester.helper.ClazzConst;

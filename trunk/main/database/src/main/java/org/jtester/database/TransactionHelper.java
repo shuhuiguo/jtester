@@ -1,4 +1,4 @@
-package org.jtester.core;
+package org.jtester.database;
 
 import static org.jtester.core.ConfigurationConst.TRANSACTIONAL_MODE_DEFAULT;
 import static org.jtester.helper.AnnotationHelper.getMethodOrClassLevelAnnotationProperty;
@@ -13,7 +13,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import org.jtester.annotations.Transactional;
 import org.jtester.annotations.Transactional.TransactionMode;
-import org.jtester.core.context.TransactionManager;
+import org.jtester.core.TestedContext;
 import org.jtester.core.helper.ConfigurationHelper;
 import org.jtester.helper.LogHelper;
 import org.jtester.module.core.helper.SpringModuleHelper;

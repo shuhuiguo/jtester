@@ -1,4 +1,4 @@
-package org.jtester.core.context;
+package org.jtester.database;
 
 import java.io.FileNotFoundException;
 import java.sql.SQLException;

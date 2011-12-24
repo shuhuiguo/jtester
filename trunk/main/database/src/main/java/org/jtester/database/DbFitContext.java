@@ -1,4 +1,4 @@
-package org.jtester.core.context;
+package org.jtester.database;
 
 public class DbFitContext {
 	/**

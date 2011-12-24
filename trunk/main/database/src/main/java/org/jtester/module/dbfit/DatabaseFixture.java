@@ -3,10 +3,10 @@ package org.jtester.module.dbfit;
 import java.io.FileNotFoundException;
 import java.sql.SQLException;
 
-import org.jtester.core.TransactionHelper;
-import org.jtester.core.context.DbFitContext;
-import org.jtester.core.context.DbFitContext.RunIn;
 import org.jtester.core.dbfit.DbFitOp;
+import org.jtester.database.DbFitContext;
+import org.jtester.database.TransactionHelper;
+import org.jtester.database.DbFitContext.RunIn;
 import org.jtester.fit.util.SymbolUtil;
 import org.jtester.helper.DateHelper;
 import org.jtester.helper.LogHelper;

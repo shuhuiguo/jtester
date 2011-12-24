@@ -1,4 +1,4 @@
-package org.jtester.core.context;
+package org.jtester.database;
 
 import static org.jtester.annotations.Transactional.TransactionMode.COMMIT;
 import static org.jtester.annotations.Transactional.TransactionMode.DEFAULT;
@@ -7,7 +7,6 @@ import static org.jtester.annotations.Transactional.TransactionMode.DISABLED;
 import javax.sql.DataSource;
 
 import org.jtester.annotations.Transactional.TransactionMode;
-import org.jtester.core.TransactionHelper;
 import org.jtester.exception.UnConfigDataBaseTypeException;
 import org.jtester.helper.LogHelper;
 import org.jtester.module.database.environment.DBEnvironment;

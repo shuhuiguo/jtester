@@ -2,8 +2,8 @@ package org.jtester.fit.fixture;
 
 import org.jtester.annotations.SpringApplicationContext;
 import org.jtester.core.IJTester;
-import org.jtester.core.context.DbFitContext;
-import org.jtester.core.context.DbFitContext.RunIn;
+import org.jtester.database.DbFitContext;
+import org.jtester.database.DbFitContext.RunIn;
 import org.jtester.fit.JTesterFixture;
 import org.jtester.fit.spring.FixtureBeanInjector;
 import org.jtester.fit.spring.RemoteInvokerRegister;

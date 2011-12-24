@@ -1,4 +1,4 @@
-package org.jtester.core.context;
+package org.jtester.spring;
 
 import org.jtester.module.core.helper.SpringModuleHelper;
 
