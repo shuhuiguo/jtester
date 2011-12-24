@@ -4,7 +4,7 @@ import org.jtester.assertion.object.intf.ICollectionAssert;
 import org.jtester.assertion.object.intf.INumberAssert;
 import org.jtester.assertion.object.intf.IObjectAssert;
 import org.jtester.beans.DataMap;
-import org.jtester.core.IJTester.DataSet;
+import org.jtester.core.context.IJTester.DataSet;
 
 @SuppressWarnings("rawtypes")
 public interface ITableOp {

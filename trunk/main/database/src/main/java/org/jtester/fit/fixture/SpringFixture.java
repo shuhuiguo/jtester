@@ -1,7 +1,7 @@
 package org.jtester.fit.fixture;
 
 import org.jtester.annotations.SpringApplicationContext;
-import org.jtester.core.IJTester;
+import org.jtester.core.context.IJTester;
 import org.jtester.database.DbFitContext;
 import org.jtester.database.DbFitContext.RunIn;
 import org.jtester.fit.JTesterFixture;
