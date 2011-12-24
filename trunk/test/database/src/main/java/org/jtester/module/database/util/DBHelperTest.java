@@ -7,16 +7,15 @@ import java.util.Iterator;
 
 import mockit.Mock;
 
+import org.jtester.IAssertion;
 import org.jtester.beans.DataIterator;
 import org.jtester.beans.DataMap;
 import org.jtester.helper.ResourceHelper;
+import org.jtester.junit.DataFrom;
 import org.jtester.matcher.string.StringMode;
-import org.jtester.testng.JTester;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
 @SuppressWarnings({ "rawtypes", "serial" })
-@Test(groups = "jtester")
 public class DBHelperTest implements IAssertion {
 
 	@Test
@@ -59,7 +58,10 @@ public class DBHelperTest implements IAssertion {
 		want.string(statments[0]).isEqualTo(statement);
 	}
 
-	@Test(description = "测试数据库字段为大写的时候，返回的camelName的正确性")
+	/**
+	 * 测试数据库字段为大写的时候，返回的camelName的正确性
+	 */
+	@Test
 	public void testGetCamelFieldName() {
 		ResultSetMetaData rsmeta = new MockUp<ResultSetMetaData>() {
 			@SuppressWarnings("unused")
@@ -72,14 +74,14 @@ public class DBHelperTest implements IAssertion {
 		want.string(uuid).isEqualTo("uuidName");
 	}
 
-	@Test(dataProvider = "dataGetWhereCondiction")
+	@Test
+	@DataFrom("dataGetWhereCondiction")
 	public void testGetWhereCondiction(DataMap map, String where) {
 		String result = DBHelper.getWhereCondiction(map);
 		want.string(result).eq(where, StringMode.SameAsSpace);
 	}
 
-	@DataProvider
-	Iterator dataGetWhereCondiction() {
+	static Iterator dataGetWhereCondiction() {
 		return new DataIterator() {
 			{
 				data(null, "");

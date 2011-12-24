@@ -2,16 +2,17 @@ package org.jtester.module.database.environment;
 
 import mockit.Mock;
 
+import org.jtester.IAssertion;
+import org.jtester.IDatabase;
 import org.jtester.beans.DataIterator;
-import org.jtester.testng.JTester;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.jtester.junit.DataFrom;
+import org.junit.Test;
 
 @SuppressWarnings("unused")
-@Test(groups = { "jtester", "database" })
-public class TableMetaTest implements IAssertion {
+public class TableMetaTest implements IAssertion, IDatabase {
 
-	@Test(dataProvider = "dataTruncate")
+	@Test
+	@DataFrom("dataTruncate")
 	public void testTruncateString(String input, String expected) {
 		TableMeta meta = reflector.newInstance(TableMeta.class);
 		new MockUp<TableMeta>() {
@@ -25,8 +26,7 @@ public class TableMetaTest implements IAssertion {
 		want.object(value).isEqualTo(expected);
 	}
 
-	@DataProvider
-	public DataIterator dataTruncate() {
+	public static DataIterator dataTruncate() {
 		return new DataIterator() {
 			{
 				data("123456", "12345");

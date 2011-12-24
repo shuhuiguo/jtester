@@ -1,10 +1,9 @@
 package org.jtester.fit;
 
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.jtester.IAssertion;
+import org.junit.Test;
 
-@Test(groups = "jtester")
-public class WikiFileTest extends JTester {
+public class WikiFileTest implements IAssertion {
 
 	@Test
 	public void testFindWikiFile() throws Exception {

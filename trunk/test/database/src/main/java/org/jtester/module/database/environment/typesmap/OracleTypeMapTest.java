@@ -1,15 +1,15 @@
 package org.jtester.module.database.environment.typesmap;
 
+import org.jtester.IAssertion;
+import org.jtester.IDatabase;
 import org.jtester.annotations.DbFit;
 import org.jtester.beans.DataMap;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
 @SuppressWarnings({ "serial" })
-@Test(groups = { "jtester", "database", "oracle" })
-public class OracleTypeMapTest implements IAssertion {
+public class OracleTypeMapTest implements IAssertion, IDatabase {
 
-	@Test(groups="broken-install")
+	@Test
 	@DbFit(then = "testGetJavaType.oracle.then.wiki")
 	public void testGetJavaType() {
 		db.useDB("eve").table("MTN_ALL_TYPES").clean().insert(new DataMap() {
@@ -28,7 +28,7 @@ public class OracleTypeMapTest implements IAssertion {
 		}).commit();
 	}
 
-	@Test(groups="broken-install")
+	@Test
 	@DbFit(when = "testGetJavaType.oracle.when.wiki")
 	public void testGetJavaType_Query() {
 		db.useDB("eve").table("MTN_ALL_TYPES").query().reflectionEqMap(new DataMap() {
@@ -46,16 +46,17 @@ public class OracleTypeMapTest implements IAssertion {
 			}
 		});
 	}
-	
+
+	@Test
 	public void testOracleCLOB() {
-		db.useDB("mjr").table("mjr_msg_bus").clean().insert(1 ,new DataMap(){
-    		{
-    			this.put("ID", "1");
-    			this.put("CONTENT", "CLOB DATA");
-    			this.put("USER_ID", "test");
-    			this.put("IS_DELETED", "n");
-    		}
-    	}).commit();
+		db.useDB("mjr").table("mjr_msg_bus").clean().insert(1, new DataMap() {
+			{
+				this.put("ID", "1");
+				this.put("CONTENT", "CLOB DATA");
+				this.put("USER_ID", "test");
+				this.put("IS_DELETED", "n");
+			}
+		}).commit();
 		db.table("mjr_msg_bus").query().reflectionEqMap(new DataMap() {
 			{
 				this.put("CONTENT", "CLOB DATA");

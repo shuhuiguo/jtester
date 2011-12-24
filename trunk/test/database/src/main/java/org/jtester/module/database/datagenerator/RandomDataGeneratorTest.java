@@ -2,27 +2,26 @@ package org.jtester.module.database.datagenerator;
 
 import java.util.Iterator;
 
+import org.jtester.IAssertion;
+import org.jtester.beans.DataGenerator;
 import org.jtester.beans.DataIterator;
-import org.jtester.beans.dataset.AbastractDataGenerator;
-import org.jtester.beans.dataset.RandomDataGenerator;
-import org.jtester.testng.JTester;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.jtester.beans.generator.RandomDataGenerator;
+import org.jtester.junit.DataFrom;
+import org.junit.Test;
 
 @SuppressWarnings("rawtypes")
-@Test(groups = { "jtester", "tools" })
 public class RandomDataGeneratorTest implements IAssertion {
 
-	@Test(dataProvider = "dataRandom")
+	@Test
+	@DataFrom("dataRandom")
 	public void testRandomDataGenerator(Class type, int index) {
-		AbastractDataGenerator generator = RandomDataGenerator.random(type);
+		DataGenerator generator = RandomDataGenerator.random(type);
 		Object o = generator.generate(index);
 		want.object(o).notNull();
 		System.out.println(o);
 	}
 
-	@DataProvider
-	public Iterator dataRandom() {
+	public static Iterator dataRandom() {
 		return new DataIterator() {
 			{
 				data(Integer.class, 10);

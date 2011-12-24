@@ -3,16 +3,16 @@ package org.jtester.module.database.environment;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import org.jtester.IAssertion;
+import org.jtester.IDatabase;
 import org.jtester.annotations.DbFit;
 import org.jtester.matcher.property.reflection.EqMode;
 import org.jtester.module.database.environment.impl.MySqlEnvironment;
 import org.jtester.module.database.environment.impl.OracleEnvironment;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
-@Test(groups = { "jtester", "database" })
-public class AbstractDBEnvironmentTest_Oracle implements IAssertion {
-
+public class AbstractDBEnvironmentTest_Oracle implements IAssertion, IDatabase {
+	@Test
 	public void testExtractParamNames_oracle() {
 		AbstractDBEnvironment env = new OracleEnvironment(null, null);
 		fit.setSymbol("id", "1001");
@@ -20,6 +20,7 @@ public class AbstractDBEnvironmentTest_Oracle implements IAssertion {
 		want.array(vars).sizeEq(1).reflectionEq(new String[] { "id" }, EqMode.IGNORE_ORDER);
 	}
 
+	@Test
 	public void testExtractParamNames_mysql() {
 		AbstractDBEnvironment env = new MySqlEnvironment(null, null);
 		fit.setSymbol("id", "1001");
@@ -27,6 +28,7 @@ public class AbstractDBEnvironmentTest_Oracle implements IAssertion {
 		want.array(vars).sizeEq(1).reflectionEq(new String[] { "id" }, EqMode.IGNORE_ORDER);
 	}
 
+	@Test
 	@DbFit(when = "data/AbstractDBEnvironmentTest_Oracle/testCreateStatementWithBoundFixtureSymbols.when.wiki", then = "data/AbstractDBEnvironmentTest_Oracle/testCreateStatementWithBoundFixtureSymbols.then.wiki")
 	public void testCreateStatementWithBoundFixtureSymbols() throws SQLException {
 		fit.setSymbol("id", "1");
@@ -37,7 +39,7 @@ public class AbstractDBEnvironmentTest_Oracle implements IAssertion {
 		statement.close();
 	}
 
-	@Test(groups = "oracle")
+	@Test
 	@DbFit(when = "data/AbstractDBEnvironmentTest_Oracle/oracle.when.wiki", then = "data/AbstractDBEnvironmentTest_Oracle/oracle.then.wiki")
 	public void testCreateStatementWithBoundFixtureSymbols_Oracle() throws SQLException {
 		fit.setSymbol("id", "123");

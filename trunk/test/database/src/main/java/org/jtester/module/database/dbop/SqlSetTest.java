@@ -2,11 +2,12 @@ package org.jtester.module.database.dbop;
 
 import java.io.File;
 
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.jtester.IAssertion;
+import org.jtester.IDatabase;
+import org.jtester.database.operator.SqlSet;
+import org.junit.Test;
 
-@Test(groups = { "jtester", "database" })
-public class SqlSetTest implements IAssertion {
+public class SqlSetTest implements IAssertion, IDatabase {
 
 	@Test
 	public void testReadFrom() {

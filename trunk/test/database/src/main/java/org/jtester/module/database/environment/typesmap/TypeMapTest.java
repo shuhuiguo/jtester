@@ -6,26 +6,26 @@ import java.sql.Time;
 import java.sql.Timestamp;
 import java.util.Iterator;
 
+import org.jtester.IAssertion;
+import org.jtester.IDatabase;
 import org.jtester.annotations.DbFit;
 import org.jtester.beans.DataIterator;
 import org.jtester.beans.DataMap;
-import org.jtester.testng.JTester;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.jtester.junit.DataFrom;
+import org.junit.Test;
 
 @SuppressWarnings({ "serial", "rawtypes" })
-@Test(groups = { "jtester", "database" })
-public class TypeMapTest implements IAssertion {
+public class TypeMapTest implements IAssertion, IDatabase {
 
-	@Test(dataProvider = "dataObjectByType_Timestamp")
+	@Test
+	@DataFrom("dataObjectByType_Timestamp")
 	public void testToObjectByType_Timestamp(Class dateType, String input, String output) {
 		AbstractTypeMap typeMap = new MySQLTypeMap();
 		java.util.Date result = (java.util.Date) typeMap.toObjectByType(input, dateType.getName());
 		want.date(result).eqByFormat(output);
 	}
 
-	@DataProvider
-	public Iterator dataObjectByType_Timestamp() {
+	public static Iterator dataObjectByType_Timestamp() {
 		return new DataIterator() {
 			{
 				data(Timestamp.class, "2011-09-04 12:23:12", "2011-09-04 12:23:12");
@@ -44,15 +44,15 @@ public class TypeMapTest implements IAssertion {
 		};
 	}
 
-	@Test(dataProvider = "dataObjectByType")
+	@Test
+	@DataFrom("dataObjectByType")
 	public void testToObjectByType(Class javaType, String input, Object output) {
 		AbstractTypeMap typeMap = new MySQLTypeMap();
 		Object result = typeMap.toObjectByType(input, javaType.getName());
 		want.object(result).reflectionEq(output);
 	}
 
-	@DataProvider
-	public Iterator dataObjectByType() {
+	public static Iterator dataObjectByType() {
 		return new DataIterator() {
 			{
 				data(String.class, "i am string", "i am string");

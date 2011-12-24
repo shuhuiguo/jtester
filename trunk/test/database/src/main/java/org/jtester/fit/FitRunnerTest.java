@@ -2,11 +2,10 @@ package org.jtester.fit;
 
 import java.io.File;
 
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.jtester.IAssertion;
+import org.junit.Test;
 
-@Test(groups = "jtester")
-public class FitRunnerTest extends JTester {
+public class FitRunnerTest implements IAssertion {
 	TestedFitRunner fitRunner = new TestedFitRunner();
 
 	@Test
@@ -23,12 +22,12 @@ public class FitRunnerTest extends JTester {
 		fitRunner.runFitTest(FitRunnerTest.class, "");
 	}
 
-	@Test(expectedExceptions = RuntimeException.class)
+	@Test(expected = RuntimeException.class)
 	public void testRunFitTest_InvalidateFileName() throws Exception {
 		fitRunner.runFitTest(FitRunnerTest.class, ".wiki");
 	}
 
-	@Test(expectedExceptions = RuntimeException.class)
+	@Test(expected = RuntimeException.class)
 	public void testRunFitTest_InvalidateFileName2() throws Exception {
 		fitRunner.runFitTest(FitRunnerTest.class, "aa.wik");
 	}

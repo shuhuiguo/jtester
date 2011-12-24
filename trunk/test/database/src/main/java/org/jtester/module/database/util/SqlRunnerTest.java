@@ -6,17 +6,17 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-import org.jtester.annotations.Transactional;
-import org.jtester.annotations.Transactional.TransactionMode;
+import org.jtester.IAssertion;
+import org.jtester.IDatabase;
 import org.jtester.annotations.DbFit;
 import org.jtester.annotations.DbFit.AUTO;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.jtester.annotations.Transactional;
+import org.jtester.annotations.Transactional.TransactionMode;
+import org.junit.Test;
 
-@Test(groups = "jtester")
 @DbFit(auto = AUTO.AUTO)
 @SuppressWarnings({ "rawtypes" })
-public class SqlRunnerTest implements IAssertion {
+public class SqlRunnerTest implements IAssertion, IDatabase {
 
 	@Test
 	@Transactional(TransactionMode.COMMIT)

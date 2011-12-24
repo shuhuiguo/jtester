@@ -4,20 +4,23 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.jtester.IAssertion;
+import org.jtester.IDatabase;
 import org.jtester.beans.AbstractDataSet;
+import org.jtester.beans.DataGenerator;
 import org.jtester.beans.DataIterator;
 import org.jtester.beans.DataMap;
+import org.jtester.database.DataSet;
+import org.jtester.database.operator.TableOp.EmptyDataSet;
+import org.jtester.junit.DataFrom;
 import org.jtester.matcher.property.reflection.EqMode;
-import org.jtester.module.database.dbop.TableOp.EmptyDataSet;
-import org.jtester.testng.JTester;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
 @SuppressWarnings({ "rawtypes", "serial", "unchecked" })
-@Test(groups = { "jtester", "database" })
-public class DataGeneratorTest implements IAssertion {
+public class DataGeneratorTest implements IAssertion, IDatabase {
 
-	@Test(dataProvider = "dataGenerator")
+	@Test
+	@DataFrom("dataGenerator")
 	public void testParseMapList(final Object input, Object expected) {
 		AbstractDataSet ds = new EmptyDataSet();
 		List<DataMap> maps = reflector.invoke(ds, "parseMapList", 5, new DataMap() {
@@ -31,8 +34,7 @@ public class DataGeneratorTest implements IAssertion {
 		want.collection(maps).propertyEq("key2", expected, EqMode.IGNORE_DEFAULTS);
 	}
 
-	@DataProvider
-	public DataIterator dataGenerator() {
+	public static DataIterator dataGenerator() {
 		return new DataIterator() {
 			{
 				data(1, new Integer[] { 1, 1, 1, 1, 1 });
@@ -137,6 +139,7 @@ public class DataGeneratorTest implements IAssertion {
 								{ 104, "wu", "310012", "2011-09-06" } }, EqMode.IGNORE_DEFAULTS);
 	}
 
+	@Test
 	public void testInsertByDataGenerator() {
 		db.table("tdd_user").clean().insert(2, new DataMap() {
 			{
@@ -152,6 +155,7 @@ public class DataGeneratorTest implements IAssertion {
 		db.table("tdd_user").query().sizeEq(2).propertyEq("first_name", new String[] { "myname_1", "myname_2" });
 	}
 
+	@Test
 	public void testInsertByDataGenerator_UserFields() {
 		db.table("tdd_user").clean().insert(2, new DataMap() {
 			{

@@ -4,26 +4,25 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Iterator;
 
+import org.jtester.IAssertion;
+import org.jtester.beans.DataGenerator;
 import org.jtester.beans.DataIterator;
-import org.jtester.beans.dataset.AbastractDataGenerator;
-import org.jtester.beans.dataset.IncreaseDataGenerator;
-import org.jtester.testng.JTester;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.jtester.beans.generator.IncreaseDataGenerator;
+import org.jtester.junit.DataFrom;
+import org.junit.Test;
 
 @SuppressWarnings("rawtypes")
-@Test(groups = { "jtester", "tools" })
 public class IncreaseDataGeneratorTest implements IAssertion {
 
-	@Test(dataProvider = "dataIncrease")
+	@Test
+	@DataFrom("dataIncrease")
 	public void testIncreaseDataGenerator(Number from, Number step, int index, Number expected) {
-		AbastractDataGenerator generator = IncreaseDataGenerator.increase(from, step);
+		DataGenerator generator = IncreaseDataGenerator.increase(from, step);
 		Object result = generator.generate(index);
 		want.object(result).isEqualTo(expected);
 	}
 
-	@DataProvider
-	public Iterator dataIncrease() {
+	public static Iterator dataIncrease() {
 		return new DataIterator() {
 			{
 				data(4, 1, 10, 14);
@@ -40,7 +39,7 @@ public class IncreaseDataGeneratorTest implements IAssertion {
 
 	@Test
 	public void testIncreaseDataGenerator_Failure() {
-		AbastractDataGenerator generator = IncreaseDataGenerator.increase(1, 2.0);
+		DataGenerator generator = IncreaseDataGenerator.increase(1, 2.0);
 		Object result = generator.generate(3);
 		want.object(result).isEqualTo(7);
 	}

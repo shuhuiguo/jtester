@@ -5,21 +5,24 @@ import java.util.Date;
 
 import mockit.Mock;
 
+import org.jtester.IAssertion;
+import org.jtester.IDatabase;
 import org.jtester.annotations.DbFit;
 import org.jtester.annotations.Transactional;
 import org.jtester.annotations.Transactional.TransactionMode;
 import org.jtester.beans.DataMap;
+import org.jtester.database.DataSet;
+import org.jtester.database.operator.TableOp;
 import org.jtester.exception.ExceptionWrapper;
+import org.jtester.helper.ListHelper;
 import org.jtester.matcher.property.reflection.EqMode;
 import org.jtester.matcher.string.StringMode;
 import org.jtester.module.database.environment.TableMeta.ColumnMeta;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
 @SuppressWarnings({ "serial", "unchecked", "unused" })
 @Transactional(TransactionMode.COMMIT)
-@Test(groups = { "jtester", "database" })
-public class TableOpTest implements IAssertion {
+public class TableOpTest implements IAssertion, IDatabase {
 
 	@Test
 	@DbFit(then = "data/TableOpTest/testInsertData.then.wiki")
@@ -64,6 +67,7 @@ public class TableOpTest implements IAssertion {
 		db.queryAsPoJo("select count(*) from tdd_user", Integer.class).isEqualTo(3L);
 	}
 
+	@Test
 	public void testInsert_NoSuchColumn() throws SQLException {
 		try {
 			new TableOp("tdd_user").insert(new DataMap() {
@@ -79,6 +83,7 @@ public class TableOpTest implements IAssertion {
 		}
 	}
 
+	@Test
 	public void testInsert_BadType() throws SQLException {
 		try {
 			new TableOp("tdd_user").insert(new DataMap() {
@@ -94,6 +99,7 @@ public class TableOpTest implements IAssertion {
 		}
 	}
 
+	@Test
 	public void testInsert_DataIterator() {
 		new TableOp("tdd_user").clean().insert(2, new DataMap() {
 			{
@@ -105,6 +111,7 @@ public class TableOpTest implements IAssertion {
 				.propertyEq("first_name", new String[] { "darui.wu", "data.iterator" });
 	}
 
+	@Test
 	public void testInsert_DataIterator_1() {
 		db.table("tdd_user").clean().insert(new DataMap() {
 			{
@@ -121,6 +128,7 @@ public class TableOpTest implements IAssertion {
 				.propertyEq("first_name", new String[] { "darui.wu", "data.iterator" });
 	}
 
+	@Test
 	public void testInsert_DataIterator_2() {
 		db.table("tdd_user").clean().insert(new DataMap() {
 			{
@@ -138,6 +146,7 @@ public class TableOpTest implements IAssertion {
 				.propertyEq("first_name", new String[] { "darui.wu", "data.iterator" });
 	}
 
+	@Test
 	public void testInsert_DuplicateKey() {
 		try {
 			db.table("tdd_user").clean().insert(new DataSet() {
@@ -153,6 +162,7 @@ public class TableOpTest implements IAssertion {
 		}
 	}
 
+	@Test
 	public void testInsert_CheckFillData() {
 		new MockUp<ColumnMeta>() {
 			@Mock
@@ -166,7 +176,7 @@ public class TableOpTest implements IAssertion {
 				this.data("{id:2,first_name:data.iterator}");
 			}
 		}).commit();
-		db.table("tdd_user").query().reflectionEqMap(toList(new DataMap() {
+		db.table("tdd_user").query().reflectionEqMap(ListHelper.toList(new DataMap() {
 			{
 				this.put("id", 1);
 				this.put("first_name", "darui.wu");
@@ -189,6 +199,7 @@ public class TableOpTest implements IAssertion {
 		}));
 	}
 
+	@Test
 	public void testInsert_CheckFillData2() {
 		new MockUp<ColumnMeta>() {
 			@Mock
@@ -214,6 +225,7 @@ public class TableOpTest implements IAssertion {
 		}, EqMode.IGNORE_ORDER);
 	}
 
+	@Test
 	public void testInsert_MapDataIterator() {
 		new MockUp<ColumnMeta>() {
 			@Mock
@@ -240,6 +252,7 @@ public class TableOpTest implements IAssertion {
 		db.commit().table("tdd_user").count().isEqualTo(2);
 	}
 
+	@Test
 	public void testInsert_MapDataAndJSON() {
 		new MockUp<ColumnMeta>() {
 			@Mock
@@ -278,7 +291,7 @@ public class TableOpTest implements IAssertion {
 		db.table("tdd_user").count().notNull();
 	}
 
-	@Test(groups = "oracle")
+	@Test
 	public void testCount_Oralce() {
 		db.useDB("eve").table("MTN_ACTIVITY").count().notNull();
 	}

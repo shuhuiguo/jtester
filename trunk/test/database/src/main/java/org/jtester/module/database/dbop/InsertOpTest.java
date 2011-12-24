@@ -2,17 +2,19 @@ package org.jtester.module.database.dbop;
 
 import java.util.Iterator;
 
+import org.jtester.IAssertion;
+import org.jtester.IDatabase;
 import org.jtester.beans.DataIterator;
 import org.jtester.beans.DataMap;
+import org.jtester.database.operator.InsertOp;
 import org.jtester.helper.DateHelper;
-import org.jtester.testng.JTester;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.jtester.junit.DataFrom;
+import org.junit.Test;
 
 @SuppressWarnings({ "rawtypes", "serial" })
-@Test(groups = { "jtester", "database" })
-public class InsertOpTest implements IAssertion {
-	@Test(dataProvider = "testGetInsertCommandText_data")
+public class InsertOpTest implements IAssertion, IDatabase {
+	@Test
+	@DataFrom("testGetInsertCommandText_data")
 	public void testGetInsertCommandText(DataMap data, String result) {
 		InsertOp ds = reflector.newInstance(InsertOp.class);
 		reflector.setField(ds, "quato", "");
@@ -23,8 +25,7 @@ public class InsertOpTest implements IAssertion {
 		want.string(text).eqWithStripSpace(result);
 	}
 
-	@DataProvider
-	Iterator testGetInsertCommandText_data() {
+	static Iterator testGetInsertCommandText_data() {
 		return new DataIterator() {
 			{
 				this.data(new DataMap() {
@@ -46,7 +47,7 @@ public class InsertOpTest implements IAssertion {
 		};
 	}
 
-	@Test(groups = "oracle")
+	@Test
 	public void testInsert_OracleDate() {
 		db.useDB("eve").table("MTN_PLAN").clean().insert(new DataMap() {
 			{

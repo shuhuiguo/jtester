@@ -2,14 +2,15 @@ package org.jtester.module.database.dbop;
 
 import java.io.File;
 
+import org.jtester.IAssertion;
+import org.jtester.IDatabase;
 import org.jtester.annotations.DbFit;
+import org.jtester.database.operator.SqlSet;
 import org.jtester.matcher.property.reflection.EqMode;
 import org.jtester.module.database.bean.TddUser;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
-@Test(groups = { "jtester", "database" })
-public class DBOperatorTest implements IAssertion {
+public class DBOperatorTest implements IAssertion, IDatabase {
 
 	@Test
 	@DbFit(when = "data/TableOpTest/testClean.when.wiki")
@@ -64,6 +65,7 @@ public class DBOperatorTest implements IAssertion {
 		db.table("tdd_user").count().isEqualTo(2);
 	}
 
+	@Test
 	public void testExecute_FromFile() {
 		final String file = System.getProperty("user.dir")
 				+ "/src/main/resources/org/jtester/module/database/dbop/sql-demo.sql";

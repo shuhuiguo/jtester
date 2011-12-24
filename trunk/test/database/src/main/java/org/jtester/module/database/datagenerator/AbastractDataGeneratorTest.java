@@ -5,14 +5,15 @@ import java.util.List;
 
 import mockit.Mock;
 
+import org.jtester.IAssertion;
+import org.jtester.IDatabase;
 import org.jtester.beans.AbstractDataSet;
+import org.jtester.beans.DataGenerator;
 import org.jtester.beans.DataMap;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
 @SuppressWarnings({ "serial", "unused", "rawtypes", "unchecked" })
-@Test(groups = { "jtester", "database" })
-public class AbastractDataGeneratorTest implements IAssertion {
+public class AbastractDataGeneratorTest implements IAssertion, IDatabase {
 	@Test
 	public void testValue() {
 		final List actual = new ArrayList();

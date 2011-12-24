@@ -4,15 +4,16 @@ import java.util.HashMap;
 import java.util.Map;
 
 import mockit.Mock;
+import mockit.MockUp;
 
+import org.jtester.IAssertion;
+import org.jtester.IDatabase;
 import org.jtester.beans.DataMap;
 import org.jtester.module.database.environment.TableMeta.ColumnMeta;
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
 @SuppressWarnings({ "rawtypes", "serial", "unchecked", "unused" })
-@Test(groups = { "jtester", "database" })
-public class AbstractDBEnvironmentTest implements IAssertion {
+public class AbstractDBEnvironmentTest implements IAssertion, IDatabase {
 
 	@Test
 	public void testGetTableMetaData() throws Exception {

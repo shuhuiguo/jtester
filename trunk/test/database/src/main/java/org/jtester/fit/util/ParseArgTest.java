@@ -3,11 +3,10 @@ package org.jtester.fit.util;
 import java.util.List;
 import java.util.Map;
 
-import org.jtester.testng.JTester;
-import org.testng.annotations.Test;
+import org.jtester.IAssertion;
+import org.junit.Test;
 
-@Test(groups = "jtester")
-public class ParseArgTest extends JTester {
+public class ParseArgTest implements IAssertion {
 
 	@Test
 	public void testParseMap() {

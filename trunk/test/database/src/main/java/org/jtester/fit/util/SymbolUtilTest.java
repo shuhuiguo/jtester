@@ -3,12 +3,13 @@ package org.jtester.fit.util;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.jtester.testng.JTester;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.jtester.IAssertion;
+import org.jtester.IDatabase;
+import org.jtester.IReflector;
+import org.jtester.junit.DataFrom;
+import org.junit.Test;
 
-@Test(groups = "jtester")
-public class SymbolUtilTest extends JTester {
+public class SymbolUtilTest implements IAssertion, IDatabase, IReflector {
 
 	@Test
 	public void testReplacedBySymbols() {
@@ -23,19 +24,19 @@ public class SymbolUtilTest extends JTester {
 		want.string(text).isEqualTo("ddd myName ddd myName ddddmyAddress");
 	}
 
-	@Test(expectedExceptions = RuntimeException.class)
+	@Test(expected = RuntimeException.class)
 	public void testValidateSymbol2() {
 		reflector.invokeStatic(SymbolUtil.class, "validateSymbol", "[", true);
 	}
 
-	@Test(dataProvider = "validateSymbols")
+	@Test
+	@DataFrom("validateSymbols")
 	public void testValidateSymbol(String symbol, boolean valid) {
 		boolean matched = (Boolean) reflector.invokeStatic(SymbolUtil.class, "validateSymbol", symbol, false);
 		want.bool(matched).isEqualTo(valid);
 	}
 
-	@DataProvider
-	public Object[][] validateSymbols() {
+	public static Object[][] validateSymbols() {
 		return new Object[][] { { "[", false },// <br>
 				{ "adfd[dfdf]", true }, /** <br> **/
 				{ "adfd", true }, /** <br> **/
@@ -49,7 +50,8 @@ public class SymbolUtilTest extends JTester {
 		};
 	}
 
-	@Test(dataProvider = "symbol_values")
+	@Test
+	@DataFrom("symbol_values")
 	public void testGetSymbol(String symbol, Object value, String variable, Object actual) {
 		SymbolUtil.cleanSymbols();
 		SymbolUtil.setSymbol(symbol, value);
@@ -58,8 +60,7 @@ public class SymbolUtilTest extends JTester {
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	@DataProvider
-	public Object[][] symbol_values() {
+	public static Object[][] symbol_values() {
 		Map map = new HashMap() {
 			private static final long serialVersionUID = -4509693391990485039L;
 			{
@@ -88,8 +89,11 @@ public class SymbolUtilTest extends JTester {
 		}
 	}
 
+	/**
+	 * 当存入的变量为primitive类型时，要做相应的类型转换
+	 */
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	@Test(description = "当存入的变量为primitive类型时，要做相应的类型转换")
+	@Test
 	public void testReplacedBySymbols_PrimitiveType() {
 
 		fit.setSymbols(new HashMap() {
@@ -104,7 +108,8 @@ public class SymbolUtilTest extends JTester {
 		want.string(text).isEqualTo("123434 3434.334");
 	}
 
-	@Test(dataProvider = "symboldata")
+	@Test
+	@DataFrom("symboldata")
 	public void testHasSymbol(String var, boolean isExisted) {
 		SymbolUtil.cleanSymbols();
 		SymbolUtil.setSymbol(new HashMap<String, String>() {
@@ -117,8 +122,7 @@ public class SymbolUtilTest extends JTester {
 		want.bool(result).isEqualTo(isExisted);
 	}
 
-	@DataProvider
-	public Object[][] symboldata() {
+	public static Object[][] symboldata() {
 		return new Object[][] { { "mykey", true },// <br>
 				{ "date", true }, // <br>
 				{ "unexistedvar", false } // <br>
