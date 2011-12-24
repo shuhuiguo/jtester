@@ -33,13 +33,7 @@
 			<scope>system</scope>
 			<systemPath>${basedir}/lib/a-jar-file.jar</systemPath>
 		</dependency>
-		<dependency>
-			<groupId>internal</groupId>
-			<artifactId>headquarters-jdbc-proxy-1.1-cn-share</artifactId>
-			<version>UNKOWN</version>
-			<scope>system</scope>
-			<systemPath>${basedir}/lib/my-oracle.jar</systemPath>
-		</dependency>
+
 
 		<dependency>
 			<groupId>org.springframework</groupId>
