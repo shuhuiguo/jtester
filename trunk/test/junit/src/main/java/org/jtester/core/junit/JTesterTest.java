@@ -1,11 +1,10 @@
 package org.jtester.core.junit;
 
-import junit.framework.Assert;
 import mockit.Mock;
 import mockit.MockUp;
 
+import org.jtester.IAssertion;
 import org.jtester.core.TestListener;
-import org.jtester.junit.JTester;
 import org.jtester.matcher.string.StringMode;
 import org.jtester.module.CoreModule;
 import org.junit.AfterClass;
@@ -19,7 +18,7 @@ import org.junit.Test;
  * 
  */
 @SuppressWarnings("unused")
-public class JTesterTest extends JTester {
+public class JTesterTest implements IAssertion {
 	private static StringBuffer buff = new StringBuffer();
 
 	@BeforeClass

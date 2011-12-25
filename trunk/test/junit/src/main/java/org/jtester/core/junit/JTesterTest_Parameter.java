@@ -6,12 +6,16 @@ import junit.framework.Assert;
 
 import org.jtester.beans.DataIterator;
 import org.jtester.junit.DataFrom;
-import org.jtester.junit.JTesterRunner;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
+/**
+ * 验证不带@Runwith(JTesterRunner.class),通过jmockit修改，照常启动JTesterRunner运行器<br>
+ * 同时支持参数化测试
+ * 
+ * @author darui.wudr
+ * 
+ */
 @SuppressWarnings("rawtypes")
-@RunWith(JTesterRunner.class)
 public class JTesterTest_Parameter {
 	/**
 	 * 验证jmockit带mock参数的方法可以正常运行
