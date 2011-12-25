@@ -14,11 +14,6 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.jtester</groupId>
-			<artifactId>jtester.util</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.jtester</groupId>
 			<artifactId>jtester.core</artifactId>
 			<version>${project.version}</version>
 		</dependency>
@@ -26,6 +21,18 @@
 			<groupId>org.jtester</groupId>
 			<artifactId>jtester.assertion</artifactId>
 			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jtester</groupId>
+			<artifactId>jtester.spring</artifactId>
+			<version>${project.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.jtester</groupId>
+			<artifactId>jtester.database</artifactId>
+			<version>${project.version}</version>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>

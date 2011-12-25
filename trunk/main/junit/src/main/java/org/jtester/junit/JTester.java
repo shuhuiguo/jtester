@@ -1,12 +1,8 @@
 package org.jtester.junit;
 
 import org.jtester.IAssertion;
-import org.jtester.module.CoreModule;
-import org.junit.runner.RunWith;
+import org.jtester.IDatabase;
+import org.jtester.ISpring;
 
-@RunWith(JTesterRunner.class)
-public abstract class JTester implements IAssertion {
-	static {
-		CoreModule.initSingletonInstance();
-	}
+public interface JTester extends IAssertion, ISpring, IDatabase {
 }
