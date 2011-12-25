@@ -24,6 +24,7 @@ import java.util.Map;
 import mockit.Mockit;
 
 import org.jtester.exception.JTesterException;
+import org.jtester.exception.NoClassFoundException;
 import org.jtester.helper.FieldHelper;
 
 import ext.jtester.commons.IOUtils;
@@ -220,7 +221,7 @@ public class ClazzHelper {
 		} catch (NoClassDefFoundError e) {
 			throw new JTesterException("Unable to load class " + className, e);
 		} catch (ClassNotFoundException e) {
-			throw new JTesterException("Class " + className + " not found", e);
+			throw new NoClassFoundException("Class " + className + " not found", e);
 		} catch (JTesterException e) {
 			throw e;
 		} catch (Throwable e) {
