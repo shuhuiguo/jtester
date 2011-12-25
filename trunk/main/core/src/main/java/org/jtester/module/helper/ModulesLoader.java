@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.jtester.exception.JTesterException;
+import org.jtester.exception.NoClassFoundException;
 import org.jtester.helper.ClazzHelper;
 import org.jtester.helper.ConfigurationHelper;
 import org.jtester.helper.LogHelper;
@@ -84,6 +85,8 @@ public class ModulesLoader {
 				}
 				((Module) module).init();// initialize module
 				modules.add((Module) module);
+			} catch (NoClassFoundException e) {
+				LogHelper.warn("can't found module class:" + className, e);
 			} catch (Throwable t) {
 				throw new JTesterException("An exception occured during the loading of core module " + moduleName
 						+ " with module class name " + className, t);
