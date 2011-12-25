@@ -3,6 +3,7 @@ package org.jtester.matcher.property;
 import org.jtester.IAssertion;
 import org.jtester.beans.DataMap;
 import org.jtester.beans.User;
+import org.jtester.matcher.property.reflection.EqMode;
 import org.junit.Test;
 
 @SuppressWarnings("serial")
@@ -32,9 +33,9 @@ public class PropertyEqMapTest implements IAssertion {
 		want.list(users).propertyEqMap(2, new DataMap() {
 			{
 				this.put("assistor.phones",// <br>
-						new String[] { "133xxx", "131xxx" },// <br>
-						new String[] { "130xxx", "0571xx" });
+						new String[] { "130xxx", "0571xx" },// <br>
+						new String[] { "159xxx", "139xxx" });
 			}
-		});
+		}, EqMode.IGNORE_ORDER);
 	}
 }

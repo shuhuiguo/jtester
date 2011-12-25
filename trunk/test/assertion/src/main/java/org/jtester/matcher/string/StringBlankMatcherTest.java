@@ -1,11 +1,15 @@
 package org.jtester.matcher.string;
 
+import java.util.Iterator;
+
 import org.jtester.IAssertion;
+import org.jtester.beans.DataIterator;
 import org.jtester.junit.DataFrom;
 import org.junit.Test;
 
 import ext.jtester.hamcrest.MatcherAssert;
 
+@SuppressWarnings("rawtypes")
 public class StringBlankMatcherTest implements IAssertion {
 
 	@Test
@@ -15,10 +19,13 @@ public class StringBlankMatcherTest implements IAssertion {
 		MatcherAssert.assertThat(input, matcher);
 	}
 
-	public static Object[][] blankString_true() {
-		return new Object[][] { { "" },// <br>
-				{ "   " }, /** <br> */
-				{ "\n\t\b\f" } /** <br> */
+	public static Iterator blankString_true() {
+		return new DataIterator() {
+			{
+				data("");
+				data("   ");
+				data("\n\t\b\f");
+			}
 		};
 	}
 
@@ -34,9 +41,12 @@ public class StringBlankMatcherTest implements IAssertion {
 		}
 	}
 
-	public static Object[][] blankString_false() {
-		return new Object[][] { { null }, // <br>
-				{ " d " } /** <br> */
+	public static Iterator blankString_false() {
+		return new DataIterator() {
+			{
+				data((String) null);
+				data(" d ");
+			}
 		};
 	}
 }
