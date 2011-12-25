@@ -8,7 +8,6 @@ import org.junit.Test;
 
 @SuppressWarnings({ "rawtypes", "unchecked" })
 public class PropertyEncoderTest extends EncoderTest {
-	String json = "";
 	User user = new User() {
 		{
 			this.setId(123);
@@ -25,14 +24,17 @@ public class PropertyEncoderTest extends EncoderTest {
 		encoder.setFeatures(JSONFeature.UseSingleQuote, JSONFeature.IgnoreExplicitFieldType);
 
 		encoder.encode(user, writer, references);
-		this.json = writer.toString();
-		want.string(json).start("{#class:'org.jtester.json.encoder.beans.test.User@").contains("id:123")
-				.contains("name:'darui.wu'").contains("age:45").contains("salary:234.56").contains("isFemale:false");
+		String json = writer.toString();
+		want.string(json).start("{#class:'org.jtester.beans.User@").contains("id:123").contains("name:'darui.wu'")
+				.contains("age:45").contains("salary:234.56").contains("isFemale:false");
 	}
 
 	@Test
-	// (dependsOnMethods = "testEncodeValue")
 	public void testDecodeValue() {
+		String json = "{#class:'org.jtester.beans.User@12452e8'," + // <br>
+				"id:{#class:'Integer',#value:124},name:{#class:'string',#value:'my name'}," + // <br>
+				"first:null,last:null,age:{#class:'Integer',#value:0},salary:{#class:'Double',#value:0}," + // <br>
+				"isFemale:{#class:'Boolean',#value:false},address:null,addresses:null,phones:null,assistor:null}";
 		User result = JSON.toObject(json);
 		want.object(user).reflectionEq(result);
 	}

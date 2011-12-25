@@ -10,7 +10,7 @@ import org.junit.Test;
 public class ArrayDecoderTest implements IAssertion {
 	@Test
 	public void testDecode_Reference() {
-		String json = "[{#class:org.jtester.json.encoder.beans.test.User@19762f,id:{#class:Integer,'#value':1},name:{#class:string,'#value':'darui.wu'},age:{#class:Integer,'#value':0},salary:{#class:Double,'#value':0},isFemale:{#class:Boolean,'#value':false}},{#refer:@19762f}]";
+		String json = "[{#class:org.jtester.beans.User@19762f,id:{#class:Integer,'#value':1},name:{#class:string,'#value':'darui.wu'},age:{#class:Integer,'#value':0},salary:{#class:Double,'#value':0},isFemale:{#class:Boolean,'#value':false}},{#refer:@19762f}]";
 		User[] users = JSON.toObject(json, User[].class);
 		want.array(users).sizeEq(2);
 		want.object(users[0]).same(users[1]);
@@ -18,7 +18,7 @@ public class ArrayDecoderTest implements IAssertion {
 
 	@Test
 	public void testDecode() {
-		String json = "{#class:org.jtester.json.encoder.beans.test.User@19762f,id:{#class:Integer,'#value':1},name:{#class:string,'#value':'darui.wu'},age:{#class:Integer,'#value':0},salary:{#class:Double,'#value':0},isFemale:{#class:Boolean,'#value':false}}";
+		String json = "{#class:org.jtester.beans.User@19762f,id:{#class:Integer,'#value':1},name:{#class:string,'#value':'darui.wu'},age:{#class:Integer,'#value':0},salary:{#class:Double,'#value':0},isFemale:{#class:Boolean,'#value':false}}";
 
 		User[] users = JSON.toObject("[" + json + "," + json + "]", User[].class);
 		want.array(users).sizeEq(2);

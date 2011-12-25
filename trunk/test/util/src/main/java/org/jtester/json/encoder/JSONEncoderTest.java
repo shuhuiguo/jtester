@@ -27,7 +27,7 @@ public class JSONEncoderTest implements IAssertion {
 
 	public static Object[][] objects() {
 		return new Object[][] {
-				{ User.newInstance(12, "darui.wu"), "#class:'org.jtester.json.encoder.beans.test.User@" },// <br>
+				{ User.newInstance(12, "darui.wu"), "#class:'org.jtester.beans.User@" },// <br>
 				{ new int[] { 1, 2, 3 }, "#class:'int[]@" },// <br>
 				{ new HashMap(), "#class:'map@" },// <br>
 				{ new ArrayList(), "#class:'list@" } // <br>
@@ -55,7 +55,7 @@ public class JSONEncoderTest implements IAssertion {
 		bean.setName("genicBean");
 		bean.setRefObject(bean);
 		String json = JSON.toJSON(bean, JSONFeature.UseSingleQuote);
-		want.string(json).contains("#class:'org.jtester.json.encoder.beans.test.GenicBean@")
+		want.string(json).contains("#class:'org.jtester.beans.GenicBean@")
 				.contains("refObject:{#refer:@");
 	}
 
@@ -72,7 +72,7 @@ public class JSONEncoderTest implements IAssertion {
 		};
 		String json = JSON.toJSON(user, JSONFeature.UseSingleQuote);
 		System.out.println(json);
-		want.string(json).contains("#class:'org.jtester.json.encoder.beans.test.User@");
+		want.string(json).contains("#class:'org.jtester.beans.User@");
 	}
 
 	@Test

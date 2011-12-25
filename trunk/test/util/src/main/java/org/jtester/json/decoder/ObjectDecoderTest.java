@@ -19,7 +19,7 @@ public class ObjectDecoderTest implements IAssertion {
 	public void testDecode() {
 		JSONMap json = new JSONMap() {
 			{
-				this.putJSON(JSONFeature.ClazzFlag, "org.jtester.json.encoder.beans.test.User@a123b");
+				this.putJSON(JSONFeature.ClazzFlag, "org.jtester.beans.User@a123b");
 				this.putJSON("name", "darui.wu");
 			}
 		};
@@ -40,12 +40,12 @@ public class ObjectDecoderTest implements IAssertion {
 		System.out.println(t.getClass().getName());
 		JSONMap json = new JSONMap() {
 			{
-				this.putJSON(JSONFeature.ClazzFlag, "[Lorg.jtester.json.encoder.beans.test.User;@01");
+				this.putJSON(JSONFeature.ClazzFlag, "[Lorg.jtester.beans.User;@01");
 				this.putJSON(JSONFeature.ValueFlag, new JSONArray() {
 					{
 						this.add(new JSONMap() {
 							{
-								this.putJSON(JSONFeature.ClazzFlag, "org.jtester.json.encoder.beans.test.User@11");
+								this.putJSON(JSONFeature.ClazzFlag, "org.jtester.beans.User@11");
 								this.putJSON("name", "darui.wu");
 							}
 						});
