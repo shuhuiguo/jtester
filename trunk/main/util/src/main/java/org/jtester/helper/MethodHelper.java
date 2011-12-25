@@ -42,8 +42,7 @@ public final class MethodHelper {
 				cls = cls.getSuperclass();
 			}
 		}
-		throw new NoSuchMethodRuntimeException("No such method: " + name + "(" + Arrays.toString(parametersType)
-				+ "), or it is not a static method.");
+		throw new NoSuchMethodRuntimeException("No such method: " + name + "(" + Arrays.toString(parametersType) + ").");
 	}
 
 	/**
