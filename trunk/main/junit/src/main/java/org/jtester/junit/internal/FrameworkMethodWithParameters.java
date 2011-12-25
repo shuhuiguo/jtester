@@ -1,7 +1,6 @@
 package org.jtester.junit.internal;
 
 import java.lang.reflect.Method;
-import java.util.Arrays;
 
 import org.junit.runners.model.FrameworkMethod;
 
@@ -23,7 +22,45 @@ public class FrameworkMethodWithParameters extends FrameworkMethod {
 		if (this.parameters == null || this.parameters.length == 0) {
 			return super.toString();
 		} else {
-			return getMethod().getName() + Arrays.toString(parameters);
+			return getMethod().getName() + toParaString(parameters);
 		}
+	}
+
+	static String toParaString(Object[] paras) {
+		if (paras == null)
+			return "null";
+		if (paras.length == 0)
+			return "[]";
+
+		StringBuilder buf = new StringBuilder();
+
+		for (int index = 0; index < paras.length; index++) {
+			if (index == 0) {
+				buf.append('[');
+			} else {
+				buf.append(", ");
+			}
+			String value = toObjectString(paras[index]);
+			buf.append(value);
+		}
+
+		buf.append("]");
+		return buf.toString();
+	}
+
+	/**
+	 * 截断太长的字符串<br>
+	 * 替换回车等字符,测试方法中如果有回车符，会导致junit框架无法识别
+	 * 
+	 * @param obj
+	 * @return
+	 */
+	static String toObjectString(Object obj) {
+		String value = String.valueOf(obj);
+		if (value.length() > 20) {
+			value = value.substring(0, 20);
+		}
+		value = value.replaceAll("\\s+", " ");
+		return value;
 	}
 }
