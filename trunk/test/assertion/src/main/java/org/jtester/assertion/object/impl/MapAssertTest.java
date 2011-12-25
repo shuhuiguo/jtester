@@ -5,7 +5,6 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import org.jtester.IAssertion;
-import org.jtester.exception.NoSuchFieldRuntimeException;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -69,7 +68,7 @@ public class MapAssertTest implements IAssertion {
 		want.map(maps).hasEntry(entry);
 	}
 
-	@Test(expected = NoSuchFieldRuntimeException.class)
+	@Test(expected = AssertionError.class)
 	public void testPropertyEq() {
 		Map actual = new HashMap() {
 			{

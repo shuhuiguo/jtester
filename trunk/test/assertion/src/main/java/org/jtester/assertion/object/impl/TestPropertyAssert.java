@@ -20,7 +20,6 @@ public class TestPropertyAssert implements IAssertion {
 				new String[] { "wu", "darui", "310012" });
 	}
 
-	@Test
 	public static User yourApi() {
 		User user = new User(1, "wu", "darui");
 		user.setAddress(new Address("网商路699号", "310012", "alibaba滨江大楼"));

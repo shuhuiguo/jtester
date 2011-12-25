@@ -22,7 +22,7 @@ public class CollectionAssertTest_HasItem_DataProvider implements IAssertion {
 	}
 
 	@Test
-	@DataFrom("provide_hasitems")
+	@DataFrom("provideArray")
 	public void hasItems(Object[] actual, Object firstExpected, Object[] expected) {
 		want.array(actual).hasAllItems(firstExpected, expected);
 	}
