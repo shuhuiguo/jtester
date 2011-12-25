@@ -41,8 +41,11 @@ public class ParameterDataFromHelper {
 		Object data = MethodHelper.invokeStatic(dataFromClaz, dataFromMethod);
 		if (data instanceof Iterator) {
 			return computeParameterFromIterator(testMethod, (Iterator) data);
+		} else if (data instanceof Object[][]) {
+			return computeParameterFromArray(testMethod, (Object[][]) data);
 		} else {
-			throw new RuntimeException("The @DataFrom method can only return value of type Iterator<Object[]>.");
+			throw new RuntimeException("The @DataFrom(" + dataFromMethod
+					+ ") method can only return value of type Iterator<Object[]>.");
 		}
 	}
 
@@ -55,6 +58,14 @@ public class ParameterDataFromHelper {
 			} else {
 				methodWithParameters.add(new FrameworkMethodWithParameters(method, new Object[] { caseData }));
 			}
+		}
+		return methodWithParameters;
+	}
+
+	private static List<FrameworkMethodWithParameters> computeParameterFromArray(Method method, Object[][] array) {
+		List<FrameworkMethodWithParameters> methodWithParameters = new ArrayList<FrameworkMethodWithParameters>();
+		for (Object[] paras : array) {
+			methodWithParameters.add(new FrameworkMethodWithParameters(method, paras));
 		}
 		return methodWithParameters;
 	}
