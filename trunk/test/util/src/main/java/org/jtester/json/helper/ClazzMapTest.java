@@ -20,8 +20,8 @@ public class ClazzMapTest implements IAssertion {
 				{ new Integer[0], "Integer[]@" }, // <br>
 				{ new String(), "string" }, // <br>
 				{ new String[0], "string[]@" }, // <br>
-				{ new User(), "org.jtester.json.encoder.beans.test.User@" }, // <br>
-				{ new User[0], "[Lorg.jtester.json.encoder.beans.test.User;@" } // <br>
+				{ new User(), "org.jtester.beans.User@" }, // <br>
+				{ new User[0], "[Lorg.jtester.beans.User;@" } // <br>
 		};
 	}
 
