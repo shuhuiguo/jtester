@@ -8,7 +8,7 @@ import org.jtester.beans.MyService;
 import org.jtester.beans.MyServiceImpl;
 import org.junit.Test;
 
-@SpringApplicationContext("org/jtester/bytecode/reflector/mybeans-invoke.xml")
+@SpringApplicationContext("org/jtester/reflector/mybeans-invoke.xml")
 public class SuperClazMethodAccessorTest_Invoke implements IAssertion, IReflector {
 	@SpringBeanByName
 	private ExMyService myService;

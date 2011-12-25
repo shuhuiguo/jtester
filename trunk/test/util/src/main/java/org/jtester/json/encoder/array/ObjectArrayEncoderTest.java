@@ -23,6 +23,7 @@ public class ObjectArrayEncoderTest implements IAssertion {
 		encoder.encode(users, writer, new ArrayList<String>());
 
 		String json = writer.toString();
-		want.string(json).eqIgnoreSpace("[{id:12,name:'darui.wu',age:0,salary:0,isFemale:false},null]");
+		String exp = "[{id:12,name:'darui.wu',first:null,last:null,age:0,salary:0,isFemale:false,address:null,addresses:null,phones:null,assistor:null},null]";
+		want.string(json).eqIgnoreSpace(exp);
 	}
 }

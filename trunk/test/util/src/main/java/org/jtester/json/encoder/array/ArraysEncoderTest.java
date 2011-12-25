@@ -25,6 +25,6 @@ public class ArraysEncoderTest implements IAssertion {
 		users[0] = User.newInstance(1, "darui.wu");
 		users[1] = users[0];
 		String json = JSON.toJSON(users, JSONFeature.UseSingleQuote);
-		want.string(json).contains("#class:'org.jtester.json.encoder.beans.test.User@").contains("{#refer:@");
+		want.string(json).contains("#class:'org.jtester.beans.User@").contains("{#refer:@");
 	}
 }
