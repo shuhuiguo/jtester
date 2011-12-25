@@ -11,7 +11,7 @@ import org.jtester.beans.MyServiceImpl;
 import org.jtester.beans.MyServiceImpl.MyTestException;
 import org.junit.Test;
 
-@SpringApplicationContext("org/jtester/bytecode/reflector/mybeans.xml")
+@SpringApplicationContext("org/jtester/reflector/mybeans.xml")
 @SuppressWarnings({ "unchecked", "rawtypes" })
 public class SuperClazMethodAccessorTest implements IAssertion, IReflector {
 	@SpringBeanByName
