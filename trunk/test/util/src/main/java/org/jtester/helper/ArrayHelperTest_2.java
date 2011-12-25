@@ -14,7 +14,7 @@ import org.junit.Test;
 @SuppressWarnings({ "rawtypes" })
 public class ArrayHelperTest_2 implements IAssertion {
 	@Test
-	@DataFrom("array-provider")
+	@DataFrom("arrayProvider")
 	public void isArray(Object array) {
 		want.bool(ArrayHelper.isArray(array)).is(true);
 
@@ -27,13 +27,13 @@ public class ArrayHelperTest_2 implements IAssertion {
 	}
 
 	@Test
-	@DataFrom("coll-provider")
+	@DataFrom("collProvider")
 	public void convert(Collection<?> coll) {
 		want.bool(ArrayHelper.isArray(ArrayHelper.toArray(coll))).is(true);
 	}
 
 	@Test
-	@DataFrom("coll-provider")
+	@DataFrom("collProvider")
 	public void isCollection(Collection<?> coll) {
 		want.bool(ListHelper.isCollection(coll)).is(true);
 	}
@@ -46,13 +46,13 @@ public class ArrayHelperTest_2 implements IAssertion {
 	}
 
 	@Test
-	@DataFrom("coll-provider")
+	@DataFrom("collProvider")
 	public void sizeOf_collection(Object coll) {
 		want.number(ArrayHelper.sizeOf(coll)).isEqualTo(2);
 	}
 
 	@Test
-	@DataFrom("array-provider")
+	@DataFrom("arrayProvider")
 	public void sizeOf_array(Object array) {
 		want.number(ArrayHelper.sizeOf(array)).isEqualTo(2);
 	}
@@ -63,7 +63,7 @@ public class ArrayHelperTest_2 implements IAssertion {
 		want.number(ArrayHelper.sizeOf(1)).isEqualTo(1);
 	}
 
-	public Object[][] collProvider() {
+	public static Object[][] collProvider() {
 		return new Object[][] { { Arrays.asList('a', 'b') }, /** <br> */
 		{ Arrays.asList(true, false) }, /** <br> */
 		{ Arrays.asList(1, 2) }, /** <br> */
@@ -72,7 +72,7 @@ public class ArrayHelperTest_2 implements IAssertion {
 		{ Arrays.asList(1f, 2f) } };
 	}
 
-	public Object[][] arrayProvider() {
+	public static Object[][] arrayProvider() {
 		return new Object[][] { { new char[] { 'a', 'b' } }, /** <br> */
 		{ new boolean[] { true, false } }, /** <br> */
 		{ new byte[] { Byte.MAX_VALUE, Byte.MIN_VALUE } }, /** <br> */
@@ -84,12 +84,14 @@ public class ArrayHelperTest_2 implements IAssertion {
 		{ new Object[] { null, null } } };
 	}
 
+	@Test
+	@DataFrom("testIsCollOrArray_data")
 	public void testIsCollOrArray(Object o, boolean isSet) {
 		boolean actual = ArrayHelper.isCollOrArray(o);
 		want.bool(actual).isEqualTo(isSet);
 	}
 
-	public Object[][] testIsCollOrArray_data() {
+	public static Object[][] testIsCollOrArray_data() {
 		return new Object[][] { { new int[] {}, true },// <br>
 				{ new boolean[] { true }, true },// <br>
 				{ new ArrayList(), true },// <br>

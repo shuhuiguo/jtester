@@ -13,7 +13,7 @@ import org.junit.Test;
 public class JsonHelperTest_JsonString implements IAssertion {
 	@Test
 	public void fromJson() {
-		String filename = "classpath:org/jtester/utility/manager.json";
+		String filename = "classpath:org/jtester/helper/manager.json";
 		Manager manager = JSONHelper.fromJsonFile(Manager.class, filename);
 		want.object(manager).propertyEq("name", "Tony Tester").propertyEq("phoneNumber.number", "0571-88886666");
 		want.date(manager.getDate()).isYear(2009).isMonth("08").isHour(16);

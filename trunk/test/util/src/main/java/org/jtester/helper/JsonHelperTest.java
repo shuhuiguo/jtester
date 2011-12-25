@@ -21,7 +21,6 @@ public class JsonHelperTest implements IAssertion {
 	}
 
 	@Test
-	// (dependsOnMethods = { "toDat" })
 	public void fromDat() {
 		String filename = "file:" + tempDir + "/manager.dat";
 		want.file(filename).isExists();
@@ -32,10 +31,10 @@ public class JsonHelperTest implements IAssertion {
 
 	@Test
 	public void fromDat_Classpath() {
-		String filename = "classpath:org/jtester/utility/manager.dat";
+		String filename = "classpath:org/jtester/helper/manager.dat";
 		Manager manager = JSONHelper.fromDatFile(Manager.class, filename);
 		want.object(manager).propertyEq("name", "Tony Tester").propertyEq("phoneNumber.number", "0571-88886666");
-		want.date(manager.getDate()).isYear(2009).isMonth("08").isHour(16);
+		want.date(manager.getDate()).eqByFormat("2011-12-25");
 	}
 
 	@Test
@@ -73,7 +72,7 @@ public class JsonHelperTest implements IAssertion {
 
 	@Test
 	public void fromJSON_Classpath() {
-		String filename = "classpath:org/jtester/utility/manager.json";
+		String filename = "classpath:org/jtester/helper/manager.json";
 		Manager manager = JSONHelper.fromJsonFile(Manager.class, filename);
 		want.object(manager).propertyEq("name", "Tony Tester").propertyEq("phoneNumber.number", "0571-88886666");
 		want.date(manager.getDate()).isYear(2009).isMonth("08").isHour(16);
@@ -98,14 +97,14 @@ public class JsonHelperTest implements IAssertion {
 
 	@Test
 	public void fromJSON_List() {
-		String filename = "classpath:org/jtester/utility/managers.json";
+		String filename = "classpath:org/jtester/helper/managers.json";
 		List<?> managers = JSONHelper.fromJsonFile(ArrayList.class, filename);
 		want.collection(managers).sizeEq(2).propertyEq("name", new String[] { "Tony Tester", "Tony Tester" });
 	}
 
 	@Test
 	public void fromJSON_List2() {
-		String filename = "classpath:org/jtester/utility/managers2.json";
+		String filename = "classpath:org/jtester/helper/managers2.json";
 		List<?> managers = JSONHelper.fromJsonFile(ArrayList.class, filename);
 		want.collection(managers).sizeEq(2).propertyEq("name", new String[] { "Tony Tester", "Tony Tester" });
 	}
@@ -121,7 +120,7 @@ public class JsonHelperTest implements IAssertion {
 	@Test
 	public void fromJSON_Array() {
 		Manager[] managers = JSONHelper.fromJsonFile(Manager[].class,
-				"classpath:org/jtester/utility/managers-array.json");
+				"classpath:org/jtester/helper/managers-array.json");
 		want.array(managers).sizeEq(2).propertyEq("name", new String[] { "Tony Tester", "Tony Tester" });
 	}
 }
