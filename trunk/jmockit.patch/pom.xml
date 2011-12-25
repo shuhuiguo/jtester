@@ -8,12 +8,18 @@
 	<name>jmockit patch</name>
 	<properties>
 		<jmockit.version>0.999.11</jmockit.version>
+		<jtester.version>1.2.0</jtester.version>
 	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>com.googlecode.jmockit</groupId>
 			<artifactId>jmockit</artifactId>
 			<version>${jmockit.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jtester</groupId>
+			<artifactId>jtester.junit</artifactId>
+			<version>${jtester.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
