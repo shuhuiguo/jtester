@@ -2,7 +2,7 @@
  * Copyright (c) 2006-2011 Rogério Liesenfeld
  * This file is subject to the terms of the MIT license (see LICENSE.txt).
  */
-package mockit.integration.junit4.internal;
+package org.jtester.junit.jmockit;
 
 import java.lang.reflect.*;
 import java.util.*;
