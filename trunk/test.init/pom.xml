@@ -26,13 +26,7 @@
 			<version>1.5.8</version>
 		</dependency>
 
-		<dependency>
-			<groupId>internal</groupId>
-			<artifactId>jar.file</artifactId>
-			<version>UNKOWN</version>
-			<scope>system</scope>
-			<systemPath>${basedir}/lib/a-jar-file.jar</systemPath>
-		</dependency>
+
 
 
 		<dependency>
