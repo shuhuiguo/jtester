@@ -101,8 +101,11 @@ public class ResourceHelperTest implements IAssertion {
 		want.bool(isExists).isEqualTo(false);
 	}
 
+	/**
+	 * Clazz为null的情况_且文件在jar包中
+	 */
 	@Test
-	public void testIsResourceExists_Clazz为null的情况_且文件在jar包中() {
+	public void testIsResourceExists_ClazzIsNull_ButFileInJar() {
 		boolean isExists = ResourceHelper.isResourceExists(null, "dbfit/jar/file/test.wiki");
 		want.bool(isExists).isEqualTo(true);
 	}
