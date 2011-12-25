@@ -52,7 +52,7 @@
 									tofile="${basedir}/target/${project.version}/jmockit-${project.version}-sources.jar"
 									overwrite="true" failonerror="true" />
 								<copy
-									file="${settings.localRepository}/com/googlecode/jmockit/jmockit/${jmockit.version}/jmockit-${jmockit.version}.pom"
+									file="${basedir}/src/pom/jmockit-${project.version}.pom"
 									tofile="${basedir}/target/${project.version}/jmockit-${project.version}.pom"
 									overwrite="true" failonerror="true" />
 							</tasks>
