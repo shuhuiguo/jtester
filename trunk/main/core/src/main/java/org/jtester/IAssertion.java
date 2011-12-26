@@ -2,12 +2,15 @@ package org.jtester;
 
 import org.jtester.assertion.TheStyleAssertion;
 import org.jtester.assertion.WantStyleAssertion;
+import org.jtester.helper.ReflectorHelper;
 
 @SuppressWarnings("rawtypes")
-public interface IAssertion extends IReflector {
+public interface IAssertion {
 	final WantStyleAssertion want = new WantStyleAssertion();
 
 	final TheStyleAssertion the = new TheStyleAssertion();
+
+	final ReflectorHelper reflector = new ReflectorHelper();
 
 	public class Expectations extends org.jtester.jmockit.JMockitExpectations {
 

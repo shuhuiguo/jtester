@@ -5,11 +5,10 @@ import java.util.Map;
 
 import org.jtester.IAssertion;
 import org.jtester.IDatabase;
-import org.jtester.IReflector;
 import org.jtester.junit.DataFrom;
 import org.junit.Test;
 
-public class SymbolUtilTest implements IAssertion, IDatabase, IReflector {
+public class SymbolUtilTest implements IAssertion, IDatabase {
 
 	@Test
 	public void testReplacedBySymbols() {

@@ -3,7 +3,6 @@ package org.jtester.reflector;
 import java.util.HashMap;
 
 import org.jtester.IAssertion;
-import org.jtester.IReflector;
 import org.jtester.annotations.SpringApplicationContext;
 import org.jtester.annotations.SpringBeanByName;
 import org.jtester.beans.MyService;
@@ -13,7 +12,7 @@ import org.junit.Test;
 
 @SpringApplicationContext("org/jtester/reflector/mybeans.xml")
 @SuppressWarnings({ "unchecked", "rawtypes" })
-public class SuperClazMethodAccessorTest implements IAssertion, IReflector {
+public class SuperClazMethodAccessorTest implements IAssertion {
 	@SpringBeanByName
 	private ExMyService myService;
 
