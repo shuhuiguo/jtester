@@ -10,7 +10,7 @@ import org.jtester.matcher.string.StringMode;
 import org.junit.Test;
 
 public class ResourceHelperTest implements IAssertion {
-	private final static String codedir = System.getProperty("user.dir") + "/src/main/java";
+	private final static String codedir = System.getProperty("user.dir") + "/src/test/java";
 
 	@Test
 	public void findWikiFile_FilePath() throws Exception {
@@ -35,21 +35,21 @@ public class ResourceHelperTest implements IAssertion {
 
 	@Test
 	public void getFileEncodingCharset_utf() {
-		File utf8 = new File("src/main/resources/org/jtester/helper/UTF8_File.txt");
+		File utf8 = new File("src/test/resources/org/jtester/helper/UTF8_File.txt");
 		String encoding = ResourceHelper.getFileEncodingCharset(utf8);
 		want.string(encoding).isEqualTo("UTF-8");
 	}
 
 	@Test
 	public void getFileEncodingCharset_gbk() {
-		File gbk = new File("src/main/resources/org/jtester/helper/GBK_File.txt");
+		File gbk = new File("src/test/resources/org/jtester/helper/GBK_File.txt");
 		String encoding = ResourceHelper.getFileEncodingCharset(gbk);
 		want.string(encoding).isEqualTo("GB2312");
 	}
 
 	@Test
 	public void testGetResourceAsStream_file() throws FileNotFoundException {
-		InputStream is = ResourceHelper.getResourceAsStream("file:src/main/resources/org/jtester/helper/UTF8_File.txt");
+		InputStream is = ResourceHelper.getResourceAsStream("file:src/test/resources/org/jtester/helper/UTF8_File.txt");
 		want.object(is).notNull();
 		String str = ResourceHelper.convertStreamToSQL(is);
 		want.string(str).isEqualTo("我是utf8编码", StringMode.IgnoreSpace);

@@ -1,7 +1,7 @@
 package org.jtester.reflector;
 
 import org.jtester.IAssertion;
-import org.jtester.reflector.model.TestObject;
+import org.jtester.reflector.model.YourTestedObject;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,7 +13,7 @@ public class FieldAccessorImplTest implements IAssertion {
 
 	@Before
 	public void setUp() throws Exception {
-		aPrivate = new FieldAccessor(TestObject.class, "aPrivate");
+		aPrivate = new FieldAccessor(YourTestedObject.class, "aPrivate");
 	}
 
 	@After
@@ -33,7 +33,7 @@ public class FieldAccessorImplTest implements IAssertion {
 
 	@Test
 	public void testFieldAccessor3() {
-		FieldAccessor accessor = new FieldAccessor(TestObject.class, "aSuperStaticPrivate");
+		FieldAccessor accessor = new FieldAccessor(YourTestedObject.class, "aSuperStaticPrivate");
 		accessor.setStatic(1);
 	}
 
@@ -42,7 +42,7 @@ public class FieldAccessorImplTest implements IAssertion {
 	 */
 	@Test
 	public void testGet() {
-		TestObject toTest = new TestObject();
+		YourTestedObject toTest = new YourTestedObject();
 		int actual = ((Integer) aPrivate.get(toTest)).intValue();
 		want.number(actual).isEqualTo(26071973);
 	}
@@ -53,7 +53,7 @@ public class FieldAccessorImplTest implements IAssertion {
 	 */
 	@Test
 	public void testSet() {
-		TestObject toTest = new TestObject();
+		YourTestedObject toTest = new YourTestedObject();
 		int newValue = 26072007;
 		aPrivate.set(toTest, Integer.valueOf(newValue));
 		int actual = ((Integer) aPrivate.get(toTest)).intValue();

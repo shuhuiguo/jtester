@@ -2,14 +2,14 @@ package org.jtester.reflector;
 
 import org.jtester.IAssertion;
 import org.jtester.junit.DataFrom;
-import org.jtester.reflector.model.TestObject;
+import org.jtester.reflector.model.YourTestedObject;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 @SuppressWarnings({ "rawtypes" })
 public class MethodAccessorImplTest implements IAssertion {
-	TestObject test = null;
+	YourTestedObject test = null;
 
 	private MethodAccessor<Integer> getPrivate;
 
@@ -17,7 +17,7 @@ public class MethodAccessorImplTest implements IAssertion {
 
 	@Before
 	public void setUp() throws Exception {
-		test = new TestObject();
+		test = new YourTestedObject();
 		getPrivate = new MethodAccessor<Integer>(test, "getPrivate", new Class[0]);
 		setPrivate = new MethodAccessor<Integer>(test, "setPrivate", new Class[] { int.class });
 	}
@@ -35,7 +35,7 @@ public class MethodAccessorImplTest implements IAssertion {
 
 	@Test(expected = RuntimeException.class)
 	public void testMethodAccessor2() {
-		new MethodAccessor<Void>(new TestObject(), "missing");
+		new MethodAccessor<Void>(new YourTestedObject(), "missing");
 	}
 
 	@Test(expected = NullPointerException.class)

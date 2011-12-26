@@ -1,7 +1,7 @@
 package org.jtester.reflector.model;
 
 @SuppressWarnings("unused")
-public class TestObject extends SuperTestObject {
+public class YourTestedObject extends SuperTestObject {
 
 	private boolean magic = true;
 
@@ -11,8 +11,8 @@ public class TestObject extends SuperTestObject {
 
 	private int ANonStandardJavaBeanStyleField = -1;
 
-	private void throwingMethod() throws TestException {
-		throw new TestException("from throwingMethod");
+	private void throwingMethod() throws YourTestedException {
+		throw new YourTestedException("from throwingMethod");
 	}
 
 	private void nonThrowingMethod() {

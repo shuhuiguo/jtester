@@ -1,7 +1,7 @@
 package org.jtester.reflector;
 
 import org.jtester.IAssertion;
-import org.jtester.reflector.model.TestObject;
+import org.jtester.reflector.model.YourTestedObject;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -11,7 +11,7 @@ public class StaticFieldAccessorTest implements IAssertion {
 
 	@Before
 	public void setUp() throws Exception {
-		aStaticPrivate = new FieldAccessor<Integer>(TestObject.class, "aStaticPrivate");
+		aStaticPrivate = new FieldAccessor<Integer>(YourTestedObject.class, "aStaticPrivate");
 	}
 
 	@Test(expected = RuntimeException.class)
@@ -26,7 +26,7 @@ public class StaticFieldAccessorTest implements IAssertion {
 
 	@Test(expected = RuntimeException.class)
 	public void testStaticFieldAccessor3() {
-		FieldAccessor<Integer> accessor = new FieldAccessor<Integer>(TestObject.class, "aPrivate");
+		FieldAccessor<Integer> accessor = new FieldAccessor<Integer>(YourTestedObject.class, "aPrivate");
 		accessor.setStatic(1);
 		want.fail("The field should not be static: StaticFieldAccessor only accepts static fields");
 	}
@@ -34,7 +34,7 @@ public class StaticFieldAccessorTest implements IAssertion {
 	@Test
 	// (expected = RuntimeException.class)
 	public void testStaticFieldAccessor4() {
-		FieldAccessor<Integer> accessor = new FieldAccessor<Integer>(TestObject.class, "aSuperStaticPrivate");
+		FieldAccessor<Integer> accessor = new FieldAccessor<Integer>(YourTestedObject.class, "aSuperStaticPrivate");
 		accessor.setStatic(1);
 		// want.fail("The field should not be declared in the specified class: StaticFieldAccessor only accepts static fields declared in the specified class");
 	}
@@ -44,7 +44,8 @@ public class StaticFieldAccessorTest implements IAssertion {
 	 */
 	@Test
 	public void testGet() {
-		want.number(aStaticPrivate.getStatic().intValue()).isEqualTo(27022008);
+		reflector.setStaticField(YourTestedObject.class, "aStaticPrivate", 27022009);
+		want.number(aStaticPrivate.getStatic().intValue()).isEqualTo(27022009);
 	}
 
 	/**
@@ -52,7 +53,6 @@ public class StaticFieldAccessorTest implements IAssertion {
 	 * {@link com.j2speed.accessor.FieldAccessor#set(java.lang.Object)}.
 	 */
 	@Test
-	// (dependsOnMethods = "testGet")
 	public void testSet() {
 		int newValue = 26072007;
 
