@@ -66,7 +66,7 @@ public class PropertiesEqualMatcherTest implements IAssertion {
 			MatcherAssert.assertThat(actual, matcher);
 			want.bool(match).isEqualTo(true);
 		} catch (AssertionError error) {
-			error.printStackTrace();
+			// error.printStackTrace();
 			want.bool(match).isEqualTo(false);
 		}
 	}
