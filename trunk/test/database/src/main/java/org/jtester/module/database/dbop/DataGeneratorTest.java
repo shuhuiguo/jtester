@@ -6,10 +6,10 @@ import java.util.List;
 
 import org.jtester.IAssertion;
 import org.jtester.IDatabase;
-import org.jtester.beans.AbstractDataSet;
 import org.jtester.beans.DataGenerator;
 import org.jtester.beans.DataIterator;
 import org.jtester.beans.DataMap;
+import org.jtester.database.AbstractDataSet;
 import org.jtester.database.DataSet;
 import org.jtester.database.operator.TableOp.EmptyDataSet;
 import org.jtester.junit.DataFrom;

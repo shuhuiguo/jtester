@@ -1,0 +1,10 @@
+<dataset>
+	<insert table="tdd_user" clean="true">
+		<data>
+			<id>1</id>
+			<first_name>darui</first_name>
+			<last_name>wu</last_name>
+		</data>
+		<data id="2" first_name="jobs" last_name="he" />
+	</insert>
+</dataset>

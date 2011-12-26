@@ -7,9 +7,9 @@ import mockit.Mock;
 
 import org.jtester.IAssertion;
 import org.jtester.IDatabase;
-import org.jtester.beans.AbstractDataSet;
 import org.jtester.beans.DataGenerator;
 import org.jtester.beans.DataMap;
+import org.jtester.database.AbstractDataSet;
 import org.junit.Test;
 
 @SuppressWarnings({ "serial", "unused", "rawtypes", "unchecked" })

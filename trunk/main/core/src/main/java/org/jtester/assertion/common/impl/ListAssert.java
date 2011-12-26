@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.jtester.assertion.common.intf.IAssert;
 import org.jtester.assertion.common.intf.IListAssert;
-import org.jtester.beans.AbstractDataSet;
 import org.jtester.beans.DataMap;
+import org.jtester.database.AbstractDataSet;
 import org.jtester.helper.ListHelper;
 import org.jtester.matcher.modes.ItemsMode;
 import org.jtester.matcher.property.MapListPropertyEqaulMatcher;

@@ -1,8 +1,10 @@
-package org.jtester.beans;
+package org.jtester.database;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import org.jtester.beans.DataGenerator;
+import org.jtester.beans.DataMap;
 import org.jtester.helper.ArrayHelper;
 import org.jtester.json.JSON;
 
