@@ -10,9 +10,6 @@
 	<artifactId>jtester.junit</artifactId>
 	<packaging>jar</packaging>
 	<name>jtester junit module</name>
-	<properties>
-		<maven.test.skip>true</maven.test.skip>
-	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.jtester</groupId>
