@@ -10,7 +10,7 @@ import org.junit.Test;
 @SuppressWarnings({ "serial", "unchecked" })
 public class WantStyleAssertionTest_Database implements IAssertion, IDatabase {
 
-	@DbFit(when = "data/WantStyleAssertionTest_Database/testDatabase.when.wiki")
+	@DbFit(when = "WantStyleAssertionTest_Database.testDatabase.when.wiki")
 	@Test
 	public void testDatabase() {
 		db.query("select id,first_name,last_name from tdd_user").reflectionEqMap(ListHelper.toList(new DataMap() {
