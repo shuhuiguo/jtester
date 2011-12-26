@@ -19,11 +19,6 @@
 		</dependency>
 		<dependency>
 			<groupId>org.jtester</groupId>
-			<artifactId>jtester.assertion</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.jtester</groupId>
 			<artifactId>jtester.util</artifactId>
 			<version>${project.version}</version>
 		</dependency>

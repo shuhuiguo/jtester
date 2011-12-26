@@ -18,7 +18,7 @@
 		</dependency>
 		<dependency>
 			<groupId>org.jtester</groupId>
-			<artifactId>jtester.assertion</artifactId>
+			<artifactId>jtester.core</artifactId>
 			<version>${jtester.version}</version>
 		</dependency>
 		<dependency>

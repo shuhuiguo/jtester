@@ -18,11 +18,6 @@
 		</dependency>
 		<dependency>
 			<groupId>org.jtester</groupId>
-			<artifactId>jtester.assertion</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.jtester</groupId>
 			<artifactId>jtester.spring</artifactId>
 			<version>${project.version}</version>
 			<scope>provided</scope>
