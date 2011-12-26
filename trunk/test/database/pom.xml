@@ -38,6 +38,11 @@
 		</dependency>
 
 		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
 			<groupId>internal</groupId>
 			<artifactId>headquarters-jdbc-proxy-1.1-cn-share</artifactId>
 			<version>UNKOWN</version>
