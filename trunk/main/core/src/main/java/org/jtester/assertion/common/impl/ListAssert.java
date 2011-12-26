@@ -5,7 +5,6 @@ import java.util.List;
 import org.jtester.assertion.common.intf.IAssert;
 import org.jtester.assertion.common.intf.IListAssert;
 import org.jtester.beans.DataMap;
-import org.jtester.database.AbstractDataSet;
 import org.jtester.helper.ListHelper;
 import org.jtester.matcher.modes.ItemsMode;
 import org.jtester.matcher.property.MapListPropertyEqaulMatcher;
@@ -48,7 +47,7 @@ public class ListAssert<T, E extends IAssert> extends SizeAssert<T, E> implement
 	}
 
 	public E propertyEqMap(int count, DataMap expected, EqMode... modes) {
-		List<DataMap> lists = AbstractDataSet.parseMapList(count, expected);
+		List<DataMap> lists = DataMap.parseMapList(count, expected);
 		return reflectionEqMap(lists, modes);
 	}
 

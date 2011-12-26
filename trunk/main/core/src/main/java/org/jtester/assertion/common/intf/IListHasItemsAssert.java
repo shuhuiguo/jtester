@@ -129,4 +129,12 @@ public interface IListHasItemsAssert<E extends IAssert> {
 	 * @return
 	 */
 	E match(ItemsMode itemsMode, MatchMode matchMode, Matcher matcher, Matcher... matchers);
+
+	/**
+	 * assert all items match every Matcher by sequence
+	 * 
+	 * @param matchers
+	 * @return
+	 */
+	E matchIterator(Matcher... matchers);
 }

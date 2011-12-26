@@ -131,4 +131,9 @@ public class ListHasItemsAssert<T, E extends IAssert> extends BaseAssert<T, E> i
 		List<Matcher> list = this.getItemsMatchers(ItemsMode.AnyItems, matcher, matchers);
 		return this.assertThat(AnyOf.anyOf(list));
 	}
+
+	public E matchIterator(Matcher... matchers) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
