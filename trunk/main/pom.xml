@@ -9,7 +9,6 @@
 
 	<modules>
 		<module>util</module>
-		<module>assertion</module>
 		<module>core</module>
 		<module>spring</module>
 		<module>database</module>
