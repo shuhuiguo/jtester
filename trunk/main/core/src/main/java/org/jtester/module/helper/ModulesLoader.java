@@ -86,7 +86,7 @@ public class ModulesLoader {
 				((Module) module).init();// initialize module
 				modules.add((Module) module);
 			} catch (NoClassFoundException e) {
-				LogHelper.warn("can't found module class:" + className, e);
+				LogHelper.warn("can't found module class[" + className + "], so disabled module[" + moduleName + "].");
 			} catch (Throwable t) {
 				throw new JTesterException("An exception occured during the loading of core module " + moduleName
 						+ " with module class name " + className, t);
