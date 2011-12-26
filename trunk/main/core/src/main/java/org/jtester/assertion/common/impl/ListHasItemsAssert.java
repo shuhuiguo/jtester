@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.jtester.assertion.common.intf.IAssert;
 import org.jtester.assertion.common.intf.IListHasItemsAssert;
+import org.jtester.matcher.array.IteratorMatcher;
 import org.jtester.matcher.array.ListEveryItemMatcher;
 import org.jtester.matcher.modes.ItemsMode;
 import org.jtester.matcher.modes.MatchMode;
@@ -133,7 +134,7 @@ public class ListHasItemsAssert<T, E extends IAssert> extends BaseAssert<T, E> i
 	}
 
 	public E matchIterator(Matcher... matchers) {
-		// TODO Auto-generated method stub
-		return null;
+		IteratorMatcher matcher = new IteratorMatcher(matchers);
+		return this.assertThat(matcher);
 	}
 }
