@@ -9,7 +9,7 @@
 	</parent>
 	<artifactId>jtester.core</artifactId>
 	<packaging>jar</packaging>
-	<name>jtester core</name>
+	<name>jtester core module</name>
 
 	<dependencies>
 		<dependency>

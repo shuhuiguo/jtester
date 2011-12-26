@@ -9,7 +9,7 @@
 	</parent>
 	<artifactId>jtester.assertion</artifactId>
 	<packaging>jar</packaging>
-	<name>jtester junit module</name>
+	<name>jtester assert module</name>
 
 	<dependencies>
 		<dependency>

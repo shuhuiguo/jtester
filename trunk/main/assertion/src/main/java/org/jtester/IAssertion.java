@@ -9,7 +9,7 @@ public interface IAssertion extends IReflector {
 
 	final TheStyleAssertion the = new TheStyleAssertion();
 
-	class Expectations extends org.jtester.jmockit.JMockitExpectations {
+	public class Expectations extends org.jtester.jmockit.JMockitExpectations {
 
 		public Expectations() {
 			super();
@@ -25,7 +25,7 @@ public interface IAssertion extends IReflector {
 
 	}
 
-	class NonStrictExpectations extends org.jtester.jmockit.JMockitNonStrictExpectations {
+	public class NonStrictExpectations extends org.jtester.jmockit.JMockitNonStrictExpectations {
 
 		public NonStrictExpectations() {
 			super();
@@ -40,7 +40,7 @@ public interface IAssertion extends IReflector {
 		}
 	}
 
-	class MockUp<T> extends mockit.MockUp<T> {
+	public class MockUp<T> extends mockit.MockUp<T> {
 
 		public MockUp() {
 			super();

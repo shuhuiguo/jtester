@@ -9,7 +9,7 @@
 	</parent>
 	<artifactId>jtester.spring</artifactId>
 	<packaging>jar</packaging>
-	<name>jtester junit module</name>
+	<name>jtester spring module</name>
 
 	<dependencies>
 		<dependency>
