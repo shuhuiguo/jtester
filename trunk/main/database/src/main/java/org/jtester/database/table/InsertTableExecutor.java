@@ -6,18 +6,18 @@ import java.util.List;
 import org.jtester.beans.DataMap;
 import org.jtester.module.database.environment.DBEnvironment;
 
-public class InsertTable extends TableExecutor {
+public class InsertTableExecutor extends TableExecutor {
 	private List<DataMap> datas;
 
-	public InsertTable(List<DataMap> datas) {
+	public InsertTableExecutor(List<DataMap> datas) {
 		this.datas = datas;
 	}
 
-	public InsertTable(int count, DataMap datas) {
+	public InsertTableExecutor(int count, DataMap datas) {
 		this.datas = DataMap.parseMapList(count, datas);
 	}
 
-	public InsertTable(DataMap data) {
+	public InsertTableExecutor(DataMap data) {
 		this.datas = new ArrayList<DataMap>();
 		this.datas.add(data);
 	}

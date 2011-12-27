@@ -37,15 +37,43 @@ public class DataXmlParser {
 			Element item = (Element) it.next();
 			String name = item.getName();
 			if ("insert".equalsIgnoreCase(name)) {
-
+				List<TableExecutor> children = parseInsertTable(item);
+				executors.addAll(children);
 			} else if ("query".equalsIgnoreCase(name)) {
-
+				List<TableExecutor> children = parseQueryTable(item);
+				executors.addAll(children);
+			} else if ("clean".equalsIgnoreCase(name)) {
+				List<TableExecutor> children = parseCleanTable(item);
+				executors.addAll(children);
 			} else {
 				throw new RuntimeException("unknown operate type[" + name
-						+ "], the operate type of dataset can only be 'insert' or 'query'!");
+						+ "], the operate type of dataset can only be 'insert', 'query' or 'clean'.");
 			}
 		}
 		return executors;
 	}
 
+	static List<TableExecutor> parseInsertTable(Element insert) {
+		List<TableExecutor> list = new ArrayList<TableExecutor>();
+		String table = insert.attributeValue("table");
+		if (table == null) {
+			throw new RuntimeException("you must specify the insert table name.");
+		}
+		String isClean = insert.attributeValue("clean");
+
+		if ("true".equalsIgnoreCase(isClean)) {
+//			CleanTable cl
+		}
+		List datas = insert.selectNodes("/data");
+
+		return list;
+	}
+
+	static List<TableExecutor> parseQueryTable(Element query) {
+		return null;
+	}
+
+	static List<TableExecutor> parseCleanTable(Element cleanor) {
+		return null;
+	}
 }
