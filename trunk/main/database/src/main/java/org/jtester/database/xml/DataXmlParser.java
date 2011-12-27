@@ -9,7 +9,7 @@ import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
-import org.jtester.database.table.TableExecutor;
+import org.jtester.database.executor.TableExecutor;
 import org.xml.sax.SAXException;
 
 public class DataXmlParser {

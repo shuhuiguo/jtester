@@ -1,4 +1,4 @@
-package org.jtester.database.table;
+package org.jtester.database.executor;
 
 import org.jtester.module.database.environment.DBEnvironment;
 

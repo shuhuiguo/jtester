@@ -1,4 +1,4 @@
-package org.jtester.database.table;
+package org.jtester.database.executor;
 
 import java.util.ArrayList;
 import java.util.List;
