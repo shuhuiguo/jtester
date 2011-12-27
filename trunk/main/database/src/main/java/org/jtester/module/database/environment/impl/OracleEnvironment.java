@@ -347,7 +347,7 @@ public class OracleEnvironment extends AbstractDBEnvironment {
 	 * 在oracle中将java.util.Date转为java.sql.Date对象
 	 */
 	public Object converToSqlValue(Object value) {
-		if (value instanceof java.util.Date) {
+		if (value != null && "java.util.Date".equals(value.getClass().getName())) {
 			return new java.sql.Date(((java.util.Date) value).getTime());
 		} else {
 			return super.converToSqlValue(value);

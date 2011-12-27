@@ -62,7 +62,13 @@ public final class DBHelper {
 		int count = rsmd.getColumnCount();
 		for (int index = 1; index <= count; index++) {
 			String key = getCamelFieldName(rsmd, index, isCamelName);
-			Object o = rs.getObject(index);
+			String columnClaz = rsmd.getColumnClassName(index);
+			Object o = null;
+			if ("java.sql.Timestamp".equals(columnClaz)) {
+				o = rs.getTimestamp(index);
+			} else {
+				o = rs.getObject(index);
+			}
 			Object value = DbParameterAccessor.normaliseValue(o);
 			map.put(key, value);
 		}

@@ -5,13 +5,18 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.dom4j.Attribute;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
+import org.jtester.beans.DataMap;
+import org.jtester.database.executor.CleanTableExecutor;
+import org.jtester.database.executor.InsertTableExecutor;
 import org.jtester.database.executor.TableExecutor;
 import org.xml.sax.SAXException;
 
+@SuppressWarnings({ "unchecked", "rawtypes" })
 public class DataXmlParser {
 	private final static SAXReader saxReader = new SAXReader(false);
 	static {
@@ -23,7 +28,6 @@ public class DataXmlParser {
 		}
 	}
 
-	@SuppressWarnings("rawtypes")
 	public static List<TableExecutor> parse(String xml) throws DocumentException {
 		File xmlFile = new File(xml);
 		if (xmlFile.exists() == false) {
@@ -62,11 +66,36 @@ public class DataXmlParser {
 		String isClean = insert.attributeValue("clean");
 
 		if ("true".equalsIgnoreCase(isClean)) {
-//			CleanTable cl
+			list.add(new CleanTableExecutor(table));
 		}
-		List datas = insert.selectNodes("/data");
-
+		List<Element> children = insert.selectNodes("//dataset/insert/data");
+		if (children == null || children.size() == 0) {
+			return list;
+		}
+		List<DataMap> datas = new ArrayList<DataMap>();
+		for (Element data : children) {
+			DataMap map = parseDataMapFromElement(data);
+			datas.add(map);
+		}
+		list.add(new InsertTableExecutor(table, datas));
 		return list;
+	}
+
+	static DataMap parseDataMapFromElement(Element data) {
+		DataMap map = new DataMap();
+		for (Iterator it1 = data.attributeIterator(); it1.hasNext();) {
+			Attribute field = (Attribute) it1.next();
+			String name = field.getName();
+			String value = field.getValue();
+			map.put(name, value);
+		}
+		for (Iterator it2 = data.elementIterator(); it2.hasNext();) {
+			Element field = (Element) it2.next();
+			String name = field.getName();
+			String value = field.getText();
+			map.put(name, value);
+		}
+		return map;
 	}
 
 	static List<TableExecutor> parseQueryTable(Element query) {

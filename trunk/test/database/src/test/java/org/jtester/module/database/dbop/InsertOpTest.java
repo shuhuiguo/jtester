@@ -62,4 +62,20 @@ public class InsertOpTest implements IAssertion, IDatabase {
 			}
 		});
 	}
+
+	@Test
+	public void testInsert_OracleDate_StampTime() {
+		db.useDB("eve").table("MTN_PLAN").clean().insert(new DataMap() {
+			{
+				put("ID", 1);
+				put("GMT_CREATE", "2010-11-10 12:30:45");
+			}
+		});
+		db.table("MTN_PLAN").query().propertyEqMap(new DataMap() {
+			{
+				put("ID", 1);
+				put("GMT_CREATE", "2010-11-10 12:30:45");
+			}
+		});
+	}
 }

@@ -9,15 +9,24 @@ import org.jtester.module.database.environment.DBEnvironment;
 public class InsertTableExecutor extends TableExecutor {
 	private List<DataMap> datas;
 
-	public InsertTableExecutor(List<DataMap> datas) {
+	public InsertTableExecutor(String table) {
+		super(table);
+	}
+
+	public InsertTableExecutor(String table, List<DataMap> datas) {
+		super(table);
 		this.datas = datas;
 	}
 
-	public InsertTableExecutor(int count, DataMap datas) {
+	public void setDatas(List<DataMap> datas) {
+		this.datas = datas;
+	}
+
+	public void setDatas(int count, DataMap datas) {
 		this.datas = DataMap.parseMapList(count, datas);
 	}
 
-	public InsertTableExecutor(DataMap data) {
+	public void setDatas(DataMap data) {
 		this.datas = new ArrayList<DataMap>();
 		this.datas.add(data);
 	}

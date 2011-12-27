@@ -5,12 +5,14 @@ import org.jtester.module.database.environment.DBEnvironment;
 public class QueryTableExecutor extends TableExecutor {
 	private String query;
 
-	public QueryTableExecutor() {
-		this.query = "select * from " + this.table;
+	public QueryTableExecutor(String table) {
+		super(table);
+		this.query = String.format("select * from %s", this.table);
 	}
 
-	public QueryTableExecutor(String where) {
-
+	public QueryTableExecutor(String table, String where) {
+		super(table);
+		this.query = String.format("select * from %s where %s", this.table, where);
 	}
 
 	@Override
