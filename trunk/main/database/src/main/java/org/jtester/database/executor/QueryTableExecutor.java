@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.jtester.assertion.object.impl.CollectionAssert;
 import org.jtester.beans.DataMap;
+import org.jtester.helper.StringHelper;
 import org.jtester.matcher.property.reflection.EqMode;
 import org.jtester.module.database.util.SqlRunner;
 
@@ -23,7 +24,7 @@ public class QueryTableExecutor extends TableExecutor {
 
 	public QueryTableExecutor(String xmlFile, String table, String where, List<DataMap> expected, boolean ordered) {
 		super(xmlFile, table);
-		if (where == null) {
+		if (StringHelper.isBlankOrNull(where)) {
 			this.query = String.format("select * from %s", this.table);
 		} else {
 			this.query = String.format("select * from %s where %s", this.table, where);
@@ -42,9 +43,14 @@ public class QueryTableExecutor extends TableExecutor {
 			} else {
 				new CollectionAssert(list).reflectionEqMap(expected, EqMode.IGNORE_ORDER);
 			}
-		} catch (Throwable error) {
-			throw new RuntimeException("assert table[" + this.query + "] error in xml file[" + this.xmlFile + "].",
-					error);
+		} catch (AssertionError e1) {
+			AssertionError e2 = new AssertionError("assert table[" + this.query + "] error in xml file[" + this.xmlFile
+					+ "]." + e1.getMessage());
+			e2.initCause(e1);
+			throw e2;
+		} catch (Throwable e) {
+			throw new RuntimeException("assert table[" + this.query + "] error in xml file[" + this.xmlFile + "]."
+					+ e.getMessage(), e);
 		}
 	}
 }
