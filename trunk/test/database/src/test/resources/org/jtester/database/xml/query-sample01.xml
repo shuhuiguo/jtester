@@ -1,5 +1,5 @@
 <dataset>
-	<query table="tdd_user" where="id=102">
+	<query table="tdd_user" where="id=102" order="true">
 		<data>
 			<id>1</id>
 			<first_name>darui</first_name>

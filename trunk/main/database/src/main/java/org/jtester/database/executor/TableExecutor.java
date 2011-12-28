@@ -1,7 +1,5 @@
 package org.jtester.database.executor;
 
-import org.jtester.module.database.environment.DBEnvironment;
-
 public abstract class TableExecutor {
 	protected String table;
 
@@ -9,5 +7,5 @@ public abstract class TableExecutor {
 		this.table = table;
 	}
 
-	public abstract void execute(DBEnvironment dbEnvironment);
+	public abstract void execute();
 }

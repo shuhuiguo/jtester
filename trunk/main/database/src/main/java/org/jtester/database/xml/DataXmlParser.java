@@ -124,13 +124,14 @@ public class DataXmlParser {
 
 		List<TableExecutor> list = new ArrayList<TableExecutor>();
 		String select = query.getAttribute("select");
+		String ordered = query.getAttribute("order");
 		if (StringHelper.isBlankOrNull(select)) {
 			String table = query.getAttribute("table");
 			String where = query.getAttribute("where");
-			TableExecutor executor = new QueryTableExecutor(table, where, datas);
+			TableExecutor executor = new QueryTableExecutor(table, where, datas, "true".equalsIgnoreCase(ordered));
 			list.add(executor);
 		} else {
-			TableExecutor executor = new QueryTableExecutor(select, datas);
+			TableExecutor executor = new QueryTableExecutor(select, datas, "true".equalsIgnoreCase(ordered));
 			list.add(executor);
 		}
 		return list;

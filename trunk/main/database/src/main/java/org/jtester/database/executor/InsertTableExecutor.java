@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.jtester.beans.DataMap;
-import org.jtester.module.database.environment.DBEnvironment;
+import org.jtester.database.operator.InsertOp;
+import org.jtester.exception.ExceptionWrapper;
 
 public class InsertTableExecutor extends TableExecutor {
 	private List<DataMap> datas;
@@ -32,8 +33,13 @@ public class InsertTableExecutor extends TableExecutor {
 	}
 
 	@Override
-	public void execute(DBEnvironment dbEnvironment) {
-		// TODO Auto-generated method stub
-
+	public void execute() {
+		try {
+			for (DataMap data : datas) {
+				InsertOp.insert(table, data);
+			}
+		} catch (Exception e) {
+			throw ExceptionWrapper.getUndeclaredThrowableExceptionCaused(e);
+		}
 	}
 }

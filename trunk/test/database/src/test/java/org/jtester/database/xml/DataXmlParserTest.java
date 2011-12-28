@@ -39,8 +39,13 @@ public class DataXmlParserTest implements IAssertion {
 		List<TableExecutor> list = DataXmlParser.parse(xml);
 		want.list(list).sizeEq(1);
 		TableExecutor executor = list.get(0);
-		want.object(executor).propertyEq("table", "tdd_user")
-				.propertyEq("query", "select * from tdd_user where id=102");
+		want.object(executor).propertyEqMap(new DataMap() {
+			{
+				this.put("table", "tdd_user");
+				this.put("query", "select * from tdd_user where id=102");
+				this.put("isOrdered", true);
+			}
+		});
 		List<DataMap> datas = reflector.getField(executor, "expected");
 		want.list(datas).propertyEqMap(2, new DataMap() {
 			{
