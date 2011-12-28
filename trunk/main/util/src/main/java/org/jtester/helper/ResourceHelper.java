@@ -625,4 +625,30 @@ public class ResourceHelper {
 			path.mkdirs();
 		}
 	}
+
+	/**
+	 * 查找class路径下的资源文件<br>
+	 * 先查找相对于class package的路径<br>
+	 * 再查找根路径
+	 * 
+	 * @param claz
+	 * @param url
+	 *            查找到资源的classpath路径
+	 * @return
+	 * @throws Exception
+	 */
+	public static String findResourceByPackage(final Class claz, final String url) throws Exception {
+		if (claz != null && ResourceHelper.isResourceExists(claz, url)) {
+			return ClazzHelper.getPathFromPath(claz) + "/" + url;
+		} else if (ResourceHelper.isResourceExists(null, url)) {
+			return url;
+		} else {
+			if (claz == null) {
+				throw new RuntimeException(String.format("can't find resource in classpath:%s", url));
+			} else {
+				throw new RuntimeException(String.format("can't find resource in classpaths:%s and %s",
+						ClazzHelper.getPathFromPath(claz) + "/" + url, url));
+			}
+		}
+	}
 }
