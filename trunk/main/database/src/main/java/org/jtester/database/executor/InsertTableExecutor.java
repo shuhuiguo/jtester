@@ -5,17 +5,16 @@ import java.util.List;
 
 import org.jtester.beans.DataMap;
 import org.jtester.database.operator.InsertOp;
-import org.jtester.exception.ExceptionWrapper;
 
 public class InsertTableExecutor extends TableExecutor {
 	private List<DataMap> datas;
 
-	public InsertTableExecutor(String table) {
-		super(table);
+	public InsertTableExecutor(String xmlFile, String table) {
+		super(xmlFile, table);
 	}
 
-	public InsertTableExecutor(String table, List<DataMap> datas) {
-		super(table);
+	public InsertTableExecutor(String xmlFile, String table, List<DataMap> datas) {
+		super(xmlFile, table);
 		this.datas = datas;
 	}
 
@@ -38,8 +37,8 @@ public class InsertTableExecutor extends TableExecutor {
 			for (DataMap data : datas) {
 				InsertOp.insert(table, data);
 			}
-		} catch (Exception e) {
-			throw ExceptionWrapper.getUndeclaredThrowableExceptionCaused(e);
+		} catch (Throwable e) {
+			throw new RuntimeException("", e);
 		}
 	}
 }

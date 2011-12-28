@@ -11,6 +11,8 @@ import org.jtester.assertion.object.impl.ObjectAssert;
 import org.jtester.assertion.object.intf.ICollectionAssert;
 import org.jtester.assertion.object.intf.IMapAssert;
 import org.jtester.assertion.object.intf.IObjectAssert;
+import org.jtester.database.executor.TableExecutor;
+import org.jtester.database.xml.DataXmlParser;
 import org.jtester.exception.ExceptionWrapper;
 import org.jtester.module.database.environment.DBEnvironment;
 import org.jtester.module.database.environment.DBEnvironmentFactory;
@@ -205,6 +207,19 @@ public class DBOperator implements IDBOperator {
 		try {
 			List list = SqlRunner.queryList(query, pojoClazz);
 			return list;
+		} finally {
+			IN_DB_OPERATOR.set(false);
+		}
+	}
+
+	public IDBOperator executeXML(String... xmls) {
+		IN_DB_OPERATOR.set(true);
+		try {
+			List<TableExecutor> list = DataXmlParser.parse(xmls);
+			for (TableExecutor executor : list) {
+				executor.execute();
+			}
+			return this;
 		} finally {
 			IN_DB_OPERATOR.set(false);
 		}

@@ -1,9 +1,8 @@
 package org.jtester.database.xml;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,10 +11,12 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.jtester.beans.DataMap;
+import org.jtester.core.TestedContext;
 import org.jtester.database.executor.CleanTableExecutor;
 import org.jtester.database.executor.InsertTableExecutor;
 import org.jtester.database.executor.QueryTableExecutor;
 import org.jtester.database.executor.TableExecutor;
+import org.jtester.helper.ResourceHelper;
 import org.jtester.helper.StringHelper;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
@@ -26,11 +27,32 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 public class DataXmlParser {
-	public static List<TableExecutor> parse(String xml) throws ParserConfigurationException, FileNotFoundException,
-			IOException, SAXException {
+	@SuppressWarnings("rawtypes")
+	public static List<TableExecutor> parse(String... xmls) {
+		Class testedClaz = TestedContext.currTestedClazz();
+		List<TableExecutor> executors = new ArrayList<TableExecutor>();
+		for (String xml : xmls) {
+			try {
+
+				String xmlFile = xml;
+				if (xml.startsWith("file://") == false) {
+					xmlFile = ResourceHelper.findResourceByPackage(testedClaz, xml);
+				}
+				List<TableExecutor> list = parseXml(xmlFile);
+				executors.addAll(list);
+			} catch (Exception e) {
+				throw new RuntimeException(e);
+			}
+		}
+		return executors;
+	}
+
+	static List<TableExecutor> parseXml(String xml) throws ParserConfigurationException, FileNotFoundException,
+			SAXException, IOException {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder builder = factory.newDocumentBuilder();
-		Document document = builder.parse(new FileInputStream(new File(xml)));
+		InputStream is = ResourceHelper.getResourceAsStream(xml);
+		Document document = builder.parse(is);
 		Element element = document.getDocumentElement();
 		NodeList list = element.getChildNodes();
 
@@ -42,13 +64,13 @@ public class DataXmlParser {
 			}
 			String name = node.getNodeName();
 			if ("insert".equalsIgnoreCase(name)) {
-				List<TableExecutor> children = parseInsertTable((Element) node);
+				List<TableExecutor> children = parseInsertTable(xml, (Element) node);
 				executors.addAll(children);
 			} else if ("query".equalsIgnoreCase(name)) {
-				List<TableExecutor> children = parseQueryTable((Element) node);
+				List<TableExecutor> children = parseQueryTable(xml, (Element) node);
 				executors.addAll(children);
 			} else if ("clean".equalsIgnoreCase(name)) {
-				List<TableExecutor> children = parseCleanTable((Element) node);
+				List<TableExecutor> children = parseCleanTable(xml, (Element) node);
 				executors.addAll(children);
 			} else {
 				throw new RuntimeException("unknown operate type[" + name
@@ -58,7 +80,7 @@ public class DataXmlParser {
 		return executors;
 	}
 
-	static List<TableExecutor> parseInsertTable(Element insert) {
+	static List<TableExecutor> parseInsertTable(String xmlFile, Element insert) {
 		List<TableExecutor> list = new ArrayList<TableExecutor>();
 		String table = insert.getAttribute("table");
 		if (table == null) {
@@ -67,11 +89,11 @@ public class DataXmlParser {
 		String isClean = insert.getAttribute("clean");
 
 		if ("true".equalsIgnoreCase(isClean)) {
-			list.add(new CleanTableExecutor(table));
+			list.add(new CleanTableExecutor(xmlFile, table));
 		}
 		NodeList children = insert.getChildNodes();
 		List<DataMap> datas = parseDataMapListFromElement(children);
-		list.add(new InsertTableExecutor(table, datas));
+		list.add(new InsertTableExecutor(xmlFile, table, datas));
 		return list;
 	}
 
@@ -118,7 +140,7 @@ public class DataXmlParser {
 		return map;
 	}
 
-	static List<TableExecutor> parseQueryTable(Element query) {
+	static List<TableExecutor> parseQueryTable(String xmlFile, Element query) {
 		NodeList children = query.getChildNodes();
 		List<DataMap> datas = parseDataMapListFromElement(children);
 
@@ -128,20 +150,21 @@ public class DataXmlParser {
 		if (StringHelper.isBlankOrNull(select)) {
 			String table = query.getAttribute("table");
 			String where = query.getAttribute("where");
-			TableExecutor executor = new QueryTableExecutor(table, where, datas, "true".equalsIgnoreCase(ordered));
+			TableExecutor executor = new QueryTableExecutor(xmlFile, table, where, datas,
+					"true".equalsIgnoreCase(ordered));
 			list.add(executor);
 		} else {
-			TableExecutor executor = new QueryTableExecutor(select, datas, "true".equalsIgnoreCase(ordered));
+			TableExecutor executor = new QueryTableExecutor(xmlFile, select, datas, "true".equalsIgnoreCase(ordered));
 			list.add(executor);
 		}
 		return list;
 	}
 
-	static List<TableExecutor> parseCleanTable(Element cleanor) {
+	static List<TableExecutor> parseCleanTable(String xmlFile, Element cleanor) {
 		List<TableExecutor> executors = new ArrayList<TableExecutor>();
 		String table = cleanor.getAttribute("table");
 		if (!StringHelper.isBlankOrNull(table)) {
-			executors.add(new CleanTableExecutor(table));
+			executors.add(new CleanTableExecutor(xmlFile, table));
 		}
 		NodeList children = cleanor.getChildNodes();
 		for (int index = 0; index < children.getLength(); index++) {
@@ -155,7 +178,7 @@ public class DataXmlParser {
 						+ "'");
 			}
 			String value = ((Element) node).getTextContent();
-			executors.add(new CleanTableExecutor(value));
+			executors.add(new CleanTableExecutor(xmlFile, value));
 		}
 		return executors;
 	}

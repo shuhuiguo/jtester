@@ -84,6 +84,13 @@ public interface IDBOperator {
 	IDBOperator execute(SqlSet sqlSet);
 
 	/**
+	 * 
+	 * @param xmls
+	 * @return
+	 */
+	IDBOperator executeXML(String... xmls);
+
+	/**
 	 * 执行单条语句，执行多条请使用 execute(SqlSet)
 	 * 
 	 * @param sql

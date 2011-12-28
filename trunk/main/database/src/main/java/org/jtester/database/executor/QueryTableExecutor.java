@@ -1,7 +1,5 @@
 package org.jtester.database.executor;
 
-import static org.jtester.database.operator.DBOperator.IN_DB_OPERATOR;
-
 import java.util.List;
 
 import org.jtester.assertion.object.impl.CollectionAssert;
@@ -16,15 +14,15 @@ public class QueryTableExecutor extends TableExecutor {
 
 	private boolean isOrdered = false;
 
-	public QueryTableExecutor(String select, List<DataMap> expected, boolean ordered) {
-		super("select query");
+	public QueryTableExecutor(String xmlFile, String select, List<DataMap> expected, boolean ordered) {
+		super(xmlFile, "select query");
 		this.query = select;
 		this.expected = expected;
 		this.isOrdered = ordered;
 	}
 
-	public QueryTableExecutor(String table, String where, List<DataMap> expected, boolean ordered) {
-		super(table);
+	public QueryTableExecutor(String xmlFile, String table, String where, List<DataMap> expected, boolean ordered) {
+		super(xmlFile, table);
 		if (where == null) {
 			this.query = String.format("select * from %s", this.table);
 		} else {
@@ -37,7 +35,6 @@ public class QueryTableExecutor extends TableExecutor {
 	@SuppressWarnings("rawtypes")
 	@Override
 	public void execute() {
-		IN_DB_OPERATOR.set(true);
 		try {
 			List list = SqlRunner.queryMapList(query);
 			if (isOrdered) {
@@ -45,8 +42,9 @@ public class QueryTableExecutor extends TableExecutor {
 			} else {
 				new CollectionAssert(list).reflectionEqMap(expected, EqMode.IGNORE_ORDER);
 			}
-		} finally {
-			IN_DB_OPERATOR.set(false);
+		} catch (Throwable error) {
+			throw new RuntimeException("assert table[" + this.query + "] error in xml file[" + this.xmlFile + "].",
+					error);
 		}
 	}
 }
