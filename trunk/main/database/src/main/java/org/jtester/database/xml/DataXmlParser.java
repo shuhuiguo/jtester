@@ -1,53 +1,54 @@
 package org.jtester.database.xml;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
-import org.dom4j.Attribute;
-import org.dom4j.Document;
-import org.dom4j.DocumentException;
-import org.dom4j.Element;
-import org.dom4j.io.SAXReader;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
 import org.jtester.beans.DataMap;
 import org.jtester.database.executor.CleanTableExecutor;
 import org.jtester.database.executor.InsertTableExecutor;
+import org.jtester.database.executor.QueryTableExecutor;
 import org.jtester.database.executor.TableExecutor;
+import org.jtester.helper.StringHelper;
+import org.w3c.dom.Attr;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NamedNodeMap;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-@SuppressWarnings({ "unchecked", "rawtypes" })
 public class DataXmlParser {
-	private final static SAXReader saxReader = new SAXReader(false);
-	static {
-		try {
-			saxReader.setValidation(false);
-			saxReader.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
-		} catch (SAXException e) {
-			throw new RuntimeException(e);
-		}
-	}
-
-	public static List<TableExecutor> parse(String xml) throws DocumentException {
-		File xmlFile = new File(xml);
-		if (xmlFile.exists() == false) {
-			throw new RuntimeException("xml file[" + xml + "] unexisted.");
-		}
+	public static List<TableExecutor> parse(String xml) throws ParserConfigurationException, FileNotFoundException,
+			IOException, SAXException {
+		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+		DocumentBuilder builder = factory.newDocumentBuilder();
+		Document document = builder.parse(new FileInputStream(new File(xml)));
+		Element element = document.getDocumentElement();
+		NodeList list = element.getChildNodes();
 
 		List<TableExecutor> executors = new ArrayList<TableExecutor>();
-		Document doc = saxReader.read(xmlFile);
-		Element root = (Element) doc.getRootElement();
-		for (Iterator it = root.elementIterator(); it.hasNext();) {
-			Element item = (Element) it.next();
-			String name = item.getName();
+		for (int index = 0; index < list.getLength(); index++) {
+			Node node = list.item(index);
+			if (!(node instanceof Element)) {
+				continue;
+			}
+			String name = node.getNodeName();
 			if ("insert".equalsIgnoreCase(name)) {
-				List<TableExecutor> children = parseInsertTable(item);
+				List<TableExecutor> children = parseInsertTable((Element) node);
 				executors.addAll(children);
 			} else if ("query".equalsIgnoreCase(name)) {
-				List<TableExecutor> children = parseQueryTable(item);
+				List<TableExecutor> children = parseQueryTable((Element) node);
 				executors.addAll(children);
 			} else if ("clean".equalsIgnoreCase(name)) {
-				List<TableExecutor> children = parseCleanTable(item);
+				List<TableExecutor> children = parseCleanTable((Element) node);
 				executors.addAll(children);
 			} else {
 				throw new RuntimeException("unknown operate type[" + name
@@ -59,47 +60,75 @@ public class DataXmlParser {
 
 	static List<TableExecutor> parseInsertTable(Element insert) {
 		List<TableExecutor> list = new ArrayList<TableExecutor>();
-		String table = insert.attributeValue("table");
+		String table = insert.getAttribute("table");
 		if (table == null) {
 			throw new RuntimeException("you must specify the insert table name.");
 		}
-		String isClean = insert.attributeValue("clean");
+		String isClean = insert.getAttribute("clean");
 
 		if ("true".equalsIgnoreCase(isClean)) {
 			list.add(new CleanTableExecutor(table));
 		}
-		List<Element> children = insert.selectNodes("//dataset/insert/data");
-		if (children == null || children.size() == 0) {
-			return list;
-		}
-		List<DataMap> datas = new ArrayList<DataMap>();
-		for (Element data : children) {
-			DataMap map = parseDataMapFromElement(data);
-			datas.add(map);
-		}
+		NodeList children = insert.getChildNodes();
+		List<DataMap> datas = parseDataMapListFromElement(children);
 		list.add(new InsertTableExecutor(table, datas));
 		return list;
 	}
 
+	static List<DataMap> parseDataMapListFromElement(NodeList elements) {
+		List<DataMap> datas = new ArrayList<DataMap>();
+		if (elements == null || elements.getLength() == 0) {
+			return datas;
+		}
+		for (int index = 0; index < elements.getLength(); index++) {
+			Node data = elements.item(index);
+			if (!(data instanceof Element)) {
+				continue;
+			}
+			DataMap map = parseDataMapFromElement((Element) data);
+			datas.add(map);
+		}
+		return datas;
+	}
+
 	static DataMap parseDataMapFromElement(Element data) {
 		DataMap map = new DataMap();
-		for (Iterator it1 = data.attributeIterator(); it1.hasNext();) {
-			Attribute field = (Attribute) it1.next();
+		NamedNodeMap attributes = data.getAttributes();
+		for (int index = 0; index < attributes.getLength(); index++) {
+			Attr field = (Attr) attributes.item(index);
 			String name = field.getName();
 			String value = field.getValue();
 			map.put(name, value);
 		}
-		for (Iterator it2 = data.elementIterator(); it2.hasNext();) {
-			Element field = (Element) it2.next();
-			String name = field.getName();
-			String value = field.getText();
+		NodeList child = data.getChildNodes();
+		for (int index = 0; index < child.getLength(); index++) {
+			Node field = (Node) child.item(index);
+			if (!(field instanceof Element)) {
+				continue;
+			}
+			String name = field.getNodeName();
+			String value = ((Element) field).getTextContent();
 			map.put(name, value);
 		}
 		return map;
 	}
 
 	static List<TableExecutor> parseQueryTable(Element query) {
-		return null;
+		NodeList children = query.getChildNodes();
+		List<DataMap> datas = parseDataMapListFromElement(children);
+
+		List<TableExecutor> list = new ArrayList<TableExecutor>();
+		String select = query.getAttribute("select");
+		if (StringHelper.isBlankOrNull(select)) {
+			String table = query.getAttribute("table");
+			String where = query.getAttribute("where");
+			TableExecutor executor = new QueryTableExecutor(table, where, datas);
+			list.add(executor);
+		} else {
+			TableExecutor executor = new QueryTableExecutor(select, datas);
+			list.add(executor);
+		}
+		return list;
 	}
 
 	static List<TableExecutor> parseCleanTable(Element cleanor) {

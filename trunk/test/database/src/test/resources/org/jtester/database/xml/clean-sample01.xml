@@ -1,0 +1,5 @@
+<dataset>
+	<clean table="tdd_user">
+		<table>tdd_user2</table>
+	</clean>
+</dataset>
