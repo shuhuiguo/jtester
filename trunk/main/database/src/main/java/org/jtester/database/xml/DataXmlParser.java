@@ -85,6 +85,11 @@ public class DataXmlParser {
 			if (!(data instanceof Element)) {
 				continue;
 			}
+			String name = data.getNodeName();
+			if (!"data".equalsIgnoreCase(name)) {
+				throw new RuntimeException("children node name of 'query' or 'insert' must be 'table', but actual is '"
+						+ name + "'");
+			}
 			DataMap map = parseDataMapFromElement((Element) data);
 			datas.add(map);
 		}
@@ -142,6 +147,11 @@ public class DataXmlParser {
 			Node node = children.item(index);
 			if (!(node instanceof Element)) {
 				continue;
+			}
+			String name = node.getNodeName();
+			if (!"table".equalsIgnoreCase(name)) {
+				throw new RuntimeException("children node name of 'clean' node must be 'table', but actual is '" + name
+						+ "'");
 			}
 			String value = ((Element) node).getTextContent();
 			executors.add(new CleanTableExecutor(value));

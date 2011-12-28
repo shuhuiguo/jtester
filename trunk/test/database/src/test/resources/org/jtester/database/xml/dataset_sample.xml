@@ -1,0 +1,13 @@
+<dataset>
+	<clean>
+		<table>table1</table>
+		<table>table2</table>
+	</clean>
+	<insert table="table1">
+		<data field1="aaa" field2="bbb" />
+		<data field1="bbb" field3="cccc" />
+	</insert>
+	<query table="table2">
+		<data field1="cccc" field4="eeeee" />
+	</query>
+</dataset>

@@ -6,6 +6,7 @@ import org.jtester.IAssertion;
 import org.jtester.beans.DataMap;
 import org.jtester.database.executor.CleanTableExecutor;
 import org.jtester.database.executor.InsertTableExecutor;
+import org.jtester.database.executor.QueryTableExecutor;
 import org.jtester.database.executor.TableExecutor;
 import org.junit.Test;
 
@@ -60,5 +61,16 @@ public class DataXmlParserTest implements IAssertion {
 						this.put("table", "tdd_user", "tdd_user2");
 					}
 				});
+	}
+
+	@Test
+	public void testParse() throws Exception {
+		String xml = baseDir + "dataset_sample.xml";
+		List<TableExecutor> list = DataXmlParser.parse(xml);
+		want.list(list).sizeEq(4).matchIterator(// <br>
+				the.object().clazIs(CleanTableExecutor.class),// <br>
+				the.object().clazIs(CleanTableExecutor.class), // <br>
+				the.object().clazIs(InsertTableExecutor.class),// <br>
+				the.object().clazIs(QueryTableExecutor.class));
 	}
 }
