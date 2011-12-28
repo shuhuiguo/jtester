@@ -12,7 +12,8 @@ import org.junit.Test;
 
 @SuppressWarnings("serial")
 public class DataXmlParserTest implements IAssertion {
-	static final String baseDir = System.getProperty("user.dir") + "/src/test/resources/org/jtester/database/xml/";
+	static final String baseDir = "file://" + System.getProperty("user.dir")
+			+ "/src/test/resources/org/jtester/database/xml/";
 
 	@Test
 	public void testParseInsertTable() throws Exception {

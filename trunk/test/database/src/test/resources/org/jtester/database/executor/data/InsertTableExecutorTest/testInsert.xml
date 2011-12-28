@@ -1,0 +1,6 @@
+<dataset>
+	<insert table="tdd_user">
+		<data id="1" first_name="bbbb" />
+		<data id="2" first_name="dddd" />
+	</insert>
+</dataset>
