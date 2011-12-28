@@ -51,7 +51,14 @@ public class DataXmlParserTest implements IAssertion {
 	}
 
 	@Test
-	public void testParseCleanTable() {
-
+	public void testParseCleanTable() throws Exception {
+		String xml = baseDir + "clean-sample01.xml";
+		List<TableExecutor> list = DataXmlParser.parse(xml);
+		want.list(list).sizeEq(2).allItemsMatchAll(the.object().clazIs(CleanTableExecutor.class))
+				.propertyEqMap(2, new DataMap() {
+					{
+						this.put("table", "tdd_user", "tdd_user2");
+					}
+				});
 	}
 }

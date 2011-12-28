@@ -132,6 +132,20 @@ public class DataXmlParser {
 	}
 
 	static List<TableExecutor> parseCleanTable(Element cleanor) {
-		return null;
+		List<TableExecutor> executors = new ArrayList<TableExecutor>();
+		String table = cleanor.getAttribute("table");
+		if (!StringHelper.isBlankOrNull(table)) {
+			executors.add(new CleanTableExecutor(table));
+		}
+		NodeList children = cleanor.getChildNodes();
+		for (int index = 0; index < children.getLength(); index++) {
+			Node node = children.item(index);
+			if (!(node instanceof Element)) {
+				continue;
+			}
+			String value = ((Element) node).getTextContent();
+			executors.add(new CleanTableExecutor(value));
+		}
+		return executors;
 	}
 }
