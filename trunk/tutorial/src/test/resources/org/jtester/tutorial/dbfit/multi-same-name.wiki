@@ -1,8 +1,0 @@
-|connect|
-
-|clean table|customer|
-
-|insert|customer|
-|id|name|address|
-|1|job.he|杭州|
-|2|job.he|杭州|
