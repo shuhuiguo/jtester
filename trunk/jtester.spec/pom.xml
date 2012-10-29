@@ -1,0 +1,57 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.aliyun.jtester</groupId>
+		<artifactId>jtester.parent</artifactId>
+		<version>2.0.0</version>
+		<relativePath>../jtester.parent</relativePath>
+	</parent>
+	<artifactId>jtester.spec</artifactId>
+	<packaging>jar</packaging>
+	<name>jtester jspec module</name>
+	<properties>
+		<skipTests>true</skipTests>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>com.aliyun.jtester</groupId>
+			<artifactId>jtester.testng</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.aliyun.jtester</groupId>
+			<artifactId>jtester.integrated</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>dom4j</groupId>
+			<artifactId>dom4j</artifactId>
+			<version>1.6.1</version>
+		</dependency>
+		<dependency>
+			<groupId>jaxen</groupId>
+			<artifactId>jaxen</artifactId>
+			<version>1.1.4</version>
+		</dependency>
+		<!-- spring -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring</artifactId>
+			<version>2.5.4</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aspects</artifactId>
+			<version>2.5.4</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>2.5.4</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+</project>
