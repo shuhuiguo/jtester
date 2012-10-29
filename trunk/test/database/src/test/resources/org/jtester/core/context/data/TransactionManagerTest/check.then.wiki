@@ -1,5 +1,0 @@
-|connect|
-
-|query|select count(*) as count from tdd_user|
-|count|
-|3|

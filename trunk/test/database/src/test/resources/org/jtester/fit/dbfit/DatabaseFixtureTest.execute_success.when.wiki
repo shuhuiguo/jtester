@@ -1,3 +1,0 @@
-|connect|
-
-|execute|select * from jtester_user|

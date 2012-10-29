@@ -1,8 +1,0 @@
-|!-org.jtester.module.dbfit.DatabaseFixture-!|
-|connect|
-
-|clean table|char_encoding_test|
-
-|insert|char_encoding_test|
-|message|
-|»¶Ó­»¶Ó­|

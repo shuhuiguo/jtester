@@ -1,8 +1,0 @@
-|org.jtester.fit.fixture.TestedDtoPropFixture|
-|testMethod_Integer|java.lang.Integer|
-|>>value|
-|3|
-|3|
-
-
-

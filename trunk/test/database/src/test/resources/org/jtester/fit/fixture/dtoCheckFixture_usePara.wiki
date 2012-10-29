@@ -1,4 +1,0 @@
-|org.jtester.fit.fixture.DtoCheckFixture|
-|single dto|
-|name|is male|
-|@{name}|true|
