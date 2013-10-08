@@ -1,8 +1,0 @@
-Manifest-Version: 1.0
-Archiver-Version: Plexus Archiver
-Created-By: Apache Maven
-Built-By: Rogerio_Liesenfeld
-Agent-Class: mockit.internal.startup.Startup
-Can-Redefine-Classes: true
-Premain-Class: mockit.internal.startup.Startup
-
