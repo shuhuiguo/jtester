@@ -1,0 +1,35 @@
+jtester已经正式更名为test4j，代码托管在github上
+https://github.com/test4j/test4j
+正式版本的jar在sonatype官方maven仓库中可以下载到
+纯粹单元测试junit版本依赖
+```
+<dependency>
+  <groupId>org.test4j</groupId>
+  <artifactId>test4j.junit</artifactId>
+  <version>2.0.5</version>
+</dependency>
+```
+testng版本
+```
+<dependency>
+  <groupId>org.test4j</groupId>
+  <artifactId>test4j.spec</artifactId>
+  <version>2.0.5</version>
+</dependency>
+```
+集成测试依赖
+```
+<dependency>
+  <groupId>org.test4j</groupId>
+  <artifactId>test4j.integrated</artifactId>
+  <version>2.0.5</version>
+</dependency>
+```
+文本形式，流程测试依赖
+```
+<dependency>
+  <groupId>org.test4j</groupId>
+  <artifactId>test4j.spec</artifactId>
+  <version>2.0.5</version>
+</dependency>
+```
